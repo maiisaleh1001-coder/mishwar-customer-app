@@ -3373,7 +3373,6 @@ function homeScr(overlay=''){
   <div class="body" style="gap:24px;padding-top:8px;padding-bottom:120px">
   ${!g&&st.debt?banner('warn','عليك '+st.debt+' ر.س مستحقة','رسوم إلغاء رحلة وطرد ما انسدّد. سدّدها عشان تقدر تطلب.','ادفع','data-go="C-10b"'):''}
   <button class="where" data-act="svc" data-svc="ride">${ic('search',22)} وين تبغى تروح؟</button>
-  ${!g&&!st.orders.length?`<button class="promo" data-act="svc" data-svc="ride"><span class="pt"><b>أول رحلة بخصم 50%</b><span>لحد 15 ر.س · العرض ينتهي 30 نوفمبر</span><span class="pbtn">اطلب الحين</span></span><img src="assets/onboarding/ob-car.png" alt=""></button>`:''}
   ${!g&&st.orders.length?`<div style="display:flex;flex-direction:column;gap:12px"><div class="sec"><div class="dsm">طلباتك الجارية</div></div><div class="olist">${st.orders.map(ocard).join('')}</div></div>`:''}
   <div style="display:flex;flex-direction:column;gap:12px"><div class="dsm">الخدمات</div><div class="svc-grid">${SVCS.map(tile).join('')}</div></div>
   ${!g&&!st.orders.length?`<button class="invite" data-toast="يفتح المشاركة ومعها رابط الدعوة حقك"><img src="assets/onboarding/ob-wallet.png" alt=""><span class="it"><b>ادعُ صديقك</b><span>لما يطلب أول مرة، تاخذون الاثنين 10 ر.س رصيد</span></span><span class="ilnk">شارك</span></button>`:''}
