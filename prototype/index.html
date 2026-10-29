@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype - تطبيق العميل</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#fff; --bg:#F2F2F2; --line:#D0D0D0; --mid:#9E9E9E; --text:#333; --dark:#2B2B2B; --soft:#E6E6E6;
+  --page:#E9EBEE; --panel:#fff; --accent:#2B2B2B;
+  /* Palette: Waha (D20) */
+  --primary:#0F6E6E; --primary-dark:#0B5555; --primary-soft:#E3F1F0; --primary-tint:#CFE6E4;
+  --sand:#E2A23B; --ink:#1B2B2B; --surface:#F7F5F0; --card-line:#E3E0D6; --placeholder:#EFEBE2;
+  --success:#2E8B3E; --success-soft:#E6F4E8;
+  --warning:#B7791F; --warning-soft:#FBF3E4;
+  --error:#C53030; --error-soft:#FBEAEA;
+  --info:#2F6FDE; --info-soft:#EAF1FC;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Cairo',system-ui,sans-serif;background:var(--page);color:var(--text);line-height:1.5}
+button,input,textarea{font-family:inherit;color:inherit}
+button{cursor:pointer;background:none;border:none}
+
+/* ---------- Shell ---------- */
+.shell{display:grid;grid-template-columns:280px 1fr 300px;height:100vh;overflow:hidden}
+.side{background:var(--panel);border-left:1px solid var(--line);overflow-y:auto;padding:20px 16px}
+.side h1{font-size:17px;font-weight:700;color:var(--dark)}
+.side .meta{font-size:12px;color:var(--mid);margin-bottom:16px}
+.mod{margin-bottom:14px}
+.mod h2{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px;padding:4px 8px;background:var(--bg);border-radius:8px}
+.mod a{display:flex;gap:8px;font-size:13px;padding:5px 8px;border-radius:8px;color:var(--text);text-decoration:none;cursor:pointer}
+.mod a code{font-family:ui-monospace,monospace;font-size:11px;color:var(--mid);min-width:44px;direction:ltr;text-align:right}
+.mod a:hover{background:var(--bg)}
+.mod a.on{background:var(--dark);color:#fff}
+.mod a.on code{color:#ccc}
+.stage{display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.scaler{transform-origin:center center}
+.demo{background:var(--panel);border-right:1px solid var(--line);overflow-y:auto;padding:20px 16px;display:flex;flex-direction:column;gap:14px}
+.demo h3{font-size:13px;font-weight:700;color:var(--dark)}
+.now{background:var(--bg);border-radius:12px;padding:12px}
+.now code{font-family:ui-monospace,monospace;font-size:12px;color:var(--mid)}
+.now b{display:block;font-size:15px;color:var(--dark)}
+.dbtn{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:600;text-align:right}
+.dbtn.main{background:var(--dark);color:#fff;border-color:var(--dark)}
+.dbtn:disabled{opacity:.35;cursor:default}
+.toggle{display:flex;align-items:center;justify-content:space-between;font-size:13px;gap:8px}
+.toggle input{width:18px;height:18px;accent-color:var(--dark)}
+.hint{font-size:12px;color:var(--text);background:#FFFBF0;border:1px solid #F1E3B5;border-radius:10px;padding:10px}
+.hint li{margin-right:16px}
+
+/* ---------- Phone ---------- */
+.phone{width:390px;height:844px;border-radius:40px;background:#111;padding:10px;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.screen{width:100%;height:100%;border-radius:32px;overflow:hidden;background:var(--white);position:relative}
+.scr{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--white)}
+.statusbar{height:44px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:0 24px;direction:ltr;font-size:15px;font-weight:600;color:var(--dark);position:relative;z-index:3}
+.statusbar i{width:64px;height:12px;border-radius:4px;background:var(--line)}
+.topbar{height:56px;flex:none;display:grid;grid-template-columns:32px 1fr 32px;align-items:center;padding:0 12px;background:var(--white)}
+.topbar .t{text-align:center;font-size:17px;font-weight:700;color:var(--dark)}
+.topbar button{width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+.content{flex:1;overflow-y:auto;padding:12px 24px 16px;display:flex;flex-direction:column;gap:16px;scrollbar-width:none}
+.content::-webkit-scrollbar{display:none}
+.content.center{align-items:center;text-align:center}
+.content.vcenter{justify-content:center}
+.footer{flex:none;padding:8px 24px;display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.homeind{height:34px;flex:none;display:flex;align-items:center;justify-content:center}
+.homeind i{width:134px;height:5px;border-radius:3px;background:var(--dark)}
+.h1{font-size:26px;font-weight:700;color:var(--dark);line-height:1.4}
+.h2{font-size:20px;font-weight:700;color:var(--dark);line-height:1.4}
+.h3{font-size:18px;font-weight:700;color:var(--dark)}
+.fl{font-size:15px;font-weight:700;color:var(--dark)}
+.sub{font-size:14px;color:var(--text)}
+.body{font-size:15px;color:var(--text)}
+.muted{font-size:13px;color:var(--mid)}
+.link{font-size:14px;font-weight:600;color:var(--dark);text-align:center;cursor:pointer}
+.link.r{text-align:right}
+.tc{text-align:center}
+.row{display:flex;align-items:center;gap:8px}
+.between{display:flex;align-items:center;justify-content:space-between}
+
+/* Buttons */
+.btn{height:52px;border-radius:12px;font-size:16px;font-weight:700;width:100%;display:flex;align-items:center;justify-content:center}
+.btn.primary{background:var(--dark);color:#fff}
+.btn.secondary{border:1.5px solid var(--dark);color:var(--dark)}
+.btn.ghost{color:var(--dark)}
+.btn.danger{background:var(--soft);color:var(--dark)}
+.btn:disabled{opacity:.4;cursor:default}
+
+/* Inputs */
+.field{display:flex;flex-direction:column;gap:8px;width:100%;text-align:right}
+.field label{font-size:14px;font-weight:600;color:var(--text)}
+.field input,.field textarea{height:52px;border:1px solid var(--line);border-radius:10px;padding:0 16px;font-size:15px;background:#fff;outline:none;width:100%}
+.field input::placeholder{color:var(--mid)}
+.field input:focus{border-color:var(--dark)}
+.field.err input{border:2px solid var(--dark)}
+.field .helper{font-size:13px;color:var(--dark)}
+.search{height:48px;border-radius:12px;background:var(--bg);display:flex;align-items:center;gap:10px;padding:0 16px;font-size:15px;color:var(--mid)}
+
+/* List item */
+.li{min-height:56px;display:flex;align-items:center;gap:12px;cursor:pointer;width:100%;text-align:right}
+.li .ic{width:36px;height:36px;border-radius:50%;background:var(--bg);flex:none;display:flex;align-items:center;justify-content:center}
+.li .t{flex:1;font-size:15px;font-weight:600;color:var(--text)}
+
+/* Services */
+.svcs{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%}
+.svc{min-height:128px;border-radius:16px;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px 12px;text-align:center;cursor:pointer}
+.svc .box{width:56px;height:56px;border-radius:14px;background:var(--line)}
+.svc b{font-size:14px;color:var(--dark)}
+.svc.off .box,.svc.off b{opacity:.4}
+.svc .tag{font-size:11px;color:var(--text)}
+
+/* Banner */
+.banner{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;background:var(--bg);border:1px solid var(--line);width:100%;text-align:right}
+.banner.warn{background:var(--soft);border-color:var(--dark)}
+.banner .msg{flex:1;font-size:14px;font-weight:600;color:var(--text)}
+.banner .act{font-size:14px;font-weight:700;color:var(--dark);cursor:pointer;white-space:nowrap}
+
+/* OTP */
+.otp{display:flex;gap:14px;justify-content:center;direction:ltr}
+.otp input{width:64px;height:64px;border-radius:12px;border:1px solid var(--line);text-align:center;font-size:24px;font-weight:700;outline:none}
+.otp input:focus{border-color:var(--dark)}
+.otp.err input{border:2px solid var(--dark)}
+
+/* Checkbox */
+.check{display:flex;align-items:center;gap:10px;font-size:14px;cursor:pointer;width:100%;text-align:right}
+.check .box{width:22px;height:22px;border-radius:6px;background:var(--dark);flex:none;display:flex;align-items:center;justify-content:center}
+.check.off .box{background:#fff;border:1.5px solid var(--mid)}
+.check.off .box svg{display:none}
+
+/* Placeholder & map */
+.ph{background:var(--bg);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--mid);font-size:14px;font-weight:600;width:100%;flex:none}
+.map{position:absolute;inset:0;background-color:#EDEDED;background-image:linear-gradient(var(--soft) 1px,transparent 1px),linear-gradient(90deg,var(--soft) 1px,transparent 1px);background-size:32px 32px;display:flex;align-items:flex-start;justify-content:center;padding-top:200px;color:var(--mid);font-size:14px;font-weight:600}
+.map .lbl{display:flex;flex-direction:column;align-items:center;gap:6px}
+.map .pin{position:absolute;top:290px;left:50%;transform:translate(-50%,-100%)}
+
+/* Bottom nav */
+.nav{height:84px;flex:none;border-top:1px solid var(--line);display:flex;padding:10px 0 24px;background:#fff}
+.nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--mid)}
+.nav button.on{color:var(--dark);font-weight:700}
+
+/* Home header */
+.hhead{display:flex;align-items:center;justify-content:space-between;width:100%}
+.loc{display:flex;align-items:center;gap:8px;cursor:pointer;text-align:right}
+.loc small{display:block;font-size:12px;color:var(--mid)}
+.loc b{font-size:15px;color:var(--dark)}
+.bell{width:40px;height:40px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;position:relative}
+.bell::after{content:'';position:absolute;width:10px;height:10px;border-radius:50%;background:var(--dark);top:6px;left:8px}
+.carousel{display:flex;gap:12px;overflow-x:auto;margin:0 -24px;padding:0 24px;scrollbar-width:none}
+.carousel::-webkit-scrollbar{display:none}
+.acard{flex:none;width:300px;border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;text-align:right;cursor:pointer}
+.pill{display:inline-block;font-size:12px;font-weight:600;background:var(--bg);border-radius:10px;padding:2px 10px}
+.prog{height:6px;border-radius:3px;background:var(--bg);overflow:hidden}
+.prog i{display:block;height:100%;width:45%;background:var(--dark);border-radius:3px}
+
+/* Provider card */
+.prov{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:16px;padding:14px;width:100%;text-align:right;background:#fff}
+.prov .av{width:52px;height:52px;border-radius:50%;background:var(--line);flex:none}
+.prov .info{flex:1;display:flex;flex-direction:column;gap:2px}
+.prov .info b{font-size:16px;color:var(--dark)}
+.prov .info span{font-size:13px}
+.plate{align-self:flex-start;border:1px solid var(--dark);border-radius:6px;padding:0 8px;font-size:12px;font-weight:700}
+.prov .acts{display:flex;gap:8px}
+.circ{width:44px;height:44px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center}
+
+/* Route */
+.route{display:flex;gap:12px;align-items:center;width:100%;text-align:right}
+.route .mk{display:flex;flex-direction:column;align-items:center;gap:4px}
+.route .mk .d{width:12px;height:12px;border-radius:50%;border:3px solid var(--dark)}
+.route .mk .l{width:2px;height:40px;background:var(--line)}
+.route .mk .s{width:12px;height:12px;background:var(--dark)}
+.route .tx{flex:1;display:flex;flex-direction:column;gap:18px}
+.route .tx small{display:block;font-size:12px;color:var(--mid)}
+.route .tx b{font-size:15px;font-weight:600;color:var(--dark)}
+
+/* Price */
+.price{display:flex;justify-content:space-between;align-items:center;width:100%;font-size:15px}
+.price span:last-child{font-weight:600;color:var(--dark)}
+.price.total{border-top:1px solid var(--line);padding-top:12px;font-weight:700;color:var(--dark)}
+.price.total span:first-child{font-size:16px}
+.price.total span:last-child{font-size:18px;font-weight:700}
+
+/* Stepper */
+.stepper{display:flex;gap:6px;width:100%}
+.stepper .st{flex:1;display:flex;flex-direction:column;gap:6px;text-align:right}
+.stepper .st i{height:4px;border-radius:2px;background:var(--line)}
+.stepper .st.done i{background:var(--dark)}
+.stepper .st span{font-size:11px;color:var(--mid);line-height:1.3}
+.stepper .st.done span{color:var(--dark)}
+.stepper .st.cur span{font-weight:700}
+
+/* Vehicle */
+.veh{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;width:100%;text-align:right;cursor:pointer;background:#fff}
+.veh.sel{background:var(--bg);border:2px solid var(--dark)}
+.veh .car{width:52px;height:40px;border-radius:10px;background:var(--bg);display:flex;align-items:center;justify-content:center;flex:none}
+.veh.sel .car{background:#fff}
+.veh .in{flex:1}
+.veh .in b{display:block;font-size:16px;color:var(--dark)}
+.veh .in span{font-size:12px}
+.veh .pr{text-align:left}
+.veh .pr b{display:block;font-size:16px;color:var(--dark)}
+.veh .pr span{font-size:11px;color:var(--mid)}
+
+/* Radio */
+.radio{display:flex;align-items:center;gap:12px;height:52px;border:1px solid var(--line);border-radius:12px;padding:0 14px;width:100%;text-align:right;cursor:pointer;font-size:15px;background:#fff}
+.radio .c{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--mid);flex:none}
+.radio.sel{background:var(--bg);border:1.5px solid var(--dark);font-weight:600}
+.radio.sel .c{border:6px solid var(--dark);background:#fff}
+.radio .t{flex:1}
+
+/* Payment row */
+.pay{display:flex;align-items:center;gap:12px;height:52px;border:1px solid var(--line);border-radius:12px;padding:0 14px;width:100%;font-size:15px;font-weight:600;color:var(--dark)}
+.pay .t{flex:1;text-align:right}
+.pay .ch{font-size:14px;font-weight:700;cursor:pointer}
+
+/* Chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;width:100%}
+.chip{border:1px solid var(--line);border-radius:20px;padding:6px 16px;font-size:14px;background:#fff;cursor:pointer}
+.chip.sel{background:var(--dark);border-color:var(--dark);color:#fff;font-weight:600}
+
+/* Info row */
+.info-row{background:var(--bg);border-radius:12px;padding:10px 14px;width:100%;text-align:right}
+.info-row small{display:block;font-size:12px;color:var(--mid)}
+.info-row b{font-size:15px;font-weight:600;color:var(--dark)}
+
+/* Sheets / overlays */
+.sheet{position:absolute;bottom:0;left:0;right:0;background:#fff;border-radius:28px 28px 0 0;padding:12px 24px 0;display:flex;flex-direction:column;gap:14px;align-items:stretch;box-shadow:0 -4px 16px rgba(0,0,0,.12);z-index:5;max-height:86%;overflow-y:auto;scrollbar-width:none}
+.sheet::-webkit-scrollbar{display:none}
+.sheet .handle{width:40px;height:5px;border-radius:3px;background:var(--line);align-self:center;flex:none}
+.sheet .homeind{margin:0 -24px}
+.sheet.center{text-align:center}
+.sheet .ico{align-self:center}
+.scrim{position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:6}
+.sheet.top{z-index:7}
+.dialog{position:absolute;top:50%;left:24px;right:24px;transform:translateY(-50%);background:#fff;border-radius:24px;padding:24px 20px;display:flex;flex-direction:column;gap:14px;text-align:center;z-index:7}
+.dialog .ico{align-self:center}
+.fab{position:absolute;height:44px;min-width:44px;border-radius:22px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;font-size:14px;font-weight:700;color:var(--dark);z-index:4}
+.fab.back{right:16px;top:56px;padding:0;width:44px}
+.fabs{position:absolute;left:16px;top:56px;display:flex;flex-direction:column;gap:12px;z-index:4;align-items:flex-start}
+.fabs .fab{position:static}
+.dots{display:flex;gap:6px;justify-content:flex-start;direction:rtl}
+.dots i{width:8px;height:8px;border-radius:4px;background:var(--line)}
+.dots i.on{width:24px;background:var(--dark)}
+.timer{font-size:28px;font-weight:700;color:var(--text);direction:ltr}
+.bigtimer{border:1px solid var(--line);border-radius:16px;padding:16px;width:100%;text-align:center}
+.loader{width:88px;height:88px;border-radius:50%;background:var(--bg);align-self:center;position:relative;flex:none}
+.loader::after{content:'';position:absolute;inset:10px;border-radius:50%;border:4px solid var(--line);border-top-color:var(--dark);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.photos{display:flex;gap:12px;width:100%}
+.photos .ph{flex:1}
+
+/* Toast */
+.toast{position:absolute;left:16px;right:16px;bottom:110px;background:var(--dark);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;font-weight:600;text-align:center;z-index:20;opacity:0;transform:translateY(10px);transition:.2s;pointer-events:none}
+.toast.show{opacity:1;transform:none}
+
+/* ---------- Theme: Waha palette (overrides the grey wireframe look) ---------- */
+.screen,.scr{background:var(--surface)}
+.scr{--dark:var(--ink);--text:#3A3A35;--mid:#8A8A80;--line:var(--card-line);color:var(--text)}
+.topbar{background:var(--surface)}
+.btn.primary{background:var(--primary)}
+.btn.secondary{border-color:var(--primary);color:var(--primary)}
+.btn.ghost{color:var(--primary)}
+.btn.danger{background:var(--error-soft);color:var(--error)}
+.link{color:var(--primary)}
+.field input{border-color:var(--card-line)}
+.field input:focus{border-color:var(--primary)}
+.field.err input{border-color:var(--error)}
+.field .helper{color:var(--error)}
+.search{background:#fff;border:1px solid var(--card-line)}
+.li .ic{background:var(--primary-soft);color:var(--primary)}
+.check .box{background:var(--primary)}
+.svc{background:var(--primary-soft)}
+.svc .box{background:var(--primary-tint)}
+.svc b{color:var(--primary-dark)}
+.banner{background:var(--info-soft);border-color:#C7D9F6}
+.banner > svg{color:var(--info)}
+.banner.warn{background:var(--warning-soft);border-color:var(--warning)}
+.banner.warn > svg{color:var(--warning)}
+.banner .act{color:var(--primary)}
+.otp input{border-color:var(--card-line);background:#fff}
+.otp input:focus{border-color:var(--primary)}
+.otp.err input{border-color:var(--error)}
+.ph{background:var(--placeholder)}
+.map{background-color:#E9EEE8;background-image:linear-gradient(#DCE5DE 1px,transparent 1px),linear-gradient(90deg,#DCE5DE 1px,transparent 1px)}
+.map .pin{color:var(--primary)}
+.nav button.on{color:var(--primary)}
+.bell{background:#fff;border:1px solid var(--card-line)}
+.bell::after{background:var(--sand)}
+.acard,.prov,.veh,.radio,.pay,.chip{background:#fff;border-color:var(--card-line)}
+.pill{background:var(--primary-soft);color:var(--primary-dark)}
+.prog{background:var(--primary-soft)}
+.prog i{background:var(--sand)}
+.circ{background:var(--primary-soft);color:var(--primary)}
+.route .mk .d{border-color:var(--primary)}
+.route .mk .s{background:var(--ink)}
+.stepper .st.done i{background:var(--primary)}
+.stepper .st.cur span{color:var(--primary)}
+.veh.sel{background:var(--primary-soft);border-color:var(--primary)}
+.veh.sel .car{color:var(--primary)}
+.radio.sel{background:var(--primary-soft);border-color:var(--primary)}
+.radio.sel .c{border-color:var(--primary)}
+.pay .ch{color:var(--primary)}
+.pay > svg{color:var(--primary)}
+.chip.sel{background:var(--primary);border-color:var(--primary)}
+.info-row{background:#fff;border:1px solid var(--card-line)}
+.loader{background:var(--primary-soft)}
+.loader::after{border-color:var(--primary-tint);border-top-color:var(--primary)}
+.dots i.on{background:var(--primary)}
+.fab{color:var(--ink)}
+.toast{background:var(--ink)}
+.homeind i{background:var(--ink)}
+.ico-success{color:var(--success)}
+.ico-warning{color:var(--warning)}
+.ico-error{color:var(--error)}
+.ico-primary{color:var(--primary)}
+
+/* Hotspots */
+body.hot [data-go],body.hot [data-act]{outline:2px dashed #3DADFF;outline-offset:2px}
+
+@media (max-width:1100px){
+  .shell{grid-template-columns:1fr;grid-template-rows:auto 1fr auto;height:auto;min-height:100vh;overflow:visible}
+  .side{max-height:220px;border-left:none;border-bottom:1px solid var(--line)}
+  .stage{padding:16px 0;overflow:visible}
+  .demo{border-right:none;border-top:1px solid var(--line)}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <h1>Prototype · تطبيق العميل</h1>
+    <div class="meta">Wireframes low-fi · M1 لحد M6 · 46 شاشة</div>
+    <nav id="index"></nav>
+  </aside>
+  <main class="stage" id="stage">
+    <div class="scaler" id="scaler">
+      <div class="phone"><div class="screen" id="screen"></div></div>
+    </div>
+  </main>
+  <aside class="demo">
+    <div class="now"><code id="nowCode"></code><b id="nowTitle"></b><span class="muted" id="nowMod"></span></div>
+    <h3>تحكم الديمو</h3>
+    <button class="dbtn main" id="nextBtn">الحدث التالي ◂</button>
+    <button class="dbtn" id="altBtn" style="display:none"></button>
+    <button class="dbtn" id="backBtn">رجوع</button>
+    <button class="dbtn" id="resetBtn">ابدأ من الأول (Splash)</button>
+    <h3>الحالة</h3>
+    <label class="toggle">إظهار الأماكن القابلة للضغط <input type="checkbox" id="hotT"></label>
+    <label class="toggle">عليه مديونية <input type="checkbox" id="debtT"></label>
+    <div class="hint">
+      <b>جرّب:</b>
+      <ul>
+        <li>إنشاء حساب برقم يبدأ بـ <b>50</b> علشان تشوف «الرقم مسجل».</li>
+        <li>تسجيل دخول برقم يبدأ بـ <b>59</b> علشان تشوف «مفيش حساب».</li>
+        <li>كود التحقق الصح <b>1234</b>. أي كود تاني يطلع خطأ، وبعد 5 مرات يتقفل.</li>
+        <li>شاشات البحث بتلاقي سائق أو مندوب لوحدها بعد 4 ثواني.</li>
+        <li>«الحدث التالي» بيحرّك الطلب للمرحلة الجاية.</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<script>
+/* ================= Icons ================= */
+const P='stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"';
+const ICONS={
+  'chevron-left':`<path d="m15 18-6-6 6-6" ${P}/>`,
+  back:`<path d="M5 12h14M12 5l7 7-7 7" ${P}/>`,
+  bell:`<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" ${P}/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" ${P}/>`,
+  home:`<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" ${P}/><path d="M9 22V12h6v10" ${P}/>`,
+  orders:`<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" ${P}/>`,
+  user:`<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" ${P}/><circle cx="12" cy="7" r="4" ${P}/>`,
+  pin:`<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" ${P}/><circle cx="12" cy="10" r="3" ${P}/>`,
+  check:`<path d="M20 6 9 17l-5-5" ${P}/>`,
+  search:`<circle cx="11" cy="11" r="8" ${P}/><path d="m21 21-4.3-4.3" ${P}/>`,
+  alert:`<circle cx="12" cy="12" r="10" ${P}/><path d="M12 8v4M12 16h.01" ${P}/>`,
+  lock:`<rect x="3" y="11" width="18" height="11" rx="2" ${P}/><path d="M7 11V7a5 5 0 0 1 10 0v4" ${P}/>`,
+  locate:`<circle cx="12" cy="12" r="3" ${P}/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" ${P}/><circle cx="12" cy="12" r="7" ${P}/>`,
+  image:`<rect x="3" y="3" width="18" height="18" rx="2" ${P}/><circle cx="9" cy="9" r="2" ${P}/><path d="m21 15-5-5L5 21" ${P}/>`,
+  phone:`<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" ${P}/>`,
+  chat:`<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" ${P}/>`,
+  share:`<circle cx="18" cy="5" r="3" ${P}/><circle cx="6" cy="12" r="3" ${P}/><circle cx="18" cy="19" r="3" ${P}/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98" ${P}/>`,
+  shield:`<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" ${P}/>`,
+  car:`<path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" ${P}/><circle cx="7" cy="17" r="2" ${P}/><path d="M9 17h6" ${P}/><circle cx="17" cy="17" r="2" ${P}/>`,
+  star:`<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" ${P}/>`,
+  card:`<rect x="2" y="5" width="20" height="14" rx="2" ${P}/><path d="M2 10h20" ${P}/>`,
+  'check-circle':`<circle cx="12" cy="12" r="10" ${P}/><path d="m9 12 2 2 4-4" ${P}/>`,
+};
+const icon=(n,s=24,c='')=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" style="flex:none${c?';color:'+c:''}">${ICONS[n]}</svg>`;
+
+/* ================= Components ================= */
+const statusBar=()=>`<div class="statusbar"><span>9:41</span><i></i></div>`;
+const homeInd=()=>`<div class="homeind"><i></i></div>`;
+const topBar=(t,back=true)=>`<div class="topbar"><button ${back?'data-act="back"':''} aria-label="رجوع">${back?icon('back',22):''}</button><div class="t">${t}</div><span></span></div>`;
+const btn=(type,label,attrs='')=>`<button class="btn ${type}" ${attrs}>${label}</button>`;
+const input=(label,ph,o={})=>`<div class="field ${o.error?'err':''}"><label>${label}</label><input ${o.id?`id="${o.id}"`:''} type="${o.type||'text'}" placeholder="${ph}" value="${o.value||''}" ${o.dir?`dir="${o.dir}"`:''}>${o.error?`<span class="helper">${o.helper}</span>`:''}</div>`;
+const li=(t,attrs='')=>`<button class="li" ${attrs}><span class="ic">${icon('pin',18,'#9E9E9E')}</span><span class="t">${t}</span>${icon('chevron-left',20,'#9E9E9E')}</button>`;
+const svc=(label,attrs='',off=false)=>`<button class="svc ${off?'off':''}" ${attrs}><span class="box"></span><b>${label}</b>${off?'<span class="tag">غير متاحة في منطقتك</span>':''}</button>`;
+const banner=(type,msg,action,attrs='')=>`<div class="banner ${type==='warn'?'warn':''}">${icon('alert',24)}<span class="msg">${msg}</span>${action?`<span class="act" ${attrs}>${action}</span>`:''}</div>`;
+const otp=(err)=>`<div class="otp ${err?'err':''}">${[0,1,2,3].map(i=>`<input inputmode="numeric" maxlength="1" data-otp="${i}">`).join('')}</div>`;
+const checkbox=(label)=>`<div class="check" data-act="toggle-check"><span class="box">${icon('check',16,'#fff')}</span><span>${label}</span></div>`;
+const ph=(label,h=180,w=null)=>`<div class="ph" style="height:${h}px${w?`;width:${w}px`:''}">${icon('image',24)}<span>${label}</span></div>`;
+const nav=(active)=>`<div class="nav">${[['home','الرئيسية','home'],['orders','طلباتي','orders'],['profile','الملف الشخصي','user']].map(([k,l,i])=>`<button class="${k===active?'on':''}" data-act="nav-${k}">${icon(i,24)}<span>${l}</span></button>`).join('')}</div>`;
+const provider=(o={})=>`<div class="prov"><span class="av"></span><div class="info"><b>${o.name||'عبدالله السبيعي'}</b><span class="row" style="gap:4px">${icon('star',14)} ${o.rating||'4.8'}</span><span>${o.meta||'تويوتا كامري · أبيض'}</span>${o.plate===false?'':`<span class="plate">${o.plate||'ب ج د 1234'}</span>`}</div>${o.actions===false?'':`<div class="acts"><button class="circ" data-toast="بيتصل بالرقم الحقيقي لمقدم الخدمة (D10)">${icon('phone',20)}</button><button class="circ" data-toast="الشات (M12) لسه متعملش wireframe">${icon('chat',20)}</button></div>`}</div>`;
+const route=(from,to,fl='من',tl='إلى')=>`<div class="route"><div class="mk"><span class="d"></span><span class="l"></span><span class="s"></span></div><div class="tx"><div><small>${fl}</small><b>${from}</b></div><div><small>${tl}</small><b>${to}</b></div></div></div>`;
+const price=(l,v,total=false)=>`<div class="price ${total?'total':''}"><span>${l}</span><span>${v}</span></div>`;
+const stepper=(labels,active)=>`<div class="stepper">${labels.map((l,i)=>`<div class="st ${i<active?'done':''} ${i===active-1?'cur':''}"><i></i><span>${l}</span></div>`).join('')}</div>`;
+const vehicle=(name,meta,pr,sel)=>`<button class="veh ${sel?'sel':''}" data-act="pick-vehicle" data-name="${name}"><span class="car">${icon('car',28)}</span><span class="in"><b>${name}</b><span>${meta}</span></span><span class="pr"><b>${pr}</b><span>تقريباً</span></span></button>`;
+const radio=(label,sel)=>`<button class="radio ${sel?'sel':''}" data-act="pick-radio" data-val="${label}"><span class="c"></span><span class="t">${label}</span></button>`;
+const payRow=()=>`<div class="pay">${icon('card',22)}<span class="t">مدى •••• 4821 · الافتراضي</span><span class="ch" data-toast="وسائل الدفع (M13) لسه متعملهاش wireframe">تغيير</span></div>`;
+const chips=(group,items,sel)=>`<div class="chips">${items.map(i=>`<button class="chip ${i===sel?'sel':''}" data-act="pick-chip" data-group="${group}" data-val="${i}">${i}</button>`).join('')}</div>`;
+const infoRow=(l,v)=>`<div class="info-row"><small>${l}</small><b>${v}</b></div>`;
+const loader=()=>`<div class="loader"></div>`;
+
+/* ================= Screen templates ================= */
+function std({top,back=true,content='',footer='',center=false,vcenter=false,gap=16,overlay='',hideHome=false}){
+  return `<div class="scr">${statusBar()}${top?topBar(top,back):''}<div class="content ${center?'center':''} ${vcenter?'vcenter':''}" style="gap:${gap}px">${content}</div>${footer?`<div class="footer">${footer}</div>`:''}${hideHome?'':homeInd()}${overlay}</div>`;
+}
+function mapScr({label,back=true,fabs=[],sheet='',sheetCenter=false,overlay=''}){
+  return `<div class="scr"><div class="map"><div class="lbl">${icon('image',24)}<span>${label}</span></div><span class="pin">${icon('pin',36,'#2B2B2B')}</span></div>${statusBar()}
+  ${back?`<button class="fab back" data-act="back">${icon('back',20)}</button>`:''}
+  <div class="fabs">${fabs.join('')}</div>
+  <div class="sheet ${sheetCenter?'center':''}"><span class="handle"></span>${sheet}${homeInd()}</div>${overlay}</div>`;
+}
+const overSheet=(inner,center=true)=>`<div class="scrim"></div><div class="sheet top ${center?'center':''}"><span class="handle"></span>${inner}${homeInd()}</div>`;
+const dialog=(inner)=>`<div class="scrim"></div><div class="dialog">${inner}</div>`;
+const fabSOS=`<button class="fab" data-go="C-30s">SOS ${icon('shield',20)}</button>`;
+const fabShare=`<button class="fab" data-toast="اتنسخ رابط تتبع الرحلة علشان تشاركه">مشاركة ${icon('share',20)}</button>`;
+
+/* ================= State ================= */
+const state={guest:false,debt:false,pending:null,otpFails:0,phoneOrigin:'C-04',vehicle:'اقتصادي',radio:'غيرت رأيي',chips:{type:'صغير',weight:'1 - 5 كجم'},cancelFrom:'C-30',cancelFee:'10 ر.س',checked:true,obIndex:0};
+let history=[],current=null,timers=[];
+
+/* ================= Screens ================= */
+const S={};
+const reg=(id,mod,title,render,o={})=>{S[id]={id,mod,title,render,...o};};
+const RIDE=['في الطريق','وصل','الرحلة جارية','مكتملة'];
+const BOOK=['الاستلام','التسليم','المستلم','الطرد'];
+const TRACK=['في الطريق للاستلام','تم الاستلام','في الطريق للتسليم','تم التسليم'];
+const PARCEL_ROUTE=()=>route('حي النرجس · المنزل','حي الملقا · شارع الأمير محمد','الاستلام','التسليم');
+const RIDE_ROUTE=()=>route('موقعك الحالي · حي النرجس','واجهة الرياض · طريق المطار');
+const COURIER={name:'خالد العتيبي',rating:'4.9',meta:'مندوب · دراجة نارية هوندا',plate:'ر س ع 5821'};
+
+/* ---- M1 ---- */
+const M1='M1 · الدخول والتسجيل';
+reg('C-01',M1,'Splash',()=>std({center:true,vcenter:true,content:`${ph('اللوجو',120,120)}<div class="h2" style="font-size:24px">اسم التطبيق</div><div class="muted" style="font-size:14px">توصيل · طرود · مرافق · معاملات</div>`}),{next:'C-02a',auto:[1800,'C-02a']});
+const OB=[['كل خدماتك في مكان واحد','توصيل الأفراد، توصيل الطرود، المرافق الشخصي، وإنهاء المعاملات الحكومية من تطبيق واحد.','التالي','C-02b'],['تابع طلبك لحظة بلحظة','شوف مقدم الخدمة على الخريطة، واعرف كل مرحلة، واتواصل معاه بالشات.','التالي','C-02c'],['ادفع بعد ما الخدمة تخلص','دفع إلكتروني آمن بمدى و Visa و Apple Pay و STC Pay.','ابدأ الآن','C-02']];
+['C-02a','C-02b','C-02c'].forEach((id,i)=>reg(id,M1,'Onboarding '+(i+1),()=>std({gap:16,content:`<div class="link" style="text-align:left;color:var(--mid)" data-go="C-02">تخطي</div>${ph('رسم توضيحي',320)}<div class="h1">${OB[i][0]}</div><div class="body">${OB[i][1]}</div><div class="dots">${[0,1,2].map(j=>`<i class="${j===i?'on':''}"></i>`).join('')}</div>`,footer:btn('primary',OB[i][2],`data-go="${OB[i][3]}"`)}),{next:OB[i][3]}));
+reg('C-02',M1,'Welcome',()=>std({center:true,vcenter:true,content:`<div class="link" style="align-self:flex-end" data-toast="النسخة الإنجليزية (LTR) هتتعمل مع الـ Design System">English</div>${ph('اللوجو',96,96)}<div class="h1">أهلاً بيك</div><div class="body">اطلب توصيل، ابعت طرد، احجز مرافق، أو خلّص معاملتك الحكومية.</div>`,footer:btn('primary','تسجيل الدخول','data-go="C-04"')+btn('secondary','إنشاء حساب','data-go="C-03"')+btn('ghost','الدخول كزائر','data-act="guest"')}));
+const signup=(err)=>std({top:'إنشاء حساب',content:`<div class="h1">أنشئ حسابك</div><div class="body">محتاجين بياناتك الأساسية بس، ومن غير كلمة مرور.</div>${err?banner('info','الرقم ده مسجل قبل كده','سجّل دخول','data-go="C-04"'):''}${input('الاسم الكامل','محمد أحمد',{id:'name'})}${input('رقم الجوال','+966  5X XXX XXXX',{id:'phone',type:'tel',dir:'ltr',error:err,helper:'الرقم ده مسجل قبل كده. سجّل دخولك بدل ما تنشئ حساب.',value:err?'500000000':''})}${checkbox('أوافق على الشروط والأحكام وسياسة الخصوصية')}`,footer:btn('primary','إنشاء حساب','data-act="signup"')+`<div class="link" data-go="C-04">عندك حساب؟ سجّل دخولك</div>`});
+reg('C-03',M1,'إنشاء حساب',()=>signup(false));
+reg('C-03e',M1,'إنشاء حساب · الرقم مسجل',()=>signup(true));
+const login=(err)=>std({top:'تسجيل الدخول',content:`<div class="h1">أهلاً بعودتك</div><div class="body">اكتب رقم جوالك وهنبعتلك كود تحقق.</div>${err?banner('info','مفيش حساب على الرقم ده','إنشاء حساب','data-go="C-03"'):''}${input('رقم الجوال','+966  5X XXX XXXX',{id:'phone',type:'tel',dir:'ltr',error:err,helper:'مفيش حساب مرتبط بالرقم ده.',value:err?'590000000':''})}`,footer:btn('primary','إرسال الكود','data-act="login"')+`<div class="link" data-go="C-03">معندكش حساب؟ أنشئ حساب</div>`});
+reg('C-04',M1,'تسجيل الدخول',()=>login(false));
+reg('C-04e',M1,'تسجيل الدخول · مفيش حساب',()=>login(true));
+const otpScreen=(err)=>std({top:'التحقق',content:`<div class="h1">أدخل كود التحقق</div><div class="body">بعتنا كود من 4 أرقام على <span dir="ltr">5X XXX XXXX</span></div><div class="link r" data-act="edit-phone">تعديل رقم الجوال</div>${otp(err)}${err?`<div class="fl tc" style="font-size:14px">الكود غلط. باقي ${5-state.otpFails} محاولات.</div>`:''}<div class="muted tc" style="font-size:14px" id="resend">إعادة الإرسال بعد <span dir="ltr" id="rt">00:45</span></div>`,footer:btn('primary','تأكيد','data-act="otp"')});
+reg('C-05',M1,'كود التحقق',()=>otpScreen(false),{onEnter:()=>{startResend();focusOtp();}});
+reg('C-05e',M1,'كود التحقق · كود غلط',()=>otpScreen(true),{onEnter:()=>{startResend();focusOtp();}});
+reg('C-05l',M1,'كود التحقق · قفل مؤقت',()=>std({top:'التحقق',center:true,vcenter:true,content:`${icon('lock',56,'var(--warning)')}<div class="h2" style="font-size:22px">تم إيقاف المحاولة مؤقتاً</div><div class="body">دخلت كود غلط 5 مرات. حاول تاني بعد 10 دقايق.</div><div class="timer" id="lockT">10:00</div>`,footer:btn('secondary','تواصل معنا','data-toast="تواصل معنا (M18) لسه متعملش wireframe"')}),{onEnter:()=>countdown('lockT',600)});
+reg('C-06',M1,'Auth Gate · للزائر',()=>std({top:'مراجعة الطلب',content:ph('محتوى شاشة المراجعة',420),footer:btn('primary','تأكيد الطلب'),overlay:overSheet(`<span class="ico">${icon('lock',40,'var(--primary)')}</span><div class="h2">سجّل دخولك علشان تكمّل طلبك</div><div class="sub">هنرجعك لنفس الطلب بعد التسجيل، ومن غير ما تبدأ من الأول.</div>${btn('primary','تسجيل الدخول','data-go="C-04"')}${btn('secondary','إنشاء حساب','data-go="C-03"')}${btn('ghost','مش دلوقتي','data-act="back"')}`)}));
+
+/* ---- M2 ---- */
+const M2='M2 · الرئيسية';
+function homeHeader(guest){
+  return `<div class="hhead"><button class="loc" data-go="C-11">${icon('pin',22)}<span><small>الموقع الحالي</small><b>حي النرجس، الرياض</b></span>${icon('chevron-left',16)}</button>${guest?`<span class="link" data-go="C-04">تسجيل الدخول</span>`:`<button class="bell" data-toast="الإشعارات (M16) لسه متعملهاش wireframe">${icon('bell',20)}</button>`}</div>`;
+}
+function homeScr({guest,debt,active,unavailable,overlay=''}){
+  const svcAttr=(id)=>`data-act="service" data-svc="${id}"`;
+  const content=`${homeHeader(guest)}<div class="h1" style="font-size:24px">${guest?'أهلاً بيك':'أهلاً، محمد'}</div>
+  ${guest?banner('info','سجّل دخولك علشان تطلب وتتابع طلباتك','تسجيل الدخول','data-go="C-04"'):''}
+  ${debt?banner('warn','عليك مبلغ مستحق 35 ر.س. الطلبات الجديدة مقفولة لحد السداد.','ادفع الآن','data-go="C-10b"'):''}
+  ${active?`<div class="h3">طلباتك الجارية (2)</div><div class="carousel">
+    <div class="acard" data-go="C-30"><div class="between"><span class="pill">توصيل الأفراد</span>${icon('chevron-left',18)}</div><b style="font-size:16px;color:var(--dark)">السائق في الطريق إليك</b><span class="muted">يوصل خلال 4 دقايق · تويوتا كامري</span><div class="prog"><i></i></div></div>
+    <div class="acard" data-go="C-50b"><div class="between"><span class="pill">توصيل الطرود</span>${icon('chevron-left',18)}</div><b style="font-size:16px;color:var(--dark)">في الطريق للتسليم</b><span class="muted">الوصول المتوقع 25 دقيقة</span><div class="prog"><i></i></div></div></div>`:''}
+  <div class="h3">الخدمات</div><div class="svcs">${svc('توصيل الأفراد',svcAttr('ride'))}${svc('توصيل الطرود',svcAttr('parcel'))}${svc('المرافق الشخصي',svcAttr('companion'))}${svc('إنهاء المعاملات الحكومية',svcAttr('gov'),unavailable)}</div>`;
+  return `<div class="scr">${statusBar()}<div class="content" style="gap:20px;padding-top:8px">${content}</div>${nav('home')}${overlay}</div>`;
+}
+reg('C-10',M2,'الرئيسية · طلبات جارية',()=>homeScr({active:true}));
+reg('C-10g',M2,'الرئيسية · زائر',()=>homeScr({guest:true}));
+reg('C-10d',M2,'الرئيسية · عليه مديونية',()=>homeScr({debt:true}));
+reg('C-10b',M2,'منع الطلب بسبب المديونية',()=>homeScr({debt:true,overlay:overSheet(`<span class="ico">${icon('alert',40,'var(--warning)')}</span><div class="h2">لازم تسدد المستحق الأول</div><div class="sub">عليك 35 ر.س رسوم إلغاء رحلة يوم 24/10. بعد السداد تقدر تطلب أي خدمة.</div>${btn('primary','ادفع 35 ر.س','data-act="pay-debt"')}${btn('ghost','لاحقاً','data-go="C-10d"')}`)}));
+reg('C-10u',M2,'خدمة غير متاحة في المنطقة',()=>homeScr({unavailable:true,overlay:overSheet(`<span class="ico">${icon('pin',40,'var(--primary)')}</span><div class="h2">الخدمة مش متاحة في منطقتك</div><div class="sub">إنهاء المعاملات الحكومية مش متاحة حالياً في حي النرجس. جرّب تغيير الموقع.</div>${btn('primary','تغيير الموقع','data-go="C-11"')}${btn('ghost','حسناً','data-act="home"')}`)}));
+reg('C-11',M2,'تحديد الموقع',()=>std({top:'تحديد الموقع',gap:12,content:`<div class="search">${icon('search',20)}<span>ابحث عن حي أو شارع</span></div><div class="ph" style="height:300px;background-color:#EDEDED;background-image:linear-gradient(var(--soft) 1px,transparent 1px),linear-gradient(90deg,var(--soft) 1px,transparent 1px);background-size:24px 24px">${icon('pin',32,'#2B2B2B')}<span>خريطة · Pin في المنتصف</span></div>${li('استخدم موقعي الحالي','data-act="home"')}<div class="h3">العناوين المحفوظة</div>${li('المنزل · حي النرجس','data-act="home"')}${li('العمل · طريق الملك فهد','data-act="home"')}`,footer:btn('primary','تأكيد الموقع','data-act="home"')}));
+reg('C-11p',M2,'إذن الموقع مرفوض',()=>std({center:true,vcenter:true,content:`${icon('locate',56,'var(--primary)')}<div class="h2" style="font-size:22px">محتاجين نعرف موقعك</div><div class="body">علشان نعرض الخدمات المتاحة في منطقتك ونحدد نقطة الانطلاق. تقدر تفعّل الإذن أو تحدد موقعك بنفسك.</div>`,footer:btn('primary','السماح بالوصول للموقع','data-act="home"')+btn('secondary','تحديد الموقع يدوياً','data-go="C-11"')}));
+
+/* ---- M3 ---- */
+const M3='M3 · حجز توصيل الأفراد';
+reg('C-20',M3,'نقطة الانطلاق',()=>mapScr({label:'خريطة · موقعك الحالي',sheet:`<div class="h2">رايح فين؟</div>${li('من: موقعك الحالي · حي النرجس')}<div class="field" data-go="C-21"><label>الوجهة</label><input placeholder="ابحث عن وجهتك" readonly style="cursor:pointer"></div>${li('المنزل · حي النرجس','data-go="C-22"')}${li('العمل · طريق الملك فهد','data-go="C-22"')}`}));
+reg('C-21',M3,'تحديد الوجهة',()=>std({top:'الوجهة',gap:12,content:`${input('من','موقعك الحالي · حي النرجس')}${input('إلى','ابحث عن مكان')}${li('اختيار من الخريطة','data-go="C-22"')}<div class="fl" style="font-size:16px">نتائج البحث</div>${['واجهة الرياض · طريق المطار','مطار الملك خالد الدولي','النخيل مول · طريق الملك عبدالعزيز','بوليفارد رياض سيتي'].map(t=>li(t,'data-go="C-22"')).join('')}`}));
+const VEH=[['اقتصادي','يوصل خلال 4 دقايق · 4 ركاب','18 ر.س'],['عائلي','يوصل خلال 7 دقايق · 6 ركاب','26 ر.س'],['فاخر','يوصل خلال 9 دقايق · 4 ركاب','39 ر.س']];
+reg('C-22',M3,'اختيار فئة المركبة',()=>mapScr({label:'خريطة · المسار بين النقطتين',sheet:`<div class="h2">اختار فئة المركبة</div>${VEH.map(v=>vehicle(v[0],v[1],v[2],state.vehicle===v[0])).join('')}${payRow()}${btn('primary','اختيار '+state.vehicle,'data-go="C-23"')}`}));
+reg('C-23',M3,'مراجعة الرحلة',()=>{const v=VEH.find(x=>x[0]===state.vehicle);return mapScr({label:'خريطة · المسار',sheet:`<div class="h2">مراجعة الرحلة</div>${RIDE_ROUTE()}${price('فئة المركبة',v[0])}${price('السعر التقديري',v[2],true)}<div class="sub">السعر النهائي بيتحسب بعد الرحلة حسب المسافة والوقت وأي رسوم انتظار.</div>${payRow()}${btn('primary','تأكيد الطلب','data-act="confirm" data-review="C-23" data-search="C-24"')}`});});
+reg('C-24',M3,'جاري البحث عن سائق',()=>mapScr({label:'خريطة · بندوّر حوالين موقعك',back:false,sheetCenter:true,sheet:`${loader()}<div class="h2">جاري البحث عن سائق قريب</div><div class="sub">عادة بياخد أقل من دقيقة. هنبلغك أول ما سائق يقبل.</div>${RIDE_ROUTE()}${btn('secondary','إلغاء الطلب (مجاني)','data-act="cancel-free"')}`}),{next:'C-30',alt:['مفيش سائق متاح','C-25'],auto:[4000,'C-30']});
+reg('C-25',M3,'مفيش سائق متاح',()=>mapScr({label:'خريطة',back:false,sheetCenter:true,sheet:`<span class="ico">${icon('alert',40,'var(--warning)')}</span><div class="h2">مفيش سائق متاح دلوقتي</div><div class="sub">كل السواقين القريبين مشغولين. جرّب تاني بعد شوية.</div>${btn('primary','إعادة المحاولة','data-go="C-24"')}${btn('ghost','الرجوع للرئيسية','data-act="home"')}`}));
+
+/* ---- M4 ---- */
+const M4='M4 · متابعة رحلة توصيل الأفراد';
+const rideSheet=(step,h,s,extra='')=>`${stepper(RIDE,step)}<div class="h2">${h}</div><div class="sub">${s}</div>${extra}${provider()}`;
+reg('C-30',M4,'السائق في الطريق',()=>mapScr({label:'خريطة · موقع السائق ومساره إليك',back:false,fabs:[fabSOS,fabShare],sheet:`${rideSheet(1,'السائق في الطريق إليك','يوصل خلال 4 دقايق')}${RIDE_ROUTE()}${btn('ghost','إلغاء الرحلة','data-act="cancel" data-from="C-30" data-fee="10 ر.س"')}`}),{next:'C-30a'});
+reg('C-30a',M4,'السائق وصل · عداد الانتظار',()=>mapScr({label:'خريطة · السائق عند نقطة الانطلاق',back:false,fabs:[fabSOS,fabShare],sheet:`${rideSheet(2,'السائق وصل','قابله عند نقطة الانطلاق',banner('info','فترة الانتظار المجانية باقي <span id="waitT" dir="ltr">02:15</span>. بعدها 1 ر.س لكل دقيقة.',''))}${btn('ghost','إلغاء الرحلة · رسوم 10 ر.س','data-act="cancel" data-from="C-30a" data-fee="10 ر.س"')}`}),{next:'C-30b',onEnter:()=>countdown('waitT',135)});
+reg('C-30b',M4,'الرحلة جارية',()=>mapScr({label:'خريطة · المسار للوجهة',back:false,fabs:[fabSOS,fabShare],sheet:`${rideSheet(3,'الرحلة جارية','الوصول المتوقع 4:25 م')}${RIDE_ROUTE()}<div class="link" style="font-size:13px" data-toast="تواصل معنا (M18) لسه متعملش wireframe">الإلغاء مش متاح بعد بدء الرحلة. عايز تنهيها؟ تواصل معنا</div>`}),{next:'C-31'});
+reg('C-30s',M4,'SOS · الطوارئ',()=>mapScr({label:'خريطة · الرحلة جارية',back:false,fabs:[fabSOS,fabShare],sheet:rideSheet(3,'الرحلة جارية','الوصول المتوقع 4:25 م'),overlay:overSheet(`<span class="ico">${icon('shield',40,'var(--error)')}</span><div class="h2">الطوارئ</div><div class="sub">لو حاسس إنك في خطر، اتصل بالطوارئ فوراً.</div>${btn('primary','اتصل بالطوارئ 911','data-toast="بيفتح الاتصال على 911"')}${btn('secondary','شارك موقعي مع جهة اتصال','data-toast="اختيار جهة اتصال وإرسال الموقع"')}${btn('secondary','مشاركة رابط تتبع الرحلة','data-toast="اتنسخ رابط تتبع الرحلة"')}${btn('ghost','إغلاق','data-act="back"')}`)}));
+const REASONS=['السائق اتأخر','غيرت رأيي','طلبت بالغلط','السائق طلب مني ألغي','أخرى'];
+reg('C-100',M4,'سبب الإلغاء',()=>mapScr({label:'خريطة',back:false,fabs:[fabSOS,fabShare],sheet:rideSheet(1,'السائق في الطريق إليك','يوصل خلال 4 دقايق'),overlay:overSheet(`<div class="h2" style="text-align:right">ليه عايز تلغي؟</div><div class="sub" style="text-align:right">اختيارك بيساعدنا نحسّن الخدمة.</div>${REASONS.map(r=>radio(r,state.radio===r)).join('')}${btn('primary','متابعة','data-go="C-100b"')}`,false)}));
+reg('C-100b',M4,'تأكيد الإلغاء برسوم',()=>mapScr({label:'خريطة',back:false,fabs:[fabSOS,fabShare],sheet:rideSheet(1,'السائق في الطريق إليك','يوصل خلال 4 دقايق'),overlay:dialog(`<span class="ico">${icon('alert',40,'var(--error)')}</span><div class="h2">إلغاء ${state.cancelFrom.startsWith('C-5')?'الطلب':'الرحلة'}؟</div><div class="sub">${state.cancelFrom.startsWith('C-5')?'المندوب':'السائق'} قبل طلبك، فهيتطبق رسوم إلغاء وتتسجل على حسابك لحد ما تدفعها.</div>${price('رسوم الإلغاء',state.cancelFee,true)}${btn('danger','تأكيد الإلغاء','data-act="cancel-confirm"')}${btn('ghost','الرجوع','data-act="cancel-abort"')}`)}));
+reg('C-31',M4,'ملخص الرحلة',()=>std({top:'ملخص الرحلة',back:false,gap:14,content:`<div class="tc">${icon('check-circle',56,'var(--success)')}</div><div class="h2 tc" style="font-size:22px">وصلت بالسلامة</div><div class="muted tc">الأحد 26 أكتوبر · 4:25 م · رحلة رقم 10482</div>${RIDE_ROUTE()}${provider({actions:false})}${price('أجرة الرحلة','42 ر.س')}${price('رسوم انتظار (دقيقتين)','2 ر.س')}${price('الإجمالي شامل الضريبة','44 ر.س',true)}${payRow()}`,footer:btn('primary','ادفع 44 ر.س','data-act="pay" data-msg="تم دفع 44 ر.س · التقييم (M15) لسه متعملش wireframe"')}));
+
+/* ---- M5 ---- */
+const M5='M5 · حجز توصيل الطرود';
+reg('C-40',M5,'موقع الاستلام',()=>mapScr({label:'خريطة · Pin على موقع الاستلام',sheet:`${stepper(BOOK,1)}<div class="h2">منين نستلم الطرد؟</div>${li('موقعك الحالي · حي النرجس')}${input('تفاصيل إضافية','رقم المبنى، الدور، علامة مميزة')}${li('المنزل · حي النرجس')}${btn('primary','تأكيد موقع الاستلام','data-go="C-41"')}`}));
+reg('C-41',M5,'موقع التسليم',()=>mapScr({label:'خريطة · Pin على موقع التسليم',sheet:`${stepper(BOOK,2)}<div class="h2">فين نسلّم الطرد؟</div>${input('عنوان المستلم','ابحث عن حي أو شارع')}${li('اختيار من الخريطة')}${li('العمل · طريق الملك فهد')}${btn('primary','تأكيد موقع التسليم','data-go="C-42"')}`}));
+reg('C-42',M5,'بيانات المستلم',()=>std({top:'بيانات المستلم',content:`${stepper(BOOK,3)}<div class="h2">مين هيستلم الطرد؟</div><div class="sub">هنتواصل مع المستلم على الرقم ده وقت التسليم.</div>${input('اسم المستلم','سارة محمد')}${input('جوال المستلم','+966  5X XXX XXXX',{type:'tel',dir:'ltr'})}${li('اختيار من جهات الاتصال','data-toast="بيفتح جهات الاتصال على الجهاز"')}`,footer:btn('primary','التالي','data-go="C-43"')}));
+reg('C-43',M5,'تفاصيل الطرد',()=>std({top:'تفاصيل الطرد',gap:14,content:`${stepper(BOOK,4)}<div class="fl">نوع الطرد</div>${chips('type',['مستندات','صغير','متوسط','كبير'],state.chips.type)}<div class="fl">الوزن التقريبي</div>${chips('weight',['أقل من 1 كجم','1 - 5 كجم','5 - 10 كجم','10 - 20 كجم'],state.chips.weight)}${input('ملاحظات للمندوب (اختياري)','مثلاً: الطرد قابل للكسر')}${banner('info','فيه أشياء ممنوع توصيلها زي السوائل القابلة للاشتعال.','عرض القائمة','data-toast="قائمة الممنوعات بتيجي من لوحة الأدمن"')}`,footer:btn('primary','مراجعة الطلب','data-go="C-44"')}));
+reg('C-44',M5,'مراجعة الطلب',()=>std({top:'مراجعة الطلب',gap:12,content:`${PARCEL_ROUTE()}${infoRow('المستلم','سارة محمد · 5X XXX 1234')}${infoRow('الطرد',state.chips.type+' · '+state.chips.weight)}${price('تكلفة التوصيل','25 ر.س',true)}<div class="sub">التكلفة النهائية بتظهر بعد التسليم. الدفع إلكتروني بعد ما الطلب يكتمل.</div>${payRow()}`,footer:btn('primary','تأكيد الطلب','data-act="confirm" data-review="C-44" data-search="C-45"')}));
+reg('C-45',M5,'جاري البحث عن مندوب',()=>mapScr({label:'خريطة · بندوّر حوالين موقع الاستلام',back:false,sheetCenter:true,sheet:`${loader()}<div class="h2">جاري البحث عن مندوب قريب</div><div class="sub">هنبلغك أول ما مندوب يقبل الطلب.</div>${PARCEL_ROUTE()}${btn('secondary','إلغاء الطلب (مجاني)','data-act="cancel-free"')}`}),{next:'C-50',alt:['مفيش مندوب متاح','C-46'],auto:[4000,'C-50']});
+reg('C-46',M5,'مفيش مندوب متاح',()=>mapScr({label:'خريطة',back:false,sheetCenter:true,sheet:`<span class="ico">${icon('alert',40,'var(--warning)')}</span><div class="h2">مفيش مندوب متاح دلوقتي</div><div class="sub">كل المناديب القريبين مشغولين. جرّب تاني بعد شوية.</div>${btn('primary','إعادة المحاولة','data-go="C-45"')}${btn('ghost','الرجوع للرئيسية','data-act="home"')}`}));
+
+/* ---- M6 ---- */
+const M6='M6 · متابعة توصيل الطرد';
+reg('C-50',M6,'في الطريق للاستلام',()=>mapScr({label:'خريطة · المندوب في طريقه للاستلام',back:false,fabs:[fabShare],sheet:`${stepper(TRACK,1)}<div class="h2">المندوب في الطريق للاستلام</div><div class="sub">يوصل خلال 8 دقايق</div>${provider(COURIER)}${PARCEL_ROUTE()}${btn('ghost','إلغاء الطلب · رسوم 8 ر.س','data-act="cancel" data-from="C-50" data-fee="8 ر.س"')}`}),{next:'C-50a'});
+reg('C-50a',M6,'تم استلام الطرد',()=>mapScr({label:'خريطة · المندوب عند موقع الاستلام',back:false,fabs:[fabShare],sheet:`${stepper(TRACK,2)}<div class="h2">تم استلام الطرد</div><div class="sub">المندوب استلم الطرد الساعة 2:10 م</div>${ph('صورة الطرد عند الاستلام',120)}${provider(COURIER)}<div class="link" style="font-size:13px" data-toast="تواصل معنا (M18) لسه متعملش wireframe">الإلغاء مش متاح بعد الاستلام. عايز تنهي الطلب؟ تواصل معنا</div>`}),{next:'C-50b'});
+reg('C-50b',M6,'في الطريق للتسليم',()=>mapScr({label:'خريطة · المندوب في طريقه للمستلم',back:false,fabs:[fabShare],sheet:`${stepper(TRACK,3)}<div class="h2">في الطريق للتسليم</div><div class="sub">يوصل للمستلم خلال 20 دقيقة</div>${provider(COURIER)}${PARCEL_ROUTE()}`}),{next:'C-50c',alt:['تعذّر التسليم','C-51']});
+reg('C-50c',M6,'تم التسليم',()=>mapScr({label:'خريطة · موقع التسليم',back:false,sheet:`${stepper(TRACK,4)}<div class="h2">تم تسليم الطرد</div><div class="sub">سارة محمد استلمت الطرد الساعة 2:42 م</div>${ph('صورة إثبات التسليم',120)}${btn('primary','عرض الملخص والدفع','data-go="C-53"')}`}),{next:'C-53'});
+reg('C-51',M6,'تعذّر التسليم (D12 مفتوح)',()=>std({top:'تفاصيل الطلب',center:true,gap:14,content:`${icon('alert',56,'var(--error)')}<div class="h2" style="font-size:22px">تعذّر تسليم الطرد</div><div class="sub">المندوب حاول يسلّم الطرد ومعرفش. فريق الدعم هيتواصل معاك علشان الخطوة الجاية.</div>${infoRow('السبب','المستلم مش موجود ومبيردش على الجوال')}${PARCEL_ROUTE()}`,footer:btn('primary','تواصل معنا','data-toast="تواصل معنا (M18) لسه متعملش wireframe"')+btn('ghost','الرجوع لطلباتي','data-act="home"')}));
+reg('C-53',M6,'ملخص التوصيل',()=>std({top:'ملخص التوصيل',back:false,gap:12,content:`<div class="tc">${icon('check-circle',48,'var(--success)')}</div><div class="h2 tc" style="font-size:22px">تم تسليم طردك</div><div class="muted tc">الأحد 26 أكتوبر · طلب رقم 20931</div>${PARCEL_ROUTE()}<div class="photos">${ph('صورة الاستلام',96)}${ph('صورة التسليم',96)}</div>${provider({...COURIER,actions:false})}${price('تكلفة التوصيل','25 ر.س')}${price('الإجمالي شامل الضريبة','25 ر.س',true)}${payRow()}`,footer:btn('primary','ادفع 25 ر.س','data-act="pay" data-msg="تم دفع 25 ر.س · التقييم (M15) لسه متعملش wireframe"')}));
+
+/* ================= Engine ================= */
+const $=s=>document.querySelector(s);
+const screenEl=$('#screen');
+function clearTimers(){timers.forEach(t=>{clearTimeout(t);clearInterval(t);});timers=[];}
+function go(id,{push=true}={}){
+  if(!S[id]) return;
+  clearTimers();
+  if(push&&current&&current!==id) history.push(current);
+  current=id;
+  screenEl.innerHTML=S[id].render();
+  const sc=screenEl.querySelector('.content');if(sc)sc.scrollTop=0;
+  S[id].onEnter&&S[id].onEnter();
+  if(S[id].auto){const [ms,to]=S[id].auto;timers.push(setTimeout(()=>go(to),ms));}
+  updatePanels();
+  try{location.hash=id;}catch(e){}
+}
+function back(){const prev=history.pop();if(prev)go(prev,{push:false});}
+function goHome(){go(state.guest?'C-10g':(state.debt?'C-10d':'C-10'));}
+function toast(msg){let t=screenEl.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';screenEl.appendChild(t);}t.textContent=msg;requestAnimationFrame(()=>t.classList.add('show'));clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove('show'),2200);}
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+function countdown(elId,secs,done){let s=secs;const el=document.getElementById(elId);if(!el)return;el.textContent=fmt(s);const t=setInterval(()=>{s--;const e=document.getElementById(elId);if(!e||s<0){clearInterval(t);done&&done();return;}e.textContent=fmt(s);},1000);timers.push(t);}
+function startResend(){countdown('rt',45,()=>{const r=document.getElementById('resend');if(r){r.innerHTML='<span class="link" data-act="resend">إعادة إرسال الكود</span>';}});}
+function focusOtp(){const f=screenEl.querySelector('[data-otp="0"]');f&&f.focus();}
+function otpValue(){return [...screenEl.querySelectorAll('[data-otp]')].map(i=>i.value).join('');}
+
+const ACTIONS={
+  back,
+  home:goHome,
+  guest(){state.guest=true;go('C-10g');},
+  'toggle-check'(el){el.classList.toggle('off');},
+  signup(){const p=(screenEl.querySelector('#phone')||{}).value||'';if(p.replace(/\D/g,'').startsWith('50')){go('C-03e');return;}state.phoneOrigin='C-03';state.otpFails=0;go('C-05');},
+  login(){const p=(screenEl.querySelector('#phone')||{}).value||'';if(p.replace(/\D/g,'').startsWith('59')){go('C-04e');return;}state.phoneOrigin='C-04';state.otpFails=0;go('C-05');},
+  'edit-phone'(){go(state.phoneOrigin);},
+  resend(){toast('اتبعت كود جديد');startResend();const r=document.getElementById('resend');if(r)r.innerHTML='إعادة الإرسال بعد <span dir="ltr" id="rt">00:45</span>';startResend();},
+  otp(){
+    const v=otpValue();
+    if(v==='1234'){state.otpFails=0;state.guest=false;$('#debtT').checked=state.debt;if(state.pending){const p=state.pending;state.pending=null;toast('أهلاً بيك! كمّل طلبك');go(p);}else go('C-10');return;}
+    state.otpFails++;
+    if(state.otpFails>=5){go('C-05l');return;}
+    go('C-05e',{push:current!=='C-05e'});
+  },
+  service(el){
+    const s=el.dataset.svc;
+    if(state.debt&&!state.guest){go('C-10b');return;}
+    if(s==='ride')go('C-20');
+    else if(s==='parcel')go('C-40');
+    else if(s==='gov'&&current==='C-10u')go('C-10u');
+    else toast(s==='companion'?'المرافق الشخصي (M7) هيتعمل بعد ما حد Figma يتجدد':'المعاملات الحكومية (M9) لسه متعملهاش wireframe');
+  },
+  'pay-debt'(){state.debt=false;$('#debtT').checked=false;toast('تم سداد 35 ر.س · الطلبات اتفتحت');go('C-10');},
+  'pick-vehicle'(el){state.vehicle=el.dataset.name;go(current,{push:false});},
+  'pick-radio'(el){state.radio=el.dataset.val;go(current,{push:false});},
+  'pick-chip'(el){state.chips[el.dataset.group]=el.dataset.val;go(current,{push:false});},
+  confirm(el){if(state.guest){state.pending=el.dataset.review;go('C-06');return;}go(el.dataset.search);},
+  'cancel-free'(){toast('اتلغى الطلب من غير رسوم');goHome();},
+  cancel(el){state.cancelFrom=el.dataset.from;state.cancelFee=el.dataset.fee;go('C-100');},
+  'cancel-abort'(){go(state.cancelFrom);},
+  'cancel-confirm'(){state.debt=true;$('#debtT').checked=true;toast('اتلغى الطلب · '+state.cancelFee+' على حسابك');history=[];go('C-10d');},
+  pay(el){toast(el.dataset.msg);history=[];setTimeout(()=>goHome(),1200);},
+  'nav-home':goHome,
+  'nav-orders'(){state.guest?go('C-06'):toast('طلباتي (M14) لسه متعملهاش wireframe');},
+  'nav-profile'(){state.guest?go('C-06'):toast('الملف الشخصي (M17) لسه متعملهوش wireframe');},
+};
+
+screenEl.addEventListener('click',e=>{
+  const t=e.target.closest('[data-go],[data-act],[data-toast]');
+  if(!t||!screenEl.contains(t))return;
+  if(t.dataset.toast){toast(t.dataset.toast);return;}
+  if(t.dataset.go){go(t.dataset.go);return;}
+  const a=ACTIONS[t.dataset.act];if(a)a(t);
+});
+screenEl.addEventListener('input',e=>{
+  const i=e.target;if(i.dataset.otp===undefined)return;
+  i.value=i.value.replace(/\D/g,'').slice(-1);
+  if(i.value){const n=screenEl.querySelector(`[data-otp="${+i.dataset.otp+1}"]`);if(n)n.focus();else ACTIONS.otp();}
+});
+screenEl.addEventListener('keydown',e=>{
+  const i=e.target;if(i.dataset.otp!==undefined&&e.key==='Backspace'&&!i.value){const p=screenEl.querySelector(`[data-otp="${+i.dataset.otp-1}"]`);if(p)p.focus();}
+});
+
+/* ================= Panels ================= */
+function buildIndex(){
+  const mods={};Object.values(S).forEach(s=>{(mods[s.mod]=mods[s.mod]||[]).push(s);});
+  $('#index').innerHTML=Object.entries(mods).map(([m,list])=>`<div class="mod"><h2>${m}</h2>${list.map(s=>`<a data-jump="${s.id}"><code>${s.id}</code><span>${s.title}</span></a>`).join('')}</div>`).join('');
+  $('#index').addEventListener('click',e=>{const a=e.target.closest('[data-jump]');if(!a)return;const id=a.dataset.jump;if(id==='C-10g')state.guest=true;else if(/^C-10[dbu]?$/.test(id))state.guest=false;if(id==='C-10d'||id==='C-10b'){state.debt=true;$('#debtT').checked=true;}go(id);});
+}
+function updatePanels(){
+  const s=S[current];
+  $('#nowCode').textContent=s.id;$('#nowTitle').textContent=s.title;$('#nowMod').textContent=s.mod;
+  document.querySelectorAll('[data-jump]').forEach(a=>a.classList.toggle('on',a.dataset.jump===current));
+  const on=document.querySelector('[data-jump].on');if(on)on.scrollIntoView({block:'nearest'});
+  const nb=$('#nextBtn');nb.disabled=!s.next;nb.textContent=s.next?`الحدث التالي ◂ ${S[s.next].title}`:'الحدث التالي ◂';
+  const ab=$('#altBtn');if(s.alt){ab.style.display='';ab.textContent='سيناريو بديل ◂ '+s.alt[0];}else ab.style.display='none';
+  $('#backBtn').disabled=!history.length;
+}
+$('#nextBtn').onclick=()=>{const s=S[current];if(s.next)go(s.next);};
+$('#altBtn').onclick=()=>{const s=S[current];if(s.alt)go(s.alt[1]);};
+$('#backBtn').onclick=back;
+$('#resetBtn').onclick=()=>{Object.assign(state,{guest:false,debt:false,pending:null,otpFails:0,vehicle:'اقتصادي',radio:'غيرت رأيي',chips:{type:'صغير',weight:'1 - 5 كجم'}});$('#debtT').checked=false;history=[];go('C-01',{push:false});};
+$('#hotT').onchange=e=>document.body.classList.toggle('hot',e.target.checked);
+$('#debtT').onchange=e=>{state.debt=e.target.checked;if(/^C-10/.test(current))goHome();};
+
+/* ================= Scale to fit ================= */
+function fit(){
+  const st=$('#stage');const w=st.clientWidth-32,h=(window.innerWidth>1100?st.clientHeight:window.innerHeight)-32;
+  const s=Math.min(1,w/410,h/864);$('#scaler').style.transform=`scale(${s})`;
+  if(window.innerWidth<=1100){$('#scaler').style.height=(864*s)+'px';$('#scaler').style.transformOrigin='top center';}else{$('#scaler').style.height='';$('#scaler').style.transformOrigin='center center';}
+}
+window.addEventListener('resize',fit);
+
+buildIndex();
+const start=(location.hash||'').slice(1);
+go(S[start]?start:'C-01',{push:false});
+fit();
+</script>
+</body>
+</html>

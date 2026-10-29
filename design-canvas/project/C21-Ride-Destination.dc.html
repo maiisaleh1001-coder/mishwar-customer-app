@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>وين تبغى تروح</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; padding: 47px 0 34px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
+    <button type="button" aria-label="رجوع" style="width: 40px; height: 40px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></button>
+    <span style="text-align: center; font-size: 16px; font-weight: 500">رحلة جديدة</span>
+    <span></span>
+  </div>
+
+  <div style="display: flex; gap: 12px; align-items: stretch; padding: 8px 24px 16px">
+    <div aria-hidden="true" style="width: 12px; display: flex; flex-direction: column; align-items: center; padding: 20px 0">
+      <span data-route="from" style="position: relative; width: 12px; height: 12px; border-radius: 50%; background: #0F6E6E; box-shadow: 0 0 0 4px #B7DCD8, 0 0 0 8px #E3F1EF; flex: none"><span data-route-line style="position: absolute; left: 5px; top: 22px; height: 0px; border-left: 2px dashed #CDD3D2"></span></span>
+      <span style="flex: 1; width: 2px; margin: 4px 0; background: repeating-linear-gradient(180deg, #8E9897 0 3px, transparent 3px 7px)"></span>
+      <span data-route="to" style="width: 10px; height: 10px; margin: 1px; border-radius: 50%; background: #0F6E6E; box-shadow: 0 0 0 5px #E3F1EF; flex: none"></span>
+    </div>
+    <div style="flex: 1; display: flex; flex-direction: column; gap: 8px">
+      <input id="ride-from" aria-label="من" value="موقعك الحالي · حي النرجس" style="height: 52px; box-sizing: border-box; border: 2px solid transparent; border-radius: 8px; background: #FFFFFF; padding: 0 14px; font: inherit; font-size: 16px; color: #1B2B2B; outline: none">
+      <input id="ride-to" aria-label="إلى" value="واجهة" placeholder="وين تبغى تروح؟" style="height: 52px; box-sizing: border-box; border: 2px solid #0F6E6E; border-radius: 8px; background: #FFFFFF; padding: 0 14px; font: inherit; font-size: 16px; color: #1B2B2B; outline: none">
+    </div>
+  </div>
+
+  <div style="flex: 1; overflow: hidden; display: flex; flex-direction: column; padding: 0 24px; border-top: 8px solid #EBEDED">
+    <button type="button" style="width: 100%; display: flex; align-items: center; gap: 14px; padding: 14px 0; border: none; border-bottom: 1px solid #E4E9E8; background: none; font: inherit; color: inherit; text-align: right; cursor: pointer">
+      <span style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #0F6E6E; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 13.43a3.12 3.12 0 1 0 0-6.24 3.12 3.12 0 0 0 0 6.24Z" stroke-width="1.5"/><path d="M3.62 8.49c1.97-8.66 14.8-8.65 16.76.01 1.15 5.08-2.01 9.38-4.78 12.04a5.193 5.193 0 0 1-7.21 0c-2.76-2.66-5.92-6.97-4.77-12.05Z" stroke-width="1.5"/></svg></span>
+      <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 20px; font-weight: 500">واجهة الرياض</b><span style="display: block; font-size: 14px; line-height: 20px; color: #5B6766">طريق المطار، حي الملقا · 14 كم</span></span>
+    </button>
+    <button type="button" style="width: 100%; display: flex; align-items: center; gap: 14px; padding: 14px 0; border: none; border-bottom: 1px solid #E4E9E8; background: none; font: inherit; color: inherit; text-align: right; cursor: pointer">
+      <span style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #0F6E6E; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 13.43a3.12 3.12 0 1 0 0-6.24 3.12 3.12 0 0 0 0 6.24Z" stroke-width="1.5"/><path d="M3.62 8.49c1.97-8.66 14.8-8.65 16.76.01 1.15 5.08-2.01 9.38-4.78 12.04a5.193 5.193 0 0 1-7.21 0c-2.76-2.66-5.92-6.97-4.77-12.05Z" stroke-width="1.5"/></svg></span>
+      <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 20px; font-weight: 500">واجهة روشن</b><span style="display: block; font-size: 14px; line-height: 20px; color: #5B6766">طريق الملك خالد، حي الرحمانية · 11 كم</span></span>
+    </button>
+    <span style="font-size: 14px; line-height: 16px; font-weight: 500; color: #5B6766; padding: 16px 0 4px">العناوين المحفوظة</span>
+    <button type="button" style="width: 100%; display: flex; align-items: center; gap: 14px; padding: 14px 0; border: none; border-bottom: 1px solid #E4E9E8; background: none; font: inherit; color: inherit; text-align: right; cursor: pointer">
+      <span style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #0F6E6E; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M8 22h8c4.02 0 4.74-1.61 4.95-3.57l.75-8C21.97 7.99 21.27 6 17 6H7c-4.27 0-4.97 1.99-4.7 4.43l.75 8C3.26 20.39 3.98 22 8 22ZM8 6v-.8C8 3.43 8 2 11.2 2h1.6C16 2 16 3.43 16 5.2V6" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 13v1.02c0 1.09-.01 1.98-2 1.98-1.98 0-2-.88-2-1.97V13c0-1 0-1 1-1h2c1 0 1 0 1 1ZM21.65 11A16.484 16.484 0 0 1 14 14.02M2.62 11.27c2.25 1.54 4.79 2.47 7.38 2.76" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 20px; font-weight: 500">العمل</b><span style="display: block; font-size: 14px; line-height: 20px; color: #5B6766">العليا، طريق الملك فهد · 9 كم</span></span>
+    </button>
+    <span style="font-size: 14px; line-height: 16px; font-weight: 500; color: #5B6766; padding: 16px 0 4px">آخر الأماكن</span>
+    <button type="button" style="width: 100%; display: flex; align-items: center; gap: 14px; padding: 14px 0; border: none; border-bottom: 1px solid #E4E9E8; background: none; font: inherit; color: inherit; text-align: right; cursor: pointer">
+      <span style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #0F6E6E; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="m15.71 15.18-3.1-1.85c-.54-.32-.98-1.09-.98-1.72v-4.1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 20px; font-weight: 500">الياسمين مول</b><span style="display: block; font-size: 14px; line-height: 20px; color: #5B6766">حي الياسمين، طريق أنس بن مالك</span></span>
+    </button>
+    <button type="button" style="width: 100%; display: flex; align-items: center; gap: 14px; padding: 14px 0; border: none; background: none; font: inherit; color: #0F6E6E; text-align: right; cursor: pointer">
+      <span style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #0F6E6E; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12 4V2M4 12H2M12 20v2M20 12h2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <b style="flex: 1; font-size: 16px; line-height: 20px; font-weight: 500">حدّد الوجهة على الخريطة</b>
+    </button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

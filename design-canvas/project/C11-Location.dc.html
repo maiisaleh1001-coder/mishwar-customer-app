@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>اختيار الموقع</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif">
+  <div style="position: absolute; left: 0; right: 0; top: 0; height: 380px; overflow: hidden; background: #F2F5F4">
+    <img src="/_blob/3c4dd54157ba99fa4a8bf5e4349761f4" alt="" style="position: absolute; left: 0px; top: -232px; width: 390px; height: 844px; display: block">
+    <span style="position: absolute; left: 8px; top: 330px; padding: 1px 4px; border-radius: 4px; background: rgba(255, 255, 255, 0.75); font-family: system-ui, sans-serif; font-size: 9px; line-height: 12px; color: #5B6766">© OpenStreetMap</span>
+    <div style="position: absolute; left: 50%; top: 190px; transform: translate(-50%, -100%); display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <span style="background: #0F6E6E; color: #FFFFFF; font-size: 14px; line-height: 16px; font-weight: 500; padding: 8px 14px; border-radius: 999px; white-space: nowrap">حي النرجس</span>
+      <svg width="40" height="52" viewBox="0 0 40 52" aria-hidden="true"><path d="M20 2C10 2 2 9.8 2 19.6 2 32.8 20 50 20 50s18-17.2 18-30.4C38 9.8 30 2 20 2z" fill="#0F6E6E"/><circle cx="20" cy="19" r="7" fill="#FFFFFF"/></svg>
+    </div>
+  </div>
+
+  <button type="button" aria-label="رجوع" style="position: absolute; top: 51px; right: 16px; width: 40px; height: 40px; border: none; border-radius: 999px; background: #FFFFFF; box-shadow: 0 2px 8px rgba(15, 110, 110, 0.18); color: #1B2B2B; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></button>
+  <button type="button" aria-label="موقعي الحالي" style="position: absolute; top: 290px; left: 16px; width: 40px; height: 40px; border: none; border-radius: 999px; background: #FFFFFF; box-shadow: 0 2px 8px rgba(15, 110, 110, 0.18); color: #1B2B2B; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12 4V2M4 12H2M12 20v2M20 12h2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+
+  <div style="position: absolute; left: 0; right: 0; top: 350px; bottom: 0; background: #FFFFFF; border-radius: 16px 16px 0 0; box-shadow: 0 4px 16px rgba(15, 110, 110, 0.16); display: flex; flex-direction: column; gap: 16px; padding: 20px 24px 0">
+    <h1 style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 700">اختر موقعك</h1>
+    <label for="loc-search" style="height: 56px; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 0 14px; color: #1B2B2B">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.5 21a9.5 9.5 0 1 0 0-19 9.5 9.5 0 0 0 0 19ZM22 22l-2-2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <input id="loc-search" placeholder="ابحث عن حي أو شارع" aria-label="ابحث عن حي أو شارع" style="flex: 1; min-width: 0; height: 100%; border: none; outline: none; background: transparent; font: inherit; font-size: 16px; color: #1B2B2B">
+    </label>
+    <div style="display: flex; flex-direction: column">
+      <button type="button" style="width: 100%; display: flex; align-items: center; gap: 14px; padding: 12px 0; border: none; border-bottom: 1px solid #E4E9E8; background: none; font: inherit; color: inherit; text-align: right; cursor: pointer">
+        <span style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #0F6E6E; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12 4V2M4 12H2M12 20v2M20 12h2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 20px; font-weight: 500">موقعي الحالي</b><span style="display: block; font-size: 14px; line-height: 20px; color: #5B6766">حي النرجس، الرياض</span></span>
+      </button>
+      <span style="font-size: 14px; line-height: 16px; font-weight: 500; color: #5B6766; padding: 12px 0 4px">العناوين المحفوظة</span>
+      <button type="button" style="width: 100%; display: flex; align-items: center; gap: 14px; padding: 12px 0; border: none; border-bottom: 1px solid #E4E9E8; background: none; font: inherit; color: inherit; text-align: right; cursor: pointer">
+        <span style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #0F6E6E; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.02 2.84-5.39 4.2C2.73 7.74 2 9.23 2 10.36v7.41c0 2.32 1.89 4.22 4.21 4.22h11.58c2.32 0 4.21-1.9 4.21-4.21V10.5c0-1.21-.81-2.76-1.8-3.45l-6.18-4.33c-1.4-.98-3.65-.93-5 .12ZM12 17.99v-3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 20px; font-weight: 500">البيت</b><span style="display: block; font-size: 14px; line-height: 20px; color: #5B6766">حي النرجس، شارع الثمامة</span></span>
+      </button>
+      <button type="button" style="width: 100%; display: flex; align-items: center; gap: 14px; padding: 12px 0; border: none; background: none; font: inherit; color: inherit; text-align: right; cursor: pointer">
+        <span style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #0F6E6E; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22h8c4.02 0 4.74-1.61 4.95-3.57l.75-8C21.97 7.99 21.27 6 17 6H7c-4.27 0-4.97 1.99-4.7 4.43l.75 8C3.26 20.39 3.98 22 8 22ZM8 6v-.8C8 3.43 8 2 11.2 2h1.6C16 2 16 3.43 16 5.2V6" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 13v1.02c0 1.09-.01 1.98-2 1.98-1.98 0-2-.88-2-1.97V13c0-1 0-1 1-1h2c1 0 1 0 1 1ZM21.65 11A16.484 16.484 0 0 1 14 14.02M2.62 11.27c2.25 1.54 4.79 2.47 7.38 2.76" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 20px; font-weight: 500">العمل</b><span style="display: block; font-size: 14px; line-height: 20px; color: #5B6766">العليا، طريق الملك فهد</span></span>
+      </button>
+      <span style="font-size: 14px; line-height: 16px; font-weight: 500; color: #5B6766; padding: 12px 0 4px">آخر الأماكن</span>
+      <button type="button" style="width: 100%; display: flex; align-items: center; gap: 14px; padding: 12px 0; border: none; background: none; font: inherit; color: inherit; text-align: right; cursor: pointer">
+        <span style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #0F6E6E; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="m15.71 15.18-3.1-1.85c-.54-.32-.98-1.09-.98-1.72v-4.1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 20px; font-weight: 500">واجهة الرياض</b><span style="display: block; font-size: 14px; line-height: 20px; color: #5B6766">حي الملقا، طريق المطار</span></span>
+      </button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,968 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Bottom-Nav.dc.html": {
+      "h": 104,
+      "title": "مكوّن · الشريط اللي تحت",
+      "w": 390,
+      "x": 892,
+      "y": 24516
+    },
+    "C01-Splash.dc.html": {
+      "h": 844,
+      "title": "C-01 · Splash",
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "C02a-Onboarding.dc.html": {
+      "h": 844,
+      "title": "C-02a · Onboarding",
+      "w": 390,
+      "x": 470,
+      "y": 0
+    },
+    "C03-Phone.dc.html": {
+      "h": 844,
+      "title": "C-03 · رقم الجوال",
+      "w": 390,
+      "x": 0,
+      "y": 1290
+    },
+    "C05-OTP.dc.html": {
+      "h": 844,
+      "title": "C-05 · كود التحقق",
+      "w": 390,
+      "x": 470,
+      "y": 1290
+    },
+    "C05e-OTP-Wrong.dc.html": {
+      "h": 844,
+      "title": "C-05e · كود غلط",
+      "w": 390,
+      "x": 940,
+      "y": 1290
+    },
+    "C05l-OTP-Locked.dc.html": {
+      "h": 844,
+      "title": "C-05l · قفل مؤقت",
+      "w": 390,
+      "x": 1410,
+      "y": 1290
+    },
+    "C06-Auth-Gate.dc.html": {
+      "h": 844,
+      "title": "C-06 · Auth Gate للزائر",
+      "w": 390,
+      "x": 2350,
+      "y": 1290
+    },
+    "C07-Complete-Profile.dc.html": {
+      "h": 844,
+      "title": "C-07 · كمّل بياناتك",
+      "w": 390,
+      "x": 1880,
+      "y": 1290
+    },
+    "C100-Cancel-Reason.dc.html": {
+      "h": 844,
+      "title": "C-100 · سبب الإلغاء",
+      "w": 390,
+      "x": 0,
+      "y": 17266
+    },
+    "C101-Cancel-Fee.dc.html": {
+      "h": 844,
+      "title": "C-101 · تأكيد الإلغاء برسوم",
+      "w": 390,
+      "x": 470,
+      "y": 17266
+    },
+    "C102-Cancelled.dc.html": {
+      "h": 844,
+      "title": "C-102 · اتلغى الطلب",
+      "w": 390,
+      "x": 940,
+      "y": 17266
+    },
+    "C10b-Debt-Sheet.dc.html": {
+      "h": 844,
+      "title": "C-10b · منع الطلب بسبب المديونية",
+      "w": 390,
+      "x": 0,
+      "y": 4376
+    },
+    "C10d-Home-Debt.dc.html": {
+      "h": 1176,
+      "title": "C-10d · عليه مديونية",
+      "w": 390,
+      "x": 470,
+      "y": 2580
+    },
+    "C10e-Home-New.dc.html": {
+      "h": 1000,
+      "title": "C-10e · مفيش طلبات",
+      "w": 390,
+      "x": 940,
+      "y": 2580
+    },
+    "C10g-Home-Guest.dc.html": {
+      "h": 844,
+      "title": "C-10g · زائر",
+      "w": 390,
+      "x": 1410,
+      "y": 2580
+    },
+    "C10l-Home-Location-Menu.dc.html": {
+      "h": 1060,
+      "title": "C-10l · الرئيسية · قايمة العناوين",
+      "w": 390,
+      "x": 1880,
+      "y": 2580
+    },
+    "C10u-Unavailable.dc.html": {
+      "h": 844,
+      "title": "C-10u · خدمة مش متاحة",
+      "w": 390,
+      "x": 470,
+      "y": 4376
+    },
+    "C10x-Guest-Gate.dc.html": {
+      "h": 844,
+      "title": "C-10x · زائر محتاج حساب",
+      "w": 390,
+      "x": 940,
+      "y": 4376
+    },
+    "C11-Location.dc.html": {
+      "h": 844,
+      "title": "C-11 · اختيار الموقع",
+      "w": 390,
+      "x": 1410,
+      "y": 4376
+    },
+    "C110-Chat.dc.html": {
+      "h": 844,
+      "title": "C-110 · المحادثة",
+      "w": 390,
+      "x": 1410,
+      "y": 17266
+    },
+    "C111-Chat-Closed.dc.html": {
+      "h": 844,
+      "title": "C-111 · المحادثة مقفولة",
+      "w": 390,
+      "x": 1880,
+      "y": 17266
+    },
+    "C11p-Location-Permission.dc.html": {
+      "h": 844,
+      "title": "C-11p · إذن الموقع مرفوض",
+      "w": 390,
+      "x": 1880,
+      "y": 4376
+    },
+    "C120-Payment-Summary.dc.html": {
+      "h": 844,
+      "title": "C-120 · الدفع",
+      "w": 390,
+      "x": 0,
+      "y": 18716
+    },
+    "C121-Payment-Methods.dc.html": {
+      "h": 844,
+      "title": "C-121 · طريقة الدفع",
+      "w": 390,
+      "x": 470,
+      "y": 18716
+    },
+    "C122-Payment-Success.dc.html": {
+      "h": 844,
+      "title": "C-122 · الدفع نجح",
+      "w": 390,
+      "x": 940,
+      "y": 18716
+    },
+    "C122e-Payment-Failed.dc.html": {
+      "h": 844,
+      "title": "C-122e · الدفع منجحش",
+      "w": 390,
+      "x": 1410,
+      "y": 18716
+    },
+    "C123-Payments-Due.dc.html": {
+      "h": 844,
+      "title": "C-123 · المدفوعات · المستحق",
+      "w": 390,
+      "x": 1880,
+      "y": 18716
+    },
+    "C124-Payments-History.dc.html": {
+      "h": 844,
+      "title": "C-124 · المدفوعات · السجل",
+      "w": 390,
+      "x": 2350,
+      "y": 18716
+    },
+    "C130-Orders.dc.html": {
+      "h": 844,
+      "title": "C-130 · طلباتي",
+      "w": 390,
+      "x": 0,
+      "y": 20166
+    },
+    "C130r-Orders-Current-Ride.dc.html": {
+      "h": 844,
+      "title": "C-130r · طلباتي · الرحلات الحالية",
+      "w": 390,
+      "x": 470,
+      "y": 20166
+    },
+    "C130c-Orders-Current.dc.html": {
+      "h": 844,
+      "title": "C-130c · طلباتي · الحالية",
+      "w": 390,
+      "x": 940,
+      "y": 20166
+    },
+    "C130m-Orders-Current-Companion.dc.html": {
+      "h": 844,
+      "title": "C-130m · طلباتي · المرافق الحالية",
+      "w": 390,
+      "x": 1410,
+      "y": 20166
+    },
+    "C130g-Orders-Current-Gov.dc.html": {
+      "h": 844,
+      "title": "C-130g · طلباتي · المعاملات الحالية",
+      "w": 390,
+      "x": 1880,
+      "y": 20166
+    },
+    "C130e-Orders-Empty.dc.html": {
+      "h": 844,
+      "title": "C-130e · مفيش طلبات",
+      "w": 390,
+      "x": 2350,
+      "y": 20166
+    },
+    "C131-Order-Details.dc.html": {
+      "h": 1000,
+      "title": "C-131 · تفاصيل رحلة مكتملة",
+      "w": 390,
+      "x": 2820,
+      "y": 20166
+    },
+    "C132-Order-Cancelled.dc.html": {
+      "h": 844,
+      "title": "C-132 · تفاصيل طلب ملغي",
+      "w": 390,
+      "x": 3290,
+      "y": 20166
+    },
+    "C134-Invoice.dc.html": {
+      "h": 1000,
+      "title": "C-134 · الفاتورة",
+      "w": 390,
+      "x": 2820,
+      "y": 18716
+    },
+    "C140-Rating.dc.html": {
+      "h": 844,
+      "title": "C-140 · التقييم",
+      "w": 390,
+      "x": 3760,
+      "y": 20166
+    },
+    "C150-Notifications.dc.html": {
+      "h": 844,
+      "title": "C-150 · الإشعارات",
+      "w": 390,
+      "x": 4230,
+      "y": 20166
+    },
+    "C150e-Notifications-Empty.dc.html": {
+      "h": 844,
+      "title": "C-150e · مفيش إشعارات",
+      "w": 390,
+      "x": 4700,
+      "y": 20166
+    },
+    "C160-Profile.dc.html": {
+      "h": 1000,
+      "title": "C-160 · الملف الشخصي",
+      "w": 390,
+      "x": 0,
+      "y": 21616
+    },
+    "C161-Edit-Profile.dc.html": {
+      "h": 844,
+      "title": "C-161 · تعديل البيانات",
+      "w": 390,
+      "x": 470,
+      "y": 21616
+    },
+    "C162-Change-Phone.dc.html": {
+      "h": 844,
+      "title": "C-162 · تغيير رقم الجوال",
+      "w": 390,
+      "x": 940,
+      "y": 21616
+    },
+    "C163-Addresses.dc.html": {
+      "h": 844,
+      "title": "C-163 · العناوين المحفوظة",
+      "w": 390,
+      "x": 1410,
+      "y": 21616
+    },
+    "C164-Add-Address.dc.html": {
+      "h": 844,
+      "title": "C-164 · إضافة عنوان",
+      "w": 390,
+      "x": 1880,
+      "y": 21616
+    },
+    "C165-Delete-Account.dc.html": {
+      "h": 844,
+      "title": "C-165 · حذف الحساب",
+      "w": 390,
+      "x": 2350,
+      "y": 21616
+    },
+    "C166-Delete-Blocked.dc.html": {
+      "h": 844,
+      "title": "C-166 · الحذف مش متاح",
+      "w": 390,
+      "x": 2820,
+      "y": 21616
+    },
+    "C167-Saved-Cards.dc.html": {
+      "h": 844,
+      "title": "C-167 · وسائل الدفع",
+      "w": 390,
+      "x": 3290,
+      "y": 18716
+    },
+    "C168-Language.dc.html": {
+      "h": 844,
+      "title": "C-168 · اللغة",
+      "w": 390,
+      "x": 3290,
+      "y": 21616
+    },
+    "C169-Beneficiaries.dc.html": {
+      "h": 844,
+      "title": "C-169 · المستفيدين المحفوظين",
+      "w": 390,
+      "x": 3760,
+      "y": 21616
+    },
+    "C171-Terms.dc.html": {
+      "h": 844,
+      "title": "C-171 · الشروط والأحكام",
+      "w": 390,
+      "x": 0,
+      "y": 23066
+    },
+    "C173-FAQ.dc.html": {
+      "h": 844,
+      "title": "C-173 · الأسئلة الشائعة",
+      "w": 390,
+      "x": 470,
+      "y": 23066
+    },
+    "C174-Contact.dc.html": {
+      "h": 1000,
+      "title": "C-174 · تواصل معنا",
+      "w": 390,
+      "x": 940,
+      "y": 23066
+    },
+    "C175-Contact-Sent.dc.html": {
+      "h": 844,
+      "title": "C-175 · اتبعتت رسالتك",
+      "w": 390,
+      "x": 1410,
+      "y": 23066
+    },
+    "C180-Logout.dc.html": {
+      "h": 844,
+      "title": "C-180 · تسجيل الخروج",
+      "w": 390,
+      "x": 1880,
+      "y": 23066
+    },
+    "C21-Ride-Destination.dc.html": {
+      "h": 844,
+      "title": "C-21 · رايح فين",
+      "w": 390,
+      "x": 0,
+      "y": 5666
+    },
+    "C22-Ride-Category.dc.html": {
+      "h": 844,
+      "title": "C-22 · فئة المركبة",
+      "w": 390,
+      "x": 470,
+      "y": 5666
+    },
+    "C23-Ride-Review.dc.html": {
+      "h": 844,
+      "title": "C-23 · مراجعة الرحلة",
+      "w": 390,
+      "x": 940,
+      "y": 5666
+    },
+    "C24-Ride-Searching.dc.html": {
+      "h": 844,
+      "title": "C-24 · بندوّر على سائق",
+      "w": 390,
+      "x": 1410,
+      "y": 5666
+    },
+    "C25-Ride-No-Driver.dc.html": {
+      "h": 844,
+      "title": "C-25 · مفيش سائق متاح",
+      "w": 390,
+      "x": 1880,
+      "y": 5666
+    },
+    "C30a-Ride-On-The-Way.dc.html": {
+      "h": 844,
+      "title": "C-30 · السائق في الطريق",
+      "w": 390,
+      "x": 0,
+      "y": 7116
+    },
+    "C30b-Ride-Arrived.dc.html": {
+      "h": 844,
+      "title": "C-30 · السائق وصل",
+      "w": 390,
+      "x": 470,
+      "y": 7116
+    },
+    "C30c-Ride-In-Progress.dc.html": {
+      "h": 844,
+      "title": "C-30 · الرحلة جارية",
+      "w": 390,
+      "x": 940,
+      "y": 7116
+    },
+    "C31-Ride-Summary.dc.html": {
+      "h": 844,
+      "title": "C-31 · ملخص الرحلة",
+      "w": 390,
+      "x": 1410,
+      "y": 7116
+    },
+    "C40-Parcel-Locations.dc.html": {
+      "h": 844,
+      "title": "C-40 · مكان الاستلام والتسليم",
+      "w": 390,
+      "x": 0,
+      "y": 8566
+    },
+    "C42-Parcel-Details.dc.html": {
+      "h": 1000,
+      "title": "C-42 · المستلم والطرد",
+      "w": 390,
+      "x": 470,
+      "y": 8566
+    },
+    "C44-Parcel-Review.dc.html": {
+      "h": 844,
+      "title": "C-44 · مراجعة الطلب",
+      "w": 390,
+      "x": 940,
+      "y": 8566
+    },
+    "C45-Parcel-Searching.dc.html": {
+      "h": 844,
+      "title": "C-45 · بندوّر على مندوب",
+      "w": 390,
+      "x": 1410,
+      "y": 8566
+    },
+    "C50a-Parcel-To-Pickup.dc.html": {
+      "h": 844,
+      "title": "C-50 · في الطريق للاستلام",
+      "w": 390,
+      "x": 0,
+      "y": 10016
+    },
+    "C50b-Parcel-To-Dropoff.dc.html": {
+      "h": 844,
+      "title": "C-50 · في الطريق للتسليم",
+      "w": 390,
+      "x": 470,
+      "y": 10016
+    },
+    "C50c-Parcel-Failed.dc.html": {
+      "h": 844,
+      "title": "C-50 · تعذّر التسليم",
+      "w": 390,
+      "x": 940,
+      "y": 10016
+    },
+    "C51-Parcel-Delivered.dc.html": {
+      "h": 844,
+      "title": "C-51 · تم التسليم",
+      "w": 390,
+      "x": 1410,
+      "y": 10016
+    },
+    "C60-Companion-Intro.dc.html": {
+      "h": 844,
+      "title": "C-60 · عن المرافق الشخصي",
+      "w": 390,
+      "x": 0,
+      "y": 11466
+    },
+    "C61-Companion-Beneficiary.dc.html": {
+      "h": 1000,
+      "title": "C-61 · المستفيد والموقع",
+      "w": 390,
+      "x": 470,
+      "y": 11466
+    },
+    "C63-Companion-Schedule.dc.html": {
+      "h": 844,
+      "title": "C-63 · الموعد والمدة",
+      "w": 390,
+      "x": 940,
+      "y": 11466
+    },
+    "C65-Companion-Preferences.dc.html": {
+      "h": 844,
+      "title": "C-65 · التفضيلات",
+      "w": 390,
+      "x": 1410,
+      "y": 11466
+    },
+    "C66-Companion-Summary.dc.html": {
+      "h": 844,
+      "title": "C-66 · ملخص الحجز",
+      "w": 390,
+      "x": 1880,
+      "y": 11466
+    },
+    "C67-Companion-Not-Found.dc.html": {
+      "h": 844,
+      "title": "C-67 · مفيش مرافق متاح",
+      "w": 390,
+      "x": 2350,
+      "y": 11466
+    },
+    "C70a-Companion-On-The-Way.dc.html": {
+      "h": 844,
+      "title": "C-70 · المرافق في الطريق",
+      "w": 390,
+      "x": 0,
+      "y": 12916
+    },
+    "C70b-Companion-In-Progress.dc.html": {
+      "h": 844,
+      "title": "C-70 · المرافقة جارية",
+      "w": 390,
+      "x": 470,
+      "y": 12916
+    },
+    "C71-Companion-Extend.dc.html": {
+      "h": 844,
+      "title": "C-71 · طلب تمديد",
+      "w": 390,
+      "x": 940,
+      "y": 12916
+    },
+    "C72-Companion-Extend-Pending.dc.html": {
+      "h": 844,
+      "title": "C-72 · مستني موافقة التمديد",
+      "w": 390,
+      "x": 1410,
+      "y": 12916
+    },
+    "C73-Companion-Completed.dc.html": {
+      "h": 844,
+      "title": "C-73 · المرافقة خلصت",
+      "w": 390,
+      "x": 1880,
+      "y": 12916
+    },
+    "C80-Gov-Agency.dc.html": {
+      "h": 844,
+      "title": "C-80 · الجهة الحكومية",
+      "w": 390,
+      "x": 0,
+      "y": 14366
+    },
+    "C81-Gov-Transaction.dc.html": {
+      "h": 844,
+      "title": "C-81 · نوع المعاملة",
+      "w": 390,
+      "x": 470,
+      "y": 14366
+    },
+    "C82-Gov-Requirements.dc.html": {
+      "h": 1000,
+      "title": "C-82 · المتطلبات",
+      "w": 390,
+      "x": 940,
+      "y": 14366
+    },
+    "C84-Gov-Upload.dc.html": {
+      "h": 1000,
+      "title": "C-84 · رفع المستندات",
+      "w": 390,
+      "x": 1410,
+      "y": 14366
+    },
+    "C85-Gov-Schedule.dc.html": {
+      "h": 844,
+      "title": "C-85 · الموعد",
+      "w": 390,
+      "x": 1880,
+      "y": 14366
+    },
+    "C86-Gov-Summary.dc.html": {
+      "h": 1000,
+      "title": "C-86 · ملخص الطلب",
+      "w": 390,
+      "x": 2350,
+      "y": 14366
+    },
+    "C90a-Gov-In-Progress.dc.html": {
+      "h": 1000,
+      "title": "C-90 · المعاملة جارية",
+      "w": 390,
+      "x": 0,
+      "y": 15816
+    },
+    "C90b-Gov-Completed.dc.html": {
+      "h": 1000,
+      "title": "C-90 · تم الإنجاز",
+      "w": 390,
+      "x": 470,
+      "y": 15816
+    },
+    "C90c-Gov-Failed.dc.html": {
+      "h": 844,
+      "title": "C-90 · تعذّر الإنجاز",
+      "w": 390,
+      "x": 940,
+      "y": 15816
+    },
+    "Main.dc.html": {
+      "h": 1060,
+      "title": "C-10 · الرئيسية · طلبات جارية",
+      "w": 390,
+      "x": 0,
+      "y": 2580
+    },
+    "Map-Route.dc.html": {
+      "h": 844,
+      "title": "مكوّن · الخريطة بالمسار",
+      "w": 390,
+      "x": 0,
+      "y": 24516
+    },
+    "Provider-Card.dc.html": {
+      "h": 148,
+      "title": "مكوّن · كارت مقدم الخدمة",
+      "w": 342,
+      "x": 470,
+      "y": 24516
+    },
+    "X01-No-Internet.dc.html": {
+      "h": 844,
+      "title": "X-01 · مفيش إنترنت",
+      "w": 390,
+      "x": 2350,
+      "y": 23066
+    },
+    "X02-Notifications-Permission.dc.html": {
+      "h": 844,
+      "title": "X-02 · إذن الإشعارات",
+      "w": 390,
+      "x": 2820,
+      "y": 23066
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-27T15:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "noteOrder": [
+    "flow1start",
+    "flow1auth",
+    "flow2home",
+    "flow2states",
+    "flow3",
+    "flow4",
+    "flow5",
+    "flow6",
+    "flow7",
+    "flow8",
+    "flow9",
+    "flow10",
+    "flow11",
+    "flow13",
+    "flow14",
+    "flow17",
+    "flow18",
+    "components"
+  ],
+  "notes": {
+    "components": {
+      "kind": "title1",
+      "maxW": 1282,
+      "text": "مكوّنات مشتركة (عدّلها هنا وتتغير في كل الشاشات)",
+      "w": 240,
+      "x": 0,
+      "y": 24216
+    },
+    "flow10": {
+      "kind": "title1",
+      "maxW": 1330,
+      "text": "Flow 10 · متابعة المعاملة",
+      "w": 240,
+      "x": 0,
+      "y": 15516
+    },
+    "flow11": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "Flow 11–12 · الإلغاء والمحادثة",
+      "w": 240,
+      "x": 0,
+      "y": 16966
+    },
+    "flow13": {
+      "kind": "title1",
+      "maxW": 5090,
+      "text": "Flow 13 · الدفع والمدفوعات والفاتورة",
+      "w": 240,
+      "x": 0,
+      "y": 18416
+    },
+    "flow14": {
+      "kind": "title1",
+      "maxW": 5090,
+      "text": "Flow 14–16 · طلباتي والتقييم والإشعارات",
+      "w": 240,
+      "x": 0,
+      "y": 19866
+    },
+    "flow17": {
+      "kind": "title1",
+      "maxW": 4150,
+      "text": "Flow 17 · الملف الشخصي",
+      "w": 240,
+      "x": 0,
+      "y": 21316
+    },
+    "flow18": {
+      "kind": "title1",
+      "maxW": 5090,
+      "text": "Flow 18–19 · المحتوى والدعم والحالات العامة",
+      "w": 240,
+      "x": 0,
+      "y": 22766
+    },
+    "flow1auth": {
+      "kind": "title1",
+      "maxW": 2740,
+      "text": "Flow 1 · الدخول برقم الجوال",
+      "w": 240,
+      "x": 0,
+      "y": 990
+    },
+    "flow1start": {
+      "kind": "title1",
+      "maxW": 860,
+      "text": "Flow 1 · البداية",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "flow2home": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "Flow 2 · الرئيسية",
+      "w": 240,
+      "x": 0,
+      "y": 2280
+    },
+    "flow2states": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "Flow 2 · حالات الرئيسية والموقع",
+      "w": 240,
+      "x": 0,
+      "y": 4076
+    },
+    "flow3": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "Flow 3 · حجز رحلة",
+      "w": 240,
+      "x": 0,
+      "y": 5366
+    },
+    "flow4": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "Flow 4 · متابعة الرحلة",
+      "w": 240,
+      "x": 0,
+      "y": 6816
+    },
+    "flow5": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "Flow 5 · حجز طرد",
+      "w": 240,
+      "x": 0,
+      "y": 8266
+    },
+    "flow6": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "Flow 6 · متابعة الطرد",
+      "w": 240,
+      "x": 0,
+      "y": 9716
+    },
+    "flow7": {
+      "kind": "title1",
+      "maxW": 2740,
+      "text": "Flow 7 · حجز المرافق الشخصي",
+      "w": 240,
+      "x": 0,
+      "y": 11166
+    },
+    "flow8": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "Flow 8 · متابعة المرافقة والتمديد",
+      "w": 240,
+      "x": 0,
+      "y": 12616
+    },
+    "flow9": {
+      "kind": "title1",
+      "maxW": 2740,
+      "text": "Flow 9 · حجز معاملة حكومية",
+      "w": 240,
+      "x": 0,
+      "y": 14066
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "C01-Splash.dc.html",
+    "C02a-Onboarding.dc.html",
+    "C03-Phone.dc.html",
+    "C05-OTP.dc.html",
+    "C05e-OTP-Wrong.dc.html",
+    "C05l-OTP-Locked.dc.html",
+    "C07-Complete-Profile.dc.html",
+    "C06-Auth-Gate.dc.html",
+    "C10d-Home-Debt.dc.html",
+    "C10e-Home-New.dc.html",
+    "C10g-Home-Guest.dc.html",
+    "C10l-Home-Location-Menu.dc.html",
+    "C10b-Debt-Sheet.dc.html",
+    "C10u-Unavailable.dc.html",
+    "C10x-Guest-Gate.dc.html",
+    "C11-Location.dc.html",
+    "C11p-Location-Permission.dc.html",
+    "C21-Ride-Destination.dc.html",
+    "C22-Ride-Category.dc.html",
+    "C23-Ride-Review.dc.html",
+    "C24-Ride-Searching.dc.html",
+    "C25-Ride-No-Driver.dc.html",
+    "C30a-Ride-On-The-Way.dc.html",
+    "C30b-Ride-Arrived.dc.html",
+    "C30c-Ride-In-Progress.dc.html",
+    "C31-Ride-Summary.dc.html",
+    "C40-Parcel-Locations.dc.html",
+    "C42-Parcel-Details.dc.html",
+    "C44-Parcel-Review.dc.html",
+    "C45-Parcel-Searching.dc.html",
+    "C50a-Parcel-To-Pickup.dc.html",
+    "C50b-Parcel-To-Dropoff.dc.html",
+    "C50c-Parcel-Failed.dc.html",
+    "C51-Parcel-Delivered.dc.html",
+    "C60-Companion-Intro.dc.html",
+    "C61-Companion-Beneficiary.dc.html",
+    "C63-Companion-Schedule.dc.html",
+    "C65-Companion-Preferences.dc.html",
+    "C66-Companion-Summary.dc.html",
+    "C67-Companion-Not-Found.dc.html",
+    "C70a-Companion-On-The-Way.dc.html",
+    "C70b-Companion-In-Progress.dc.html",
+    "C71-Companion-Extend.dc.html",
+    "C72-Companion-Extend-Pending.dc.html",
+    "C73-Companion-Completed.dc.html",
+    "C80-Gov-Agency.dc.html",
+    "C81-Gov-Transaction.dc.html",
+    "C82-Gov-Requirements.dc.html",
+    "C84-Gov-Upload.dc.html",
+    "C85-Gov-Schedule.dc.html",
+    "C86-Gov-Summary.dc.html",
+    "C90a-Gov-In-Progress.dc.html",
+    "C90b-Gov-Completed.dc.html",
+    "C90c-Gov-Failed.dc.html",
+    "C100-Cancel-Reason.dc.html",
+    "C101-Cancel-Fee.dc.html",
+    "C102-Cancelled.dc.html",
+    "C110-Chat.dc.html",
+    "C111-Chat-Closed.dc.html",
+    "C120-Payment-Summary.dc.html",
+    "C121-Payment-Methods.dc.html",
+    "C122-Payment-Success.dc.html",
+    "C122e-Payment-Failed.dc.html",
+    "C123-Payments-Due.dc.html",
+    "C124-Payments-History.dc.html",
+    "C134-Invoice.dc.html",
+    "C167-Saved-Cards.dc.html",
+    "C130-Orders.dc.html",
+    "C130r-Orders-Current-Ride.dc.html",
+    "C130c-Orders-Current.dc.html",
+    "C130m-Orders-Current-Companion.dc.html",
+    "C130g-Orders-Current-Gov.dc.html",
+    "C130e-Orders-Empty.dc.html",
+    "C131-Order-Details.dc.html",
+    "C132-Order-Cancelled.dc.html",
+    "C140-Rating.dc.html",
+    "C150-Notifications.dc.html",
+    "C150e-Notifications-Empty.dc.html",
+    "C160-Profile.dc.html",
+    "C161-Edit-Profile.dc.html",
+    "C162-Change-Phone.dc.html",
+    "C163-Addresses.dc.html",
+    "C164-Add-Address.dc.html",
+    "C165-Delete-Account.dc.html",
+    "C166-Delete-Blocked.dc.html",
+    "C168-Language.dc.html",
+    "C169-Beneficiaries.dc.html",
+    "C171-Terms.dc.html",
+    "C173-FAQ.dc.html",
+    "C174-Contact.dc.html",
+    "C175-Contact-Sent.dc.html",
+    "C180-Logout.dc.html",
+    "X01-No-Internet.dc.html",
+    "X02-Notifications-Permission.dc.html",
+    "Map-Route.dc.html",
+    "Provider-Card.dc.html",
+    "Bottom-Nav.dc.html"
+  ],
+  "pages": [],
+  "title": "مشوار · شاشات تطبيق العميل"
+}

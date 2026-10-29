@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>المستفيد والموقع</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 1000px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
+    <button type="button" aria-label="رجوع" style="width: 40px; height: 40px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></button>
+    <span style="text-align: center; font-size: 16px; font-weight: 500">حجز مرافق</span>
+    <span></span>
+  </div>
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 8px 24px 0">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div role="img" aria-label="الخطوة 1 من 3" style="display: flex; gap: 6px"><span style="flex: 1; height: 4px; border-radius: 2px; background: #0F6E6E"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E9F4F3"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E9F4F3"></span></div>
+      <span style="font-size: 12px; line-height: 20px; color: #5B6766">الخطوة 1 من 3 · المستفيد والموقع</span>
+      <h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">المرافق بيكون مع مين؟</h1>
+    </div>
+    <div style="display: flex; gap: 8px; overflow: hidden">
+      <button type="button" style="flex: none; height: 40px; padding: 0 16px; border: 1.5px solid #0F6E6E; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">الوالدة · 68 سنة</button>
+      <button type="button" style="flex: none; height: 40px; padding: 0 16px; border: 1.5px solid transparent; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">أنا المستفيد</button>
+      <button type="button" style="flex: none; height: 40px; padding: 0 16px; border: 1.5px dashed #CFE6E4; border-radius: 999px; background: #FFFFFF; color: #0F6E6E; display: inline-flex; align-items: center; gap: 4px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 12h12M12 18V6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>مستفيد جديد</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 14px; line-height: 16px; font-weight: 500">الفئة</span>
+      <div role="radiogroup" aria-label="فئة المستفيد" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+        <button type="button" role="radio" aria-checked="true" style="height: 48px; border: 2px solid #0F6E6E; border-radius: 12px; background: #FFFFFF; color: #1B2B2B; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">كبار السن</button>
+        <button type="button" role="radio" aria-checked="false" style="height: 48px; border: 2px solid transparent; border-radius: 12px; background: #FFFFFF; color: #1B2B2B; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">أطفال</button>
+        <button type="button" role="radio" aria-checked="false" style="height: 48px; border: 2px solid transparent; border-radius: 12px; background: #FFFFFF; color: #1B2B2B; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">مرضى</button>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <label for="bn-name" style="font-size: 14px; line-height: 16px; font-weight: 500">الاسم</label>
+        <input id="bn-name" value="فاطمة الزهراني" style="height: 56px; box-sizing: border-box; border: 2px solid transparent; border-radius: 8px; background: #FFFFFF; padding: 0 14px; font: inherit; font-size: 16px; color: #1B2B2B; outline: none; min-width: 0">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <label for="bn-age" style="font-size: 14px; line-height: 16px; font-weight: 500">العمر</label>
+        <input id="bn-age" inputmode="numeric" value="68" style="height: 56px; box-sizing: border-box; border: 2px solid transparent; border-radius: 8px; background: #FFFFFF; padding: 0 14px; font: inherit; font-size: 16px; color: #1B2B2B; outline: none; min-width: 0">
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <label for="bn-phone" style="font-size: 14px; line-height: 16px; font-weight: 500">رقم للتواصل</label>
+      <div dir="ltr" style="height: 56px; box-sizing: border-box; border: 2px solid transparent; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center">
+        <span style="display: flex; align-items: center; gap: 8px; padding: 0 12px; height: 60%; border-right: 1px solid rgba(0, 0, 0, 0.14); font-size: 16px; font-weight: 500; flex: none"><svg width="24" height="16" viewBox="0 0 24 16" role="img" aria-label="السعودية"><rect width="24" height="16" rx="3" fill="#006C35"/><rect x="6" y="4" width="12" height="2" rx="1" fill="#FFFFFF" opacity=".85"/><rect x="5" y="9" width="14" height="2" rx="1" fill="#FFFFFF"/></svg>+966</span>
+        <input id="bn-phone" inputmode="numeric" value="50 777 2310" style="flex: 1; min-width: 0; height: 100%; border: none; outline: none; background: transparent; font: inherit; font-size: 16px; padding: 0 12px; color: #1B2B2B">
+      </div>
+    </div>
+    <label for="bn-save" style="display: flex; gap: 12px; align-items: center; font-size: 14px; line-height: 20px; color: #5B6766; cursor: pointer">
+      <input id="bn-save" type="checkbox" checked style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E">احفظ المستفيد للحجوزات الجاية
+    </label>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 14px; line-height: 16px; font-weight: 500">مكان الخدمة</span>
+      <button type="button" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; border: none; background: #FFFFFF; font: inherit; color: inherit; text-align: right; cursor: pointer">
+        <span style="width: 40px; height: 40px; border-radius: 999px; background: #FFFFFF; color: #0F6E6E; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m9.02 2.84-5.39 4.2C2.73 7.74 2 9.23 2 10.36v7.41c0 2.32 1.89 4.22 4.21 4.22h11.58c2.32 0 4.21-1.9 4.21-4.21V10.5c0-1.21-.81-2.76-1.8-3.45l-6.18-4.33c-1.4-.98-3.65-.93-5 .12ZM12 17.99v-3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 22px; font-weight: 500">البيت</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">حي النرجس، شارع الثمامة</span></span>
+        <span style="font-size: 14px; font-weight: 500; color: #0F6E6E">تغيير</span>
+      </button>
+    </div>
+  </div>
+  <div style="padding: 12px 24px 0">
+    <button type="button" style="height: 56px; width: 100%; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 16px; font-weight: 500; cursor: pointer">التالي</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

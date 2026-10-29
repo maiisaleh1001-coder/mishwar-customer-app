@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>مراجعة الرحلة</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif">
+  <dc-import name="Map-Route" show-car="{{no}}" hint-size="390px,844px"></dc-import>
+  <button type="button" aria-label="رجوع" style="position: absolute; top: 51px; right: 16px; width: 40px; height: 40px; border: none; border-radius: 999px; background: #FFFFFF; box-shadow: 0 2px 8px rgba(15, 110, 110, 0.18); color: #1B2B2B; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></button>
+  <div style="position: absolute; left: 0; right: 0; bottom: 0; background: #FFFFFF; border-radius: 16px 16px 0 0; box-shadow: 0 4px 16px rgba(15, 110, 110, 0.16); padding: 12px 24px 40px; display: flex; flex-direction: column; gap: 14px">
+    <span style="width: 40px; height: 5px; border-radius: 3px; background: #E4E9E8; align-self: center"></span>
+    <h1 style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 700">راجع رحلتك</h1>
+    <div style="border-radius: 16px; background: #FFFFFF; padding: 4px 16px; border: 1px solid #E4E9E8">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #CFE6E4"><span data-route="from" style="position: relative; width: 12px; height: 12px; border-radius: 50%; background: #0F6E6E; box-shadow: 0 0 0 4px #B7DCD8, 0 0 0 8px #E3F1EF; flex: none"><span data-route-line style="position: absolute; left: 5px; top: 22px; height: 37px; border-left: 2px dashed #CDD3D2"></span></span><div style="flex: 1; min-width: 0"><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">من</span><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">موقعك الحالي · حي النرجس</b></div></div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0"><span data-route="to" style="width: 10px; height: 10px; margin: 1px; border-radius: 50%; background: #0F6E6E; box-shadow: 0 0 0 5px #E3F1EF; flex: none"></span><div style="flex: 1; min-width: 0"><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">إلى</span><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">واجهة الرياض · طريق المطار</b></div></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 20px">
+      <div style="display: flex; justify-content: space-between"><span style="color: #5B6766">نوع الرحلة</span><b style="font-weight: 500">اقتصادي · 4 ركاب</b></div>
+      <div style="display: flex; justify-content: space-between"><span style="color: #5B6766">المسافة والوقت</span><b style="font-weight: 500">14 كم · 22 دقيقة</b></div>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="color: #5B6766">طريقة الدفع</span><b style="font-weight: 500; display: inline-flex; gap: 6px; align-items: center">مدى <span dir="ltr" style="display: inline-block">•••• 4821</span></b></div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 10px; border-top: 1px solid #E4E9E8"><b style="font-size: 16px; font-weight: 700">السعر التقريبي</b><b style="font-size: 20px; line-height: 28px; font-weight: 700">18 <svg viewBox="0 0 1124.14 1256.39" width="0.78em" height="0.87em" fill="currentColor" role="img" aria-label="ريال" style="display: inline-block; vertical-align: -0.08em"><path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z"/><path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z"/></svg></b></div>
+    </div>
+    <p style="margin: 0; display: flex; gap: 8px; align-items: flex-start; font-size: 12px; line-height: 20px; color: #5B6766"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM12 8v5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.995 16h.009" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>السعر النهائي ينحسب بعد الرحلة، وتنضاف عليه رسوم انتظار لو انتظرك السائق أكثر من 3 دقايق. والدفع يكون بعد ما تخلص الرحلة.</p>
+    <button type="button" style="height: 56px; width: 100%; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 16px; font-weight: 500; cursor: pointer">تأكيد الطلب</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { no: false };
+  }
+}
+</script>
+</body>
+</html>

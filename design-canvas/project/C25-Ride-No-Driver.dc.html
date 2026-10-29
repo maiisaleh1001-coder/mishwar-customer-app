@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>ما فيه سائق متاح</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif">
+  <dc-import name="Map-Route" show-car="{{no}}" hint-size="390px,844px"></dc-import>
+  <div style="position: absolute; left: 0; right: 0; bottom: 0; background: #FFFFFF; border-radius: 16px 16px 0 0; box-shadow: 0 4px 16px rgba(15, 110, 110, 0.16); padding: 12px 24px 40px; display: flex; flex-direction: column; gap: 12px">
+    <span style="width: 40px; height: 5px; border-radius: 3px; background: #E4E9E8; align-self: center; margin-bottom: 8px"></span>
+    <span style="width: 64px; height: 64px; border-radius: 999px; background: #FBF3E4; color: #B7791F; display: flex; align-items: center; justify-content: center; align-self: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M15.51 2.83H8.49C6 2.83 5.45 4.07 5.13 5.59L4 11h16l-1.13-5.41c-.32-1.52-.87-2.76-3.36-2.76ZM21.99 19.82c.11 1.17-.83 2.18-2.03 2.18h-1.88c-1.08 0-1.23-.46-1.42-1.03l-.2-.6c-.28-.82-.46-1.37-1.9-1.37H9.44c-1.44 0-1.65.62-1.9 1.37l-.2.6C7.15 21.54 7 22 5.92 22H4.04c-1.2 0-2.14-1.01-2.03-2.18l.56-6.09C2.71 12.23 3 11 5.62 11h12.76c2.62 0 2.91 1.23 3.05 2.73l.56 6.09ZM4 8H3M21 8h-1M12 3v2M10.5 5h3M6 15h3M15 15h3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <h1 style="margin: 0; text-align: center; font-size: 20px; line-height: 28px; font-weight: 700">ما فيه سائق متاح الحين</h1>
+    <p style="margin: 0 0 8px; text-align: center; font-size: 14px; line-height: 20px; color: #5B6766">كل السائقين القريبين مشغولين. جرّب بعد شوي، أو اختر نوع رحلة ثاني.</p>
+    <button type="button" style="height: 56px; width: 100%; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-size: 16px; font-weight: 500; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M22 12c0 5.52-4.48 10-10 10s-8.89-5.56-8.89-5.56m0 0h4.52m-4.52 0v5M2 12C2 6.48 6.44 2 12 2c6.67 0 10 5.56 10 5.56m0 0v-5m0 5h-4.44"/></svg>جرّب مرة ثانية</button>
+    <button type="button" style="height: 56px; width: 100%; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font: inherit; font-size: 16px; font-weight: 500; cursor: pointer">غيّر نوع الرحلة</button>
+    <button type="button" style="height: 44px; align-self: center; border: none; background: none; padding: 0 12px; font: inherit; font-size: 16px; font-weight: 500; color: #5B6766; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">رجوع للرئيسية</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { no: false };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>رمز التحقق · رمز غلط</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="height: 56px; display: flex; align-items: center; padding: 0 16px">
+    <button type="button" aria-label="رجوع" style="width: 40px; height: 40px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></button>
+  </div>
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 24px; padding: 8px 24px 0">
+    <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start">
+      <h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">أدخل رمز التحقق</h1>
+      <p style="margin: 0; font-size: 16px; line-height: 24px; color: #5B6766">أرسلنا رمز من 4 أرقام على <span dir="ltr" style="display: inline-block; color: #1B2B2B; font-weight: 500">+966 50 123 4567</span></p>
+      <button type="button" style="margin-top: 4px; border: none; background: none; padding: 0; font: inherit; font-size: 14px; font-weight: 500; color: #0F6E6E; text-decoration: underline; text-underline-offset: 4px; display: inline-flex; align-items: center; gap: 6px; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13.26 3.6-8.21 8.69c-.31.33-.61.98-.67 1.43l-.37 3.24c-.13 1.17.71 1.97 1.87 1.77l3.22-.55c.45-.08 1.08-.41 1.39-.75l8.21-8.69c1.42-1.5 2.06-3.21-.15-5.3-2.2-2.07-3.87-1.34-5.29.16Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.89 5.05a6.126 6.126 0 0 0 5.45 5.15M3 22h18" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>تعديل الرقم</button>
+    </div>
+    <div dir="ltr" style="display: flex; gap: 12px; justify-content: center">
+      <input aria-label="رقم 1" aria-invalid="true" inputmode="numeric" maxlength="1" value="4" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid #C53030; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
+      <input aria-label="رقم 2" aria-invalid="true" inputmode="numeric" maxlength="1" value="8" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid #C53030; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
+      <input aria-label="رقم 3" aria-invalid="true" inputmode="numeric" maxlength="1" value="2" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid #C53030; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
+      <input aria-label="رقم 4" aria-invalid="true" inputmode="numeric" maxlength="1" value="7" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid #C53030; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
+    </div>
+    <p role="alert" style="margin: 0; min-height: 24px; display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; color: #C53030"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM12 8v5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.995 16h.009" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>الرمز غلط، جرّب مرة ثانية. باقي لك 3 محاولات.</p>
+    <p style="margin: 0; text-align: center; font-size: 14px; line-height: 20px; color: #5B6766">إعادة إرسال الرمز بعد <b dir="ltr" style="display: inline-block; color: #1B2B2B; font-weight: 500">00:21</b></p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
