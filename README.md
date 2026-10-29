@@ -16,7 +16,9 @@
 
 ## تشغيل البروتوتايب
 
-افتح `ui/index.html` في المتصفح. ولأي شاشة معيّنة ضيف رقمها في آخر الرابط، مثلاً `index.html#C-10e`.
+أونلاين: **https://maiisaleh1001-coder.github.io/mishwar-customer-app/**
+
+أو افتح `ui/index.html` في المتصفح. ولأي شاشة معيّنة ضيف رقمها في آخر الرابط، مثلاً `index.html#C-10e`.
 
 ## ملاحظات
 
