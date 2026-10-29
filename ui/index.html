@@ -37,7 +37,7 @@ button{cursor:pointer;background:none;border:none}
 /* ===== Shell ===== */
 .shell{display:grid;grid-template-columns:1fr;height:100vh;overflow:hidden}
 /* قايمة الشاشات ولوحة الديمو مخفيين: الموبايل لوحده في النص */
-.side,.demo{display:none;background:#fff;overflow-y:auto;padding:20px 16px}
+.side,.demo{display:none!important;background:#fff;overflow-y:auto;padding:20px 16px}
 .side{border-left:1px solid var(--line)}
 .demo{border-right:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
 .side h1{font-size:16px;font-weight:700}
@@ -271,9 +271,9 @@ button{cursor:pointer;background:none;border:none}
 .scr.cv .btn-busy{opacity:.7;pointer-events:none}
 body.hot [data-go],body.hot [data-act]{outline:2px dashed #3DADFF;outline-offset:2px}
 @media (max-width:1100px){
-  .shell{grid-template-columns:1fr;height:auto;min-height:100vh;overflow:visible}
+  .shell{grid-template-columns:1fr;height:100vh;overflow:hidden}
   .side{max-height:220px;border-left:none;border-bottom:1px solid var(--line)}
-  .stage{padding:16px 0;overflow:visible}
+  .stage{padding:8px 0;overflow:hidden}
   .demo{border-right:none;border-top:1px solid var(--line)}
 }
 </style>
