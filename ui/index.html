@@ -3288,7 +3288,7 @@ const fmtPhone=d=>{d=d.replace(/\D/g,'').slice(0,9);return [d.slice(0,2),d.slice
 const digits=v=>(v||'').replace(/\D/g,'');
 
 /* ===== Screens: M1 ===== */
-reg('C-01','Splash',()=>`<div class="scr" style="background:var(--primary)">${sb(true)}<div class="body" style="align-items:center;justify-content:center;gap:16px">${logoMark(88)}<div class="dxl" style="color:#fff">مشوار</div><div style="color:rgba(255,255,255,.75);font-size:16px">توصيل · طرود · مرافق · معاملات</div></div><div style="text-align:center;color:rgba(255,255,255,.55);font-size:12px;padding-bottom:6px">اسم ولوجو مؤقتين</div>${hi(true)}</div>`,{auto:[1800,'C-02a'],next:'C-02a'});
+reg('C-01','Splash',()=>`<div class="scr" style="background:var(--primary)">${sb(true)}<div class="body" style="align-items:center;justify-content:center;gap:16px">${logoMark(88)}<div class="dxl" style="color:#fff">مشوار</div><div style="color:rgba(255,255,255,.75);font-size:16px">توصيل · طرود · مرافق · معاملات</div></div><div style="text-align:center;color:rgba(255,255,255,.55);font-size:12px;padding-bottom:6px">اسم ولوجو مؤقتين</div>${hi(true)}</div>`,{auto:[3500,'C-02a'],next:'C-02a'});
 
 // Onboarding شاشة واحدة: أيقونات الخدمات 3D من Magnific (family «Gradient Isometric Gradient») حوالين اللوجو
 // [الأيقونة، المقاس، x، y] جوه مساحة 342×400 زي الـ Canvas بالظبط
