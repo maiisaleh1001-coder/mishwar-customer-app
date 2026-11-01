@@ -20,6 +20,9 @@
 
 أونلاين: **https://maiisaleh1001-coder.github.io/mishwar-customer-app/**
 
+بروتوتايب مقدم الخدمة: **https://maiisaleh1001-coder.github.io/mishwar-customer-app/ui/provider.html**
+(بيتولّد من `provider-canvas` بالسكريبت `ui/build-provider-screens.ps1`، فبعد أي تعديل في الـ Canvas شغّله تاني.)
+
 أو افتح `ui/index.html` في المتصفح. ولأي شاشة معيّنة ضيف رقمها في آخر الرابط، مثلاً `index.html#C-10e`.
 
 ## ملاحظات
