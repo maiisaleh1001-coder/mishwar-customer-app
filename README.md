@@ -7,7 +7,7 @@
 | المسار | فيه إيه |
 |---|---|
 | `design-canvas/project/` | شاشات التصميم (`*.dc.html`) وترتيبها على الـ Canvas (`canvas.json`) |
-| `provider-canvas/project/` | شاشات تطبيق مقدم الخدمة (P-xx، 94 شاشة) على Canvas منفصل |
+| `provider-canvas/project/` | شاشات تطبيق مقدم الخدمة (P-xx، 101 شاشة) على Canvas منفصل |
 | `ui/index.html` | بروتوتايب تفاعلي فيه كل الشاشات، يفتح في المتصفح مباشرة |
 | `ui/UI-GUIDELINES.md` | الألوان والخطوط والمسافات والـ Components وقواعد الكتابة (لهجة سعودية بيضاء) |
 | `ui/a11y-report.md` | مراجعة Accessibility على WCAG 2.2 AA |
@@ -21,6 +21,7 @@
 أونلاين: **https://maiisaleh1001-coder.github.io/mishwar-customer-app/**
 
 بروتوتايب مقدم الخدمة: **https://maiisaleh1001-coder.github.io/mishwar-customer-app/ui/provider.html**
+فيه فهرس بكل الشاشات حسب الـ Flow، و16 مسار كامل للمراجعة، و«أحداث من النظام» للحالات اللي تصير من العميل أو الإدارة (عرض جديد، اعتماد الحساب، العميل لغى...). وزرار «أظهر الأزرار وين توديك» يبيّن كل زرار يودّي لشاشة أو للعرض بس.
 (بيتولّد من `provider-canvas` بالسكريبت `ui/build-provider-screens.ps1`، فبعد أي تعديل في الـ Canvas شغّله تاني.)
 
 أو افتح `ui/index.html` في المتصفح. ولأي شاشة معيّنة ضيف رقمها في آخر الرابط، مثلاً `index.html#C-10e`.

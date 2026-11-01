@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>تأكيد الرفض</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 1000px; position: relative; overflow: hidden; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif">
+  <dc-import name="P51-Scheduled-Details" hint-size="390px,1000px"></dc-import>
+  <span style="position: absolute; inset: 0; background: rgba(27, 43, 43, 0.48)"></span>
+  <div role="dialog" aria-modal="true" aria-labelledby="dec-title" style="position: absolute; left: 0; right: 0; bottom: 0; border-radius: 24px 24px 0 0; background: #FFFFFF; padding: 12px 24px 40px; display: flex; flex-direction: column; gap: 12px">
+    <span style="align-self: center; width: 40px; height: 4px; border-radius: 2px; background: #E4E9E8"></span>
+    <h2 id="dec-title" style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 700">ترفض هذا الطلب؟</h2>
+    <p style="margin: 0 0 8px; font-size: 14px; line-height: 22px; color: #5B6766">ما عليك أي أثر، والطلب يروح لمقدم خدمة ثاني. ما تقدر ترجع تقبله بعدها.</p>
+    <a href="P55-Scheduled-Requests.dc.html" style="height: 56px; border-radius: 999px; background: #FCEDED; color: #B42828; font-size: 16px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center">ارفض الطلب</a>
+    <a href="P51-Scheduled-Details.dc.html" style="height: 56px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">تراجع</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

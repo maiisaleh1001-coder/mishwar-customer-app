@@ -1,106 +1,875 @@
 {
   "v": 3,
-  "createdOnFiles": {"v": 1, "at": "2026-11-01T12:00:00Z"},
-  "title": "مشوار · تطبيق مقدم الخدمة",
-  "launch": {"view": "canvas"},
-  "pages": [],
+  "attachments": {},
   "boards": {
-    "Main.dc.html": {"x": 0, "y": 0, "w": 390, "h": 844, "title": "P-01 · Splash"},
-    "P02-Welcome.dc.html": {"x": 470, "y": 0, "w": 390, "h": 844, "title": "P-02 · أهلاً بك"},
-    "P03-Phone.dc.html": {"x": 940, "y": 0, "w": 390, "h": 844, "title": "P-03 · رقم الجوال"},
-    "P04-OTP.dc.html": {"x": 1410, "y": 0, "w": 390, "h": 844, "title": "P-04 · رمز التحقق"},
-    "P05-Create-Account.dc.html": {"x": 1880, "y": 0, "w": 390, "h": 1000, "title": "P-05 · إنشاء الحساب واختيار الخدمات"},
-    "P10-Activation-Steps.dc.html": {"x": 0, "y": 1450, "w": 390, "h": 844, "title": "P-10 · خطوات التفعيل"},
-    "P11-Personal-Info.dc.html": {"x": 470, "y": 1450, "w": 390, "h": 1040, "title": "P-11 · البيانات الشخصية"},
-    "P12-ID-Photo.dc.html": {"x": 940, "y": 1450, "w": 390, "h": 960, "title": "P-12 · الهوية والصورة الشخصية"},
-    "P13-Service-Ride.dc.html": {"x": 1410, "y": 1450, "w": 390, "h": 1300, "title": "P-13 · بيانات توصيل الأفراد"},
-    "P14-Service-Parcel.dc.html": {"x": 1880, "y": 1450, "w": 390, "h": 1000, "title": "P-14 · بيانات توصيل الطرود"},
-    "P15-Service-Companion.dc.html": {"x": 2350, "y": 1450, "w": 390, "h": 1000, "title": "P-15 · بيانات المرافق الشخصي"},
-    "P16-Service-Gov.dc.html": {"x": 2820, "y": 1450, "w": 390, "h": 1040, "title": "P-16 · بيانات المعاملات الحكومية"},
-    "P17-Review-Submit.dc.html": {"x": 3290, "y": 1450, "w": 390, "h": 1000, "title": "P-17 · المراجعة والإرسال"},
-    "P18-Upload-Sheet.dc.html": {"x": 3760, "y": 1450, "w": 390, "h": 844, "title": "P-18 · رفع مستند"},
-    "P20-Under-Review.dc.html": {"x": 0, "y": 3200, "w": 390, "h": 844, "title": "P-20 · قيد المراجعة"},
-    "P21-Needs-Changes.dc.html": {"x": 470, "y": 3200, "w": 390, "h": 900, "title": "P-21 · يحتاج استكمال"},
-    "P22-Rejected.dc.html": {"x": 940, "y": 3200, "w": 390, "h": 844, "title": "P-22 · مرفوض"},
-    "P23-Suspended.dc.html": {"x": 1410, "y": 3200, "w": 390, "h": 844, "title": "P-23 · موقوف"},
-    "P24-Approved.dc.html": {"x": 1880, "y": 3200, "w": 390, "h": 844, "title": "P-24 · اتعتمد حسابك"},
-    "P30-Home-Available.dc.html": {"x": 0, "y": 4500, "w": 390, "h": 844, "title": "P-30 · الرئيسية · متاح"},
-    "P30a-Home-Offline.dc.html": {"x": 470, "y": 4500, "w": 390, "h": 844, "title": "P-30a · الرئيسية · غير متاح"},
-    "P30c-Home-Busy.dc.html": {"x": 940, "y": 4500, "w": 390, "h": 844, "title": "P-30c · الرئيسية · مشغول"},
-    "P31-Activate-Blocked.dc.html": {"x": 1410, "y": 4500, "w": 390, "h": 844, "title": "P-31 · ما تقدر تصير متاح"},
-    "P32-Location-Permission.dc.html": {"x": 1880, "y": 4500, "w": 390, "h": 844, "title": "P-32 · إذن الموقع"},
-    "P40-My-Services.dc.html": {"x": 0, "y": 5800, "w": 390, "h": 1000, "title": "P-40 · خدماتي"},
-    "P42-Service-Suspended.dc.html": {"x": 470, "y": 5800, "w": 390, "h": 844, "title": "P-42 · خدمة موقوفة"},
-    "P50-Offer-Ride.dc.html": {"x": 0, "y": 7250, "w": 390, "h": 844, "title": "P-50 · عرض رحلة"},
-    "P50p-Offer-Parcel.dc.html": {"x": 470, "y": 7250, "w": 390, "h": 844, "title": "P-50p · عرض طرد"},
-    "P52-Offer-Missed.dc.html": {"x": 940, "y": 7250, "w": 390, "h": 844, "title": "P-52 · العرض راح"},
-    "P55-Scheduled-Requests.dc.html": {"x": 1410, "y": 7250, "w": 390, "h": 844, "title": "P-55 · طلبات مجدولة جديدة"},
-    "P51-Scheduled-Details.dc.html": {"x": 1880, "y": 7250, "w": 390, "h": 1000, "title": "P-51 · تفاصيل طلب مجدول"},
-    "P53-Schedule-Conflict.dc.html": {"x": 2350, "y": 7250, "w": 390, "h": 1000, "title": "P-53 · تعارض موعد"},
-    "P60-Ride-To-Customer.dc.html": {"x": 0, "y": 8700, "w": 390, "h": 844, "title": "P-60 · في الطريق للعميل"},
-    "P61-Ride-Arrived.dc.html": {"x": 470, "y": 8700, "w": 390, "h": 844, "title": "P-61 · وصلت · انتظار مجاني"},
-    "P61b-Ride-Waiting-Paid.dc.html": {"x": 940, "y": 8700, "w": 390, "h": 844, "title": "P-61b · انتظار برسوم"},
-    "P64-Ride-No-Show.dc.html": {"x": 1410, "y": 8700, "w": 390, "h": 844, "title": "P-64 · العميل ما حضر"},
-    "P65-Cancel-Reason.dc.html": {"x": 1880, "y": 8700, "w": 390, "h": 844, "title": "P-65 · إلغاء من مقدم الخدمة"},
-    "P66-Customer-Cancelled.dc.html": {"x": 2350, "y": 8700, "w": 390, "h": 844, "title": "P-66 · العميل ألغى"},
-    "P62-Ride-In-Progress.dc.html": {"x": 2820, "y": 8700, "w": 390, "h": 844, "title": "P-62 · الرحلة جارية"},
-    "P62e-Ride-End-Confirm.dc.html": {"x": 3290, "y": 8700, "w": 390, "h": 844, "title": "P-62e · تأكيد إنهاء الرحلة"},
-    "P63-Ride-Summary.dc.html": {"x": 3760, "y": 8700, "w": 390, "h": 1000, "title": "P-63 · ملخص الرحلة"},
-    "P67-Report-Problem.dc.html": {"x": 0, "y": 10300, "w": 390, "h": 900, "title": "P-67 · بلّغ عن مشكلة (تعذّر التنفيذ)"},
-    "P68-Report-Sent.dc.html": {"x": 470, "y": 10300, "w": 390, "h": 844, "title": "P-68 · وصلنا البلاغ"},
-    "P110-Chat.dc.html": {"x": 940, "y": 10300, "w": 390, "h": 844, "title": "P-110 · المحادثة"},
-    "P111-Chat-Closed.dc.html": {"x": 1410, "y": 10300, "w": 390, "h": 844, "title": "P-111 · المحادثة مقفلة"},
-    "P120-My-Orders.dc.html": {"x": 0, "y": 11750, "w": 390, "h": 900, "title": "P-120 · طلباتي · مكتملة"},
-    "P120e-Orders-Empty.dc.html": {"x": 470, "y": 11750, "w": 390, "h": 844, "title": "P-120e · طلباتي · ما فيه قادمة"},
-    "P121-Order-Details.dc.html": {"x": 940, "y": 11750, "w": 390, "h": 1100, "title": "P-121 · تفاصيل طلب مكتمل"},
-    "P122-Order-Cancelled.dc.html": {"x": 1410, "y": 11750, "w": 390, "h": 844, "title": "P-122 · تفاصيل طلب ملغى"},
-    "P70-Parcel-To-Pickup.dc.html": {"x": 0, "y": 13300, "w": 390, "h": 844, "title": "P-70 · في الطريق للاستلام"},
-    "P71-Parcel-Pickup.dc.html": {"x": 470, "y": 13300, "w": 390, "h": 960, "title": "P-71 · عند الاستلام (صورة + مطابقة)"},
-    "P72-Parcel-To-Dropoff.dc.html": {"x": 940, "y": 13300, "w": 390, "h": 844, "title": "P-72 · في الطريق للتسليم"},
-    "P73-Parcel-Dropoff.dc.html": {"x": 1410, "y": 13300, "w": 390, "h": 900, "title": "P-73 · عند التسليم (صورة)"},
-    "P74-Parcel-Summary.dc.html": {"x": 1880, "y": 13300, "w": 390, "h": 900, "title": "P-74 · ملخص التوصيل"},
-    "P75-Parcel-Pickup-Failed.dc.html": {"x": 2350, "y": 13300, "w": 390, "h": 960, "title": "P-75 · تعذّر الاستلام"},
-    "P76-Parcel-Delivery-Failed.dc.html": {"x": 2820, "y": 13300, "w": 390, "h": 900, "title": "P-76 · تعذّر التسليم · قرار الإدارة"},
-    "P77-Parcel-Return.dc.html": {"x": 3290, "y": 13300, "w": 390, "h": 900, "title": "P-77 · إرجاع الطرد للمرسل"},
-    "P80-Companion-Booking.dc.html": {"x": 0, "y": 14800, "w": 390, "h": 1000, "title": "P-80 · تفاصيل الحجز القادم"},
-    "P81-Companion-On-The-Way.dc.html": {"x": 470, "y": 14800, "w": 390, "h": 844, "title": "P-81 · في الطريق للمستفيد"},
-    "P82-Companion-Arrived.dc.html": {"x": 940, "y": 14800, "w": 390, "h": 844, "title": "P-82 · وصلت قبل الموعد"},
-    "P83-Companion-In-Progress.dc.html": {"x": 1410, "y": 14800, "w": 390, "h": 900, "title": "P-83 · المرافقة جارية"},
-    "P87-Extension-Request.dc.html": {"x": 1880, "y": 14800, "w": 390, "h": 900, "title": "P-87 · طلب تمديد"},
-    "P87a-Extension-Conflict.dc.html": {"x": 2350, "y": 14800, "w": 390, "h": 900, "title": "P-87a · تمديد يتعارض"},
-    "P88-Extension-Accepted.dc.html": {"x": 2820, "y": 14800, "w": 390, "h": 900, "title": "P-88 · بعد قبول التمديد"},
-    "P84-Companion-Time-Up.dc.html": {"x": 3290, "y": 14800, "w": 390, "h": 900, "title": "P-84 · خلصت المدة"},
-    "P85-Companion-End-Confirm.dc.html": {"x": 3760, "y": 14800, "w": 390, "h": 900, "title": "P-85 · تأكيد الإنهاء بدري"},
-    "P86-Companion-Summary.dc.html": {"x": 4230, "y": 14800, "w": 390, "h": 1000, "title": "P-86 · ملخص المرافقة"},
-    "P90-Gov-Details.dc.html": {"x": 0, "y": 16300, "w": 390, "h": 1040, "title": "P-90 · تفاصيل المعاملة"},
-    "P91-Gov-Document.dc.html": {"x": 470, "y": 16300, "w": 390, "h": 844, "title": "P-91 · عرض مستند"},
-    "P92-Gov-Originals.dc.html": {"x": 940, "y": 16300, "w": 390, "h": 900, "title": "P-92 · استلمت المستندات"},
-    "P93-Gov-Start.dc.html": {"x": 1410, "y": 16300, "w": 390, "h": 844, "title": "P-93 · بدء التنفيذ"},
-    "P94-Gov-In-Progress.dc.html": {"x": 1880, "y": 16300, "w": 390, "h": 900, "title": "P-94 · جاري التنفيذ"},
-    "P94s-Gov-Status-Sheet.dc.html": {"x": 2350, "y": 16300, "w": 390, "h": 900, "title": "P-94s · تحديث الحالة"},
-    "P95-Gov-Completed.dc.html": {"x": 2820, "y": 16300, "w": 390, "h": 1040, "title": "P-95 · إنجاز المعاملة والرسوم"},
-    "P96-Gov-Handover.dc.html": {"x": 3290, "y": 16300, "w": 390, "h": 900, "title": "P-96 · تسليم المستندات"},
-    "P97-Gov-Summary.dc.html": {"x": 3760, "y": 16300, "w": 390, "h": 1000, "title": "P-97 · ملخص المعاملة"},
-    "P98-Gov-Failed.dc.html": {"x": 4230, "y": 16300, "w": 390, "h": 1000, "title": "P-98 · تعذّر الإنجاز"},
-    "P130-Earnings.dc.html": {"x": 0, "y": 17850, "w": 390, "h": 1000, "title": "P-130 · الأرباح"},
-    "P140-Wallet.dc.html": {"x": 470, "y": 17850, "w": 390, "h": 1000, "title": "P-140 · المحفظة"},
-    "P140e-Wallet-No-Bank.dc.html": {"x": 940, "y": 17850, "w": 390, "h": 844, "title": "P-140e · ما فيه حساب بنكي"},
-    "P141-Withdraw.dc.html": {"x": 1410, "y": 17850, "w": 390, "h": 844, "title": "P-141 · طلب سحب"},
-    "P141e-Withdraw-Error.dc.html": {"x": 1880, "y": 17850, "w": 390, "h": 844, "title": "P-141e · المبلغ أكثر من الرصيد"},
-    "P144-Withdraw-Sent.dc.html": {"x": 2350, "y": 17850, "w": 390, "h": 844, "title": "P-144 · وصلنا طلب السحب"},
-    "P143-Withdrawals.dc.html": {"x": 2820, "y": 17850, "w": 390, "h": 900, "title": "P-143 · طلبات السحب"},
-    "P142-Bank-Account.dc.html": {"x": 3290, "y": 17850, "w": 390, "h": 900, "title": "P-142 · الحساب البنكي"},
-    "P170-Profile.dc.html": {"x": 0, "y": 19300, "w": 390, "h": 1100, "title": "P-170 · حسابي"},
-    "P171-Edit-Profile.dc.html": {"x": 470, "y": 19300, "w": 390, "h": 900, "title": "P-171 · البيانات الشخصية"},
-    "P173-Documents.dc.html": {"x": 940, "y": 19300, "w": 390, "h": 900, "title": "P-173 · مستنداتي"},
-    "P174-Vehicle.dc.html": {"x": 1410, "y": 19300, "w": 390, "h": 900, "title": "P-174 · المركبة · تعديل قيد المراجعة"},
-    "P150-Ratings.dc.html": {"x": 1880, "y": 19300, "w": 390, "h": 1000, "title": "P-150 · التقييمات"},
-    "P160-Notifications.dc.html": {"x": 2350, "y": 19300, "w": 390, "h": 1000, "title": "P-160 · الإشعارات"},
-    "P184-Contact.dc.html": {"x": 2820, "y": 19300, "w": 390, "h": 1000, "title": "P-184 · تواصل معنا"},
-    "P190-Logout.dc.html": {"x": 3290, "y": 19300, "w": 390, "h": 844, "title": "P-190 · تسجيل الخروج"},
-    "P178-Delete-Blocked.dc.html": {"x": 3760, "y": 19300, "w": 390, "h": 900, "title": "P-178 · حذف الحساب (ممنوع الحين)"},
-    "P-Map.dc.html": {"x": 0, "y": 20900, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
-    "P-Bottom-Nav.dc.html": {"x": 470, "y": 20900, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
+    "Main.dc.html": {
+      "h": 844,
+      "title": "P-01 · Splash",
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "P-Bottom-Nav.dc.html": {
+      "h": 104,
+      "title": "مكوّن · شريط التنقل",
+      "w": 390,
+      "x": 470,
+      "y": 20900
+    },
+    "P-Map.dc.html": {
+      "h": 844,
+      "title": "مكوّن · خريطة مقدم الخدمة",
+      "w": 390,
+      "x": 0,
+      "y": 20900
+    },
+    "P02-Welcome.dc.html": {
+      "h": 844,
+      "title": "P-02 · أهلاً بك",
+      "w": 390,
+      "x": 470,
+      "y": 0
+    },
+    "P03-Phone.dc.html": {
+      "h": 844,
+      "title": "P-03 · رقم الجوال",
+      "w": 390,
+      "x": 940,
+      "y": 0
+    },
+    "P04-OTP.dc.html": {
+      "h": 844,
+      "title": "P-04 · رمز التحقق",
+      "w": 390,
+      "x": 1410,
+      "y": 0
+    },
+    "P05-Create-Account.dc.html": {
+      "h": 1000,
+      "title": "P-05 · إنشاء الحساب واختيار الخدمات",
+      "w": 390,
+      "x": 1880,
+      "y": 0
+    },
+    "P10-Activation-Steps.dc.html": {
+      "h": 844,
+      "title": "P-10 · خطوات التفعيل",
+      "w": 390,
+      "x": 0,
+      "y": 1450
+    },
+    "P11-Personal-Info.dc.html": {
+      "h": 1040,
+      "title": "P-11 · البيانات الشخصية",
+      "w": 390,
+      "x": 470,
+      "y": 1450
+    },
+    "P110-Chat.dc.html": {
+      "h": 844,
+      "title": "P-110 · المحادثة",
+      "w": 390,
+      "x": 940,
+      "y": 10300
+    },
+    "P111-Chat-Closed.dc.html": {
+      "h": 844,
+      "title": "P-111 · المحادثة مقفلة",
+      "w": 390,
+      "x": 1410,
+      "y": 10300
+    },
+    "P12-ID-Photo.dc.html": {
+      "h": 960,
+      "title": "P-12 · الهوية والصورة الشخصية",
+      "w": 390,
+      "x": 940,
+      "y": 1450
+    },
+    "P120-My-Orders.dc.html": {
+      "h": 900,
+      "title": "P-120 · طلباتي · مكتملة",
+      "w": 390,
+      "x": 0,
+      "y": 11750
+    },
+    "P120e-Orders-Empty.dc.html": {
+      "h": 844,
+      "title": "P-120e · طلباتي · ما فيه قادمة",
+      "w": 390,
+      "x": 470,
+      "y": 11750
+    },
+    "P121-Order-Details.dc.html": {
+      "h": 1100,
+      "title": "P-121 · تفاصيل طلب مكتمل",
+      "w": 390,
+      "x": 940,
+      "y": 11750
+    },
+    "P122-Order-Cancelled.dc.html": {
+      "h": 844,
+      "title": "P-122 · تفاصيل طلب ملغى",
+      "w": 390,
+      "x": 1410,
+      "y": 11750
+    },
+    "P13-Service-Ride.dc.html": {
+      "h": 1300,
+      "title": "P-13 · بيانات توصيل الأفراد",
+      "w": 390,
+      "x": 1410,
+      "y": 1450
+    },
+    "P130-Earnings.dc.html": {
+      "h": 1000,
+      "title": "P-130 · الأرباح",
+      "w": 390,
+      "x": 0,
+      "y": 17850
+    },
+    "P14-Service-Parcel.dc.html": {
+      "h": 1000,
+      "title": "P-14 · بيانات توصيل الطرود",
+      "w": 390,
+      "x": 1880,
+      "y": 1450
+    },
+    "P140-Wallet.dc.html": {
+      "h": 1000,
+      "title": "P-140 · المحفظة",
+      "w": 390,
+      "x": 470,
+      "y": 17850
+    },
+    "P140e-Wallet-No-Bank.dc.html": {
+      "h": 844,
+      "title": "P-140e · ما فيه حساب بنكي",
+      "w": 390,
+      "x": 940,
+      "y": 17850
+    },
+    "P141-Withdraw.dc.html": {
+      "h": 844,
+      "title": "P-141 · طلب سحب",
+      "w": 390,
+      "x": 1410,
+      "y": 17850
+    },
+    "P141e-Withdraw-Error.dc.html": {
+      "h": 844,
+      "title": "P-141e · المبلغ أكثر من الرصيد",
+      "w": 390,
+      "x": 1880,
+      "y": 17850
+    },
+    "P142-Bank-Account.dc.html": {
+      "h": 900,
+      "title": "P-142 · الحساب البنكي",
+      "w": 390,
+      "x": 3290,
+      "y": 17850
+    },
+    "P142o-Bank-OTP.dc.html": {
+      "h": 844,
+      "title": "P-142 · رمز تأكيد الحساب البنكي",
+      "w": 390,
+      "x": 3760,
+      "y": 17850
+    },
+    "P143-Withdrawals.dc.html": {
+      "h": 900,
+      "title": "P-143 · طلبات السحب",
+      "w": 390,
+      "x": 2820,
+      "y": 17850
+    },
+    "P144-Withdraw-Sent.dc.html": {
+      "h": 844,
+      "title": "P-144 · وصلنا طلب السحب",
+      "w": 390,
+      "x": 2350,
+      "y": 17850
+    },
+    "P15-Service-Companion.dc.html": {
+      "h": 1000,
+      "title": "P-15 · بيانات المرافق الشخصي",
+      "w": 390,
+      "x": 2350,
+      "y": 1450
+    },
+    "P150-Ratings.dc.html": {
+      "h": 1000,
+      "title": "P-150 · التقييمات",
+      "w": 390,
+      "x": 1880,
+      "y": 19300
+    },
+    "P16-Service-Gov.dc.html": {
+      "h": 1040,
+      "title": "P-16 · بيانات المعاملات الحكومية",
+      "w": 390,
+      "x": 2820,
+      "y": 1450
+    },
+    "P160-Notifications.dc.html": {
+      "h": 1000,
+      "title": "P-160 · الإشعارات",
+      "w": 390,
+      "x": 2350,
+      "y": 19300
+    },
+    "P17-Review-Submit.dc.html": {
+      "h": 1000,
+      "title": "P-17 · المراجعة والإرسال",
+      "w": 390,
+      "x": 3290,
+      "y": 1450
+    },
+    "P170-Profile.dc.html": {
+      "h": 1100,
+      "title": "P-170 · حسابي",
+      "w": 390,
+      "x": 0,
+      "y": 19300
+    },
+    "P171-Edit-Profile.dc.html": {
+      "h": 900,
+      "title": "P-171 · البيانات الشخصية",
+      "w": 390,
+      "x": 470,
+      "y": 19300
+    },
+    "P173-Documents.dc.html": {
+      "h": 900,
+      "title": "P-173 · مستنداتي",
+      "w": 390,
+      "x": 940,
+      "y": 19300
+    },
+    "P174-Vehicle.dc.html": {
+      "h": 900,
+      "title": "P-174 · المركبة · تعديل قيد المراجعة",
+      "w": 390,
+      "x": 1410,
+      "y": 19300
+    },
+    "P178-Delete-Blocked.dc.html": {
+      "h": 900,
+      "title": "P-178 · حذف الحساب (ممنوع الحين)",
+      "w": 390,
+      "x": 5640,
+      "y": 19300
+    },
+    "P18-Upload-Sheet.dc.html": {
+      "h": 844,
+      "title": "P-18 · رفع مستند",
+      "w": 390,
+      "x": 3760,
+      "y": 1450
+    },
+    "P184-Contact.dc.html": {
+      "h": 1000,
+      "title": "P-184 · تواصل معنا",
+      "w": 390,
+      "x": 2820,
+      "y": 19300
+    },
+    "P185-Contact-Sent.dc.html": {
+      "h": 844,
+      "title": "P-185 · رسالتك وصلت",
+      "w": 390,
+      "x": 3290,
+      "y": 19300
+    },
+    "P180-Terms.dc.html": {
+      "h": 900,
+      "title": "P-180 · الشروط والخصوصية",
+      "w": 390,
+      "x": 3760,
+      "y": 19300
+    },
+    "P182-FAQ.dc.html": {
+      "h": 900,
+      "title": "P-182 · الأسئلة الشائعة",
+      "w": 390,
+      "x": 4230,
+      "y": 19300
+    },
+    "P183-Language.dc.html": {
+      "h": 844,
+      "title": "P-183 · اللغة",
+      "w": 390,
+      "x": 4700,
+      "y": 19300
+    },
+    "P190-Logout.dc.html": {
+      "h": 844,
+      "title": "P-190 · تسجيل الخروج",
+      "w": 390,
+      "x": 5170,
+      "y": 19300
+    },
+    "P20-Under-Review.dc.html": {
+      "h": 844,
+      "title": "P-20 · قيد المراجعة",
+      "w": 390,
+      "x": 0,
+      "y": 3200
+    },
+    "P21-Needs-Changes.dc.html": {
+      "h": 900,
+      "title": "P-21 · يحتاج استكمال",
+      "w": 390,
+      "x": 470,
+      "y": 3200
+    },
+    "P22-Rejected.dc.html": {
+      "h": 844,
+      "title": "P-22 · مرفوض",
+      "w": 390,
+      "x": 940,
+      "y": 3200
+    },
+    "P23-Suspended.dc.html": {
+      "h": 844,
+      "title": "P-23 · موقوف",
+      "w": 390,
+      "x": 1410,
+      "y": 3200
+    },
+    "P24-Approved.dc.html": {
+      "h": 844,
+      "title": "P-24 · اتعتمد حسابك",
+      "w": 390,
+      "x": 1880,
+      "y": 3200
+    },
+    "P30-Home-Available.dc.html": {
+      "h": 844,
+      "title": "P-30 · الرئيسية · متاح",
+      "w": 390,
+      "x": 0,
+      "y": 4500
+    },
+    "P30a-Home-Offline.dc.html": {
+      "h": 844,
+      "title": "P-30a · الرئيسية · غير متاح",
+      "w": 390,
+      "x": 470,
+      "y": 4500
+    },
+    "P30c-Home-Busy.dc.html": {
+      "h": 844,
+      "title": "P-30c · الرئيسية · مشغول",
+      "w": 390,
+      "x": 940,
+      "y": 4500
+    },
+    "P31-Activate-Blocked.dc.html": {
+      "h": 844,
+      "title": "P-31 · ما تقدر تصير متاح",
+      "w": 390,
+      "x": 1410,
+      "y": 4500
+    },
+    "P32-Location-Permission.dc.html": {
+      "h": 844,
+      "title": "P-32 · إذن الموقع",
+      "w": 390,
+      "x": 1880,
+      "y": 4500
+    },
+    "P40-My-Services.dc.html": {
+      "h": 1000,
+      "title": "P-40 · خدماتي",
+      "w": 390,
+      "x": 0,
+      "y": 5800
+    },
+    "P42-Service-Suspended.dc.html": {
+      "h": 844,
+      "title": "P-42 · خدمة موقوفة",
+      "w": 390,
+      "x": 470,
+      "y": 5800
+    },
+    "P50-Offer-Ride.dc.html": {
+      "h": 844,
+      "title": "P-50 · عرض رحلة",
+      "w": 390,
+      "x": 0,
+      "y": 7250
+    },
+    "P50p-Offer-Parcel.dc.html": {
+      "h": 844,
+      "title": "P-50p · عرض طرد",
+      "w": 390,
+      "x": 470,
+      "y": 7250
+    },
+    "P51-Scheduled-Details.dc.html": {
+      "h": 1000,
+      "title": "P-51 · تفاصيل طلب مجدول",
+      "w": 390,
+      "x": 1880,
+      "y": 7250
+    },
+    "P51g-Gov-Offer.dc.html": {
+      "h": 1000,
+      "title": "P-51 · عرض معاملة قبل القبول",
+      "w": 390,
+      "x": 2350,
+      "y": 7250
+    },
+    "P54-Decline-Confirm.dc.html": {
+      "h": 1000,
+      "title": "P-54 · تأكيد الرفض",
+      "w": 390,
+      "x": 2820,
+      "y": 7250
+    },
+    "P52-Offer-Missed.dc.html": {
+      "h": 844,
+      "title": "P-52 · العرض راح",
+      "w": 390,
+      "x": 940,
+      "y": 7250
+    },
+    "P53-Schedule-Conflict.dc.html": {
+      "h": 1000,
+      "title": "P-53 · تعارض موعد",
+      "w": 390,
+      "x": 3290,
+      "y": 7250
+    },
+    "P55-Scheduled-Requests.dc.html": {
+      "h": 844,
+      "title": "P-55 · طلبات مجدولة جديدة",
+      "w": 390,
+      "x": 1410,
+      "y": 7250
+    },
+    "P60-Ride-To-Customer.dc.html": {
+      "h": 844,
+      "title": "P-60 · في الطريق للعميل",
+      "w": 390,
+      "x": 0,
+      "y": 8700
+    },
+    "P61-Ride-Arrived.dc.html": {
+      "h": 844,
+      "title": "P-61 · وصلت · انتظار مجاني",
+      "w": 390,
+      "x": 470,
+      "y": 8700
+    },
+    "P61b-Ride-Waiting-Paid.dc.html": {
+      "h": 844,
+      "title": "P-61b · انتظار برسوم",
+      "w": 390,
+      "x": 940,
+      "y": 8700
+    },
+    "P62-Ride-In-Progress.dc.html": {
+      "h": 844,
+      "title": "P-62 · الرحلة جارية",
+      "w": 390,
+      "x": 2820,
+      "y": 8700
+    },
+    "P62e-Ride-End-Confirm.dc.html": {
+      "h": 844,
+      "title": "P-62e · تأكيد إنهاء الرحلة",
+      "w": 390,
+      "x": 3290,
+      "y": 8700
+    },
+    "P63-Ride-Summary.dc.html": {
+      "h": 1000,
+      "title": "P-63 · ملخص الرحلة",
+      "w": 390,
+      "x": 3760,
+      "y": 8700
+    },
+    "P64-Ride-No-Show.dc.html": {
+      "h": 844,
+      "title": "P-64 · العميل ما حضر",
+      "w": 390,
+      "x": 1410,
+      "y": 8700
+    },
+    "P65-Cancel-Reason.dc.html": {
+      "h": 844,
+      "title": "P-65 · إلغاء من مقدم الخدمة",
+      "w": 390,
+      "x": 1880,
+      "y": 8700
+    },
+    "P66-Customer-Cancelled.dc.html": {
+      "h": 844,
+      "title": "P-66 · العميل ألغى",
+      "w": 390,
+      "x": 2350,
+      "y": 8700
+    },
+    "P67-Report-Problem.dc.html": {
+      "h": 900,
+      "title": "P-67 · بلّغ عن مشكلة (تعذّر التنفيذ)",
+      "w": 390,
+      "x": 0,
+      "y": 10300
+    },
+    "P68-Report-Sent.dc.html": {
+      "h": 844,
+      "title": "P-68 · وصلنا البلاغ",
+      "w": 390,
+      "x": 470,
+      "y": 10300
+    },
+    "P70-Parcel-To-Pickup.dc.html": {
+      "h": 844,
+      "title": "P-70 · في الطريق للاستلام",
+      "w": 390,
+      "x": 0,
+      "y": 13300
+    },
+    "P71-Parcel-Pickup.dc.html": {
+      "h": 960,
+      "title": "P-71 · عند الاستلام (صورة + مطابقة)",
+      "w": 390,
+      "x": 470,
+      "y": 13300
+    },
+    "P72-Parcel-To-Dropoff.dc.html": {
+      "h": 844,
+      "title": "P-72 · في الطريق للتسليم",
+      "w": 390,
+      "x": 940,
+      "y": 13300
+    },
+    "P73-Parcel-Dropoff.dc.html": {
+      "h": 900,
+      "title": "P-73 · عند التسليم (صورة)",
+      "w": 390,
+      "x": 1410,
+      "y": 13300
+    },
+    "P74-Parcel-Summary.dc.html": {
+      "h": 900,
+      "title": "P-74 · ملخص التوصيل",
+      "w": 390,
+      "x": 1880,
+      "y": 13300
+    },
+    "P75-Parcel-Pickup-Failed.dc.html": {
+      "h": 960,
+      "title": "P-75 · تعذّر الاستلام",
+      "w": 390,
+      "x": 2350,
+      "y": 13300
+    },
+    "P76-Parcel-Delivery-Failed.dc.html": {
+      "h": 900,
+      "title": "P-76 · تعذّر التسليم · قرار الإدارة",
+      "w": 390,
+      "x": 2820,
+      "y": 13300
+    },
+    "P77-Parcel-Return.dc.html": {
+      "h": 900,
+      "title": "P-77 · إرجاع الطرد للمرسل",
+      "w": 390,
+      "x": 3290,
+      "y": 13300
+    },
+    "P80-Companion-Booking.dc.html": {
+      "h": 1000,
+      "title": "P-80 · تفاصيل الحجز القادم",
+      "w": 390,
+      "x": 0,
+      "y": 14800
+    },
+    "P81-Companion-On-The-Way.dc.html": {
+      "h": 844,
+      "title": "P-81 · في الطريق للمستفيد",
+      "w": 390,
+      "x": 470,
+      "y": 14800
+    },
+    "P82-Companion-Arrived.dc.html": {
+      "h": 844,
+      "title": "P-82 · وصلت قبل الموعد",
+      "w": 390,
+      "x": 940,
+      "y": 14800
+    },
+    "P83-Companion-In-Progress.dc.html": {
+      "h": 900,
+      "title": "P-83 · المرافقة جارية",
+      "w": 390,
+      "x": 1410,
+      "y": 14800
+    },
+    "P84-Companion-Time-Up.dc.html": {
+      "h": 900,
+      "title": "P-84 · خلصت المدة",
+      "w": 390,
+      "x": 3290,
+      "y": 14800
+    },
+    "P85-Companion-End-Confirm.dc.html": {
+      "h": 900,
+      "title": "P-85 · تأكيد الإنهاء بدري",
+      "w": 390,
+      "x": 3760,
+      "y": 14800
+    },
+    "P86-Companion-Summary.dc.html": {
+      "h": 1000,
+      "title": "P-86 · ملخص المرافقة",
+      "w": 390,
+      "x": 4230,
+      "y": 14800
+    },
+    "P87-Extension-Request.dc.html": {
+      "h": 900,
+      "title": "P-87 · طلب تمديد",
+      "w": 390,
+      "x": 1880,
+      "y": 14800
+    },
+    "P87a-Extension-Conflict.dc.html": {
+      "h": 900,
+      "title": "P-87a · تمديد يتعارض",
+      "w": 390,
+      "x": 2350,
+      "y": 14800
+    },
+    "P88-Extension-Accepted.dc.html": {
+      "h": 900,
+      "title": "P-88 · بعد قبول التمديد",
+      "w": 390,
+      "x": 2820,
+      "y": 14800
+    },
+    "P90-Gov-Details.dc.html": {
+      "h": 1040,
+      "title": "P-90 · تفاصيل المعاملة",
+      "w": 390,
+      "x": 0,
+      "y": 16300
+    },
+    "P91-Gov-Document.dc.html": {
+      "h": 844,
+      "title": "P-91 · عرض مستند",
+      "w": 390,
+      "x": 470,
+      "y": 16300
+    },
+    "P92-Gov-Originals.dc.html": {
+      "h": 900,
+      "title": "P-92 · استلمت المستندات",
+      "w": 390,
+      "x": 940,
+      "y": 16300
+    },
+    "P93-Gov-Start.dc.html": {
+      "h": 844,
+      "title": "P-93 · بدء التنفيذ",
+      "w": 390,
+      "x": 1410,
+      "y": 16300
+    },
+    "P94-Gov-In-Progress.dc.html": {
+      "h": 900,
+      "title": "P-94 · جاري التنفيذ",
+      "w": 390,
+      "x": 1880,
+      "y": 16300
+    },
+    "P94s-Gov-Status-Sheet.dc.html": {
+      "h": 900,
+      "title": "P-94s · تحديث الحالة",
+      "w": 390,
+      "x": 2350,
+      "y": 16300
+    },
+    "P95-Gov-Completed.dc.html": {
+      "h": 1040,
+      "title": "P-95 · إنجاز المعاملة والرسوم",
+      "w": 390,
+      "x": 2820,
+      "y": 16300
+    },
+    "P96-Gov-Handover.dc.html": {
+      "h": 900,
+      "title": "P-96 · تسليم المستندات",
+      "w": 390,
+      "x": 3290,
+      "y": 16300
+    },
+    "P97-Gov-Summary.dc.html": {
+      "h": 1000,
+      "title": "P-97 · ملخص المعاملة",
+      "w": 390,
+      "x": 3760,
+      "y": 16300
+    },
+    "P98-Gov-Failed.dc.html": {
+      "h": 1000,
+      "title": "P-98 · تعذّر الإنجاز",
+      "w": 390,
+      "x": 4230,
+      "y": 16300
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-01T12:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "noteOrder": [
+    "flow1",
+    "flow2",
+    "flow3",
+    "flow4",
+    "flow5",
+    "flow6",
+    "flow7",
+    "flow8",
+    "flow9",
+    "flow10",
+    "flow11",
+    "flow12",
+    "flow13",
+    "flow14",
+    "components"
+  ],
+  "notes": {
+    "components": {
+      "kind": "title1",
+      "maxW": 860,
+      "text": "مكوّنات مشتركة",
+      "w": 240,
+      "x": 0,
+      "y": 20600
+    },
+    "flow1": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "Flow 1 · البداية والدخول",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "flow10": {
+      "kind": "title1",
+      "maxW": 3680,
+      "text": "Flow 10 · تنفيذ توصيل الطرود",
+      "w": 240,
+      "x": 0,
+      "y": 13000
+    },
+    "flow11": {
+      "kind": "title1",
+      "maxW": 4620,
+      "text": "Flow 11 · تنفيذ المرافق الشخصي والتمديد",
+      "w": 240,
+      "x": 0,
+      "y": 14500
+    },
+    "flow12": {
+      "kind": "title1",
+      "maxW": 4620,
+      "text": "Flow 12 · تنفيذ المعاملات الحكومية",
+      "w": 240,
+      "x": 0,
+      "y": 16000
+    },
+    "flow13": {
+      "kind": "title1",
+      "maxW": 3680,
+      "text": "Flow 13 · الأرباح والمحفظة والسحب",
+      "w": 240,
+      "x": 0,
+      "y": 17550
+    },
+    "flow14": {
+      "kind": "title1",
+      "maxW": 4150,
+      "text": "Flow 14 · حسابي والتقييمات والإشعارات",
+      "w": 240,
+      "x": 0,
+      "y": 19000
+    },
+    "flow2": {
+      "kind": "title1",
+      "maxW": 4150,
+      "text": "Flow 2 · استكمال البيانات والمستندات",
+      "w": 240,
+      "x": 0,
+      "y": 1150
+    },
+    "flow3": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "Flow 3 · حالات الحساب",
+      "w": 240,
+      "x": 0,
+      "y": 2900
+    },
+    "flow4": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "Flow 4 · الرئيسية والتوفر",
+      "w": 240,
+      "x": 0,
+      "y": 4200
+    },
+    "flow5": {
+      "kind": "title1",
+      "maxW": 860,
+      "text": "Flow 5 · خدماتي",
+      "w": 240,
+      "x": 0,
+      "y": 5500
+    },
+    "flow6": {
+      "kind": "title1",
+      "maxW": 2740,
+      "text": "Flow 6 · استقبال الطلبات",
+      "w": 240,
+      "x": 0,
+      "y": 6950
+    },
+    "flow7": {
+      "kind": "title1",
+      "maxW": 4150,
+      "text": "Flow 7 · تنفيذ رحلة توصيل الأفراد",
+      "w": 240,
+      "x": 0,
+      "y": 8400
+    },
+    "flow8": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "Flow 8 · التعذّر والمحادثة",
+      "w": 240,
+      "x": 0,
+      "y": 10000
+    },
+    "flow9": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "Flow 9 · طلباتي",
+      "w": 240,
+      "x": 0,
+      "y": 11450
+    }
   },
   "order": [
     "Main.dc.html",
@@ -134,6 +903,8 @@
     "P52-Offer-Missed.dc.html",
     "P55-Scheduled-Requests.dc.html",
     "P51-Scheduled-Details.dc.html",
+    "P51g-Gov-Offer.dc.html",
+    "P54-Decline-Confirm.dc.html",
     "P53-Schedule-Conflict.dc.html",
     "P60-Ride-To-Customer.dc.html",
     "P61-Ride-Arrived.dc.html",
@@ -188,6 +959,7 @@
     "P144-Withdraw-Sent.dc.html",
     "P143-Withdrawals.dc.html",
     "P142-Bank-Account.dc.html",
+    "P142o-Bank-OTP.dc.html",
     "P170-Profile.dc.html",
     "P171-Edit-Profile.dc.html",
     "P173-Documents.dc.html",
@@ -195,28 +967,15 @@
     "P150-Ratings.dc.html",
     "P160-Notifications.dc.html",
     "P184-Contact.dc.html",
+    "P185-Contact-Sent.dc.html",
+    "P180-Terms.dc.html",
+    "P182-FAQ.dc.html",
+    "P183-Language.dc.html",
     "P190-Logout.dc.html",
     "P178-Delete-Blocked.dc.html",
     "P-Map.dc.html",
     "P-Bottom-Nav.dc.html"
   ],
-  "notes": {
-    "flow1": {"x": 0, "y": -300, "text": "Flow 1 · البداية والدخول", "kind": "title1", "maxW": 2270},
-    "flow2": {"x": 0, "y": 1150, "text": "Flow 2 · استكمال البيانات والمستندات", "kind": "title1", "maxW": 4150},
-    "flow3": {"x": 0, "y": 2900, "text": "Flow 3 · حالات الحساب", "kind": "title1", "maxW": 2270},
-    "flow4": {"x": 0, "y": 4200, "text": "Flow 4 · الرئيسية والتوفر", "kind": "title1", "maxW": 2270},
-    "flow5": {"x": 0, "y": 5500, "text": "Flow 5 · خدماتي", "kind": "title1", "maxW": 860},
-    "flow6": {"x": 0, "y": 6950, "text": "Flow 6 · استقبال الطلبات", "kind": "title1", "maxW": 2740},
-    "flow7": {"x": 0, "y": 8400, "text": "Flow 7 · تنفيذ رحلة توصيل الأفراد", "kind": "title1", "maxW": 4150},
-    "flow8": {"x": 0, "y": 10000, "text": "Flow 8 · التعذّر والمحادثة", "kind": "title1", "maxW": 1800},
-    "flow9": {"x": 0, "y": 11450, "text": "Flow 9 · طلباتي", "kind": "title1", "maxW": 1800},
-    "flow10": {"x": 0, "y": 13000, "text": "Flow 10 · تنفيذ توصيل الطرود", "kind": "title1", "maxW": 3680},
-    "flow11": {"x": 0, "y": 14500, "text": "Flow 11 · تنفيذ المرافق الشخصي والتمديد", "kind": "title1", "maxW": 4620},
-    "flow12": {"x": 0, "y": 16000, "text": "Flow 12 · تنفيذ المعاملات الحكومية", "kind": "title1", "maxW": 4620},
-    "flow13": {"x": 0, "y": 17550, "text": "Flow 13 · الأرباح والمحفظة والسحب", "kind": "title1", "maxW": 3680},
-    "flow14": {"x": 0, "y": 19000, "text": "Flow 14 · حسابي والتقييمات والإشعارات", "kind": "title1", "maxW": 4150},
-    "components": {"x": 0, "y": 20600, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
-  },
-  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "flow8", "flow9", "flow10", "flow11", "flow12", "flow13", "flow14", "components"],
-  "designSystems": []
+  "pages": [],
+  "title": "مشوار · تطبيق مقدم الخدمة"
 }

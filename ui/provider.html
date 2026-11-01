@@ -8,13 +8,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--page:#E6ECEB;--ink:#1B2B2B}
+:root{--page:#E6ECEB;--ink:#1B2B2B;--body:#5B6766;--line:#E4E9E8;--primary:#0F6E6E;--p50:#E9F4F3;--p100:#CFE6E4;--sand:#E2A23B;--sand50:#FCF5E8;--sandInk:#7A5410}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{font-family:'Inter','IBM Plex Sans Arabic',system-ui,sans-serif;background:var(--page);color:var(--ink)}
+button,select,input{font:inherit;color:inherit}
 button{cursor:pointer}
-.stage{height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.scaler{transform-origin:center center}
+.shell{height:100vh;display:grid;grid-template-columns:300px 1fr 320px}
+.side,.demo{background:#fff;overflow-y:auto;padding:20px 16px;display:flex;flex-direction:column;gap:12px}
+.side{border-left:1px solid var(--line)}
+.demo{border-right:1px solid var(--line)}
+.side h1{font-size:16px;line-height:24px;font-weight:700}
+.meta{font-size:12px;line-height:18px;color:var(--body)}
+.find{height:40px;border:1px solid var(--line);border-radius:999px;padding:0 14px;font-size:14px;background:#fff;outline:none}
+.find:focus{border-color:var(--primary)}
+.mod{display:flex;flex-direction:column;gap:2px}
+.mod h2{font-size:13px;line-height:20px;font-weight:500;padding:6px 8px;background:var(--p50);border-radius:8px;margin-bottom:2px;display:flex;justify-content:space-between;gap:8px}
+.mod h2 span{color:var(--body);font-weight:400}
+.mod a{display:flex;gap:8px;align-items:baseline;font-size:13px;line-height:18px;padding:6px 8px;border-radius:8px;cursor:pointer;text-decoration:none;color:inherit}
+.mod a code{font-family:ui-monospace,monospace;font-size:12px;color:var(--body);min-width:52px;direction:ltr;text-align:right;flex:none}
+.mod a:hover{background:var(--p50)}
+.mod a.on{background:var(--primary);color:#fff}.mod a.on code{color:var(--p100)}
+.stage{display:flex;align-items:center;justify-content:center;overflow:hidden;min-width:0}
+.scaler{direction:ltr;flex:none}.scaler .phone{transform-origin:top left}
 .phone{width:410px;height:864px;border-radius:48px;background:#0E1414;padding:10px;box-shadow:0 24px 60px rgba(0,0,0,.18)}
 .screen{width:100%;height:100%;border-radius:38px;overflow:hidden;background:#FBFBFB;position:relative}
 .scr{position:absolute;inset:0;display:flex;flex-direction:column;background:#FBFBFB}
@@ -29,12 +45,82 @@ button{cursor:pointer}
 .hi.light i{background:#fff}
 .toast{position:absolute;left:16px;right:16px;bottom:48px;z-index:40;padding:12px 16px;border-radius:16px;background:#1B2B2B;color:#fff;font-size:14px;line-height:20px;text-align:center;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none}
 .toast.on{opacity:1;transform:none}
-@media (max-width:1100px){.stage{align-items:flex-start;padding:8px 0}}
+[role="switch"][aria-checked="false"]{filter:grayscale(1);opacity:.55}
+body.hot .screen [data-go]{outline:2px dashed #2F6FDE;outline-offset:2px}
+body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
+.now{display:flex;flex-direction:column;gap:4px;padding:12px;border-radius:12px;background:var(--p50)}
+.now code{font-family:ui-monospace,monospace;font-size:12px;color:var(--primary);direction:ltr;text-align:right}
+.now b{font-size:16px;line-height:22px}
+.now span{font-size:12px;line-height:18px;color:var(--body)}
+.demo h3{font-size:13px;line-height:20px;font-weight:700;margin-top:4px}
+.row{display:flex;gap:8px}
+.dbtn{flex:1;min-height:44px;padding:0 12px;border:none;border-radius:999px;background:var(--p50);font-size:14px;font-weight:500}
+.dbtn.main{background:var(--primary);color:#fff}
+.dbtn:disabled{opacity:.45;cursor:default}
+.scn{display:flex;flex-direction:column;gap:6px}
+.scn details{border:1px solid var(--line);border-radius:12px;padding:0 12px}
+.scn summary{min-height:44px;display:flex;align-items:center;font-size:14px;font-weight:500;cursor:pointer;list-style:none}
+.scn summary::after{content:'▾';margin-inline-start:auto;color:var(--body)}
+.scn details[open] summary::after{content:'▴'}
+.scn ul{list-style:none;display:flex;flex-direction:column;gap:2px;padding-bottom:10px}
+.scn li a{display:flex;justify-content:space-between;gap:8px;padding:6px 8px;border-radius:8px;font-size:13px;line-height:18px;color:inherit;text-decoration:none}
+.scn li a:hover{background:var(--p50)}
+.scn li a code{font-family:ui-monospace,monospace;font-size:12px;color:var(--body);direction:ltr}
+.toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;min-height:44px}
+.toggle input{width:20px;height:20px;accent-color:var(--primary)}
+.legend{display:flex;flex-direction:column;gap:4px;font-size:12px;line-height:18px;color:var(--body)}
+.legend i{display:inline-block;width:18px;height:10px;margin-inline-end:6px;vertical-align:middle;border-radius:3px}
+.hint{font-size:13px;line-height:20px;color:var(--body)}
+.hint ul{padding-inline-start:16px;display:flex;flex-direction:column;gap:4px}
+.ev{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:12px;background:var(--sand50)}
+.ev h3{margin:0}
+.evs{display:flex;flex-direction:column;gap:6px}
+.evs button{min-height:44px;padding:8px 14px;border:1px solid #F1DDB3;border-radius:12px;background:#fff;text-align:right;font-size:14px;line-height:20px;display:flex;justify-content:space-between;gap:8px}
+.evs button code{font-family:ui-monospace,monospace;font-size:12px;color:var(--sandInk);direction:ltr}
+.mbar{display:none}
+.mev{display:none}
+@media (max-width:1100px){.mev{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px}.mev button{min-height:44px;padding:0 12px;display:inline-flex;align-items:center;gap:8px;border:1px solid #F1DDB3;border-radius:999px;background:var(--sand50);font-size:13px}}
+@media (max-width:1100px){
+  .shell{display:block;height:auto}
+  .side,.demo{display:none}
+  .mbar{display:flex;gap:8px;align-items:center;padding:8px max(16px,env(safe-area-inset-left,0px));background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  .mbar select{flex:1;min-width:0;height:44px;border:1px solid var(--line);border-radius:999px;padding:0 12px;background:#fff;font-size:14px}
+  .mbar .dbtn{flex:none;width:44px;padding:0}
+  .stage{padding:8px 0;align-items:flex-start}
+  .scaler{overflow:hidden;border-radius:44px}
+}
 @media (prefers-reduced-motion:reduce){.toast{transition:none}}
 </style>
 </head>
 <body>
-<main class="stage" id="stage"><div class="scaler" id="scaler"><div class="phone"><div class="screen" id="screen"></div></div></div></main>
+<div class="mbar"><button class="dbtn" id="mPrev" aria-label="الشاشة السابقة">→</button><select id="mSel" aria-label="اختر شاشة"></select><button class="dbtn main" id="mNext" aria-label="الشاشة التالية">←</button></div>
+<div class="mev" id="mev"></div>
+<div class="shell">
+  <aside class="side" aria-label="كل الشاشات">
+    <h1>مشوار شريك · مقدم الخدمة</h1>
+    <div class="meta" id="meta"></div>
+    <input class="find" id="find" type="search" placeholder="ابحث برقم الشاشة أو اسمها" aria-label="ابحث في الشاشات">
+    <nav id="index"></nav>
+  </aside>
+  <main class="stage" id="stage"><div class="scaler" id="scaler"><div class="phone"><div class="screen" id="screen"></div></div></div></main>
+  <aside class="demo" aria-label="تحكم المراجعة">
+    <div class="now"><code id="nowCode"></code><b id="nowTitle"></b><span id="nowFlow"></span></div>
+    <div class="row"><button class="dbtn" id="prevBtn">السابقة</button><button class="dbtn main" id="nextBtn">التالية في الـ Flow</button></div>
+    <div class="row"><button class="dbtn" id="backBtn">رجوع</button><button class="dbtn" id="resetBtn">من الأول</button></div>
+    <div class="ev" id="evBox" hidden><h3>أحداث من النظام</h3><span class="meta">أشياء تصير من العميل أو الإدارة، مو من زرار في الشاشة</span><div class="evs" id="events"></div></div>
+    <h3>مسارات كاملة</h3>
+    <div class="scn" id="scn"></div>
+    <h3>المراجعة</h3>
+    <label class="toggle">أظهر الأزرار وين توديك <input type="checkbox" id="hotT"></label>
+    <div class="legend"><span><i style="outline:2px dashed #2F6FDE"></i>يودّي لشاشة</span><span><i style="outline:2px dotted #B7791F"></i>للعرض بس (يطلع رسالة)</span></div>
+    <div class="hint"><b>طريقة المراجعة</b><ul>
+      <li>امشِ بالضغط على الأزرار زي التطبيق الحقيقي، أو اختار أي حالة من القايمة.</li>
+      <li>«التالية في الـ Flow» تمشي على شاشات نفس الصف في الـ Canvas بالترتيب. والأسهم في الكيبورد تسوي نفس الشي.</li>
+      <li>الأزرار اللي تحتاج جوال حقيقي (اتصال، خرايط، كاميرا) تطلع رسالة توضح وش تسوي.</li>
+      <li>كل شاشة لها رابط برقمها، مثلاً <code>provider.html#P-60</code>.</li>
+    </ul></div>
+  </aside>
+</div>
 
 <!-- @canvas:start -->
 <template data-id="P-01" data-title="Splash" data-group="Flow 1 · البداية والدخول" data-light><div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; padding: 47px 24px 40px; background: #0F6E6E; color: #FFFFFF; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column; align-items: center">
@@ -50,21 +136,21 @@ button{cursor:pointer}
 </div></template>
 <template data-id="P-02" data-title="أهلاً بك" data-group="Flow 1 · البداية والدخول"><div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
   <div style="flex: 1; display: flex; flex-direction: column; gap: 24px; padding: 24px 24px 0">
-    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+    
+    <div style="box-sizing: border-box; display: flex; flex-direction: column; gap: 12px"><div style="box-sizing: border-box; display: flex; flex-direction: column; gap: 12px"><div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="box-sizing: border-box; display: flex; flex-direction: column; gap: 12px"><h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">اشتغل مع مشوار بوقتك</h1><p style="margin: 0; font-size: 16px; line-height: 24px; color: #5B6766">اختر خدمة أو أكثر، ارفع مستنداتك، وأول ما نعتمدك تبدأ تستقبل طلبات.</p></div>
+      
+    </div><ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+      <li style="display: flex; align-items: center; gap: 12px; font-size: 14px; line-height: 20px"><span style="width: 36px; height: 36px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="m15.71 15.18-3.1-1.85c-.54-.32-.98-1.09-.98-1.72V7.51" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>تشتغل وقت ما تبي، وتوقف بضغطة</li>
+      <li style="display: flex; align-items: center; gap: 12px; font-size: 14px; line-height: 20px"><span style="width: 36px; height: 36px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M18.04 13.55c-.42.41-.66 1-.6 1.63.09 1.08 1.08 1.87 2.16 1.87h1.9v1.19c0 2.07-1.69 3.76-3.76 3.76H6.26c-2.07 0-3.76-1.69-3.76-3.76v-6.73c0-2.07 1.69-3.76 3.76-3.76h11.48c2.07 0 3.76 1.69 3.76 3.76v1.44h-2.02c-.56 0-1.07.22-1.44.6Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.5 12.41V7.84c0-1.19.73-2.25 1.84-2.67l7.94-3c1.24-.47 2.57.45 2.57 1.78v3.8M22.56 13.97v2.06c0 .55-.44 1-1 1.02H19.6c-1.08 0-2.07-.79-2.16-1.87-.06-.63.18-1.22.6-1.63.37-.38.88-.6 1.44-.6h2.08c.56.02 1 .47 1 1.02ZM7 12h7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>أرباحك تنزل في محفظتك وتسحبها لحسابك</li>
+      <li style="display: flex; align-items: center; gap: 12px; font-size: 14px; line-height: 20px"><span style="width: 36px; height: 36px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M10.49 2.23 5.5 4.11c-1.15.43-2.09 1.79-2.09 3.01v7.43c0 1.18.78 2.73 1.73 3.44l4.3 3.21c1.41 1.06 3.73 1.06 5.14 0l4.3-3.21c.95-.71 1.73-2.26 1.73-3.44V7.12c0-1.23-.94-2.59-2.09-3.02l-4.99-1.87c-.85-.31-2.21-.31-3.04 0Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="m9.05 11.87 1.61 1.61 4.3-4.3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>كل خدمة نعتمدها لك لحالها</li>
+    </ul></div><div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
       <span style="height: 112px; border-radius: 16px; background: #E9F4F3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px"><img src="assets/onboarding/ob-car.png" alt="" style="width: 64px; height: 64px"><span style="font-size: 14px; line-height: 20px; font-weight: 500">توصيل الأفراد</span></span>
       <span style="height: 112px; border-radius: 16px; background: #E9F4F3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px"><img src="assets/onboarding/ob-parcel.png" alt="" style="width: 64px; height: 64px"><span style="font-size: 14px; line-height: 20px; font-weight: 500">توصيل الطرود</span></span>
       <span style="height: 112px; border-radius: 16px; background: #E9F4F3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px"><img src="assets/onboarding/ob-companion.png" alt="" style="width: 64px; height: 64px"><span style="font-size: 14px; line-height: 20px; font-weight: 500">المرافق الشخصي</span></span>
       <span style="height: 112px; border-radius: 16px; background: #E9F4F3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px"><img src="assets/onboarding/ob-gov.png" alt="" style="width: 64px; height: 64px"><span style="font-size: 14px; line-height: 20px; font-weight: 500">المعاملات الحكومية</span></span>
-    </div>
-    <div style="display: flex; flex-direction: column; gap: 8px">
-      <h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">اشتغل مع مشوار بوقتك</h1>
-      <p style="margin: 0; font-size: 16px; line-height: 24px; color: #5B6766">اختر خدمة أو أكثر، ارفع مستنداتك، وأول ما نعتمدك تبدأ تستقبل طلبات.</p>
-    </div>
-    <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
-      <li style="display: flex; align-items: center; gap: 12px; font-size: 14px; line-height: 20px"><span style="width: 36px; height: 36px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="m15.71 15.18-3.1-1.85c-.54-.32-.98-1.09-.98-1.72V7.51" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>تشتغل وقت ما تبي، وتوقف بضغطة</li>
-      <li style="display: flex; align-items: center; gap: 12px; font-size: 14px; line-height: 20px"><span style="width: 36px; height: 36px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M18.04 13.55c-.42.41-.66 1-.6 1.63.09 1.08 1.08 1.87 2.16 1.87h1.9v1.19c0 2.07-1.69 3.76-3.76 3.76H6.26c-2.07 0-3.76-1.69-3.76-3.76v-6.73c0-2.07 1.69-3.76 3.76-3.76h11.48c2.07 0 3.76 1.69 3.76 3.76v1.44h-2.02c-.56 0-1.07.22-1.44.6Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 12.41V7.84c0-1.19.73-2.25 1.84-2.67l7.94-3c1.24-.47 2.57.45 2.57 1.78v3.8M22.56 13.97v2.06c0 .55-.44 1-1 1.02H19.6c-1.08 0-2.07-.79-2.16-1.87-.06-.63.18-1.22.6-1.63.37-.38.88-.6 1.44-.6h2.08c.56.02 1 .47 1 1.02ZM7 12h7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>أرباحك تنزل في محفظتك وتسحبها لحسابك</li>
-      <li style="display: flex; align-items: center; gap: 12px; font-size: 14px; line-height: 20px"><span style="width: 36px; height: 36px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M10.49 2.23 5.5 4.11c-1.15.43-2.09 1.79-2.09 3.01v7.43c0 1.18.78 2.73 1.73 3.44l4.3 3.21c1.41 1.06 3.73 1.06 5.14 0l4.3-3.21c.95-.71 1.73-2.26 1.73-3.44V7.12c0-1.23-.94-2.59-2.09-3.02l-4.99-1.87c-.85-.31-2.21-.31-3.04 0Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="m9.05 11.87 1.61 1.61 4.3-4.3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>كل خدمة نعتمدها لك لحالها</li>
-    </ul>
+    </div></div>
+    
   </div>
   <div style="display: flex; flex-direction: column; gap: 12px; padding: 12px 24px 0">
     <a href="#P-03" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">ابدأ برقم جوالك</a>
@@ -169,7 +255,7 @@ button{cursor:pointer}
 <template data-id="P-10" data-title="خطوات التفعيل" data-group="Flow 2 · استكمال البيانات والمستندات"><div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
   <div style="height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px 0 24px">
     <span style="font-size: 16px; font-weight: 500">أهلاً فهد</span>
-    <a href="#help" style="height: 40px; padding: 0 14px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M17 18.43h-4l-4.45 2.96A.997.997 0 0 1 7 20.56v-2.13c-3 0-5-2-5-5v-6c0-3 2-5 5-5h10c3 0 5 2 5 5v6c0 3-2 5-5 5Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 11.36v-.21c0-.68.42-1.04.84-1.33.41-.28.82-.64.82-1.3 0-.92-.74-1.66-1.66-1.66-.92 0-1.66.74-1.66 1.66M11.995 13.75h.01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>مساعدة</a>
+    <a href="#P-184" style="height: 40px; padding: 0 14px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M17 18.43h-4l-4.45 2.96A.997.997 0 0 1 7 20.56v-2.13c-3 0-5-2-5-5v-6c0-3 2-5 5-5h10c3 0 5 2 5 5v6c0 3-2 5-5 5Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 11.36v-.21c0-.68.42-1.04.84-1.33.41-.28.82-.64.82-1.3 0-.92-.74-1.66-1.66-1.66-.92 0-1.66.74-1.66 1.66M11.995 13.75h.01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>مساعدة</a>
   </div>
   <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 8px 24px 0">
     <div style="display: flex; flex-direction: column; gap: 8px">
@@ -1169,7 +1255,7 @@ button{cursor:pointer}
       <span style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 12px; background: #E9F4F3; font-size: 14px; line-height: 20px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>الأحد 3 نوفمبر · 9:00 ص</span>
     </a>
 
-    <a href="#P-90" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
+    <a href="#P-51g" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
       <span style="display: flex; align-items: center; gap: 12px">
         <img src="assets/onboarding/ob-gov.png" alt="" style="width: 44px; height: 44px; flex: none">
         <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">تجديد الاستمارة · المرور</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">حي العليا · فيه أصول تستلمها</span></span>
@@ -1221,8 +1307,90 @@ button{cursor:pointer}
     </div>
   </div>
   <div style="display: flex; gap: 8px; padding: 12px 24px 0">
-    <a href="#P-55" style="flex: 1; height: 56px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">رفض</a>
+    <a href="#P-54" style="flex: 1; height: 56px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">رفض</a>
     <a href="#P-80" style="flex: 2; height: 56px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center">اقبل الحجز</a>
+  </div>
+</div></template>
+<template data-id="P-51g" data-title="عرض معاملة قبل القبول" data-group="Flow 6 · استقبال الطلبات" data-tall><div dir="rtl" style="width: 390px; height: 1000px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
+    <a href="#P-55" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
+    <span style="text-align: center; font-size: 16px; font-weight: 500">تفاصيل الطلب</span>
+    <span></span>
+  </div>  <div style="flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 8px 24px 0">
+    <div style="display: flex; align-items: center; gap: 14px; padding-bottom: 4px">
+      <img src="assets/onboarding/ob-gov.png" alt="" style="width: 56px; height: 56px; flex: none">
+      <span style="flex: 1"><h1 style="margin: 0; font-size: 22px; line-height: 30px; font-weight: 700">تجديد الاستمارة</h1><span style="font-size: 12px; line-height: 20px; color: #5B6766">المرور · طلب <span dir="ltr">#G-5521</span></span></span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+      <span style="padding: 12px; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; line-height: 16px; color: #5B6766">استلام الأصول</span><b style="font-size: 14px; line-height: 20px; font-weight: 500">الاثنين 4 نوفمبر</b><span style="font-size: 14px; line-height: 20px">10:00 ص</span></span>
+      <span style="padding: 12px; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; line-height: 16px; color: #5B6766">المكان</span><b style="font-size: 14px; line-height: 20px; font-weight: 500">حي العليا</b><span style="font-size: 14px; line-height: 20px">شارع التحلية</span></span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FFFFFF">
+      <b style="font-size: 16px; line-height: 24px; font-weight: 500">المعاملة</b>
+      <dl style="margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; font-size: 14px; line-height: 20px">
+        <dt style="color: #5B6766">المستندات</dt><dd style="margin: 0">4 مرفوعة: الهوية، والاستمارة، والتأمين، والفحص الدوري</dd>
+        <dt style="color: #5B6766">الأصول</dt><dd style="margin: 0">الاستمارة الأصلية، تستلمها وترجعها مع الجديدة</dd>
+        <dt style="color: #5B6766">التفويض</dt><dd style="margin: 0">العميل يسويه لك من أبشر بعد ما تقبل</dd>
+      </dl>
+      <span style="font-size: 12px; line-height: 20px; color: #5B6766">اسم العميل ورقمه يظهرون بعد القبول.</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 16px; background: #FFFFFF; font-size: 14px; line-height: 20px">
+      <div style="display: flex; justify-content: space-between"><span style="color: #5B6766">رسوم الخدمة</span><b style="font-size: 18px; font-weight: 700">120 <svg viewBox="0 0 1124.14 1256.39" width="0.78em" height="0.87em" fill="currentColor" role="img" aria-label="ريال" style="display: inline-block; vertical-align: -0.08em"><path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z"/><path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z"/></svg></b></div>
+      <div style="display: flex; justify-content: space-between"><span style="color: #5B6766">الرسوم الحكومية (تقريبية)</span><span>150 <svg viewBox="0 0 1124.14 1256.39" width="0.78em" height="0.87em" fill="currentColor" role="img" aria-label="ريال" style="display: inline-block; vertical-align: -0.08em"><path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z"/><path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z"/></svg></span></div>
+      <span style="font-size: 12px; line-height: 20px; color: #5B6766">تدفع الرسوم الحكومية وترفع الإيصال، وترجع لك كاملة بدون عمولة.</span>
+    </div>
+    <p style="margin: 0; display: flex; gap: 8px; padding: 12px 14px; border-radius: 16px; background: #E9F4F3; font-size: 14px; line-height: 20px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM12 8v5M11.995 16h.009"/></svg><span>المعاملة ما تخليك «مشغول»، وتقدر تستقبل طلبات ثانية وإنت تخلّصها.</span></p>
+  </div>
+  <div style="display: flex; gap: 8px; padding: 12px 24px 0">
+    <a href="#P-54" style="flex: 1; height: 56px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">رفض</a>
+    <a href="#P-90" style="flex: 2; height: 56px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center">اقبل المعاملة</a>
+  </div>
+</div></template>
+<template data-id="P-54" data-title="تأكيد الرفض" data-group="Flow 6 · استقبال الطلبات" data-tall><div dir="rtl" style="width: 390px; height: 1000px; position: relative; overflow: hidden; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif">
+  <div dir="rtl" style="width: 390px; height: 1000px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
+    <a href="#P-55" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
+    <span style="text-align: center; font-size: 16px; font-weight: 500">تفاصيل الطلب</span>
+    <span></span>
+  </div>
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 8px 24px 0">
+    <div style="display: flex; align-items: center; gap: 14px; padding-bottom: 4px">
+      <img src="assets/onboarding/ob-companion.png" alt="" style="width: 56px; height: 56px; flex: none">
+      <span style="flex: 1"><h1 style="margin: 0; font-size: 22px; line-height: 30px; font-weight: 700">مرافقة كبير سن</h1><span style="font-size: 12px; line-height: 20px; color: #5B6766">طلب <span dir="ltr">#M-3310</span></span></span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+      <span style="padding: 12px; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; line-height: 16px; color: #5B6766">الموعد</span><b style="font-size: 14px; line-height: 20px; font-weight: 500">الأحد 3 نوفمبر</b><span style="font-size: 14px; line-height: 20px">9:00 ص – 12:00 م</span></span>
+      <span style="padding: 12px; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; line-height: 16px; color: #5B6766">المكان</span><b style="font-size: 14px; line-height: 20px; font-weight: 500">حي الملقا</b><span style="font-size: 14px; line-height: 20px; color: #5B6766">العنوان بعد القبول</span></span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FFFFFF">
+      <b style="font-size: 16px; line-height: 24px; font-weight: 500">المستفيد</b>
+      <dl style="margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; font-size: 14px; line-height: 20px">
+        <dt style="color: #5B6766">الفئة</dt><dd style="margin: 0">كبير سن · 72 سنة</dd>
+        <dt style="color: #5B6766">جنس المرافق</dt><dd style="margin: 0">أنثى</dd>
+        <dt style="color: #5B6766">المهام</dt><dd style="margin: 0">موعد في مستشفى الملك فيصل التخصصي، ومساعدتها في المشي والتسجيل</dd>
+      </dl>
+      <span style="font-size: 12px; line-height: 20px; color: #5B6766">الاسم ورقم التواصل يظهرون بعد القبول.</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 16px; background: #FFFFFF; font-size: 14px; line-height: 20px">
+      <div style="display: flex; justify-content: space-between"><span style="color: #5B6766">3 ساعات × 60</span><b style="font-size: 18px; font-weight: 700">180 <svg viewBox="0 0 1124.14 1256.39" width="0.78em" height="0.87em" fill="currentColor" role="img" aria-label="ريال" style="display: inline-block; vertical-align: -0.08em"><path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z"/><path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z"/></svg></b></div>
+      <span style="font-size: 12px; line-height: 20px; color: #5B6766">أي وقت زيادة يكون بطلب تمديد من العميل وتوافق عليه.</span>
+    </div>
+  </div>
+  <div style="display: flex; gap: 8px; padding: 12px 24px 0">
+    <a href="#P-54" style="flex: 1; height: 56px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">رفض</a>
+    <a href="#P-80" style="flex: 2; height: 56px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center">اقبل الحجز</a>
+  </div>
+</div>
+  <span style="position: absolute; inset: 0; background: rgba(27, 43, 43, 0.48)"></span>
+  <div role="dialog" aria-modal="true" aria-labelledby="dec-title" style="position: absolute; left: 0; right: 0; bottom: 0; border-radius: 24px 24px 0 0; background: #FFFFFF; padding: 12px 24px 40px; display: flex; flex-direction: column; gap: 12px">
+    <span style="align-self: center; width: 40px; height: 4px; border-radius: 2px; background: #E4E9E8"></span>
+    <h2 id="dec-title" style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 700">ترفض هذا الطلب؟</h2>
+    <p style="margin: 0 0 8px; font-size: 14px; line-height: 22px; color: #5B6766">ما عليك أي أثر، والطلب يروح لمقدم خدمة ثاني. ما تقدر ترجع تقبله بعدها.</p>
+    <a href="#P-55" style="height: 56px; border-radius: 999px; background: #FCEDED; color: #B42828; font-size: 16px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center">ارفض الطلب</a>
+    <a href="#P-51" style="height: 56px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">تراجع</a>
   </div>
 </div></template>
 <template data-id="P-53" data-title="تعارض موعد" data-group="Flow 6 · استقبال الطلبات" data-tall><div dir="rtl" style="width: 390px; height: 1000px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
@@ -1728,9 +1896,9 @@ button{cursor:pointer}
     <h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">طلباتي</h1>
   </div>
   <div role="tablist" aria-label="حالة الطلب" style="display: flex; gap: 6px; padding: 4px 24px 0; overflow: hidden">
-    <a href="#new" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">جديدة</a>
+    <a href="#P-55" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">جديدة</a>
     <a href="#P-120e" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">قادمة</a>
-    <a href="#current" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">جارية</a>
+    <a href="#P-60" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">جارية</a>
     <a href="#P-120" role="tab" aria-selected="true" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 14px; font-weight: 500; text-decoration: none; display: flex; align-items: center; white-space: nowrap">مكتملة</a>
     <a href="#P-122" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">ملغاة</a>
   </div>
@@ -1778,9 +1946,9 @@ button{cursor:pointer}
     <h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">طلباتي</h1>
   </div>
   <div role="tablist" aria-label="حالة الطلب" style="display: flex; gap: 6px; padding: 4px 24px 0; overflow: hidden">
-    <a href="#new" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">جديدة</a>
+    <a href="#P-55" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">جديدة</a>
     <a href="#P-120e" role="tab" aria-selected="true" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 14px; font-weight: 500; text-decoration: none; display: flex; align-items: center; white-space: nowrap">قادمة</a>
-    <a href="#current" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">جارية</a>
+    <a href="#P-60" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">جارية</a>
     <a href="#P-120" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">مكتملة</a>
     <a href="#P-122" role="tab" aria-selected="false" style="height: 40px; padding: 0 12px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; text-decoration: none; display: flex; align-items: center; white-space: nowrap">ملغاة</a>
   </div>
@@ -3240,7 +3408,28 @@ button{cursor:pointer}
     <p style="margin: 0; display: flex; gap: 8px; padding: 12px 14px; border-radius: 16px; background: #E9F4F3; font-size: 14px; line-height: 20px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M10.49 2.23 5.5 4.11c-1.15.43-2.09 1.79-2.09 3.01v7.43c0 1.18.78 2.73 1.73 3.44l4.3 3.21c1.41 1.06 3.73 1.06 5.14 0l4.3-3.21c.95-.71 1.73-2.26 1.73-3.44V7.12c0-1.23-.94-2.59-2.09-3.02l-4.99-1.87c-.85-.31-2.21-.31-3.04 0Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>لحمايتك، نرسل رمز تحقق على جوالك قبل ما نحفظ أي تغيير في الحساب.</span></p>
   </div>
   <div style="padding: 12px 24px 0">
-    <a href="#P-140" style="height: 56px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ الحساب</a>
+    <a href="#P-142o" style="height: 56px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ الحساب</a>
+  </div>
+</div></template>
+<template data-id="P-142o" data-title="رمز تأكيد الحساب البنكي" data-group="Flow 13 · الأرباح والمحفظة والسحب"><div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="height: 56px; display: flex; align-items: center; padding: 0 16px">
+    <a href="#P-142" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
+  </div>
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 24px; padding: 8px 24px 0">
+    <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start">
+      <h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">أكّد تغيير الحساب البنكي</h1>
+      <p style="margin: 0; font-size: 16px; line-height: 24px; color: #5B6766">أرسلنا رمز من 4 أرقام على <span dir="ltr" style="display: inline-block; color: #1B2B2B; font-weight: 500">+966 55 987 6543</span></p>
+    </div>
+    <div dir="ltr" style="display: flex; gap: 12px; justify-content: center">
+      <input aria-label="رقم 1" inputmode="numeric" maxlength="1" value="4" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid transparent; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
+      <input aria-label="رقم 2" inputmode="numeric" maxlength="1" value="8" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid transparent; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
+      <input aria-label="رقم 3" inputmode="numeric" maxlength="1" value="" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid #0F6E6E; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
+      <input aria-label="رقم 4" inputmode="numeric" maxlength="1" value="" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid transparent; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
+    </div>
+    <p style="margin: 0; text-align: center; font-size: 14px; line-height: 20px; color: #5B6766">إعادة إرسال الرمز بعد <b dir="ltr" style="display: inline-block; color: #1B2B2B; font-weight: 500">00:45</b></p>
+  </div>
+  <div style="padding: 12px 24px 0">
+    <a href="#P-140" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">تأكيد</a>
   </div>
 </div></template>
 <template data-id="P-170" data-title="حسابي" data-group="Flow 14 · حسابي والتقييمات والإشعارات" data-tall><div dir="rtl" style="width: 390px; height: 1100px; position: relative; box-sizing: border-box; padding: 47px 0 112px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
@@ -3269,10 +3458,10 @@ button{cursor:pointer}
       <span style="font-size: 12px; line-height: 20px; font-weight: 500; color: #5B6766">التطبيق</span>
       <div style="display: flex; flex-direction: column; border-radius: 16px; background: #FFFFFF; padding: 0 14px; font-size: 15px; line-height: 22px">
         <a href="#P-160" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">الإشعارات</span><span style="min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box; border-radius: 999px; background: #E2A23B; font-size: 12px; line-height: 20px; font-weight: 700; text-align: center">2</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="#language" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">اللغة</span><span style="font-size: 13px; color: #5B6766">العربية</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#P-183" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">اللغة</span><span style="font-size: 13px; color: #5B6766">العربية</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="#P-184" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">تواصل معنا</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="#faq" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">الأسئلة الشائعة</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="#terms" style="display: flex; align-items: center; gap: 12px; height: 56px; color: inherit; text-decoration: none"><span style="flex: 1">شروط مقدمي الخدمة والخصوصية</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#P-182" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">الأسئلة الشائعة</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#P-180" style="display: flex; align-items: center; gap: 12px; height: 56px; color: inherit; text-decoration: none"><span style="flex: 1">شروط مقدمي الخدمة والخصوصية</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
 
@@ -3507,7 +3696,89 @@ button{cursor:pointer}
     <span style="font-size: 12px; line-height: 20px; color: #5B6766">نرد عليك على جوالك <span dir="ltr">+966 55 987 6543</span></span>
   </div>
   <div style="padding: 12px 24px 0">
-    <a href="#P-170" style="height: 56px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">أرسل</a>
+    <a href="#P-185" style="height: 56px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">أرسل</a>
+  </div>
+</div></template>
+<template data-id="P-185" data-title="رسالتك وصلت" data-group="Flow 14 · حسابي والتقييمات والإشعارات"><div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 0 32px; text-align: center">
+    <span style="width: 88px; height: 88px; border-radius: 999px; background: #EAF5EC; display: flex; align-items: center; justify-content: center"><span style="width: 60px; height: 60px; border-radius: 999px; background: #2E8B3E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5.2 12 4.53 4.53 9.07-9.06"/></svg></span></span>
+    <h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">رسالتك وصلت</h1>
+    <p style="margin: 0; font-size: 14px; line-height: 22px; color: #5B6766">فتحنا لك تذكرة <b dir="ltr" style="display: inline-block; color: #1B2B2B; font-weight: 500">#SUP-61540</b>. فريق الدعم بيراجعها، ويوصلك إشعار أول ما نرد.</p>
+    <div style="align-self: stretch; display: flex; flex-direction: column; gap: 8px; margin-top: 8px; padding: 16px; border-radius: 16px; background: #FFFFFF; text-align: right; font-size: 14px; line-height: 20px">
+      <div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: #5B6766">النوع</span><span>شكوى</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: #5B6766">الموضوع</span><span>تقييم ظالم</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: #5B6766">الطلب</span><span dir="ltr">#R-2031</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: #5B6766">الحالة</span><span style="color: #7A5410; font-weight: 500">قيد المراجعة</span></div>
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 24px 0">
+    <a href="#P-170" style="height: 56px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center">رجوع لحسابي</a>
+    <a href="#P-30" style="height: 56px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">الرئيسية</a>
+  </div>
+</div></template>
+<template data-id="P-180" data-title="الشروط والخصوصية" data-group="Flow 14 · حسابي والتقييمات والإشعارات" data-tall><div dir="rtl" style="width: 390px; height: 900px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
+    <a href="#P-170" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
+    <span style="text-align: center; font-size: 16px; font-weight: 500">الشروط والخصوصية</span>
+    <span></span>
+  </div>  <div style="padding: 8px 24px 0">
+    <div role="tablist" aria-label="المستند" style="display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #E4E9E8">
+      <button type="button" role="tab" aria-selected="true" style="height: 44px; border: none; border-bottom: 2px solid #0F6E6E; background: none; color: #0F6E6E; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer">شروط مقدمي الخدمة</button>
+      <button type="button" role="tab" aria-selected="false" style="height: 44px; border: none; border-bottom: 2px solid transparent; background: none; color: #5B6766; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">سياسة الخصوصية</button>
+    </div>
+  </div>
+  <div style="flex: 1; overflow: hidden; display: flex; flex-direction: column; gap: 16px; padding: 16px 24px 0; font-size: 14px; line-height: 22px; color: #5B6766">
+    <span style="font-size: 12px; color: #5B6766">آخر تحديث: 1 نوفمبر 2026 · نص مبدئي للمراجعة القانونية</span>
+    <section><h2 style="margin: 0 0 4px; font-size: 16px; line-height: 24px; font-weight: 700; color: #1B2B2B">1. علاقتك مع مشوار</h2><p style="margin: 0">تشتغل كمقدم خدمة مستقل، وتختار وقتك والخدمات اللي تقدمها. مشوار توصّلك بالعملاء وتحصّل المبالغ عنك.</p></section>
+    <section><h2 style="margin: 0 0 4px; font-size: 16px; line-height: 24px; font-weight: 700; color: #1B2B2B">2. الاعتماد والمستندات</h2><p style="margin: 0">كل خدمة تنعتمد لحالها. لازم تبقى مستنداتك سارية، ونبلّغك قبل انتهائها بـ 30 يوم. إذا انتهت، توقف الخدمة لين تحدّثها.</p></section>
+    <section><h2 style="margin: 0 0 4px; font-size: 16px; line-height: 24px; font-weight: 700; color: #1B2B2B">3. العمولة والأرباح</h2><p style="margin: 0">مشوار تاخذ عمولة 15% من قيمة كل طلب. ربحك يبقى «معلّق» لين يدفع العميل، وبعدها يصير «معتمد» وتقدر تسحبه لحسابك البنكي.</p></section>
+    <section><h2 style="margin: 0 0 4px; font-size: 16px; line-height: 24px; font-weight: 700; color: #1B2B2B">4. الإلغاء والتعذّر</h2><p style="margin: 0">إذا لغى العميل بعد ما تحركت، رسوم الإلغاء تروح لك بعد خصم العمولة. وإذا لغيت إنت، الطلب يرجع يدوّر على مقدم خدمة ثاني.</p></section>
+    <section><h2 style="margin: 0 0 4px; font-size: 16px; line-height: 24px; font-weight: 700; color: #1B2B2B">5. الرسوم الحكومية</h2><p style="margin: 0">في المعاملات تدفع الرسوم وترفع الإيصال الرسمي، وترجع لك كاملة بدون عمولة أول ما يدفع العميل.</p></section>
+    <section><h2 style="margin: 0 0 4px; font-size: 16px; line-height: 24px; font-weight: 700; color: #1B2B2B">6. السلوك والسلامة</h2><p style="margin: 0">تتعامل مع العملاء باحترام، وتلتزم بالأنظمة، وما تستخدم بيانات العميل أو رقمه لأي شي برا الطلب.</p></section>
+  </div>
+</div></template>
+<template data-id="P-182" data-title="الأسئلة الشائعة" data-group="Flow 14 · حسابي والتقييمات والإشعارات" data-tall><div dir="rtl" style="width: 390px; height: 900px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
+    <a href="#P-170" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
+    <span style="text-align: center; font-size: 16px; font-weight: 500">الأسئلة الشائعة</span>
+    <span></span>
+  </div>  <div style="flex: 1; overflow: hidden; display: flex; flex-direction: column; gap: 14px; padding: 8px 24px 0">
+    <label style="height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E9E8; display: flex; align-items: center; gap: 10px; color: #5B6766"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M11.5 21a9.5 9.5 0 1 0 0-19 9.5 9.5 0 0 0 0 19ZM22 22l-2-2"/></svg><input placeholder="ابحث في الأسئلة" aria-label="ابحث في الأسئلة" style="flex: 1; min-width: 0; border: none; outline: none; background: transparent; font: inherit; font-size: 16px; color: #1B2B2B"></label>
+    <div role="tablist" aria-label="الموضوع" style="display: flex; gap: 8px; overflow: hidden"><button type="button" role="tab" aria-selected="true" style="flex: none; height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">الكل</button><button type="button" role="tab" aria-selected="false" style="flex: none; height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">الأرباح</button><button type="button" role="tab" aria-selected="false" style="flex: none; height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">الطلبات</button><button type="button" role="tab" aria-selected="false" style="flex: none; height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">المستندات</button></div>
+    <div style="display: flex; flex-direction: column">
+      <div style="border-bottom: 1px solid #E4E9E8; padding: 10px 0">
+        <button type="button" aria-expanded="true" style="width: 100%; min-height: 44px; display: flex; align-items: center; gap: 12px; border: none; background: none; padding: 0; font: inherit; color: inherit; text-align: right; cursor: pointer"><b style="flex: 1; font-size: 15px; line-height: 22px; font-weight: 700; color: #0F6E6E">متى أقدر أسحب أرباحي؟</b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m19.92 15.05-6.52-6.52c-.77-.77-2.03-.77-2.8 0l-6.52 6.52"/></svg></button>
+        <p style="margin: 6px 0 0; font-size: 14px; line-height: 22px; color: #5B6766">لما يصير ربحك «معتمد»، يعني بعد ما يدفع العميل. أقل مبلغ للسحب 100 ريال، ويتحوّل لحسابك البنكي بعد ما نعتمد الطلب.</p>
+      </div>
+      <div style="border-bottom: 1px solid #E4E9E8; padding: 10px 0"><button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; display: flex; align-items: center; gap: 12px; border: none; background: none; padding: 0; font: inherit; color: inherit; text-align: right; cursor: pointer"><b style="flex: 1; font-size: 15px; line-height: 22px; font-weight: 500">كيف تنحسب العمولة؟</b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"/></svg></button></div>
+      <div style="border-bottom: 1px solid #E4E9E8; padding: 10px 0"><button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; display: flex; align-items: center; gap: 12px; border: none; background: none; padding: 0; font: inherit; color: inherit; text-align: right; cursor: pointer"><b style="flex: 1; font-size: 15px; line-height: 22px; font-weight: 500">وش يصير لو رفضت طلب أو فات عليّ؟</b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"/></svg></button></div>
+      <div style="border-bottom: 1px solid #E4E9E8; padding: 10px 0"><button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; display: flex; align-items: center; gap: 12px; border: none; background: none; padding: 0; font: inherit; color: inherit; text-align: right; cursor: pointer"><b style="flex: 1; font-size: 15px; line-height: 22px; font-weight: 500">العميل ما حضر، وش أسوي؟</b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"/></svg></button></div>
+      <div style="border-bottom: 1px solid #E4E9E8; padding: 10px 0"><button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; display: flex; align-items: center; gap: 12px; border: none; background: none; padding: 0; font: inherit; color: inherit; text-align: right; cursor: pointer"><b style="flex: 1; font-size: 15px; line-height: 22px; font-weight: 500">مستنداتي قربت تنتهي</b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"/></svg></button></div>
+      <div style="border-bottom: 1px solid #E4E9E8; padding: 10px 0"><button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; display: flex; align-items: center; gap: 12px; border: none; background: none; padding: 0; font: inherit; color: inherit; text-align: right; cursor: pointer"><b style="flex: 1; font-size: 15px; line-height: 22px; font-weight: 500">كيف أضيف خدمة جديدة؟</b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"/></svg></button></div>
+    </div>
+  </div>
+  <div style="padding: 12px 24px 0">
+    <div style="display: flex; align-items: center; gap: 12px; padding: 12px 12px 12px 16px; border-radius: 16px; background: #FFFFFF">
+      <span style="flex: 1; font-size: 14px; line-height: 20px; font-weight: 500">ما لقيت إجابتك؟</span>
+      <a href="#P-184" style="height: 44px; padding: 0 16px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 14px; font-weight: 500; text-decoration: none; display: flex; align-items: center">تواصل معنا</a>
+    </div>
+  </div>
+</div></template>
+<template data-id="P-183" data-title="اللغة" data-group="Flow 14 · حسابي والتقييمات والإشعارات"><div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
+    <a href="#P-170" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
+    <span style="text-align: center; font-size: 16px; font-weight: 500">اللغة</span>
+    <span></span>
+  </div>  <div role="radiogroup" aria-label="لغة التطبيق" style="flex: 1; display: flex; flex-direction: column; gap: 10px; padding: 16px 24px 0">
+    <button type="button" role="radio" aria-checked="true" style="height: 64px; display: flex; align-items: center; gap: 12px; padding: 0 16px; border: 2px solid #0F6E6E; border-radius: 16px; background: #FFFFFF; font: inherit; color: inherit; text-align: right; cursor: pointer">
+      <span style="flex: 1"><b style="display: block; font-size: 16px; line-height: 22px; font-weight: 700">العربية</b><span style="display: block; font-size: 12px; line-height: 18px; color: #5B6766">اللغة الحالية</span></span>
+      <span style="width: 24px; height: 24px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5.2 12 4.53 4.53 9.07-9.06"/></svg></span>
+    </button>
+    <button type="button" role="radio" aria-checked="false" style="height: 64px; display: flex; align-items: center; gap: 12px; padding: 0 16px; border: 1px solid #E4E9E8; border-radius: 16px; background: #FFFFFF; font: inherit; color: inherit; text-align: right; cursor: pointer">
+      <span lang="en" style="flex: 1"><b style="display: block; font-size: 16px; line-height: 22px; font-weight: 700">English</b><span style="display: block; font-size: 12px; line-height: 18px; color: #5B6766">الإنجليزية</span></span>
+      <span style="width: 24px; height: 24px; box-sizing: border-box; border-radius: 999px; border: 2px solid #CFE6E4"></span>
+    </button>
+    <p style="margin: 6px 0 0; font-size: 14px; line-height: 20px; color: #5B6766">اتجاه التطبيق يتغيّر مع اللغة. عروض الطلبات والإشعارات بتوصلك باللغة اللي تختارها.</p>
   </div>
 </div></template>
 <template data-id="P-190" data-title="تسجيل الخروج" data-group="Flow 14 · حسابي والتقييمات والإشعارات"><div dir="rtl" style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif">
@@ -3537,10 +3808,10 @@ button{cursor:pointer}
       <span style="font-size: 12px; line-height: 20px; font-weight: 500; color: #5B6766">التطبيق</span>
       <div style="display: flex; flex-direction: column; border-radius: 16px; background: #FFFFFF; padding: 0 14px; font-size: 15px; line-height: 22px">
         <a href="#P-160" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">الإشعارات</span><span style="min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box; border-radius: 999px; background: #E2A23B; font-size: 12px; line-height: 20px; font-weight: 700; text-align: center">2</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="#language" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">اللغة</span><span style="font-size: 13px; color: #5B6766">العربية</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#P-183" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">اللغة</span><span style="font-size: 13px; color: #5B6766">العربية</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="#P-184" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">تواصل معنا</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="#faq" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">الأسئلة الشائعة</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="#terms" style="display: flex; align-items: center; gap: 12px; height: 56px; color: inherit; text-decoration: none"><span style="flex: 1">شروط مقدمي الخدمة والخصوصية</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#P-182" style="display: flex; align-items: center; gap: 12px; height: 56px; border-bottom: 1px solid #E4E9E8; color: inherit; text-decoration: none"><span style="flex: 1">الأسئلة الشائعة</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#P-180" style="display: flex; align-items: center; gap: 12px; height: 56px; color: inherit; text-decoration: none"><span style="flex: 1">شروط مقدمي الخدمة والخصوصية</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
 
@@ -3615,41 +3886,185 @@ button{cursor:pointer}
 
 <script>
 // كل شاشة <template> متولّدة من Canvas مقدم الخدمة (ui/build-provider-screens.ps1)، والتنقل بالـ hash (#P-xx).
+// الأزرار: اللينك لشاشة يودّي لها، والقواعد في RULES تربط باقي الأزرار بالنص اللي عليها، واللي يحتاج جوال حقيقي يطلع رسالة.
 const $=s=>document.querySelector(s);
 const screen=$('#screen');
-const S={};
-document.querySelectorAll('template[data-id]').forEach(t=>{S[t.dataset.id]=t;});
+const S={},ORDER=[],GROUPS=[];
+document.querySelectorAll('template[data-id]').forEach(t=>{const id=t.dataset.id,g=t.dataset.group||'';S[id]=t;ORDER.push(id);const last=GROUPS[GROUPS.length-1];if(last&&last[0]===g)last[1].push(id);else GROUPS.push([g,[id]]);});
+const groupOf=id=>GROUPS.find(([,ids])=>ids.includes(id))||['',[id]];
 const SPLASH='P-01',AFTER_SPLASH='P-02',SPLASH_MS=3500;
-let timer=null,toastTimer=null;
+let timer=null,toastTimer=null,path=null;
+
+// مسارات كاملة للمراجعة: «التالية» تمشي على خطواتها بدل ترتيب الـ Canvas
+const PATHS=[
+  ['تسجيل مقدم خدمة جديد',['P-01','P-02','P-03','P-04','P-05','P-10','P-11','P-12','P-18','P-13','P-14','P-15','P-16','P-17','P-20','P-24','P-32','P-30a']],
+  ['حالات مراجعة الحساب',['P-20','P-21','P-22','P-23','P-24']],
+  ['الرئيسية والتوفر',['P-30a','P-30','P-31','P-32','P-30c','P-40','P-42']],
+  ['رحلة فورية من العرض للملخص',['P-30','P-50','P-60','P-61','P-61b','P-62','P-62e','P-63']],
+  ['الرحلة ما كملت',['P-50','P-52','P-61','P-64','P-65','P-66','P-67','P-68']],
+  ['طرد من العرض للتسليم',['P-50p','P-70','P-71','P-72','P-73','P-74']],
+  ['الطرد ما وصل',['P-70','P-71','P-75','P-72','P-73','P-76','P-77']],
+  ['مرافقة مجدولة مع تمديد',['P-55','P-51','P-80','P-81','P-82','P-83','P-87','P-88','P-84','P-86']],
+  ['مرافقة: تمديد يتعارض وإنهاء بدري',['P-83','P-87','P-87a','P-85','P-86']],
+  ['رفض أو تعارض طلب مجدول',['P-55','P-51','P-54','P-53']],
+  ['معاملة حكومية كاملة',['P-55','P-51g','P-90','P-91','P-92','P-93','P-94','P-94s','P-95','P-96','P-97']],
+  ['المعاملة ما اكتملت',['P-94','P-94s','P-98']],
+  ['المحادثة',['P-110','P-111']],
+  ['طلباتي',['P-120','P-120e','P-121','P-122']],
+  ['الأرباح والسحب',['P-130','P-140','P-141','P-141e','P-144','P-143','P-140e','P-142','P-142o']],
+  ['حسابي والدعم',['P-170','P-171','P-173','P-174','P-150','P-160','P-184','P-185','P-180','P-182','P-183','P-178','P-190']],
+].map(([name,steps])=>({name,steps:steps.filter(id=>S[id])}));
+
+const MSG={call:'يتصل بالعميل على رقمه (زي ما هو في تطبيق العميل)',maps:'يفتح تطبيق الخرائط على موقع العميل',announcement:'يفتح تفاصيل الإعلان'};
+const CAM='say:يفتح الكاميرا عشان تصوّر';
+// [جزء من نص الزرار أو الـ aria-label، الهدف]. الهدف: رقم شاشة، أو say:رسالة، أو back، أو switch
+const RULES={
+  'P-10':[['راجع وأرسل','P-17']],
+  'P-12':[['غيّر الصورة','P-18'],['احذف','say:انحذف الملف، وترفع غيره']],
+  'P-13':[['تعديل','P-18'],['جانب','P-18'],['داخل','P-18']],
+  'P-16':[['ما اخترت','say:يفتح معاملات هذي الجهة عشان تختار منها']],
+  'P-18':[['صوّر',CAM],['اختر ملف','say:يفتح الملفات: PDF أو صورة'],['حفظ','back']],
+  'P-21':[['أرسل التعديلات','P-20']],
+  'P-40':[['تشغيل','switch']],
+  'P-53':[['ما تقدر تقبله','say:يتعارض مع حجز ثاني. لازم 60 دقيقة بين الحجوزات']],
+  'P-67':[['أضف صورة','say:يفتح الكاميرا أو الصور']],
+  'P-71':[['صوّر',CAM]],'P-73':[['صوّر',CAM]],'P-75':[['صوّر',CAM]],'P-92':[['صوّر',CAM]],'P-96':[['صوّر',CAM]],
+  'P-77':[['تأكيد إرجاع الطرد','P-74']],
+  'P-82':[['بدء المرافقة','say:يتفعّل وقت بداية الحجز بالضبط، ما فيه بداية بدري']],
+  'P-87a':[['ما تقدر تقبله','say:التمديد يتعارض مع حجزك الجاي']],
+  'P-95':[['أضف ملف','say:يفتح الملفات عشان ترفع نتيجة ثانية']],
+  'P-110':[['أرسل صورة','say:يفتح الكاميرا أو الصور'],['إرسال','say:انرسلت الرسالة'],['','say:انرسل الرد السريع للعميل']],
+  'P-141':[['اسحب الكل','say:حطّينا رصيدك المتاح كله']],
+  'P-141e':[['كلها','P-144'],['أرسل طلب السحب','say:المبلغ أكثر من رصيدك المتاح. عدّله أول']],
+  'P-160':[['قريتها كلها','say:صارت كل الإشعارات مقروءة']],
+  'P-171':[['غيّر الصورة','say:تغيير الصورة يروح للمراجعة قبل ما يظهر']],
+  'P-178':[['حذف الحساب','say:الحذف مقفل لين يخلص طلبك الجاري وتسحب رصيدك']],
+};
+const GENERIC='هذا الزر للعرض بس في البروتوتايب';
+// أحداث ما لها زرار في الشاشة: من العميل أو الإدارة أو الوقت
+const EVENTS={
+  'P-04':[['الرقم عنده حساب قيد المراجعة','P-20'],['الرقم عنده حساب معتمد','P-30a']],
+  'P-05':[['اختار المرافق الشخصي','P-15'],['اختار المعاملات الحكومية','P-16']],
+  'P-10':[['كمّل كل الخطوات','P-17'],['خدمة المرافق الشخصي','P-15'],['خدمة المعاملات الحكومية','P-16']],
+  'P-20':[['الإدارة طلبت استكمال','P-21'],['الإدارة رفضت الطلب','P-22'],['الإدارة اعتمدت الحساب','P-24']],
+  'P-21':[['خلّص التعديلات وأرسلها','P-20']],
+  'P-30a':[['مستند منتهي وحاول يصير متاح','P-31'],['الإدارة أوقفت الحساب','P-23']],
+  'P-30':[['وصل عرض رحلة فوري','P-50'],['وصل عرض طرد فوري','P-50p'],['وصلت طلبات مجدولة','P-55'],['عنده طلب شغال','P-30c']],
+  'P-50':[['خلصت الـ 20 ثانية','P-52']],
+  'P-50p':[['خلصت الـ 20 ثانية','P-52']],
+  'P-60':[['العميل ألغى الطلب','P-66']],
+  'P-61':[['خلص الانتظار المجاني','P-61b'],['خلص الانتظار والعميل ما حضر','P-64']],
+  'P-70':[['العميل ألغى الطلب','P-66']],
+  'P-81':[['العميل ألغى الحجز','P-66']],
+  'P-82':[['جا وقت الموعد بالضبط','P-83']],
+  'P-110':[['خلص الطلب وانقفلت المحادثة','P-111']],
+  'P-83':[['العميل طلب تمديد','P-87'],['تمديد يتعارض مع حجزك الجاي','P-87a'],['خلصت المدة','P-84']],
+  'P-140':[['ما عنده حساب بنكي','P-140e']],
+  'P-141':[['كتب مبلغ أكثر من رصيده','P-141e']],
+};
 
 const sb=light=>`<div class="sb ${light?'light':''}"><span>9:41</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="26" height="12" viewBox="0 0 26 12" fill="none" aria-hidden="true"><rect x=".5" y=".5" width="22" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="17" height="8" rx="1.6" fill="currentColor"/><rect x="23.5" y="4" width="1.6" height="4" rx=".8" fill="currentColor" opacity=".45"/></svg></span></div>`;
 const hi=light=>`<div class="hi ${light?'light':''}"><i></i></div>`;
+const label=el=>(el.textContent.replace(/\s+/g,' ').trim()||el.getAttribute('aria-label')||'');
+
+function wire(id){
+  const rules=RULES[id]||[];
+  screen.querySelectorAll('.scr a[href]').forEach(a=>{
+    const h=a.getAttribute('href');
+    if(h.startsWith('#')&&S[h.slice(1)])a.dataset.go=h.slice(1);
+    else{a.dataset.say=MSG[h.slice(1)]||GENERIC;}
+  });
+  screen.querySelectorAll('.scr button').forEach(b=>{
+    if(b.disabled)return;
+    if(b.matches('[role="tab"],[role="radio"],[aria-pressed]')){b.dataset.opt='1';return;}
+    const r=rules.find(([k])=>label(b).includes(k)),t=r?r[1]:(b.getAttribute('aria-label')==='رجوع'?'back':'say:'+GENERIC);
+    if(t==='switch')b.dataset.sw='1';
+    else if(t==='back')b.dataset.go='back';
+    else if(t.startsWith('say:'))b.dataset.say=t.slice(4);
+    else b.dataset.go=t;
+  });
+}
 
 function show(id){
   if(!S[id])id=SPLASH;
   clearTimeout(timer);
   const t=S[id],light=t.hasAttribute('data-light');
   screen.innerHTML=`<div class="scr${t.hasAttribute('data-tall')?' tall':''}">${t.innerHTML}</div>${sb(light)}${hi(light)}<div class="toast" id="toast" role="status"></div>`;
-  document.title=`${t.dataset.title} · مشوار شريك`;
-  if(id===SPLASH)timer=setTimeout(()=>{location.hash=AFTER_SPLASH;},SPLASH_MS);
+  document.title=`${t.dataset.id} · ${t.dataset.title} · مشوار شريك`;
+  wire(id);
+  if(path&&!path.steps.includes(id))path=null;
+  if(path)path.k=path.steps.indexOf(id);
+  panel(id);
+  const ev=EVENTS[id]||[],html=ev.map(([l,to])=>`<button type="button" data-ev="${to}">${l}<code>${to}</code></button>`).join('');
+  $('#events').innerHTML=html;$('#evBox').hidden=!ev.length;$('#mev').innerHTML=html;
+  if(id===SPLASH&&!path)timer=setTimeout(()=>go(AFTER_SPLASH),SPLASH_MS);
 }
-function toast(msg){const el=$('#toast');if(!el)return;el.textContent=msg;el.classList.add('on');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('on'),2200);}
+function go(id){if(id==='back'){history.back();return;}if(location.hash.slice(1)===id)show(id);else location.hash=id;}
+function toast(msg){const el=$('#toast');if(!el)return;el.textContent=msg;el.classList.add('on');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('on'),2400);}
 
-// لينك لشاشة موجودة يغيّر الـ hash، وأي لينك أو زرار ثاني للعرض بس
-screen.addEventListener('click',e=>{
-  const a=e.target.closest('a[href]');
-  if(a){
-    const h=a.getAttribute('href');
-    if(h.startsWith('#')&&!S[h.slice(1)]){e.preventDefault();toast('هذا الزر للعرض بس في البروتوتايب');}
-    return;
+// اختيار Tab أو Radio: نبدّل الشكل مع المختار. والـ Chip (aria-pressed) ياخذ شكل أخوه اللي حالته عكسه
+const swapAttr=(x,y,n)=>{const v=x.getAttribute(n),w=y.getAttribute(n);v===null?y.removeAttribute(n):y.setAttribute(n,v);w===null?x.removeAttribute(n):x.setAttribute(n,w);};
+function sameShape(a,b){const da=[...a.querySelectorAll('*')],db=[...b.querySelectorAll('*')];return da.length===db.length&&da.every((x,k)=>x.tagName===db[k].tagName)?[da,db]:null;}
+function swapSel(a,b,attr){
+  swapAttr(a,b,'style');a.setAttribute(attr,'false');b.setAttribute(attr,'true');
+  const s=sameShape(a,b);if(s)s[0].forEach((x,k)=>['style','fill','stroke'].forEach(n=>swapAttr(x,s[1][k],n)));
+}
+function pick(b){
+  if(b.hasAttribute('aria-pressed')){
+    const on=b.getAttribute('aria-pressed')==='true',twin=b.parentElement.querySelector(`[aria-pressed="${!on}"]`);
+    if(!twin){if(on){b.dataset.onStyle=b.getAttribute('style');b.setAttribute('style',b.dataset.onStyle+';background:#FFFFFF;color:#1B2B2B;box-shadow:inset 0 0 0 1px #E4E9E8');b.querySelectorAll('svg').forEach(s=>s.style.visibility='hidden');}else if(b.dataset.onStyle){b.setAttribute('style',b.dataset.onStyle);b.querySelectorAll('svg').forEach(s=>s.style.visibility='');}b.setAttribute('aria-pressed',String(!on));return;}
+    if(twin){b.setAttribute('style',twin.getAttribute('style'));const s=sameShape(twin,b);if(s)s[0].forEach((x,k)=>['style','fill','stroke'].forEach(n=>{const v=x.getAttribute(n);v===null?s[1][k].removeAttribute(n):s[1][k].setAttribute(n,v);}));}
+    b.setAttribute('aria-pressed',String(!on));return;
   }
-  const b=e.target.closest('button');
-  if(b&&!b.disabled&&!b.closest('label'))toast('هذا الزر للعرض بس في البروتوتايب');
+  const attr=b.getAttribute('role')==='radio'?'aria-checked':'aria-selected';
+  const cur=b.parentElement.querySelector(`[${attr}="true"]`);
+  if(cur&&cur!==b)swapSel(cur,b,attr);
+}
+
+screen.addEventListener('click',e=>{
+  const el=e.target.closest('[data-go],[data-say],[data-opt],[data-sw]');
+  if(!el){const a=e.target.closest('a[href]');if(a)e.preventDefault();return;}
+  e.preventDefault();
+  if(el.dataset.go)go(el.dataset.go);
+  else if(el.dataset.say)toast(el.dataset.say);
+  else if(el.dataset.opt)pick(el);
+  else if(el.dataset.sw){const on=el.getAttribute('aria-checked')!=='false';el.setAttribute('aria-checked',String(!on));toast(on?'وقّفت الخدمة. ما توصلك طلباتها لين تشغّلها':'شغّلت الخدمة، وصارت طلباتها توصلك');}
 });
 screen.addEventListener('submit',e=>e.preventDefault());
+
+// ---- لوحة المراجعة
+function seq(){const id=location.hash.slice(1)||SPLASH;if(path)return path.steps;return groupOf(id)[1];}
+function step(d){const id=location.hash.slice(1)||SPLASH,s=seq(),k=s.indexOf(id),n=s[k+d];if(n)go(n);else if(!path&&d>0){const g=GROUPS.findIndex(([,ids])=>ids.includes(id));if(GROUPS[g+1])go(GROUPS[g+1][1][0]);}}
+function panel(id){
+  const t=S[id],[g,ids]=groupOf(id),s=seq(),k=s.indexOf(id);
+  $('#nowCode').textContent=id;$('#nowTitle').textContent=t.dataset.title;
+  $('#nowFlow').textContent=path?`${path.name} · خطوة ${k+1} من ${s.length}`:`${g} · ${k+1} من ${ids.length}`;
+  $('#prevBtn').disabled=k<=0;
+  const last=k===s.length-1;$('#nextBtn').disabled=path?last:(last&&GROUPS[GROUPS.length-1][0]===g);
+  $('#nextBtn').textContent=path?'الخطوة التالية':(last?'أول شاشة في الـ Flow الجاي':'التالية في الـ Flow');
+  document.querySelectorAll('#index a').forEach(a=>{const on=a.dataset.id===id;a.classList.toggle('on',on);if(on)a.scrollIntoView({block:'nearest'});});
+  document.querySelectorAll('#scn details').forEach((d,i)=>{d.querySelectorAll('a').forEach(a=>a.style.fontWeight=path&&PATHS[i]===path&&a.dataset.id===id?'700':'');});
+  $('#mSel').value=id;
+}
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+$('#meta').textContent=`${ORDER.length} شاشة في ${GROUPS.length} Flow، متولّدة من Canvas مقدم الخدمة.`;
+$('#index').innerHTML=GROUPS.map(([g,ids])=>`<div class="mod"><h2>${esc(g)}<span>${ids.length}</span></h2>${ids.map(id=>`<a data-id="${id}" href="#${id}"><code>${id}</code><span>${esc(S[id].dataset.title)}</span></a>`).join('')}</div>`).join('');
+$('#scn').innerHTML=PATHS.map((p,i)=>`<details><summary>${esc(p.name)} · ${p.steps.length}</summary><ul>${p.steps.map(id=>`<li><a data-path="${i}" data-id="${id}" href="#${id}"><span>${esc(S[id].dataset.title)}</span><code>${id}</code></a></li>`).join('')}</ul></details>`).join('');
+$('#mSel').innerHTML=GROUPS.map(([g,ids])=>`<optgroup label="${esc(g)}">${ids.map(id=>`<option value="${id}">${id} · ${esc(S[id].dataset.title)}</option>`).join('')}</optgroup>`).join('');
+$('#index').addEventListener('click',e=>{if(e.target.closest('a'))path=null;});
+$('#scn').addEventListener('click',e=>{const a=e.target.closest('a[data-path]');if(!a)return;e.preventDefault();path={...PATHS[+a.dataset.path],k:0};go(a.dataset.id);});
+$('#find').addEventListener('input',e=>{const q=e.target.value.trim();document.querySelectorAll('#index .mod').forEach(m=>{let any=false;m.querySelectorAll('a').forEach(a=>{const ok=!q||a.textContent.includes(q);a.hidden=!ok;any=any||ok;});m.hidden=!any;});});
+$('#mSel').addEventListener('change',e=>{path=null;go(e.target.value);});
+$('#nextBtn').onclick=$('#mNext').onclick=()=>step(1);
+$('#prevBtn').onclick=$('#mPrev').onclick=()=>step(-1);
+$('#backBtn').onclick=()=>history.back();
+$('#resetBtn').onclick=()=>{path=null;go(SPLASH);};
+$('#hotT').onchange=e=>document.body.classList.toggle('hot',e.target.checked);
+addEventListener('keydown',e=>{if(e.target.closest('input,select,textarea'))return;if(e.key==='ArrowLeft')step(1);else if(e.key==='ArrowRight')step(-1);});
+['#events','#mev'].forEach(s=>$(s).addEventListener('click',e=>{const b=e.target.closest('[data-ev]');if(b)go(b.dataset.ev);}));
 addEventListener('hashchange',()=>show(location.hash.slice(1)));
 
-function fit(){const stg=$('#stage');const w=stg.clientWidth-32,h=innerHeight-32;const s=Math.min(1,w/410,h/864);const sc=$('#scaler');sc.style.transform=`scale(${s})`;if(innerWidth<=1100){sc.style.height=864*s+'px';sc.style.transformOrigin='top center';}else{sc.style.height='';sc.style.transformOrigin='center center';}}
+function fit(){const stg=$('#stage'),mob=innerWidth<=1100;const w=(mob?innerWidth:stg.clientWidth)-32,h=(mob?innerHeight-76:innerHeight)-32;const s=Math.min(1,w/410,mob?1:h/864);const sc=$('#scaler');sc.style.width=410*s+'px';sc.style.height=864*s+'px';sc.querySelector('.phone').style.transform=`scale(${s})`;}
 addEventListener('resize',fit);fit();
 show(location.hash.slice(1)||SPLASH);
 </script>
