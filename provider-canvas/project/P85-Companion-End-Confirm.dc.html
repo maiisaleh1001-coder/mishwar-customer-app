@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>تأكيد الإنهاء بدري</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 900px; position: relative; overflow: hidden; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif">
+  <dc-import name="P83-Companion-In-Progress" hint-size="390px,900px"></dc-import>
+  <span style="position: absolute; inset: 0; background: rgba(27, 43, 43, 0.48)"></span>
+  <div role="dialog" aria-modal="true" aria-labelledby="early-title" style="position: absolute; left: 0; right: 0; bottom: 0; border-radius: 24px 24px 0 0; background: #FFFFFF; padding: 12px 24px 40px; display: flex; flex-direction: column; gap: 20px">
+    <span style="align-self: center; width: 40px; height: 4px; border-radius: 2px; background: #E4E9E8"></span>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h2 id="early-title" style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 700">تنهي المرافقة قبل وقتها؟</h2>
+      <p style="margin: 0; font-size: 16px; line-height: 24px; color: #5B6766">باقي ساعة و35 دقيقة. تأكد إن منيرة رجعت بيتها أو مع أهلها قبل ما تنهي.</p>
+    </div>
+    <div style="display: flex; gap: 10px; padding: 12px 14px; border-radius: 16px; border: 1px solid #E4E9E8; font-size: 14px; line-height: 20px">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM12 8v5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.995 16h.009" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>المحسوب على العميل المدة المحجوزة كاملة (3 ساعات)، حتى لو خلصت بدري.</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <a href="P86-Companion-Summary.dc.html" style="height: 56px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center">إنهاء المرافقة</a>
+      <a href="P83-Companion-In-Progress.dc.html" style="height: 56px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">رجوع</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

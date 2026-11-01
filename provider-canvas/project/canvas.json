@@ -62,8 +62,18 @@
     "P75-Parcel-Pickup-Failed.dc.html": {"x": 2350, "y": 13300, "w": 390, "h": 960, "title": "P-75 · تعذّر الاستلام"},
     "P76-Parcel-Delivery-Failed.dc.html": {"x": 2820, "y": 13300, "w": 390, "h": 900, "title": "P-76 · تعذّر التسليم · قرار الإدارة"},
     "P77-Parcel-Return.dc.html": {"x": 3290, "y": 13300, "w": 390, "h": 900, "title": "P-77 · إرجاع الطرد للمرسل"},
-    "P-Map.dc.html": {"x": 0, "y": 14800, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
-    "P-Bottom-Nav.dc.html": {"x": 470, "y": 14800, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
+    "P80-Companion-Booking.dc.html": {"x": 0, "y": 14800, "w": 390, "h": 1000, "title": "P-80 · تفاصيل الحجز القادم"},
+    "P81-Companion-On-The-Way.dc.html": {"x": 470, "y": 14800, "w": 390, "h": 844, "title": "P-81 · في الطريق للمستفيد"},
+    "P82-Companion-Arrived.dc.html": {"x": 940, "y": 14800, "w": 390, "h": 844, "title": "P-82 · وصلت قبل الموعد"},
+    "P83-Companion-In-Progress.dc.html": {"x": 1410, "y": 14800, "w": 390, "h": 900, "title": "P-83 · المرافقة جارية"},
+    "P87-Extension-Request.dc.html": {"x": 1880, "y": 14800, "w": 390, "h": 900, "title": "P-87 · طلب تمديد"},
+    "P87a-Extension-Conflict.dc.html": {"x": 2350, "y": 14800, "w": 390, "h": 900, "title": "P-87a · تمديد يتعارض"},
+    "P88-Extension-Accepted.dc.html": {"x": 2820, "y": 14800, "w": 390, "h": 900, "title": "P-88 · بعد قبول التمديد"},
+    "P84-Companion-Time-Up.dc.html": {"x": 3290, "y": 14800, "w": 390, "h": 900, "title": "P-84 · خلصت المدة"},
+    "P85-Companion-End-Confirm.dc.html": {"x": 3760, "y": 14800, "w": 390, "h": 900, "title": "P-85 · تأكيد الإنهاء بدري"},
+    "P86-Companion-Summary.dc.html": {"x": 4230, "y": 14800, "w": 390, "h": 1000, "title": "P-86 · ملخص المرافقة"},
+    "P-Map.dc.html": {"x": 0, "y": 16300, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
+    "P-Bottom-Nav.dc.html": {"x": 470, "y": 16300, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
   },
   "order": [
     "Main.dc.html",
@@ -123,6 +133,16 @@
     "P75-Parcel-Pickup-Failed.dc.html",
     "P76-Parcel-Delivery-Failed.dc.html",
     "P77-Parcel-Return.dc.html",
+    "P80-Companion-Booking.dc.html",
+    "P81-Companion-On-The-Way.dc.html",
+    "P82-Companion-Arrived.dc.html",
+    "P83-Companion-In-Progress.dc.html",
+    "P87-Extension-Request.dc.html",
+    "P87a-Extension-Conflict.dc.html",
+    "P88-Extension-Accepted.dc.html",
+    "P84-Companion-Time-Up.dc.html",
+    "P85-Companion-End-Confirm.dc.html",
+    "P86-Companion-Summary.dc.html",
     "P-Map.dc.html",
     "P-Bottom-Nav.dc.html"
   ],
@@ -137,8 +157,9 @@
     "flow8": {"x": 0, "y": 10000, "text": "Flow 8 · التعذّر والمحادثة", "kind": "title1", "maxW": 1800},
     "flow9": {"x": 0, "y": 11450, "text": "Flow 9 · طلباتي", "kind": "title1", "maxW": 1800},
     "flow10": {"x": 0, "y": 13000, "text": "Flow 10 · تنفيذ توصيل الطرود", "kind": "title1", "maxW": 3680},
-    "components": {"x": 0, "y": 14500, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
+    "flow11": {"x": 0, "y": 14500, "text": "Flow 11 · تنفيذ المرافق الشخصي والتمديد", "kind": "title1", "maxW": 4620},
+    "components": {"x": 0, "y": 16000, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
   },
-  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "flow8", "flow9", "flow10", "components"],
+  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "flow8", "flow9", "flow10", "flow11", "components"],
   "designSystems": []
 }
