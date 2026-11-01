@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="utf-8">
-<title>طلبات مجدولة جديدة</title>
+<title>طلباتي · جديدة</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -11,21 +11,21 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
 <style>body{margin:0}</style>
 </helmet>
-<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
-  <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
-    <a href="P30-Home-Available.dc.html" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
-    <span style="text-align: center; font-size: 16px; font-weight: 500">طلبات مجدولة جديدة</span>
-    <span></span>
+<div dir="rtl" style="width: 390px; height: 844px; position: relative; box-sizing: border-box; padding: 47px 0 112px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden">
+  <div style="height: 56px; display: flex; align-items: center; padding: 0 24px">
+    <h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">طلباتي</h1>
   </div>
-  <div style="flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 8px 24px 0">
-    <div role="tablist" aria-label="نوع الخدمة" style="display: flex; gap: 8px">
-      <button type="button" role="tab" aria-selected="true" style="height: 40px; padding: 0 16px; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">الكل · 3</button>
-      <button type="button" role="tab" aria-selected="false" style="height: 40px; padding: 0 16px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font: inherit; font-size: 14px; cursor: pointer">المرافق · 2</button>
-      <button type="button" role="tab" aria-selected="false" style="height: 40px; padding: 0 16px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font: inherit; font-size: 14px; cursor: pointer">المعاملات · 1</button>
-    </div>
+  <div role="tablist" aria-label="حالة الطلب" style="display: flex; margin: 4px 16px 0; border-bottom: 1px solid #E4E9E8">
+    <a href="P55-Scheduled-Requests.dc.html" role="tab" aria-selected="true" style="flex: 1; height: 44px; box-sizing: border-box; margin-bottom: -1px; border-bottom: 2px solid #0F6E6E; color: #0F6E6E; font-weight: 700; font-size: 14px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap">جديدة<span style="min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #E2A23B; color: #1B2B2B; font-size: 11px; line-height: 18px; font-weight: 700; text-align: center">3</span></a>
+    <a href="P120e-Orders-Empty.dc.html" role="tab" aria-selected="false" style="flex: 1; height: 44px; box-sizing: border-box; margin-bottom: -1px; border-bottom: 2px solid transparent; color: #5B6766; font-weight: 500; font-size: 14px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap">قادمة</a>
+    <a href="P60-Ride-To-Customer.dc.html" role="tab" aria-selected="false" style="flex: 1; height: 44px; box-sizing: border-box; margin-bottom: -1px; border-bottom: 2px solid transparent; color: #5B6766; font-weight: 500; font-size: 14px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap">جارية</a>
+    <a href="P120-My-Orders.dc.html" role="tab" aria-selected="false" style="flex: 1; height: 44px; box-sizing: border-box; margin-bottom: -1px; border-bottom: 2px solid transparent; color: #5B6766; font-weight: 500; font-size: 14px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap">مكتملة</a>
+    <a href="P122-Order-Cancelled.dc.html" role="tab" aria-selected="false" style="flex: 1; height: 44px; box-sizing: border-box; margin-bottom: -1px; border-bottom: 2px solid transparent; color: #5B6766; font-weight: 500; font-size: 14px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap">ملغاة</a>
+  </div>
+  <div role="group" aria-label="نوع الخدمة" style="display: flex; gap: 8px; padding: 12px 24px 0"><button type="button" aria-pressed="true" data-svc-filter="all" style="height: 36px; padding: 0 14px; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-weight: 500; font: inherit; font-size: 13px; cursor: pointer; white-space: nowrap">الكل · 3</button><button type="button" aria-pressed="false" data-svc-filter="companion" style="height: 36px; padding: 0 14px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font: inherit; font-size: 13px; cursor: pointer; white-space: nowrap">المرافق · 2</button><button type="button" aria-pressed="false" data-svc-filter="gov" style="height: 36px; padding: 0 14px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font: inherit; font-size: 13px; cursor: pointer; white-space: nowrap">المعاملات · 1</button></div>
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 12px 24px 0">
     <p style="margin: 0; font-size: 12px; line-height: 20px; color: #5B6766">يوصل الطلب لأكثر من مقدم خدمة، واللي يقبل أول ياخذه.</p>
-
-    <a href="P51-Scheduled-Details.dc.html" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
+    <a href="P51-Scheduled-Details.dc.html" data-svc="companion" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
       <span style="display: flex; align-items: center; gap: 12px">
         <img src="/_blob/3702212b613545c022157a2417f81431" alt="" style="width: 44px; height: 44px; flex: none">
         <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">مرافقة كبير سن</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">حي الملقا · 3 ساعات</span></span>
@@ -33,8 +33,7 @@
       </span>
       <span style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 12px; background: #E9F4F3; font-size: 14px; line-height: 20px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>الأحد 3 نوفمبر · 9:00 ص</span>
     </a>
-
-    <a href="P51g-Gov-Offer.dc.html" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
+    <a href="P51g-Gov-Offer.dc.html" data-svc="gov" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
       <span style="display: flex; align-items: center; gap: 12px">
         <img src="/_blob/05c816e6a5c05ddf8636c71b0c6582a3" alt="" style="width: 44px; height: 44px; flex: none">
         <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">تجديد الاستمارة · المرور</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">حي العليا · فيه أصول تستلمها</span></span>
@@ -42,8 +41,7 @@
       </span>
       <span style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 12px; background: #E9F4F3; font-size: 14px; line-height: 20px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>الاثنين 4 نوفمبر · 10:00 ص</span>
     </a>
-
-    <a href="P53-Schedule-Conflict.dc.html" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
+    <a href="P53-Schedule-Conflict.dc.html" data-svc="companion" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
       <span style="display: flex; align-items: center; gap: 12px">
         <img src="/_blob/3702212b613545c022157a2417f81431" alt="" style="width: 44px; height: 44px; flex: none; opacity: 0.55">
         <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">مرافقة طفل</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">حي النرجس · ساعتين</span></span>
@@ -51,6 +49,9 @@
       </span>
       <span style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 12px; background: #FCEDED; color: #B42828; font-size: 14px; line-height: 20px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM12 8v5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.995 16h.009" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>الأحد 3 نوفمبر · 11:00 ص · يتعارض مع حجزك</span>
     </a>
+  </div>
+  <div style="position: absolute; left: 0; right: 0; bottom: 0">
+    <dc-import name="P-Bottom-Nav" active="orders" hint-size="390px,104px"></dc-import>
   </div>
 </div>
 </x-dc>
