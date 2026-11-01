@@ -44,32 +44,53 @@
       "x": 1410,
       "y": 0
     },
+    "P02d-Welcome-Steps-Cards.dc.html": {
+      "h": 844,
+      "title": "P-02 · اقتراح ب٢ · كروت فاتحة",
+      "w": 390,
+      "x": 1880,
+      "y": 0
+    },
+    "P02e-Welcome-Steps-Row.dc.html": {
+      "h": 844,
+      "title": "P-02 · اقتراح ب٣ · صورة وخطوات أفقي",
+      "w": 390,
+      "x": 2350,
+      "y": 0
+    },
+    "P02f-Welcome-Steps-Preview.dc.html": {
+      "h": 844,
+      "title": "P-02 · اقتراح ب٤ · معاينة طلب التفعيل",
+      "w": 390,
+      "x": 2820,
+      "y": 0
+    },
     "P02c-Welcome-Services.dc.html": {
       "h": 844,
       "title": "P-02 · اقتراح ج · اختيار الخدمة أول",
       "w": 390,
-      "x": 1880,
+      "x": 3290,
       "y": 0
     },
     "P03-Phone.dc.html": {
       "h": 844,
       "title": "P-03 · رقم الجوال",
       "w": 390,
-      "x": 2350,
+      "x": 3760,
       "y": 0
     },
     "P04-OTP.dc.html": {
       "h": 844,
       "title": "P-04 · رمز التحقق",
       "w": 390,
-      "x": 2820,
+      "x": 4230,
       "y": 0
     },
     "P05-Create-Account.dc.html": {
       "h": 1000,
       "title": "P-05 · إنشاء الحساب واختيار الخدمات",
       "w": 390,
-      "x": 3290,
+      "x": 4700,
       "y": 0
     },
     "P10-Activation-Steps.dc.html": {
@@ -897,6 +918,9 @@
     "P02-Welcome.dc.html",
     "P02a-Welcome-Hero.dc.html",
     "P02b-Welcome-Steps.dc.html",
+    "P02d-Welcome-Steps-Cards.dc.html",
+    "P02e-Welcome-Steps-Row.dc.html",
+    "P02f-Welcome-Steps-Preview.dc.html",
     "P02c-Welcome-Services.dc.html",
     "P03-Phone.dc.html",
     "P04-OTP.dc.html",

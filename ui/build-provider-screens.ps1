@@ -21,6 +21,7 @@ $blobs = @{
   '1b6a159d44b2578d741db7af3c94edde' = 'assets/onboarding/ob-calendar.png'
   'b8594a97876d9249c415ef72d2c966f9' = 'assets/onboarding/ob-star.png'
   'a2a45bc8a9d140823af637a52de70009' = 'assets/onboarding/ob-shield.png'
+  'cbe851627964d7a8eb69d83b58019e92' = 'assets/onboarding/ob-chat.png'
 }
 
 # شاشات خلفيتها غامقة، فشريط الحالة فوقها يبقى أبيض
