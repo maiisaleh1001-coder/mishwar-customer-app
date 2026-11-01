@@ -401,46 +401,53 @@
       "x": 470,
       "y": 7250
     },
+    "P50m-Multi-Offers.dc.html": {
+      "h": 844,
+      "title": "P-50m · كذا طلب مع بعض",
+      "w": 390,
+      "x": 940,
+      "y": 7250
+    },
     "P51-Scheduled-Details.dc.html": {
       "h": 1000,
       "title": "P-51 · تفاصيل طلب مجدول",
       "w": 390,
-      "x": 1880,
+      "x": 2350,
       "y": 7250
     },
     "P51g-Gov-Offer.dc.html": {
       "h": 1000,
       "title": "P-51 · عرض معاملة قبل القبول",
       "w": 390,
-      "x": 2350,
+      "x": 2820,
       "y": 7250
     },
     "P52-Offer-Missed.dc.html": {
       "h": 844,
       "title": "P-52 · العرض راح",
       "w": 390,
-      "x": 940,
+      "x": 1410,
       "y": 7250
     },
     "P53-Schedule-Conflict.dc.html": {
       "h": 1000,
       "title": "P-53 · تعارض موعد",
       "w": 390,
-      "x": 3290,
+      "x": 3760,
       "y": 7250
     },
     "P54-Decline-Confirm.dc.html": {
       "h": 1000,
       "title": "P-54 · تأكيد الرفض",
       "w": 390,
-      "x": 2820,
+      "x": 3290,
       "y": 7250
     },
     "P55-Scheduled-Requests.dc.html": {
       "h": 844,
       "title": "P-55 · طلبات مجدولة جديدة",
       "w": 390,
-      "x": 1410,
+      "x": 1880,
       "y": 7250
     },
     "P60-Ride-To-Customer.dc.html": {
@@ -892,6 +899,7 @@
     "P42-Service-Suspended.dc.html",
     "P50-Offer-Ride.dc.html",
     "P50p-Offer-Parcel.dc.html",
+    "P50m-Multi-Offers.dc.html",
     "P52-Offer-Missed.dc.html",
     "P55-Scheduled-Requests.dc.html",
     "P51-Scheduled-Details.dc.html",
