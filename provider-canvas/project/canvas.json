@@ -23,7 +23,22 @@
     "P21-Needs-Changes.dc.html": {"x": 470, "y": 3200, "w": 390, "h": 900, "title": "P-21 · يحتاج استكمال"},
     "P22-Rejected.dc.html": {"x": 940, "y": 3200, "w": 390, "h": 844, "title": "P-22 · مرفوض"},
     "P23-Suspended.dc.html": {"x": 1410, "y": 3200, "w": 390, "h": 844, "title": "P-23 · موقوف"},
-    "P24-Approved.dc.html": {"x": 1880, "y": 3200, "w": 390, "h": 844, "title": "P-24 · اتعتمد حسابك"}
+    "P24-Approved.dc.html": {"x": 1880, "y": 3200, "w": 390, "h": 844, "title": "P-24 · اتعتمد حسابك"},
+    "P30-Home-Available.dc.html": {"x": 0, "y": 4500, "w": 390, "h": 844, "title": "P-30 · الرئيسية · متاح"},
+    "P30a-Home-Offline.dc.html": {"x": 470, "y": 4500, "w": 390, "h": 844, "title": "P-30a · الرئيسية · غير متاح"},
+    "P30c-Home-Busy.dc.html": {"x": 940, "y": 4500, "w": 390, "h": 844, "title": "P-30c · الرئيسية · مشغول"},
+    "P31-Activate-Blocked.dc.html": {"x": 1410, "y": 4500, "w": 390, "h": 844, "title": "P-31 · ما تقدر تصير متاح"},
+    "P32-Location-Permission.dc.html": {"x": 1880, "y": 4500, "w": 390, "h": 844, "title": "P-32 · إذن الموقع"},
+    "P40-My-Services.dc.html": {"x": 0, "y": 5800, "w": 390, "h": 1000, "title": "P-40 · خدماتي"},
+    "P42-Service-Suspended.dc.html": {"x": 470, "y": 5800, "w": 390, "h": 844, "title": "P-42 · خدمة موقوفة"},
+    "P50-Offer-Ride.dc.html": {"x": 0, "y": 7250, "w": 390, "h": 844, "title": "P-50 · عرض رحلة"},
+    "P50p-Offer-Parcel.dc.html": {"x": 470, "y": 7250, "w": 390, "h": 844, "title": "P-50p · عرض طرد"},
+    "P52-Offer-Missed.dc.html": {"x": 940, "y": 7250, "w": 390, "h": 844, "title": "P-52 · العرض راح"},
+    "P55-Scheduled-Requests.dc.html": {"x": 1410, "y": 7250, "w": 390, "h": 844, "title": "P-55 · طلبات مجدولة جديدة"},
+    "P51-Scheduled-Details.dc.html": {"x": 1880, "y": 7250, "w": 390, "h": 1000, "title": "P-51 · تفاصيل طلب مجدول"},
+    "P53-Schedule-Conflict.dc.html": {"x": 2350, "y": 7250, "w": 390, "h": 1000, "title": "P-53 · تعارض موعد"},
+    "P-Map.dc.html": {"x": 0, "y": 8700, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
+    "P-Bottom-Nav.dc.html": {"x": 470, "y": 8700, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
   },
   "order": [
     "Main.dc.html",
@@ -44,13 +59,32 @@
     "P21-Needs-Changes.dc.html",
     "P22-Rejected.dc.html",
     "P23-Suspended.dc.html",
-    "P24-Approved.dc.html"
+    "P24-Approved.dc.html",
+    "P30-Home-Available.dc.html",
+    "P30a-Home-Offline.dc.html",
+    "P30c-Home-Busy.dc.html",
+    "P31-Activate-Blocked.dc.html",
+    "P32-Location-Permission.dc.html",
+    "P40-My-Services.dc.html",
+    "P42-Service-Suspended.dc.html",
+    "P50-Offer-Ride.dc.html",
+    "P50p-Offer-Parcel.dc.html",
+    "P52-Offer-Missed.dc.html",
+    "P55-Scheduled-Requests.dc.html",
+    "P51-Scheduled-Details.dc.html",
+    "P53-Schedule-Conflict.dc.html",
+    "P-Map.dc.html",
+    "P-Bottom-Nav.dc.html"
   ],
   "notes": {
     "flow1": {"x": 0, "y": -300, "text": "Flow 1 · البداية والدخول", "kind": "title1", "maxW": 2270},
     "flow2": {"x": 0, "y": 1150, "text": "Flow 2 · استكمال البيانات والمستندات", "kind": "title1", "maxW": 4150},
-    "flow3": {"x": 0, "y": 2900, "text": "Flow 3 · حالات الحساب", "kind": "title1", "maxW": 2270}
+    "flow3": {"x": 0, "y": 2900, "text": "Flow 3 · حالات الحساب", "kind": "title1", "maxW": 2270},
+    "flow4": {"x": 0, "y": 4200, "text": "Flow 4 · الرئيسية والتوفر", "kind": "title1", "maxW": 2270},
+    "flow5": {"x": 0, "y": 5500, "text": "Flow 5 · خدماتي", "kind": "title1", "maxW": 860},
+    "flow6": {"x": 0, "y": 6950, "text": "Flow 6 · استقبال الطلبات", "kind": "title1", "maxW": 2740},
+    "components": {"x": 0, "y": 8400, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
   },
-  "noteOrder": ["flow1", "flow2", "flow3"],
+  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "components"],
   "designSystems": []
 }

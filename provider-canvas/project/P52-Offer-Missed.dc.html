@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>العرض راح</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif">
+  <dc-import name="P-Map" mode="idle" hint-size="390px,844px"></dc-import>
+  <div style="position: absolute; top: 111px; left: 0; right: 0; display: flex; justify-content: center">
+    <a href="P30a-Home-Offline.dc.html" role="switch" aria-checked="true" aria-label="التوفر" style="height: 52px; padding: 0 8px 0 20px; border-radius: 999px; background: #0F6E6E; box-shadow: 0 4px 12px rgba(15, 110, 110, 0.32); color: #FFFFFF; text-decoration: none; display: flex; align-items: center; gap: 14px">
+      <span style="display: flex; flex-direction: column"><b style="font-size: 16px; line-height: 20px; font-weight: 700">متاح</b><span style="font-size: 12px; line-height: 16px; color: rgba(255, 255, 255, 0.85)">توصلك الطلبات الحين</span></span>
+      <span style="width: 56px; height: 36px; box-sizing: border-box; border-radius: 999px; background: rgba(255, 255, 255, 0.25); padding: 3px; display: flex; justify-content: flex-end"><span style="width: 30px; height: 30px; border-radius: 999px; background: #FFFFFF"></span></span>
+    </a>
+  </div>
+  <div role="status" style="position: absolute; left: 16px; right: 16px; bottom: 128px; padding: 14px 16px; border-radius: 16px; background: #1B2B2B; color: #FFFFFF; display: flex; align-items: center; gap: 12px; box-shadow: 0 4px 16px rgba(27, 43, 43, 0.24)">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E2A23B" aria-hidden="true" style="flex: none"><path d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="m15.71 15.18-3.1-1.85c-.54-.32-.98-1.09-.98-1.72V7.51" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span style="flex: 1; font-size: 14px; line-height: 20px"><b style="display: block; font-weight: 500">الطلب راح لمقدم خدمة ثاني</b><span style="color: rgba(255, 255, 255, 0.8)">خلص وقت الرد. نكمّل ندوّر لك على طلبات.</span></span>
+  </div>
+  <div style="position: absolute; left: 0; right: 0; bottom: 0">
+    <dc-import name="P-Bottom-Nav" active="home" hint-size="390px,104px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

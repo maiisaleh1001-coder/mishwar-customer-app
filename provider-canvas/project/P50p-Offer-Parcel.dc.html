@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>عرض طرد</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif">
+  <dc-import name="P-Map" mode="route" hint-size="390px,844px"></dc-import>
+  <div role="alertdialog" aria-labelledby="offer-title" aria-describedby="offer-time" style="position: absolute; left: 0; right: 0; bottom: 0; background: #FFFFFF; border-radius: 24px 24px 0 0; box-shadow: 0 -4px 24px rgba(15, 110, 110, 0.22); padding: 20px 24px 40px; display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <img src="/_blob/103b56979199f2f5c79882b02f8243c3" alt="" style="width: 48px; height: 48px; flex: none">
+      <span style="flex: 1; min-width: 0"><h1 id="offer-title" style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 700">طلب توصيل طرد</h1><span style="display: block; font-size: 14px; line-height: 20px; color: #5B6766">الاستلام يبعد عنك <b style="font-weight: 500; color: #1B2B2B">6 دقايق</b> · 2.4 كم</span></span>
+      <span id="offer-time" role="timer" aria-label="باقي 9 ثواني على الرد" style="position: relative; width: 56px; height: 56px; flex: none">
+        <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true" style="transform: rotate(-90deg)"><circle cx="28" cy="28" r="24" fill="none" stroke="#E9F4F3" stroke-width="5"/><circle cx="28" cy="28" r="24" fill="none" stroke="#C53030" stroke-width="5" stroke-linecap="round" stroke-dasharray="150.8" stroke-dashoffset="83"/></svg>
+        <b style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700">9</b>
+      </span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px; padding: 14px; border-radius: 16px; border: 1px solid #E4E9E8; font-size: 14px; line-height: 20px">
+      <div style="display: flex; align-items: center; gap: 10px"><span style="position: relative; width: 12px; height: 12px; border-radius: 50%; background: #0F6E6E; box-shadow: 0 0 0 4px #B7DCD8, 0 0 0 8px #E3F1EF; flex: none"><span style="position: absolute; left: 5px; top: 22px; height: 8px; border-left: 2px dashed #CDD3D2"></span></span><span style="flex: 1"><span style="color: #5B6766">الاستلام ·</span> حي الملقا</span></div>
+      <div style="display: flex; align-items: center; gap: 10px"><span style="width: 10px; height: 10px; margin: 1px; border-radius: 50%; background: #0F6E6E; box-shadow: 0 0 0 5px #E3F1EF; flex: none"></span><span style="flex: 1"><span style="color: #5B6766">التسليم ·</span> حي الياسمين</span></div>
+    </div>
+
+    <dl style="margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 8px; font-size: 14px; line-height: 20px">
+      <div><dt style="font-size: 12px; line-height: 16px; color: #5B6766">نوع الطرد</dt><dd style="margin: 0; font-weight: 500">مستندات</dd></div>
+      <div><dt style="font-size: 12px; line-height: 16px; color: #5B6766">الحجم</dt><dd style="margin: 0; font-weight: 500">صغير · أقل من 2 كجم</dd></div>
+      <div><dt style="font-size: 12px; line-height: 16px; color: #5B6766">الاستلام</dt><dd style="margin: 0; font-weight: 500">الحين</dd></div>
+      <div><dt style="font-size: 12px; line-height: 16px; color: #5B6766">القيمة التقديرية</dt><dd style="margin: 0; font-weight: 700; font-size: 16px">24 <svg viewBox="0 0 1124.14 1256.39" width="0.78em" height="0.87em" fill="currentColor" role="img" aria-label="ريال" style="display: inline-block; vertical-align: -0.08em"><path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z"/><path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z"/></svg></dd></div>
+    </dl>
+    <p style="margin: 0; display: flex; gap: 8px; font-size: 12px; line-height: 20px; color: #5B6766"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 10V8c0-3.31 1-6 6-6s6 2.69 6 6v2M17 22H7c-4 0-5-1-5-5v-2c0-4 1-5 5-5h10c4 0 5 1 5 5v2c0 4-1 5-5 5Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>العنوان بالتفصيل واسم المستلم ورقمه يظهرون بعد القبول.</p>
+
+    <div style="display: flex; gap: 8px">
+      <a href="P30-Home-Available.dc.html" style="flex: 1; height: 56px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">رفض</a>
+      <a href="P52-Offer-Missed.dc.html" style="flex: 2; height: 56px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center">قبول</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
