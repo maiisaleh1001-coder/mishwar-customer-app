@@ -191,7 +191,7 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
     <div dir="ltr" style="display: flex; gap: 12px; justify-content: center">
       <input aria-label="رقم 1" inputmode="numeric" maxlength="1" value="4" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid transparent; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
       <input aria-label="رقم 2" inputmode="numeric" maxlength="1" value="8" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid transparent; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
-      <input aria-label="رقم 3" inputmode="numeric" maxlength="1" value="" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid #0F6E6E; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
+      <input aria-label="رقم 3" inputmode="numeric" maxlength="1" value="" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid transparent; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
       <input aria-label="رقم 4" inputmode="numeric" maxlength="1" value="" style="width: 64px; height: 64px; box-sizing: border-box; border-radius: 8px; border: 2px solid transparent; background: #FFFFFF; text-align: center; font: inherit; font-size: 26px; font-weight: 500; color: #1B2B2B; outline: none">
     </div>
     <p style="margin: 0; text-align: center; font-size: 14px; line-height: 20px; color: #5B6766">إعادة إرسال الرمز بعد <b dir="ltr" style="display: inline-block; color: #1B2B2B; font-weight: 500">00:45</b></p>
@@ -3968,7 +3968,7 @@ function show(id){
   const t=S[id],light=t.hasAttribute('data-light');
   screen.innerHTML=`<div class="scr${t.hasAttribute('data-tall')?' tall':''}">${t.innerHTML}</div>${sb(light||t.hasAttribute('data-light-top'))}${hi(light)}<div class="toast" id="toast" role="status"></div>`;
   document.title=`${t.dataset.id} · ${t.dataset.title} · مشوار شريك`;
-  wire(id);syncSel();
+  wire(id);syncSel();(AFTER[id]||(()=>{}))();
   if(path&&!path.steps.includes(id))path=null;
   if(path)path.k=path.steps.indexOf(id);
   panel(id);
@@ -4006,12 +4006,63 @@ screen.addEventListener('click',e=>{
   if(!el){const a=e.target.closest('a[href]');if(a)e.preventDefault();return;}
   e.preventDefault();
   if(el.hasAttribute('data-needs-sel')&&!syncSel()){toast('اختر خدمة وحدة على الأقل');return;}
+  if(el.dataset.go&&!before(el,location.hash.slice(1)||SPLASH))return;
   if(el.dataset.go)go(el.dataset.go);
   else if(el.dataset.say)toast(el.dataset.say);
   else if(el.dataset.opt)pick(el);
   else if(el.dataset.sw){const on=el.getAttribute('aria-checked')!=='false';el.setAttribute('aria-checked',String(!on));toast(on?'وقّفت الخدمة. ما توصلك طلباتها لين تشغّلها':'شغّلت الخدمة، وصارت طلباتها توصلك');}
 });
 screen.addEventListener('submit',e=>e.preventDefault());
+
+// ---- تسجيل مقدم خدمة جديد كتجربة حقيقية: الخدمات من P-05 ← خطوات التفعيل P-10 تتحدّث مع كل «حفظ» ← المراجعة P-17 ← الإرسال
+const SVC={ride:['توصيل الأفراد','P-13','assets/onboarding/ob-car.png'],parcel:['توصيل الطرود','P-14','assets/onboarding/ob-parcel.png'],companion:['المرافق الشخصي','P-15','assets/onboarding/ob-companion.png'],gov:['المعاملات الحكومية','P-16','assets/onboarding/ob-gov.png']};
+const SVC_ORDER=['ride','parcel','companion','gov'];
+const STEP_OF={'P-11':'personal','P-12':'id','P-13':'ride','P-14':'parcel','P-15':'companion','P-16':'gov'};
+const STEP_NAME={personal:'البيانات الشخصية',id:'الهوية والصورة الشخصية',ride:SVC.ride[0],parcel:SVC.parcel[0],companion:SVC.companion[0],gov:SVC.gov[0]};
+const reg={svc:null,done:{}};
+const regSvc=()=>reg.svc||['ride','parcel'];
+const regSteps=()=>['personal','id',...regSvc()];
+const regMissing=()=>regSteps().filter(k=>!reg.done[k]);
+function setStatus(el,done){if(!el)return;el.textContent=done?'مكتملة':'ما بدأت';el.setAttribute('style',`display: block; font-size: 12px; line-height: 20px; color: ${done?'#2E6B37':'#5B6766'}`);}
+
+const AFTER={
+  'P-05'(){if(!reg.svc)return;screen.querySelectorAll('[data-card]').forEach((c,i)=>c.setAttribute('aria-pressed',String(reg.svc.includes(SVC_ORDER[i]))));syncSel();},
+  'P-10'(){
+    const rows=[...screen.querySelectorAll('a[data-go]')];
+    const status=a=>a.querySelector('span[style*="flex: 1"]>span');
+    const EMPTY='<svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="9.5" stroke="#CFE6E4" stroke-width="2" stroke-dasharray="3 3"/></svg>';
+    [['P-11','personal'],['P-12','id']].forEach(([pg,k])=>{const r=rows.find(a=>a.dataset.go===pg);if(!r)return;setStatus(status(r),reg.done[k]);const ic=r.firstElementChild;if(ic&&ic.tagName.toLowerCase()==='svg'){if(!ic.dataset.doneHtml)r.dataset.doneIcon=ic.outerHTML;if(!reg.done[k])ic.outerHTML=EMPTY;}});
+    const svcRows=rows.filter(a=>['P-13','P-14','P-15','P-16'].includes(a.dataset.go)),tpl=svcRows[svcRows.length-1];
+    if(tpl){const anchor=svcRows[0];regSvc().forEach(k=>{const r=tpl.cloneNode(true),[name,page,img]=SVC[k];r.dataset.go=page;r.setAttribute('href','#'+page);r.querySelector('img').src=img;r.querySelector('b').textContent=name;setStatus(status(r),reg.done[k]);anchor.before(r);});svcRows.forEach(r=>r.remove());}
+    const steps=regSteps(),done=steps.filter(k=>reg.done[k]).length,bar=screen.querySelector('[role="img"][aria-label*="خطوات"]');
+    if(bar){bar.setAttribute('aria-label',`${done} من ${steps.length} خطوات مكتملة`);bar.innerHTML=steps.map((k,i)=>`<span style="flex: 1; height: 4px; border-radius: 2px; background: ${i<done?'#0F6E6E':i===done?'#E2A23B':'#E9F4F3'}"></span>`).join('');const t=bar.nextElementSibling;if(t)t.innerHTML=`<b style="font-weight: 500; color: #1B2B2B">${done} من ${steps.length}</b> خطوات مكتملة`;}
+    const btn=[...screen.querySelectorAll('button')].find(b=>label(b).includes('راجع وأرسل')),hint=screen.querySelector('#submit-hint'),miss=regMissing();
+    if(!btn)return;btn.removeAttribute('disabled');delete btn.dataset.say;delete btn.dataset.go;
+    if(miss.length){btn.dataset.say='باقي: '+miss.map(k=>STEP_NAME[k]).join('، ');if(hint)hint.textContent=`باقي ${miss.length===1?'خطوة وحدة':miss.length===2?'خطوتين':miss.length+' خطوات'} عشان ترسل`;}
+    else{btn.dataset.go='P-17';btn.style.background='#0F6E6E';btn.style.color='#FFFFFF';btn.style.cursor='pointer';if(hint)hint.textContent='كل شي جاهز. راجع طلبك وأرسله';}
+  },
+  'P-17'(){
+    const cards=[...screen.querySelectorAll('a[data-go]')].filter(a=>['P-13','P-14'].includes(a.dataset.go)).map(a=>a.closest('div[style*="border-radius: 16px"]'));
+    const tpl=cards[cards.length-1];if(!tpl)return;
+    regSvc().forEach(k=>{const c=tpl.cloneNode(true),[name,page,img]=SVC[k];c.querySelector('img').src=img;c.querySelector('b').textContent=name;const a=c.querySelector('a[data-go]');a.dataset.go=page;a.setAttribute('href','#'+page);
+      const orig=cards.find(x=>x.querySelector(`a[data-go="${page}"]`));if(orig){cards[0].before(orig.cloneNode(true));const n=cards[0].previousElementSibling.querySelector('a[data-go]');n.dataset.go=page;}else{const s=c.querySelector('span');if(s)s.textContent=k==='companion'?'كبار السن والأطفال · بالساعة':'المرور والجوازات';cards[0].before(c);}});
+    cards.forEach(c=>c.remove());
+  },
+  'P-18'(){
+    const x=screen.querySelector('a[aria-label="إغلاق"]');if(x)x.dataset.go='back';
+    const at=location.hash;setTimeout(()=>{if(location.hash!==at)return;const bar=screen.querySelector('[role="progressbar"] span');if(bar)bar.style.width='100%';const sp=screen.querySelector('span[style*="border-top-color"]');if(sp)sp.outerHTML='<span style="width: 24px; height: 24px; border-radius: 50%; background: #2E8B3E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; flex: none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5.2 12 4.53 4.53 9.07-9.06"/></svg></span>';
+      const save=[...screen.querySelectorAll('button')].find(b=>label(b)==='حفظ');if(save){save.removeAttribute('disabled');save.dataset.go='back';save.style.background='#0F6E6E';save.style.color='#FFFFFF';save.style.cursor='pointer';}
+      toast('انرفع الملف. اضغط «حفظ»');},1200);
+  },
+};
+// قبل ما نتنقل: نسجّل الخدمات المختارة، ونعلّم الخطوة مكتملة لما يحفظ، ونتأكد من الإقرار قبل الإرسال
+function before(el,cur){
+  if(cur==='P-05'&&el.hasAttribute('data-needs-sel')){reg.svc=[...screen.querySelectorAll('[data-card]')].map((c,i)=>c.getAttribute('aria-pressed')==='true'?SVC_ORDER[i]:null).filter(Boolean);}
+  const to=el.dataset.go,step=STEP_OF[cur];
+  if(step&&to&&to!=='back'&&el.getAttribute('aria-label')!=='رجوع'&&(to==='P-10'||(cur==='P-11'&&to==='P-12'))){reg.done[step]=true;}
+  if(cur==='P-17'&&to==='P-20'){const c=screen.querySelector('#confirm');if(c&&!c.checked){toast('أكّد إن البيانات والمستندات صحيحة');return false;}reg.sent=true;}
+  return true;
+}
 
 // ---- لوحة المراجعة
 function seq(){const id=location.hash.slice(1)||SPLASH;if(path)return path.steps;return groupOf(id)[1];}
