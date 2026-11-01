@@ -31,7 +31,7 @@ $lightTop = @('P-02b')
 
 function Get-Id([string]$name) {
   if ($name -eq 'Main') { return 'P-01' }
-  [regex]::Replace($name, '^P(\d+[a-z]?)-.*$', 'P-$1')
+  [regex]::Replace($name, '^P(\d+[a-z]{0,2})-.*$', 'P-$1')
 }
 
 function Get-Markup([string]$name) {
