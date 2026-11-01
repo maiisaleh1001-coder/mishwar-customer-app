@@ -72,8 +72,18 @@
     "P84-Companion-Time-Up.dc.html": {"x": 3290, "y": 14800, "w": 390, "h": 900, "title": "P-84 · خلصت المدة"},
     "P85-Companion-End-Confirm.dc.html": {"x": 3760, "y": 14800, "w": 390, "h": 900, "title": "P-85 · تأكيد الإنهاء بدري"},
     "P86-Companion-Summary.dc.html": {"x": 4230, "y": 14800, "w": 390, "h": 1000, "title": "P-86 · ملخص المرافقة"},
-    "P-Map.dc.html": {"x": 0, "y": 16300, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
-    "P-Bottom-Nav.dc.html": {"x": 470, "y": 16300, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
+    "P90-Gov-Details.dc.html": {"x": 0, "y": 16300, "w": 390, "h": 1040, "title": "P-90 · تفاصيل المعاملة"},
+    "P91-Gov-Document.dc.html": {"x": 470, "y": 16300, "w": 390, "h": 844, "title": "P-91 · عرض مستند"},
+    "P92-Gov-Originals.dc.html": {"x": 940, "y": 16300, "w": 390, "h": 900, "title": "P-92 · استلمت المستندات"},
+    "P93-Gov-Start.dc.html": {"x": 1410, "y": 16300, "w": 390, "h": 844, "title": "P-93 · بدء التنفيذ"},
+    "P94-Gov-In-Progress.dc.html": {"x": 1880, "y": 16300, "w": 390, "h": 900, "title": "P-94 · جاري التنفيذ"},
+    "P94s-Gov-Status-Sheet.dc.html": {"x": 2350, "y": 16300, "w": 390, "h": 900, "title": "P-94s · تحديث الحالة"},
+    "P95-Gov-Completed.dc.html": {"x": 2820, "y": 16300, "w": 390, "h": 1040, "title": "P-95 · إنجاز المعاملة والرسوم"},
+    "P96-Gov-Handover.dc.html": {"x": 3290, "y": 16300, "w": 390, "h": 900, "title": "P-96 · تسليم المستندات"},
+    "P97-Gov-Summary.dc.html": {"x": 3760, "y": 16300, "w": 390, "h": 1000, "title": "P-97 · ملخص المعاملة"},
+    "P98-Gov-Failed.dc.html": {"x": 4230, "y": 16300, "w": 390, "h": 1000, "title": "P-98 · تعذّر الإنجاز"},
+    "P-Map.dc.html": {"x": 0, "y": 17850, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
+    "P-Bottom-Nav.dc.html": {"x": 470, "y": 17850, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
   },
   "order": [
     "Main.dc.html",
@@ -143,6 +153,16 @@
     "P84-Companion-Time-Up.dc.html",
     "P85-Companion-End-Confirm.dc.html",
     "P86-Companion-Summary.dc.html",
+    "P90-Gov-Details.dc.html",
+    "P91-Gov-Document.dc.html",
+    "P92-Gov-Originals.dc.html",
+    "P93-Gov-Start.dc.html",
+    "P94-Gov-In-Progress.dc.html",
+    "P94s-Gov-Status-Sheet.dc.html",
+    "P95-Gov-Completed.dc.html",
+    "P96-Gov-Handover.dc.html",
+    "P97-Gov-Summary.dc.html",
+    "P98-Gov-Failed.dc.html",
     "P-Map.dc.html",
     "P-Bottom-Nav.dc.html"
   ],
@@ -158,8 +178,9 @@
     "flow9": {"x": 0, "y": 11450, "text": "Flow 9 · طلباتي", "kind": "title1", "maxW": 1800},
     "flow10": {"x": 0, "y": 13000, "text": "Flow 10 · تنفيذ توصيل الطرود", "kind": "title1", "maxW": 3680},
     "flow11": {"x": 0, "y": 14500, "text": "Flow 11 · تنفيذ المرافق الشخصي والتمديد", "kind": "title1", "maxW": 4620},
-    "components": {"x": 0, "y": 16000, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
+    "flow12": {"x": 0, "y": 16000, "text": "Flow 12 · تنفيذ المعاملات الحكومية", "kind": "title1", "maxW": 4620},
+    "components": {"x": 0, "y": 17550, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
   },
-  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "flow8", "flow9", "flow10", "flow11", "components"],
+  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "flow8", "flow9", "flow10", "flow11", "flow12", "components"],
   "designSystems": []
 }
