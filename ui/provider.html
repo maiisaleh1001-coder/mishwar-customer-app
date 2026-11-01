@@ -575,7 +575,7 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
       </div>
       <span style="font-size: 12px; line-height: 20px; color: #5B6766">PDF أو JPG أو PNG، وأقصى حجم 10 MB. تأكد إن كل الكلام واضح ومقروء.</span>
     </div>
-    <button type="button" disabled style="height: 56px; width: 100%; border: none; border-radius: 999px; background: #E4E9E8; color: #5B6766; font: inherit; font-size: 16px; font-weight: 500">حفظ</button>
+    <button type="button" style="height: 56px; width: 100%; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; cursor: pointer; font: inherit; font-size: 16px; font-weight: 500">حفظ</button>
   </div>
 </div></template>
 <template data-id="P-20" data-title="قيد المراجعة" data-group="Flow 3 · حالات الحساب"><div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
@@ -3995,20 +3995,25 @@ function openUpload(key){
   screen.appendChild(ov);
   const q=s=>ov.querySelector(s),title=q('[data-sheet-title]'),row=q('[data-file-row]'),save=[...ov.querySelectorAll('button')].find(b=>label(b)==='حفظ');
   if(title)title.textContent=DOC[key][0];if(row)row.hidden=true;
+  // «حفظ» شغال من أول ما الشيت يفتح: لو ما اخترت ملف، يرفعه هو ويقفل لوحده
+  save.disabled=false;save.style.background='#0F6E6E';save.style.color='#FFFFFF';save.style.cursor='pointer';
+  let state='idle',closeWhenDone=false;
   const close=()=>ov.remove();
+  const finish=()=>{reg.docs.add(key);close();(AFTER[location.hash.slice(1)]||(()=>{}))();toast('اترفع: '+DOC[key][0]);};
+  const upload=()=>{
+    if(state!=='idle'||!row)return;state='uploading';
+    row.hidden=false;const b=row.querySelector('b');if(b)b.textContent=DOC[key][1].split(' · ')[0];
+    const sub=row.querySelector('b+span'),bar=row.querySelector('[role="progressbar"] span');const t0=Date.now();
+    const tick=setInterval(()=>{const p=Math.min(100,Math.round((Date.now()-t0)/9/10)*10);if(bar)bar.style.width=p+'%';if(sub)sub.textContent=p<100?`جاري الرفع · ${p}%`:'اترفع · '+DOC[key][1].split(' · ')[1];
+      if(p>=100){clearInterval(tick);state='done';const sp=row.querySelector('span[style*="border-top-color"]');if(sp)sp.outerHTML=CHECK('#2E8B3E','#FFFFFF');save.textContent='حفظ';if(closeWhenDone)setTimeout(finish,300);}},180);
+  };
   ov.addEventListener('click',e=>{
     e.stopPropagation();const el=e.target.closest('a,button');if(!el)return;e.preventDefault();
     if(el.getAttribute('aria-label')==='إغلاق'){close();return;}
-    if(el===save){if(save.disabled)return;reg.docs.add(key);close();(AFTER[location.hash.slice(1)]||(()=>{}))();toast('اترفع: '+DOC[key][0]);return;}
-    if(/صوّر|اختر ملف/.test(label(el))&&row){
-      row.hidden=false;const b=row.querySelector('b');if(b)b.textContent=DOC[key][1].split(' · ')[0];
-      const sub=row.querySelector('b+span'),bar=row.querySelector('[role="progressbar"] span');const t0=Date.now();
-      const tick=setInterval(()=>{const p=Math.min(100,Math.round((Date.now()-t0)/9/10)*10);if(bar)bar.style.width=p+'%';if(sub)sub.textContent=p<100?`جاري الرفع · ${p}%`:'اترفع · '+DOC[key][1].split(' · ')[1];
-        if(p>=100){clearInterval(tick);const sp=row.querySelector('span[style*="border-top-color"]');if(sp)sp.outerHTML=CHECK('#2E8B3E','#FFFFFF');save.disabled=false;save.style.background='#0F6E6E';save.style.color='#FFFFFF';save.style.cursor='pointer';}},180);
-    }
+    if(el===save){if(state==='done'){finish();return;}closeWhenDone=true;save.textContent='جاري الرفع...';upload();return;}
+    if(/صوّر|اختر ملف/.test(label(el)))upload();
   });
-}
-// قبل التنقل: نسجّل الخدمات، ونحفظ الخطوة، ونفتح شيت الرفع، ونتأكد قبل الإرسال
+}// قبل التنقل: نسجّل الخدمات، ونحفظ الخطوة، ونفتح شيت الرفع، ونتأكد قبل الإرسال
 function before(el,cur){
   if(el.dataset&&el.dataset.doc&&STEP_AT[cur]){openUpload(el.dataset.doc);return false;}
   if(cur==='P-05'&&el.hasAttribute('data-needs-sel')){reg.svc=[...screen.querySelectorAll('[data-card]')].map((c,i)=>c.getAttribute('aria-pressed')==='true'?SVC_ORDER[i]:null).filter(Boolean);}
