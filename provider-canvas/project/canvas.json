@@ -45,31 +45,10 @@
       "y": 0
     },
     "P05-Create-Account.dc.html": {
-      "h": 1000,
+      "h": 900,
       "title": "P-05 · إنشاء الحساب واختيار الخدمات",
       "w": 390,
       "x": 1880,
-      "y": 0
-    },
-    "P05a-Create-Account-Cards.dc.html": {
-      "h": 900,
-      "title": "P-05 · اقتراح أ · كروت كبيرة",
-      "w": 390,
-      "x": 2350,
-      "y": 0
-    },
-    "P05b-Create-Account-Expand.dc.html": {
-      "h": 1000,
-      "title": "P-05 · اقتراح ب · المختارة تتفتح بمتطلباتها",
-      "w": 390,
-      "x": 2820,
-      "y": 0
-    },
-    "P05c-Create-Account-Docs.dc.html": {
-      "h": 1000,
-      "title": "P-05 · اقتراح ج · ملخص المستندات",
-      "w": 390,
-      "x": 3290,
       "y": 0
     },
     "P10-Activation-Steps.dc.html": {
@@ -898,9 +877,6 @@
     "P03-Phone.dc.html",
     "P04-OTP.dc.html",
     "P05-Create-Account.dc.html",
-    "P05a-Create-Account-Cards.dc.html",
-    "P05b-Create-Account-Expand.dc.html",
-    "P05c-Create-Account-Docs.dc.html",
     "P10-Activation-Steps.dc.html",
     "P11-Personal-Info.dc.html",
     "P12-ID-Photo.dc.html",
