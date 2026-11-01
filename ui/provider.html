@@ -48,6 +48,11 @@ button{cursor:pointer}
 [role="switch"][aria-checked="false"]{filter:grayscale(1);opacity:.55}
 /* كروت الاختيار (data-card): الشكل المختار بيتعمل هنا لأن الـ Canvas بيرسم الحالة الفاضية */
 .upl{position:absolute;inset:0;z-index:35}
+/* عرض حالات الحساب بعد الإرسال: شريط فوق الشاشة، والمحتوى ينزل تحته */
+.tour{position:absolute;top:50px;left:12px;right:12px;z-index:45;display:flex;align-items:center;gap:10px;padding:8px 8px 8px 14px;border-radius:18px;background:rgba(27,43,43,.94);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.tour span{flex:1;min-width:0;display:flex;flex-direction:column}.tour small{font-size:12px;line-height:16px;opacity:.75}.tour b{font-size:15px;line-height:22px}
+.tour button{flex:none;height:40px;padding:0 14px;border:none;border-radius:999px;background:#E2A23B;color:#1B2B2B;font-size:14px;font-weight:700}
+.scr.touring>[dir]{padding-top:116px!important}
 .screen [hidden]{display:none!important}
 .scr [data-card][aria-pressed="true"]{border-color:#0F6E6E!important;box-shadow:inset 0 0 0 1px #0F6E6E}
 .scr [data-card][aria-pressed="true"] [data-off]{display:none!important}
@@ -3892,7 +3897,8 @@ function show(id){
   if(!S[id])id=SPLASH;
   clearTimeout(timer);
   const t=S[id],light=t.hasAttribute('data-light');
-  screen.innerHTML=`<div class="scr${t.hasAttribute('data-tall')?' tall':''}">${t.innerHTML}</div>${sb(light||t.hasAttribute('data-light-top'))}${hi(light)}<div class="toast" id="toast" role="status"></div>`;
+  const bar=tourBar(id);
+  screen.innerHTML=`<div class="scr${t.hasAttribute('data-tall')?' tall':''}${bar?' touring':''}">${t.innerHTML}</div>${bar}${sb(light||t.hasAttribute('data-light-top'))}${hi(light)}<div class="toast" id="toast" role="status"></div>`;
   document.title=`${t.dataset.id} · ${t.dataset.title} · مشوار شريك`;
   wire(id);syncSel();prepChoices();(AFTER[id]||(()=>{}))();
   if(path&&!path.steps.includes(id))path=null;
@@ -4013,7 +4019,16 @@ function paintStepper(k){
 }
 // «نفس سيارة توصيل الأفراد» يظهر بس لو اختار توصيل الأفراد واختار «سيارة» للطرود
 function sameCar(){const car=screen.querySelector('.scr input[type="radio"]'),box=screen.querySelector('[data-needs-svc="ride"]');if(box)box.hidden=!regSvc().includes('ride')||!(car&&car.checked);}
-function paintStep(id){
+// صفوف الخدمات في «قيد المراجعة» و«اتعتمد» حسب الخدمات اللي اختارها
+const SUB={ride:'الفئة: اقتصادي',parcel:()=>`بالسيارة · ${reg.areas.length} أحياء`,companion:'كبار السن والأطفال',gov:'المرور والجوازات'};
+function svcRows(){
+  const imgs=[...screen.querySelectorAll('.scr img')].filter(i=>/ob-(car|parcel)\.png/.test(i.getAttribute('src')));if(!imgs.length)return;
+  const rows=imgs.map(i=>i.parentElement),box=rows[0].parentElement,tpl=rows[0];
+  rows.forEach(r=>r.remove());
+  regSvc().forEach((k,n,all)=>{const r=tpl.cloneNode(true);r.querySelector('img').src=SVC[k][2];r.querySelector('b').textContent=SVC[k][0];
+    const bb=r.querySelector('b'),sub=bb.nextElementSibling;if(sub&&bb.parentElement!==r){const s=SUB[k];sub.textContent=typeof s==='function'?s():s;}
+    r.style.borderBottom=n<all.length-1?'1px solid #E4E9E8':'none';box.appendChild(r);});
+}function paintStep(id){
   const k=STEP_AT[id];if(!k)return;
   paintStepper(k);paintSlots();
   const steps=regSteps(),i=steps.indexOf(k),nxt=steps[i+1],prv=steps[i-1];
@@ -4042,6 +4057,7 @@ const AFTER={
     cards.forEach(c=>c.remove());
   },
   'P-18'(){const x=screen.querySelector('a[aria-label="إغلاق"]');if(x)x.dataset.go='back';},
+  'P-20'(){svcRows();},'P-24'(){svcRows();},
 };
 
 // شيت الرفع فوق نفس الشاشة: تختار «صوّر» أو «اختر ملف» ← يترفع ← «حفظ» يرجّعك والخانة تتعلّم
@@ -4094,6 +4110,17 @@ function openAreas(){
     if(e.target.closest('[data-area-add]')){e.preventDefault();const p=picked();if(!p.length){toast('اختر حي واحد على الأقل');return;}reg.areas.push(...p);ov.remove();paintAreas();toast(p.length===1?'أضفنا '+p[0]:`أضفنا ${p.length} أحياء`);}
   });
 }
+// ---- بعد «أرسل طلب التفعيل»: نعرض كل حالات الحساب وحدة وحدة، وآخرها «اتعتمد» ← إذن الموقع ← الرئيسية
+const TOUR=[['P-20','قيد المراجعة'],['P-21','الإدارة طلبت تعديل'],['P-22','الطلب انرفض'],['P-23','الحساب انوقف'],['P-24','اتعتمد حسابك']];
+let tourOn=false;
+function tourBar(id){
+  const k=TOUR.findIndex(x=>x[0]===id);
+  if(k<0){if(!['P-32','P-30a'].includes(id))tourOn=false;return '';}
+  if(!tourOn)return '';
+  const last=k===TOUR.length-1;
+  return `<div class="tour" role="region" aria-label="عرض حالات الحساب"><span><small>حالات الحساب · ${k+1} من ${TOUR.length}</small><b>${TOUR[k][1]}</b></span><button type="button" data-tour="${last?'P-32':TOUR[k+1][0]}">${last?'ادخل للرئيسية ←':'الحالة التالية ←'}</button></div>`;
+}
+screen.addEventListener('click',e=>{const b=e.target.closest('[data-tour]');if(!b)return;e.preventDefault();e.stopPropagation();if(b.dataset.tour==='P-32')tourOn=false;go(b.dataset.tour);},true);
 // قبل التنقل: نسجّل الخدمات، ونحفظ الخطوة، ونفتح شيت الرفع، ونتأكد قبل الإرسال
 function before(el,cur){
   if(el.dataset&&el.dataset.doc&&STEP_AT[cur]){openUpload(el.dataset.doc);return false;}
@@ -4103,6 +4130,7 @@ function before(el,cur){
   if(cur==='P-17'&&el.dataset.go==='P-20'){
     const open=firstOpen();if(open){toast('كمّل الأول: '+NAME[open]);return false;}
     const c=screen.querySelector('#confirm');if(c&&!c.checked){toast('أكّد إن البيانات والمستندات صحيحة');return false;}
+    tourOn=true;
   }
   return true;
 }
