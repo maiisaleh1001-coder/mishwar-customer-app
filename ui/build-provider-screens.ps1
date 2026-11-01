@@ -17,10 +17,16 @@ $blobs = @{
   '05c816e6a5c05ddf8636c71b0c6582a3' = 'assets/onboarding/ob-gov.png'
   '0b1131a8aec6a41446df5fd921180b57' = 'assets/map/riyadh-olaya.svg'
   '08dc33a457df0399712b1df352bbcdae' = 'assets/map/riyadh-narjis.svg'
+  'c8363817532380c64d145b8a4568b8d9' = 'assets/onboarding/ob-wallet.png'
+  '1b6a159d44b2578d741db7af3c94edde' = 'assets/onboarding/ob-calendar.png'
+  'b8594a97876d9249c415ef72d2c966f9' = 'assets/onboarding/ob-star.png'
+  'a2a45bc8a9d140823af637a52de70009' = 'assets/onboarding/ob-shield.png'
 }
 
 # شاشات خلفيتها غامقة، فشريط الحالة فوقها يبقى أبيض
 $light = @('P-01', 'P-91')
+# شاشات أعلاها غامق بس: شريط الحالة أبيض، وخط الـ Home يفضل غامق
+$lightTop = @('P-02b')
 
 function Get-Id([string]$name) {
   if ($name -eq 'Main') { return 'P-01' }
@@ -79,6 +85,7 @@ foreach ($file in $canvas.order) {
   $flags = ''
   if ([int]$b.h -gt 844) { $flags += ' data-tall' }
   if ($id -in $light) { $flags += ' data-light' }
+  if ($id -in $lightTop) { $flags += ' data-light-top' }
   $html = Resolve-Markup (Get-Markup $name) @{}
   $html = [regex]::Replace($html, 'href="(?:\.\/)?([\w-]+)\.dc\.html"', { param($m) 'href="#' + (Get-Id $m.Groups[1].Value) + '"' })
   foreach ($k in $blobs.Keys) { $html = $html.Replace("/_blob/$k", $blobs[$k]) }
