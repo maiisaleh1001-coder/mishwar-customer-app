@@ -12,9 +12,8 @@
 </helmet>
 <div style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #F1F3F1">
   <img src="/_blob/0b1131a8aec6a41446df5fd921180b57" alt="" style="position: absolute; inset: 0; width: 390px; height: 844px; display: block">
-  <sc-if value="{{route}}" hint-placeholder-val="{{false}}">
+  <sc-if value="{{hasRoute}}" hint-placeholder-val="{{false}}">
     <svg width="390" height="844" viewBox="0 0 390 844" aria-hidden="true" style="position: absolute; inset: 0">
-      <path d="M318 470 L296 440 L276 399" fill="none" stroke="#5B6766" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/>
       <g fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path d="M276 399 L238 315 L222 280 L193 215 L176 179 L162 149 L150 139 L121 152 L79 173 L64 180" stroke="#FFFFFF" stroke-width="10"/>
         <path d="M276 399 L238 315 L222 280 L193 215 L176 179 L162 149 L150 139 L121 152 L79 173 L64 180" stroke="#0F6E6E" stroke-width="5"/>
@@ -22,7 +21,16 @@
       <circle cx="276" cy="399" r="17" fill="#E3F1EF" opacity=".95"/><circle cx="276" cy="399" r="12" fill="#B7DCD8"/><circle cx="276" cy="399" r="8" fill="#0F6E6E" stroke="#FFFFFF" stroke-width="2"/>
       <circle cx="64" cy="180" r="12" fill="#E3F1EF" opacity=".95"/><circle cx="64" cy="180" r="7" fill="#0F6E6E" stroke="#FFFFFF" stroke-width="2"/>
     </svg>
+  </sc-if>
+  <sc-if value="{{approach}}" hint-placeholder-val="{{false}}">
+    <svg width="390" height="844" viewBox="0 0 390 844" aria-hidden="true" style="position: absolute; inset: 0"><path d="M318 470 L296 440 L276 399" fill="none" stroke="#5B6766" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/></svg>
     <span style="position: absolute; left: 296px; top: 448px; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 2px 8px rgba(15, 110, 110, 0.24); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 19 20l-7-3.6L5 20 12 2.5Z" fill="#0F6E6E" stroke="#0F6E6E" stroke-width="1.5" stroke-linejoin="round" transform="rotate(-35 12 12)"/></svg></span>
+  </sc-if>
+  <sc-if value="{{arrived}}" hint-placeholder-val="{{false}}">
+    <span style="position: absolute; left: 280px; top: 404px; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 2px 8px rgba(15, 110, 110, 0.24); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 19 20l-7-3.6L5 20 12 2.5Z" fill="#0F6E6E" stroke="#0F6E6E" stroke-width="1.5" stroke-linejoin="round" transform="rotate(-25 12 12)"/></svg></span>
+  </sc-if>
+  <sc-if value="{{trip}}" hint-placeholder-val="{{false}}">
+    <span style="position: absolute; left: 186px; top: 222px; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 2px 8px rgba(15, 110, 110, 0.24); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 19 20l-7-3.6L5 20 12 2.5Z" fill="#0F6E6E" stroke="#0F6E6E" stroke-width="1.5" stroke-linejoin="round" transform="rotate(-25 12 12)"/></svg></span>
   </sc-if>
   <sc-if value="{{idle}}" hint-placeholder-val="{{true}}">
     <span style="position: absolute; left: 115px; top: 330px; width: 160px; height: 160px; border-radius: 999px; background: rgba(15, 110, 110, 0.08); box-shadow: inset 0 0 0 1px rgba(15, 110, 110, 0.18)"></span>
@@ -35,11 +43,18 @@
   <span style="position: absolute; left: 6px; bottom: 4px; padding: 1px 4px; border-radius: 4px; background: rgba(255, 255, 255, 0.75); font-family: system-ui, sans-serif; font-size: 9px; line-height: 12px; color: #5B6766">© OpenStreetMap</span>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["idle","route","off"],"default":"idle"},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["idle","off","route","arrived","trip"],"default":"idle"},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     const m = this.props.mode ?? 'idle';
-    return { idle: m === 'idle' || m === 'off', route: m === 'route', dim: m === 'off' };
+    return {
+      idle: m === 'idle' || m === 'off',
+      dim: m === 'off',
+      hasRoute: m === 'route' || m === 'arrived' || m === 'trip',
+      approach: m === 'route',
+      arrived: m === 'arrived',
+      trip: m === 'trip'
+    };
   }
 }
 </script>

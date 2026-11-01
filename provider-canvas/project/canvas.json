@@ -37,8 +37,17 @@
     "P55-Scheduled-Requests.dc.html": {"x": 1410, "y": 7250, "w": 390, "h": 844, "title": "P-55 · طلبات مجدولة جديدة"},
     "P51-Scheduled-Details.dc.html": {"x": 1880, "y": 7250, "w": 390, "h": 1000, "title": "P-51 · تفاصيل طلب مجدول"},
     "P53-Schedule-Conflict.dc.html": {"x": 2350, "y": 7250, "w": 390, "h": 1000, "title": "P-53 · تعارض موعد"},
-    "P-Map.dc.html": {"x": 0, "y": 8700, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
-    "P-Bottom-Nav.dc.html": {"x": 470, "y": 8700, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
+    "P60-Ride-To-Customer.dc.html": {"x": 0, "y": 8700, "w": 390, "h": 844, "title": "P-60 · في الطريق للعميل"},
+    "P61-Ride-Arrived.dc.html": {"x": 470, "y": 8700, "w": 390, "h": 844, "title": "P-61 · وصلت · انتظار مجاني"},
+    "P61b-Ride-Waiting-Paid.dc.html": {"x": 940, "y": 8700, "w": 390, "h": 844, "title": "P-61b · انتظار برسوم"},
+    "P64-Ride-No-Show.dc.html": {"x": 1410, "y": 8700, "w": 390, "h": 844, "title": "P-64 · العميل ما حضر"},
+    "P65-Cancel-Reason.dc.html": {"x": 1880, "y": 8700, "w": 390, "h": 844, "title": "P-65 · إلغاء من مقدم الخدمة"},
+    "P66-Customer-Cancelled.dc.html": {"x": 2350, "y": 8700, "w": 390, "h": 844, "title": "P-66 · العميل ألغى"},
+    "P62-Ride-In-Progress.dc.html": {"x": 2820, "y": 8700, "w": 390, "h": 844, "title": "P-62 · الرحلة جارية"},
+    "P62e-Ride-End-Confirm.dc.html": {"x": 3290, "y": 8700, "w": 390, "h": 844, "title": "P-62e · تأكيد إنهاء الرحلة"},
+    "P63-Ride-Summary.dc.html": {"x": 3760, "y": 8700, "w": 390, "h": 1000, "title": "P-63 · ملخص الرحلة"},
+    "P-Map.dc.html": {"x": 0, "y": 10300, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
+    "P-Bottom-Nav.dc.html": {"x": 470, "y": 10300, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
   },
   "order": [
     "Main.dc.html",
@@ -73,6 +82,15 @@
     "P55-Scheduled-Requests.dc.html",
     "P51-Scheduled-Details.dc.html",
     "P53-Schedule-Conflict.dc.html",
+    "P60-Ride-To-Customer.dc.html",
+    "P61-Ride-Arrived.dc.html",
+    "P61b-Ride-Waiting-Paid.dc.html",
+    "P64-Ride-No-Show.dc.html",
+    "P65-Cancel-Reason.dc.html",
+    "P66-Customer-Cancelled.dc.html",
+    "P62-Ride-In-Progress.dc.html",
+    "P62e-Ride-End-Confirm.dc.html",
+    "P63-Ride-Summary.dc.html",
     "P-Map.dc.html",
     "P-Bottom-Nav.dc.html"
   ],
@@ -83,8 +101,9 @@
     "flow4": {"x": 0, "y": 4200, "text": "Flow 4 · الرئيسية والتوفر", "kind": "title1", "maxW": 2270},
     "flow5": {"x": 0, "y": 5500, "text": "Flow 5 · خدماتي", "kind": "title1", "maxW": 860},
     "flow6": {"x": 0, "y": 6950, "text": "Flow 6 · استقبال الطلبات", "kind": "title1", "maxW": 2740},
-    "components": {"x": 0, "y": 8400, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
+    "flow7": {"x": 0, "y": 8400, "text": "Flow 7 · تنفيذ رحلة توصيل الأفراد", "kind": "title1", "maxW": 4150},
+    "components": {"x": 0, "y": 10000, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
   },
-  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "components"],
+  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "components"],
   "designSystems": []
 }
