@@ -14,8 +14,9 @@ html,body{height:100%}
 body{font-family:'Inter','IBM Plex Sans Arabic',system-ui,sans-serif;background:var(--page);color:var(--ink)}
 button,select,input{font:inherit;color:inherit}
 button{cursor:pointer}
-.shell{height:100vh;display:grid;grid-template-columns:300px 1fr 320px}
-.side,.demo{background:#fff;overflow-y:auto;padding:20px 16px;display:flex;flex-direction:column;gap:12px}
+.shell{height:100vh;display:grid;grid-template-columns:1fr;overflow:hidden}
+/* زي بروتوتايب العميل: الجوال بس في النص، من غير القايمة ولوحة التحكم */
+.side,.demo{display:none!important;background:#fff;overflow-y:auto;padding:20px 16px;display:flex;flex-direction:column;gap:12px}
 .side{border-left:1px solid var(--line)}
 .demo{border-right:1px solid var(--line)}
 .side h1{font-size:16px;line-height:24px;font-weight:700}
@@ -90,11 +91,9 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
 .evs button code{font-family:ui-monospace,monospace;font-size:12px;color:var(--sandInk);direction:ltr}
 .mbar{display:none}
 .mev{display:none}
-@media (max-width:1100px){.mev{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px}.mev button{min-height:44px;padding:0 12px;display:inline-flex;align-items:center;gap:8px;border:1px solid #F1DDB3;border-radius:999px;background:var(--sand50);font-size:13px}}
+@media (max-width:1100px){.mev button{min-height:44px;padding:0 12px;display:inline-flex;align-items:center;gap:8px;border:1px solid #F1DDB3;border-radius:999px;background:var(--sand50);font-size:13px}}
 @media (max-width:1100px){
-  .shell{display:block;height:auto}
-  .side,.demo{display:none}
-  .mbar{display:flex;gap:8px;align-items:center;padding:8px max(16px,env(safe-area-inset-left,0px));background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  .mbar{display:none;gap:8px;align-items:center;padding:8px max(16px,env(safe-area-inset-left,0px));background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
   .mbar select{flex:1;min-width:0;height:44px;border:1px solid var(--line);border-radius:999px;padding:0 12px;background:#fff;font-size:14px}
   .mbar .dbtn{flex:none;width:44px;padding:0}
   .stage{padding:8px 0;align-items:flex-start}
@@ -4339,7 +4338,7 @@ addEventListener('keydown',e=>{if(e.target.closest('input,select,textarea'))retu
 ['#events','#mev'].forEach(s=>$(s).addEventListener('click',e=>{const b=e.target.closest('[data-ev]');if(b)go(b.dataset.ev);}));
 addEventListener('hashchange',()=>show(location.hash.slice(1)));
 
-function fit(){const stg=$('#stage'),mob=innerWidth<=1100;const w=(mob?innerWidth:stg.clientWidth)-32,h=(mob?innerHeight-76:innerHeight)-32;const s=Math.min(1,w/410,mob?1:h/864);const sc=$('#scaler');sc.style.width=410*s+'px';sc.style.height=864*s+'px';sc.querySelector('.phone').style.transform=`scale(${s})`;}
+function fit(){const stg=$('#stage');const w=stg.clientWidth-32,h=innerHeight-32;const s=Math.min(1,w/410,h/864);const sc=$('#scaler');sc.style.width=410*s+'px';sc.style.height=864*s+'px';sc.querySelector('.phone').style.transform=`scale(${s})`;}
 addEventListener('resize',fit);fit();
 show(location.hash.slice(1)||SPLASH);
 </script>
