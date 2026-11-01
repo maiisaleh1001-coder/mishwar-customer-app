@@ -82,8 +82,16 @@
     "P96-Gov-Handover.dc.html": {"x": 3290, "y": 16300, "w": 390, "h": 900, "title": "P-96 · تسليم المستندات"},
     "P97-Gov-Summary.dc.html": {"x": 3760, "y": 16300, "w": 390, "h": 1000, "title": "P-97 · ملخص المعاملة"},
     "P98-Gov-Failed.dc.html": {"x": 4230, "y": 16300, "w": 390, "h": 1000, "title": "P-98 · تعذّر الإنجاز"},
-    "P-Map.dc.html": {"x": 0, "y": 17850, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
-    "P-Bottom-Nav.dc.html": {"x": 470, "y": 17850, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
+    "P130-Earnings.dc.html": {"x": 0, "y": 17850, "w": 390, "h": 1000, "title": "P-130 · الأرباح"},
+    "P140-Wallet.dc.html": {"x": 470, "y": 17850, "w": 390, "h": 1000, "title": "P-140 · المحفظة"},
+    "P140e-Wallet-No-Bank.dc.html": {"x": 940, "y": 17850, "w": 390, "h": 844, "title": "P-140e · ما فيه حساب بنكي"},
+    "P141-Withdraw.dc.html": {"x": 1410, "y": 17850, "w": 390, "h": 844, "title": "P-141 · طلب سحب"},
+    "P141e-Withdraw-Error.dc.html": {"x": 1880, "y": 17850, "w": 390, "h": 844, "title": "P-141e · المبلغ أكثر من الرصيد"},
+    "P144-Withdraw-Sent.dc.html": {"x": 2350, "y": 17850, "w": 390, "h": 844, "title": "P-144 · وصلنا طلب السحب"},
+    "P143-Withdrawals.dc.html": {"x": 2820, "y": 17850, "w": 390, "h": 900, "title": "P-143 · طلبات السحب"},
+    "P142-Bank-Account.dc.html": {"x": 3290, "y": 17850, "w": 390, "h": 900, "title": "P-142 · الحساب البنكي"},
+    "P-Map.dc.html": {"x": 0, "y": 19300, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
+    "P-Bottom-Nav.dc.html": {"x": 470, "y": 19300, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
   },
   "order": [
     "Main.dc.html",
@@ -163,6 +171,14 @@
     "P96-Gov-Handover.dc.html",
     "P97-Gov-Summary.dc.html",
     "P98-Gov-Failed.dc.html",
+    "P130-Earnings.dc.html",
+    "P140-Wallet.dc.html",
+    "P140e-Wallet-No-Bank.dc.html",
+    "P141-Withdraw.dc.html",
+    "P141e-Withdraw-Error.dc.html",
+    "P144-Withdraw-Sent.dc.html",
+    "P143-Withdrawals.dc.html",
+    "P142-Bank-Account.dc.html",
     "P-Map.dc.html",
     "P-Bottom-Nav.dc.html"
   ],
@@ -179,8 +195,9 @@
     "flow10": {"x": 0, "y": 13000, "text": "Flow 10 · تنفيذ توصيل الطرود", "kind": "title1", "maxW": 3680},
     "flow11": {"x": 0, "y": 14500, "text": "Flow 11 · تنفيذ المرافق الشخصي والتمديد", "kind": "title1", "maxW": 4620},
     "flow12": {"x": 0, "y": 16000, "text": "Flow 12 · تنفيذ المعاملات الحكومية", "kind": "title1", "maxW": 4620},
-    "components": {"x": 0, "y": 17550, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
+    "flow13": {"x": 0, "y": 17550, "text": "Flow 13 · الأرباح والمحفظة والسحب", "kind": "title1", "maxW": 3680},
+    "components": {"x": 0, "y": 19000, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
   },
-  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "flow8", "flow9", "flow10", "flow11", "flow12", "components"],
+  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "flow8", "flow9", "flow10", "flow11", "flow12", "flow13", "components"],
   "designSystems": []
 }
