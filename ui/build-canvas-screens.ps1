@@ -8,8 +8,8 @@ $proj = Join-Path $Root 'design-canvas\project'
 $index = Join-Path $PSScriptRoot 'index.html'
 $canvas = [IO.File]::ReadAllText((Join-Path $proj 'canvas.json'), $utf8) | ConvertFrom-Json
 
-# M1 و M2 متعمولين في البروتوتايب بإيد (فيهم Logic)، فبناخد من C-21 وطالع، و X-xx
-$pick = '^(C([2-9]\d|1\d\d)[a-z]?|X\d+)-'
+# M1 و M2 متعمولين في البروتوتايب بإيد (فيهم Logic)، فبناخد من C-21 وطالع، و X-xx، و C-05x (حالة ثابتة)
+$pick = '^(C([2-9]\d|1\d\d)[a-z]?|C05x|X\d+)-'
 
 # صور الـ Canvas (/_blob/<id>) ونسختها المحلية جوه ui/assets
 $blobs = @{

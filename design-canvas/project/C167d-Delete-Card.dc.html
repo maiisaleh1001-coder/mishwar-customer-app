@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>حذف البطاقة</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif">
+  <dc-import name="C167-Saved-Cards" hint-size="390px,844px"></dc-import>
+  <div style="position: absolute; inset: 0; background: rgba(10, 20, 20, 0.45)"></div>
+  <div role="dialog" aria-labelledby="del-card" style="position: absolute; left: 0; right: 0; bottom: 0; background: #FFFFFF; border-radius: 16px 16px 0 0; box-shadow: 0 4px 16px rgba(15, 110, 110, 0.16); padding: 12px 24px 40px; display: flex; flex-direction: column; gap: 12px">
+    <span style="width: 40px; height: 5px; border-radius: 3px; background: #E4E9E8; align-self: center; margin-bottom: 4px"></span>
+    <span style="width: 64px; height: 64px; border-radius: 999px; background: #FCEDED; color: #C53030; display: flex; align-items: center; justify-content: center; align-self: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 5.98c-3.33-.33-6.68-.5-10.02-.5-1.98 0-3.96.1-5.94.3L3 5.98M8.5 4.97l.22-1.31C8.88 2.71 9 2 10.69 2h2.62c1.69 0 1.82.75 1.97 1.67l.22 1.3M18.85 9.14l-.65 10.07C18.09 20.78 18 22 15.21 22H8.79C6 22 5.91 20.78 5.8 19.21L5.15 9.14M10.33 16.5h3.33M9.5 12.5h5"/></svg></span>
+    <h2 id="del-card" style="margin: 0; text-align: center; font-size: 20px; line-height: 28px; font-weight: 700">تحذف بطاقة Visa <span dir="ltr" style="display: inline-block">•••• 1190</span>؟</h2>
+    <p style="margin: 0 0 8px; text-align: center; font-size: 14px; line-height: 20px; color: #5B6766">ما تقدر تدفع فيها بعدها، وتقدر تضيفها مرة ثانية متى ما بغيت.</p>
+    <button type="button" style="height: 56px; width: 100%; border: none; border-radius: 999px; background: #C53030; color: #FFFFFF; font: inherit; font-size: 16px; font-weight: 500; cursor: pointer">احذف البطاقة</button>
+    <button type="button" style="height: 56px; width: 100%; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font: inherit; font-size: 16px; font-weight: 500; cursor: pointer">تراجع</button>
+  </div>
+</div></x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

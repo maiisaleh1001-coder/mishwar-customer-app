@@ -44,25 +44,32 @@
       "x": 940,
       "y": 1290
     },
+    "C05x-OTP-Expired.dc.html": {
+      "h": 844,
+      "title": "C-05 · الرمز انتهى",
+      "w": 390,
+      "x": 1410,
+      "y": 1290
+    },
     "C05l-OTP-Locked.dc.html": {
       "h": 844,
       "title": "C-05l · قفل مؤقت",
       "w": 390,
-      "x": 1410,
+      "x": 1880,
       "y": 1290
     },
     "C06-Auth-Gate.dc.html": {
       "h": 844,
       "title": "C-06 · Auth Gate للزائر",
       "w": 390,
-      "x": 2350,
+      "x": 2820,
       "y": 1290
     },
     "C07-Complete-Profile.dc.html": {
       "h": 844,
       "title": "C-07 · كمّل بياناتك",
       "w": 390,
-      "x": 1880,
+      "x": 2350,
       "y": 1290
     },
     "C100-Cancel-Reason.dc.html": {
@@ -352,6 +359,13 @@
       "x": 3290,
       "y": 18716
     },
+    "C167d-Delete-Card.dc.html": {
+      "h": 844,
+      "title": "C-167 · تأكيد حذف البطاقة",
+      "w": 390,
+      "x": 3760,
+      "y": 18716
+    },
     "C168-Language.dc.html": {
       "h": 844,
       "title": "C-168 · اللغة",
@@ -492,6 +506,13 @@
       "x": 1410,
       "y": 8566
     },
+    "C46-Parcel-No-Courier.dc.html": {
+      "h": 844,
+      "title": "C-46 · ما فيه مندوب متاح",
+      "w": 390,
+      "x": 1880,
+      "y": 8566
+    },
     "C50a-Parcel-To-Pickup.dc.html": {
       "h": 844,
       "title": "C-50 · في الطريق للاستلام",
@@ -580,6 +601,13 @@
       "h": 844,
       "title": "C-70 · المرافق في الطريق",
       "w": 390,
+      "x": 470,
+      "y": 12916
+    },
+    "C68-Companion-Booked.dc.html": {
+      "h": 844,
+      "title": "C-68 · الحجز مؤكد (محجوز)",
+      "w": 390,
       "x": 0,
       "y": 12916
     },
@@ -587,28 +615,42 @@
       "h": 844,
       "title": "C-70 · المرافقة جارية",
       "w": 390,
-      "x": 470,
+      "x": 940,
       "y": 12916
     },
     "C71-Companion-Extend.dc.html": {
       "h": 844,
       "title": "C-71 · طلب تمديد",
       "w": 390,
-      "x": 940,
+      "x": 1410,
       "y": 12916
     },
     "C72-Companion-Extend-Pending.dc.html": {
       "h": 844,
       "title": "C-72 · مستني موافقة التمديد",
       "w": 390,
-      "x": 1410,
+      "x": 1880,
+      "y": 12916
+    },
+    "C72a-Companion-Extend-Accepted.dc.html": {
+      "h": 844,
+      "title": "C-72 · التمديد اتقبل",
+      "w": 390,
+      "x": 2350,
+      "y": 12916
+    },
+    "C72r-Companion-Extend-Declined.dc.html": {
+      "h": 844,
+      "title": "C-72 · التمديد ما اتقبل",
+      "w": 390,
+      "x": 2820,
       "y": 12916
     },
     "C73-Companion-Completed.dc.html": {
       "h": 844,
       "title": "C-73 · المرافقة خلصت",
       "w": 390,
-      "x": 1880,
+      "x": 3290,
       "y": 12916
     },
     "C80-Gov-Agency.dc.html": {
@@ -657,6 +699,13 @@
       "h": 1000,
       "title": "C-90 · المعاملة جارية",
       "w": 390,
+      "x": 470,
+      "y": 15816
+    },
+    "C90e-Gov-Accepted.dc.html": {
+      "h": 1120,
+      "title": "C-90 · اتقبل الطلب · التفويض",
+      "w": 390,
       "x": 0,
       "y": 15816
     },
@@ -664,21 +713,21 @@
       "h": 1120,
       "title": "C-90 · مطلوب منك مستند",
       "w": 390,
-      "x": 470,
+      "x": 940,
       "y": 15816
     },
     "C90b-Gov-Completed.dc.html": {
       "h": 1000,
       "title": "C-90 · تم الإنجاز",
       "w": 390,
-      "x": 940,
+      "x": 1410,
       "y": 15816
     },
     "C90c-Gov-Failed.dc.html": {
       "h": 844,
       "title": "C-90 · تعذّر الإنجاز",
       "w": 390,
-      "x": 1410,
+      "x": 1880,
       "y": 15816
     },
     "Main.dc.html": {
@@ -898,6 +947,7 @@
     "C03-Phone.dc.html",
     "C05-OTP.dc.html",
     "C05e-OTP-Wrong.dc.html",
+    "C05x-OTP-Expired.dc.html",
     "C05l-OTP-Locked.dc.html",
     "C07-Complete-Profile.dc.html",
     "C06-Auth-Gate.dc.html",
@@ -923,6 +973,7 @@
     "C42-Parcel-Details.dc.html",
     "C44-Parcel-Review.dc.html",
     "C45-Parcel-Searching.dc.html",
+    "C46-Parcel-No-Courier.dc.html",
     "C50a-Parcel-To-Pickup.dc.html",
     "C50d-Parcel-Arrived-Pickup.dc.html",
     "C50b-Parcel-To-Dropoff.dc.html",
@@ -935,10 +986,13 @@
     "C65-Companion-Preferences.dc.html",
     "C66-Companion-Summary.dc.html",
     "C67-Companion-Not-Found.dc.html",
+    "C68-Companion-Booked.dc.html",
     "C70a-Companion-On-The-Way.dc.html",
     "C70b-Companion-In-Progress.dc.html",
     "C71-Companion-Extend.dc.html",
     "C72-Companion-Extend-Pending.dc.html",
+    "C72a-Companion-Extend-Accepted.dc.html",
+    "C72r-Companion-Extend-Declined.dc.html",
     "C73-Companion-Completed.dc.html",
     "C80-Gov-Agency.dc.html",
     "C81-Gov-Transaction.dc.html",
@@ -946,6 +1000,7 @@
     "C84-Gov-Upload.dc.html",
     "C85-Gov-Schedule.dc.html",
     "C86-Gov-Summary.dc.html",
+    "C90e-Gov-Accepted.dc.html",
     "C90a-Gov-In-Progress.dc.html",
     "C90d-Gov-Needs-Document.dc.html",
     "C90b-Gov-Completed.dc.html",
@@ -963,6 +1018,7 @@
     "C124-Payments-History.dc.html",
     "C134-Invoice.dc.html",
     "C167-Saved-Cards.dc.html",
+    "C167d-Delete-Card.dc.html",
     "C130-Orders.dc.html",
     "C130r-Orders-Current-Ride.dc.html",
     "C130c-Orders-Current.dc.html",
