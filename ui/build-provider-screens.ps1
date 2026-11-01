@@ -70,9 +70,9 @@ function Resolve-Markup([string]$html, [hashtable]$vals) {
   [regex]::Replace($html, '\{\{(\w+)\}\}', { param($m) [string]$vals[$m.Groups[1].Value] })
 }
 
-# عنوان الـ Flow لكل صف في الـ Canvas: الملاحظة بتبقى فوق الصف بـ 300
+# عنوان الـ Flow لكل شاشة: أقرب ملاحظة عنوان فوقها في الـ Canvas (حتى لو الصفوف اتحركت)
 $rows = @{}
-foreach ($p in $canvas.notes.PSObject.Properties) { if ($p.Value.kind -eq 'title1') { $rows[[int]$p.Value.y + 300] = $p.Value.text } }
+$titles = @($canvas.notes.PSObject.Properties | Where-Object { $_.Value.kind -eq 'title1' } | ForEach-Object { [pscustomobject]@{ y = [int]$_.Value.y; text = $_.Value.text } } | Sort-Object y)
 
 $out = New-Object Text.StringBuilder
 $count = 0
@@ -82,7 +82,7 @@ foreach ($file in $canvas.order) {
   $b = $canvas.boards.$file
   $id = Get-Id $name
   $title = ($b.title -split ' · ', 2)[1]
-  $group = $rows[[int]$b.y]
+  $group = ($titles | Where-Object { $_.y -le [int]$b.y } | Select-Object -Last 1).text
   $flags = ''
   if ([int]$b.h -gt 844) { $flags += ' data-tall' }
   if ($id -in $light) { $flags += ' data-light' }
