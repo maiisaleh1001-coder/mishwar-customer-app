@@ -33,9 +33,13 @@ function Get-Vals([string]$name, [hashtable]$a) {
       $act = if ($a.active) { $a.active } else { 'home' }
       return @{ homeOn = $act -eq 'home'; homeOff = $act -ne 'home'; ordersOn = $act -eq 'orders'; ordersOff = $act -ne 'orders'; profileOn = $act -eq 'profile'; profileOff = $act -ne 'profile' }
     }
-    'Map-Route' { return @{ showCar = -not (& $no $a['show-car']) } }
+    'Map-Route' {
+      $car = -not (& $no $a['show-car']); $st = if ($a.stage) { $a.stage } else { 'trip' }
+      return @{ showCar = $car -and $st -eq 'trip'; approach = $car -and $st -eq 'approach'; arrived = $car -and $st -eq 'arrived'; dropoff = $car -and $st -eq 'dropoff'; near = $st -in @('approach', 'arrived'); far = $st -notin @('approach', 'arrived') }
+    }
+    'C110-Chat' { return @{ showCall = $a.call -ne 'hide' } }
     'Provider-Card' {
-      $d = @{ person = 'عبدالله القحطاني'; rating = '4.9'; detail = 'تويوتا كامري · بيضاء'; plate = '1234 ر س ع' }
+      $d = @{ person = 'عبدالله القحطاني'; rating = '4.9'; detail = 'تويوتا كامري · بيضاء'; plate = '1234 ر س ع'; initial = 'ع' }
       foreach ($k in @($d.Keys)) { if ($a.ContainsKey($k)) { $d[$k] = $a[$k] } }
       $d.hasPlate = $d.plate -ne ''
       return $d
@@ -72,7 +76,8 @@ foreach ($file in $canvas.order) {
   $title = ($b.title -split ' · ', 2)[1]
   $group = $rows[[int]$b.y]
   $tall = if ([int]$b.h -gt 844) { ' data-tall' } else { '' }
-  $html = Resolve-Markup (Get-Markup $name) @{ no = $false }
+  $v = Get-Vals $name @{}; $v.no = $false
+  $html = Resolve-Markup (Get-Markup $name) $v
   foreach ($k in $blobs.Keys) { $html = $html.Replace("/_blob/$k", $blobs[$k]) }
   [void]$out.AppendLine("<template data-id=`"$id`" data-title=`"$title`" data-group=`"$group`"$tall>$html</template>")
   $count++

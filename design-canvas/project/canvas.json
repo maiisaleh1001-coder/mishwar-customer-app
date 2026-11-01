@@ -331,11 +331,18 @@
       "x": 2350,
       "y": 21616
     },
+    "C165b-Delete-OTP.dc.html": {
+      "h": 844,
+      "title": "C-165 · تأكيد الحذف برمز",
+      "w": 390,
+      "x": 2820,
+      "y": 21616
+    },
     "C166-Delete-Blocked.dc.html": {
       "h": 844,
       "title": "C-166 · الحذف مش متاح",
       "w": 390,
-      "x": 2820,
+      "x": 3290,
       "y": 21616
     },
     "C167-Saved-Cards.dc.html": {
@@ -349,14 +356,14 @@
       "h": 844,
       "title": "C-168 · اللغة",
       "w": 390,
-      "x": 3290,
+      "x": 3760,
       "y": 21616
     },
     "C169-Beneficiaries.dc.html": {
       "h": 844,
       "title": "C-169 · المستفيدين المحفوظين",
       "w": 390,
-      "x": 3760,
+      "x": 4230,
       "y": 21616
     },
     "C171-Terms.dc.html": {
@@ -634,7 +641,7 @@
     },
     "C85-Gov-Schedule.dc.html": {
       "h": 844,
-      "title": "C-85 · الموعد",
+      "title": "C-85 · لو تحتاج موعد · الموعد",
       "w": 390,
       "x": 1880,
       "y": 14366
@@ -973,6 +980,7 @@
     "C163-Addresses.dc.html",
     "C164-Add-Address.dc.html",
     "C165-Delete-Account.dc.html",
+    "C165b-Delete-OTP.dc.html",
     "C166-Delete-Blocked.dc.html",
     "C168-Language.dc.html",
     "C169-Beneficiaries.dc.html",
