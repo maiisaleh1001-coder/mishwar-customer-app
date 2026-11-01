@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>رفع مستند</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: rgba(27, 43, 43, 0.48); color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column; justify-content: flex-end">
+  <div role="dialog" aria-modal="true" aria-labelledby="sheet-title" style="border-radius: 24px 24px 0 0; background: #FFFFFF; padding: 12px 24px 40px; display: flex; flex-direction: column; gap: 20px">
+    <span style="align-self: center; width: 40px; height: 4px; border-radius: 2px; background: #E4E9E8"></span>
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <h2 id="sheet-title" style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 700">وثيقة التأمين</h2>
+      <a href="P13-Service-Ride.dc.html" aria-label="إغلاق" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke-width="1.75" stroke-linecap="round"/></svg></a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+      <button type="button" style="height: 48px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M6.76 22h10.48c2.76 0 3.86-1.69 3.99-3.75l.52-8.26A3.753 3.753 0 0 0 18 6c-.61 0-1.17-.35-1.45-.89l-.72-1.45C15.37 2.75 14.17 2 13.15 2h-2.29c-1.03 0-2.23.75-2.69 1.66l-.72 1.45C7.17 5.65 6.61 6 6 6 3.83 6 2.11 7.83 2.25 9.99l.52 8.26C2.89 20.31 4 22 6.76 22ZM10.5 8h3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18c1.79 0 3.25-1.46 3.25-3.25S13.79 11.5 12 11.5s-3.25 1.46-3.25 3.25S10.21 18 12 18Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>صوّر</button>
+      <button type="button" style="height: 48px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M9 17v-6l-2 2M9 11l2 2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 10v5c0 5-2 7-7 7H9c-5 0-7-2-7-7V9c0-5 2-7 7-7h5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 10h-4c-3 0-4-1-4-4V2l8 8Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>اختر ملف</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border-radius: 16px; border: 1px solid #E4E9E8">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <span style="width: 24px; height: 24px; box-sizing: border-box; border-radius: 50%; border: 2.5px solid #CFE6E4; border-top-color: #0F6E6E; flex: none"></span>
+        <span style="flex: 1; min-width: 0"><b dir="ltr" style="display: block; text-align: right; font-size: 14px; line-height: 20px; font-weight: 500">insurance-2026.pdf</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">جاري الرفع · 60%</span></span>
+      </div>
+      <span role="progressbar" aria-label="رفع وثيقة التأمين" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 4px; border-radius: 2px; background: #E9F4F3; overflow: hidden"><span style="display: block; width: 60%; height: 100%; border-radius: 2px; background: #0F6E6E"></span></span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <label for="exp" style="font-size: 14px; line-height: 16px; font-weight: 500">تاريخ انتهاء الوثيقة</label>
+      <div style="height: 56px; box-sizing: border-box; border: 2px solid #0F6E6E; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 0 14px">
+        <input id="exp" placeholder="يوم / شهر / سنة" dir="ltr" style="flex: 1; min-width: 0; height: 100%; border: none; outline: none; background: transparent; font: inherit; font-size: 16px; text-align: right; color: #1B2B2B">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span style="font-size: 12px; line-height: 20px; color: #5B6766">PDF أو JPG أو PNG، وأقصى حجم 10 MB. تأكد إن كل الكلام واضح ومقروء.</span>
+    </div>
+    <button type="button" disabled style="height: 56px; width: 100%; border: none; border-radius: 999px; background: #E4E9E8; color: #5B6766; font: inherit; font-size: 16px; font-weight: 500">حفظ</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

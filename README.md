@@ -7,6 +7,7 @@
 | المسار | فيه إيه |
 |---|---|
 | `design-canvas/project/` | شاشات التصميم (`*.dc.html`) وترتيبها على الـ Canvas (`canvas.json`) |
+| `provider-canvas/project/` | شاشات تطبيق مقدم الخدمة (P-xx) على Canvas منفصل |
 | `ui/index.html` | بروتوتايب تفاعلي فيه كل الشاشات، يفتح في المتصفح مباشرة |
 | `ui/UI-GUIDELINES.md` | الألوان والخطوط والمسافات والـ Components وقواعد الكتابة (لهجة سعودية بيضاء) |
 | `ui/a11y-report.md` | مراجعة Accessibility على WCAG 2.2 AA |
