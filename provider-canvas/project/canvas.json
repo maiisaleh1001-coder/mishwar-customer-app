@@ -54,8 +54,16 @@
     "P120e-Orders-Empty.dc.html": {"x": 470, "y": 11750, "w": 390, "h": 844, "title": "P-120e · طلباتي · ما فيه قادمة"},
     "P121-Order-Details.dc.html": {"x": 940, "y": 11750, "w": 390, "h": 1100, "title": "P-121 · تفاصيل طلب مكتمل"},
     "P122-Order-Cancelled.dc.html": {"x": 1410, "y": 11750, "w": 390, "h": 844, "title": "P-122 · تفاصيل طلب ملغى"},
-    "P-Map.dc.html": {"x": 0, "y": 13300, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
-    "P-Bottom-Nav.dc.html": {"x": 470, "y": 13300, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
+    "P70-Parcel-To-Pickup.dc.html": {"x": 0, "y": 13300, "w": 390, "h": 844, "title": "P-70 · في الطريق للاستلام"},
+    "P71-Parcel-Pickup.dc.html": {"x": 470, "y": 13300, "w": 390, "h": 960, "title": "P-71 · عند الاستلام (صورة + مطابقة)"},
+    "P72-Parcel-To-Dropoff.dc.html": {"x": 940, "y": 13300, "w": 390, "h": 844, "title": "P-72 · في الطريق للتسليم"},
+    "P73-Parcel-Dropoff.dc.html": {"x": 1410, "y": 13300, "w": 390, "h": 900, "title": "P-73 · عند التسليم (صورة)"},
+    "P74-Parcel-Summary.dc.html": {"x": 1880, "y": 13300, "w": 390, "h": 900, "title": "P-74 · ملخص التوصيل"},
+    "P75-Parcel-Pickup-Failed.dc.html": {"x": 2350, "y": 13300, "w": 390, "h": 960, "title": "P-75 · تعذّر الاستلام"},
+    "P76-Parcel-Delivery-Failed.dc.html": {"x": 2820, "y": 13300, "w": 390, "h": 900, "title": "P-76 · تعذّر التسليم · قرار الإدارة"},
+    "P77-Parcel-Return.dc.html": {"x": 3290, "y": 13300, "w": 390, "h": 900, "title": "P-77 · إرجاع الطرد للمرسل"},
+    "P-Map.dc.html": {"x": 0, "y": 14800, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
+    "P-Bottom-Nav.dc.html": {"x": 470, "y": 14800, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
   },
   "order": [
     "Main.dc.html",
@@ -107,6 +115,14 @@
     "P120e-Orders-Empty.dc.html",
     "P121-Order-Details.dc.html",
     "P122-Order-Cancelled.dc.html",
+    "P70-Parcel-To-Pickup.dc.html",
+    "P71-Parcel-Pickup.dc.html",
+    "P72-Parcel-To-Dropoff.dc.html",
+    "P73-Parcel-Dropoff.dc.html",
+    "P74-Parcel-Summary.dc.html",
+    "P75-Parcel-Pickup-Failed.dc.html",
+    "P76-Parcel-Delivery-Failed.dc.html",
+    "P77-Parcel-Return.dc.html",
     "P-Map.dc.html",
     "P-Bottom-Nav.dc.html"
   ],
@@ -120,8 +136,9 @@
     "flow7": {"x": 0, "y": 8400, "text": "Flow 7 · تنفيذ رحلة توصيل الأفراد", "kind": "title1", "maxW": 4150},
     "flow8": {"x": 0, "y": 10000, "text": "Flow 8 · التعذّر والمحادثة", "kind": "title1", "maxW": 1800},
     "flow9": {"x": 0, "y": 11450, "text": "Flow 9 · طلباتي", "kind": "title1", "maxW": 1800},
-    "components": {"x": 0, "y": 13000, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
+    "flow10": {"x": 0, "y": 13000, "text": "Flow 10 · تنفيذ توصيل الطرود", "kind": "title1", "maxW": 3680},
+    "components": {"x": 0, "y": 14500, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
   },
-  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "flow8", "flow9", "components"],
+  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "flow8", "flow9", "flow10", "components"],
   "designSystems": []
 }
