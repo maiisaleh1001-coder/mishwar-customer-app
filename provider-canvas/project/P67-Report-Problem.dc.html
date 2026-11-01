@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>بلّغ عن مشكلة</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 900px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
+    <a href="P62-Ride-In-Progress.dc.html" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
+    <span style="text-align: center; font-size: 16px; font-weight: 500">بلّغ عن مشكلة</span>
+    <span></span>
+  </div>
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 16px; padding: 8px 24px 0">
+    <div style="display: flex; gap: 10px; padding: 12px 14px; border-radius: 16px; background: #FCF5E8; font-size: 14px; line-height: 20px">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B87708" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM12 8v5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.995 16h.009" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>الرحلة بدأت، فما تقدر تلغيها. إذا ما تقدر تكمّلها بلّغنا، ونوقفها والإدارة تقرر وش يصير في الأجرة.</span>
+    </div>
+    <fieldset style="margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 8px">
+      <legend style="padding: 0; margin-bottom: 8px; font-size: 16px; line-height: 24px; font-weight: 700">وش صار؟</legend>
+      <label for="p1" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px solid #0F6E6E; background: #FFFFFF; font-size: 16px; line-height: 24px; cursor: pointer"><input id="p1" type="radio" name="problem" checked style="width: 20px; height: 20px; margin: 0; accent-color: #0F6E6E">عطل في السيارة</label>
+      <label for="p2" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px solid transparent; background: #FFFFFF; font-size: 16px; line-height: 24px; cursor: pointer"><input id="p2" type="radio" name="problem" style="width: 20px; height: 20px; margin: 0; accent-color: #0F6E6E">حادث مروري</label>
+      <label for="p3" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px solid transparent; background: #FFFFFF; font-size: 16px; line-height: 24px; cursor: pointer"><input id="p3" type="radio" name="problem" style="width: 20px; height: 20px; margin: 0; accent-color: #0F6E6E">العميل طلب ينزل قبل الوجهة</label>
+      <label for="p4" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px solid transparent; background: #FFFFFF; font-size: 16px; line-height: 24px; cursor: pointer"><input id="p4" type="radio" name="problem" style="width: 20px; height: 20px; margin: 0; accent-color: #0F6E6E">سبب ثاني</label>
+    </fieldset>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <label for="notes" style="font-size: 14px; line-height: 16px; font-weight: 500">اكتب لنا التفاصيل</label>
+      <textarea id="notes" rows="3" style="box-sizing: border-box; border: 2px solid transparent; border-radius: 8px; background: #FFFFFF; padding: 12px 14px; font: inherit; font-size: 16px; line-height: 24px; color: #1B2B2B; outline: none; resize: none">طفت السيارة فجأة على طريق الملك فهد، ونزل العميل بأمان.</textarea>
+    </div>
+    <button type="button" style="height: 48px; border: 2px dashed #CFE6E4; border-radius: 16px; background: transparent; color: #0F6E6E; display: flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6.76 22h10.48c2.76 0 3.86-1.69 3.99-3.75l.52-8.26A3.753 3.753 0 0 0 18 6c-.61 0-1.17-.35-1.45-.89l-.72-1.45C15.37 2.75 14.17 2 13.15 2h-2.29c-1.03 0-2.23.75-2.69 1.66l-.72 1.45C7.17 5.65 6.61 6 6 6 3.83 6 2.11 7.83 2.25 9.99l.52 8.26C2.89 20.31 4 22 6.76 22Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18c1.79 0 3.25-1.46 3.25-3.25S13.79 11.5 12 11.5s-3.25 1.46-3.25 3.25S10.21 18 12 18Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>أضف صورة (اختياري)</button>
+  </div>
+  <div style="padding: 12px 24px 0">
+    <a href="P68-Report-Sent.dc.html" style="height: 56px; border-radius: 999px; background: #C53030; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">أوقف الرحلة وأرسل البلاغ</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
