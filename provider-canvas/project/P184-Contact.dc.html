@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>تواصل معنا</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div dir="rtl" style="width: 390px; height: 1000px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+  <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
+    <a href="P170-Profile.dc.html" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
+    <span style="text-align: center; font-size: 16px; font-weight: 500">تواصل معنا</span>
+    <span></span>
+  </div>
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 18px; padding: 8px 24px 0">
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; font-size: 14px; line-height: 20px">
+      <span style="padding: 12px; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #5B6766">اتصل بالدعم</span><b dir="ltr" style="font-weight: 500; text-align: right">[رقم الدعم]</b></span>
+      <span style="padding: 12px; border-radius: 16px; background: #FFFFFF; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #5B6766">الإيميل</span><b dir="ltr" style="font-weight: 500; text-align: right">[إيميل الدعم]</b></span>
+    </div>
+    <fieldset style="margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 8px">
+      <legend style="padding: 0; margin-bottom: 8px; font-size: 14px; line-height: 16px; font-weight: 500">نوع الرسالة</legend>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+        <label for="t1" style="height: 48px; box-sizing: border-box; border-radius: 999px; border: 2px solid transparent; background: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; cursor: pointer"><input id="t1" type="radio" name="type" style="width: 18px; height: 18px; margin: 0; accent-color: #0F6E6E">استفسار</label>
+        <label for="t2" style="height: 48px; box-sizing: border-box; border-radius: 999px; border: 2px solid #0F6E6E; background: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 500; cursor: pointer"><input id="t2" type="radio" name="type" checked style="width: 18px; height: 18px; margin: 0; accent-color: #0F6E6E">شكوى</label>
+      </div>
+    </fieldset>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <label for="topic" style="font-size: 14px; line-height: 16px; font-weight: 500">الموضوع</label>
+      <div style="height: 56px; box-sizing: border-box; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center; padding: 0 14px">
+        <select id="topic" style="flex: 1; height: 100%; border: none; outline: none; background: transparent; font: inherit; font-size: 16px; color: #1B2B2B; appearance: none"><option>تقييم ظالم</option><option>الأرباح والسحب</option><option>المستندات والاعتماد</option><option>شي ثاني</option></select>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <label for="order" style="font-size: 14px; line-height: 16px; font-weight: 500">الطلب (اختياري)</label>
+      <div style="height: 56px; box-sizing: border-box; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center; padding: 0 14px">
+        <select id="order" style="flex: 1; height: 100%; border: none; outline: none; background: transparent; font: inherit; font-size: 16px; color: #1B2B2B; appearance: none"><option>رحلة #R-2031 · أمس</option><option>بدون طلب</option></select>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <label for="msg2" style="font-size: 14px; line-height: 16px; font-weight: 500">رسالتك</label>
+      <textarea id="msg2" rows="4" style="box-sizing: border-box; border: 2px solid transparent; border-radius: 8px; background: #FFFFFF; padding: 12px 14px; font: inherit; font-size: 16px; line-height: 24px; color: #1B2B2B; outline: none; resize: none">العميل قيّمني نجمة وحدة لأن الطريق كان زحمة، والرحلة كانت عادية.</textarea>
+    </div>
+    <span style="font-size: 12px; line-height: 20px; color: #5B6766">نرد عليك على جوالك <span dir="ltr">+966 55 987 6543</span></span>
+  </div>
+  <div style="padding: 12px 24px 0">
+    <a href="P170-Profile.dc.html" style="height: 56px; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">أرسل</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

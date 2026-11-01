@@ -90,8 +90,17 @@
     "P144-Withdraw-Sent.dc.html": {"x": 2350, "y": 17850, "w": 390, "h": 844, "title": "P-144 · وصلنا طلب السحب"},
     "P143-Withdrawals.dc.html": {"x": 2820, "y": 17850, "w": 390, "h": 900, "title": "P-143 · طلبات السحب"},
     "P142-Bank-Account.dc.html": {"x": 3290, "y": 17850, "w": 390, "h": 900, "title": "P-142 · الحساب البنكي"},
-    "P-Map.dc.html": {"x": 0, "y": 19300, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
-    "P-Bottom-Nav.dc.html": {"x": 470, "y": 19300, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
+    "P170-Profile.dc.html": {"x": 0, "y": 19300, "w": 390, "h": 1100, "title": "P-170 · حسابي"},
+    "P171-Edit-Profile.dc.html": {"x": 470, "y": 19300, "w": 390, "h": 900, "title": "P-171 · البيانات الشخصية"},
+    "P173-Documents.dc.html": {"x": 940, "y": 19300, "w": 390, "h": 900, "title": "P-173 · مستنداتي"},
+    "P174-Vehicle.dc.html": {"x": 1410, "y": 19300, "w": 390, "h": 900, "title": "P-174 · المركبة · تعديل قيد المراجعة"},
+    "P150-Ratings.dc.html": {"x": 1880, "y": 19300, "w": 390, "h": 1000, "title": "P-150 · التقييمات"},
+    "P160-Notifications.dc.html": {"x": 2350, "y": 19300, "w": 390, "h": 1000, "title": "P-160 · الإشعارات"},
+    "P184-Contact.dc.html": {"x": 2820, "y": 19300, "w": 390, "h": 1000, "title": "P-184 · تواصل معنا"},
+    "P190-Logout.dc.html": {"x": 3290, "y": 19300, "w": 390, "h": 844, "title": "P-190 · تسجيل الخروج"},
+    "P178-Delete-Blocked.dc.html": {"x": 3760, "y": 19300, "w": 390, "h": 900, "title": "P-178 · حذف الحساب (ممنوع الحين)"},
+    "P-Map.dc.html": {"x": 0, "y": 20900, "w": 390, "h": 844, "title": "مكوّن · خريطة مقدم الخدمة"},
+    "P-Bottom-Nav.dc.html": {"x": 470, "y": 20900, "w": 390, "h": 104, "title": "مكوّن · شريط التنقل"}
   },
   "order": [
     "Main.dc.html",
@@ -179,6 +188,15 @@
     "P144-Withdraw-Sent.dc.html",
     "P143-Withdrawals.dc.html",
     "P142-Bank-Account.dc.html",
+    "P170-Profile.dc.html",
+    "P171-Edit-Profile.dc.html",
+    "P173-Documents.dc.html",
+    "P174-Vehicle.dc.html",
+    "P150-Ratings.dc.html",
+    "P160-Notifications.dc.html",
+    "P184-Contact.dc.html",
+    "P190-Logout.dc.html",
+    "P178-Delete-Blocked.dc.html",
     "P-Map.dc.html",
     "P-Bottom-Nav.dc.html"
   ],
@@ -196,8 +214,9 @@
     "flow11": {"x": 0, "y": 14500, "text": "Flow 11 · تنفيذ المرافق الشخصي والتمديد", "kind": "title1", "maxW": 4620},
     "flow12": {"x": 0, "y": 16000, "text": "Flow 12 · تنفيذ المعاملات الحكومية", "kind": "title1", "maxW": 4620},
     "flow13": {"x": 0, "y": 17550, "text": "Flow 13 · الأرباح والمحفظة والسحب", "kind": "title1", "maxW": 3680},
-    "components": {"x": 0, "y": 19000, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
+    "flow14": {"x": 0, "y": 19000, "text": "Flow 14 · حسابي والتقييمات والإشعارات", "kind": "title1", "maxW": 4150},
+    "components": {"x": 0, "y": 20600, "text": "مكوّنات مشتركة", "kind": "title1", "maxW": 860}
   },
-  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "flow8", "flow9", "flow10", "flow11", "flow12", "flow13", "components"],
+  "noteOrder": ["flow1", "flow2", "flow3", "flow4", "flow5", "flow6", "flow7", "flow8", "flow9", "flow10", "flow11", "flow12", "flow13", "flow14", "components"],
   "designSystems": []
 }
