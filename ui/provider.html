@@ -47,6 +47,8 @@ button{cursor:pointer}
 .toast.on{opacity:1;transform:none}
 [role="switch"][aria-checked="false"]{filter:grayscale(1);opacity:.55}
 /* كروت الاختيار (data-card): الشكل المختار بيتعمل هنا لأن الـ Canvas بيرسم الحالة الفاضية */
+.upl{position:absolute;inset:0;z-index:35}
+.screen [hidden]{display:none!important}
 .scr [data-card][aria-pressed="true"]{border-color:#0F6E6E!important;box-shadow:inset 0 0 0 1px #0F6E6E}
 .scr [data-card][aria-pressed="true"] [data-off]{display:none!important}
 .scr [data-card][aria-pressed="true"] [data-on]{display:flex!important}
@@ -229,66 +231,42 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
     <a href="#P-10" data-needs-sel="" style="opacity: 0.45; height: 56px; width: 100%; box-sizing: border-box; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">إنشاء الحساب</a>
   </div>
 </div></template>
-<template data-id="P-10" data-title="خطوات التفعيل" data-group="Flow 2 · استكمال البيانات والمستندات"><div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+<template data-id="P-10" data-title="فعّل حسابك (الخطوات)" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 900px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
   <div style="height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px 0 24px">
     <span style="font-size: 16px; font-weight: 500">أهلاً فهد</span>
-    <a href="#P-184" style="height: 40px; padding: 0 14px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M17 18.43h-4l-4.45 2.96A.997.997 0 0 1 7 20.56v-2.13c-3 0-5-2-5-5v-6c0-3 2-5 5-5h10c3 0 5 2 5 5v6c0 3-2 5-5 5Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 11.36v-.21c0-.68.42-1.04.84-1.33.41-.28.82-.64.82-1.3 0-.92-.74-1.66-1.66-1.66-.92 0-1.66.74-1.66 1.66M11.995 13.75h.01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>مساعدة</a>
+    <a href="#P-184" style="height: 40px; padding: 0 14px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; font-size: 14px; font-weight: 500; text-decoration: none; display: flex; align-items: center">مساعدة</a>
   </div>
   <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 8px 24px 0">
     <div style="display: flex; flex-direction: column; gap: 8px">
-      <h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">فعّل حسابك</h1>
-      <p style="margin: 0; font-size: 16px; line-height: 24px; color: #5B6766">كمّل الخطوات وأرسل الطلب، ونراجعه ونرد عليك.</p>
-      <div role="img" aria-label="2 من 4 خطوات مكتملة" style="display: flex; gap: 6px; margin-top: 4px"><span style="flex: 1; height: 4px; border-radius: 2px; background: #0F6E6E"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #0F6E6E"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E2A23B"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E9F4F3"></span></div>
-      <span style="font-size: 12px; line-height: 20px; color: #5B6766"><b style="font-weight: 500; color: #1B2B2B">2 من 4</b> خطوات مكتملة</span>
+      <h1 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">فعّل حسابك في 4 خطوات</h1>
+      <p style="margin: 0; font-size: 16px; line-height: 24px; color: #5B6766">كمّل كل خطوة وأرسل طلبك، ونراجعه ونرد عليك.</p>
     </div>
-
     <div style="display: flex; flex-direction: column; gap: 8px">
-      <span style="font-size: 12px; line-height: 20px; font-weight: 500; color: #5B6766">بياناتك</span>
-      <a href="#P-11" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex: none"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2Zm4.78 7.7-5.67 5.67a.75.75 0 0 1-1.06 0l-2.83-2.83a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l2.3 2.3 5.14-5.14c.29-.29.77-.29 1.06 0 .29.29.29.76 0 1.06Z" fill="#2E8B3E"/></svg>
-        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">البيانات الشخصية</b><span style="display: block; font-size: 12px; line-height: 20px; color: #2E6B37">مكتملة</span></span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="#P-12" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex: none"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2Zm4.78 7.7-5.67 5.67a.75.75 0 0 1-1.06 0l-2.83-2.83a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l2.3 2.3 5.14-5.14c.29-.29.77-.29 1.06 0 .29.29.29.76 0 1.06Z" fill="#2E8B3E"/></svg>
-        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">الهوية والصورة الشخصية</b><span style="display: block; font-size: 12px; line-height: 20px; color: #2E6B37">مكتملة</span></span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+      <a href="#P-11" data-step="personal" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none"><span data-step-num="" style="width: 44px; height: 44px; border-radius: 999px; background: #E9F4F3; color: #0F6E6E; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: none">1</span><span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">بياناتك الشخصية</b><span data-step-status="" style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">معلوماتك وصورتك والهوية</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08"/></svg></a>
+      <a href="#P-13" data-step="ride" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none"><span style="position: relative; width: 44px; height: 44px; flex: none"><img src="assets/onboarding/ob-car.png" alt="" style="width: 44px; height: 44px"><span data-step-num="" style="position: absolute; bottom: -2px; right: -4px; width: 20px; height: 20px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 0 0 2px #FBFBFB; color: #0F6E6E; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span></span><span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">توصيل الأفراد</b><span data-step-status="" style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">السيارة ومستنداتها</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08"/></svg></a>
+      <a href="#P-14" data-step="parcel" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none"><span style="position: relative; width: 44px; height: 44px; flex: none"><img src="assets/onboarding/ob-parcel.png" alt="" style="width: 44px; height: 44px"><span data-step-num="" style="position: absolute; bottom: -2px; right: -4px; width: 20px; height: 20px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 0 0 2px #FBFBFB; color: #0F6E6E; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span></span><span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">توصيل الطرود</b><span data-step-status="" style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">المركبة ونطاق التغطية</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08"/></svg></a>
+      <a href="#P-17" data-step="review" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none"><span data-step-num="" style="width: 44px; height: 44px; border-radius: 999px; background: #E9F4F3; color: #0F6E6E; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: none">4</span><span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">المراجعة والإرسال</b><span data-step-status="" style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">بعد ما تكمّل الخطوات</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08"/></svg></a>
     </div>
-
-    <div style="display: flex; flex-direction: column; gap: 8px">
-      <span style="font-size: 12px; line-height: 20px; font-weight: 500; color: #5B6766">خدماتك</span>
-      <a href="#P-13" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
-        <img src="assets/onboarding/ob-car.png" alt="" style="width: 40px; height: 40px; flex: none">
-        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">توصيل الأفراد</b><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; line-height: 20px; color: #7A4E00"><span style="width: 8px; height: 8px; border-radius: 999px; background: #E2A23B"></span>باقي: التأمين وصور السيارة</span></span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="#P-14" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none">
-        <img src="assets/onboarding/ob-parcel.png" alt="" style="width: 40px; height: 40px; flex: none">
-        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 16px; line-height: 24px; font-weight: 500">توصيل الطرود</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">ما بدأت</span></span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M15 19.92 8.48 13.4c-.77-.77-.77-2.03 0-2.8L15 4.08" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="#P-05" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; padding: 8px 0; font-size: 14px; font-weight: 500; color: #0F6E6E; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 12h12M12 18V6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>عدّل الخدمات اللي اخترتها</a>
-    </div>
-
-    <p style="margin: 0; display: flex; gap: 8px; align-items: center; font-size: 12px; line-height: 20px; color: #5B6766"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" style="flex: none"><path d="M3.17 7.44 12 12.55l8.77-5.08M12 21.61v-9.07" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.93 2.48 4.59 5.44c-1.21.67-2.2 2.35-2.2 3.73v5.65c0 1.38.99 3.06 2.2 3.73l5.34 2.97c1.14.63 3.01.63 4.15 0l5.34-2.97c1.21-.67 2.2-2.35 2.2-3.73V9.17c0-1.38-.99-3.06-2.2-3.73l-5.34-2.97c-1.15-.63-3.01-.63-4.15.01Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>نحفظ اللي تكتبه أول بأول، وتقدر تكمّل بعدين.</p>
+    <a href="#P-05" style="align-self: flex-start; padding: 8px 0; font-size: 14px; font-weight: 500; color: #0F6E6E; text-decoration: none">عدّل الخدمات اللي اخترتها</a>
+    <p style="margin: 0; font-size: 12px; line-height: 20px; color: #5B6766">نحفظ اللي تكتبه أول بأول، وتقدر تكمّل بعدين من نفس المكان.</p>
   </div>
-  <div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 24px 0">
-    <button type="button" disabled aria-describedby="submit-hint" style="height: 56px; width: 100%; border: none; border-radius: 999px; background: #E4E9E8; color: #5B6766; font: inherit; font-size: 16px; font-weight: 500">راجع وأرسل الطلب</button>
-    <span id="submit-hint" style="text-align: center; font-size: 12px; line-height: 20px; color: #5B6766">كمّل الخطوات الناقصة عشان ترسل</span>
+  <div style="padding: 12px 24px 0">
+    <a href="#P-11" data-hub-cta="" style="height: 56px; width: 100%; box-sizing: border-box; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">ابدأ: بياناتك الشخصية</a>
   </div>
 </div></template>
-<template data-id="P-11" data-title="البيانات الشخصية" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1040px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+<template data-id="P-11" data-title="الخطوة 1 · بياناتك الشخصية" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1700px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
   <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
     <a href="#P-10" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
-    <span style="text-align: center; font-size: 16px; font-weight: 500">البيانات الشخصية</span>
+    <span style="text-align: center; font-size: 16px; font-weight: 500">بياناتك الشخصية</span>
     <span></span>
   </div>
-  <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 8px 24px 0">
-    <p style="margin: 0; font-size: 14px; line-height: 20px; color: #5B6766">اكتب بياناتك مثل ما هي في الهوية أو الإقامة بالضبط.</p>
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 24px; padding: 8px 24px 0">
+    <div data-stepper="" style="display: flex; flex-direction: column; gap: 8px"><div role="img" aria-label="الخطوة 1 من 4" style="display: flex; gap: 6px"><span style="flex: 1; height: 4px; border-radius: 2px; background: #E2A23B"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E9F4F3"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E9F4F3"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E9F4F3"></span></div><span style="font-size: 12px; line-height: 20px; color: #5B6766">الخطوة <b style="font-weight: 500; color: #1B2B2B">1 من 4</b> · بياناتك الشخصية</span></div>
+    <section style="display: flex; flex-direction: column; gap: 20px">
+      <div><h2 style="margin: 0; font-size: 18px; line-height: 26px; font-weight: 700">معلوماتك</h2><p style="margin: 4px 0 0; font-size: 14px; line-height: 20px; color: #5B6766">اكتبها مثل ما هي في الهوية أو الإقامة بالضبط.</p></div>
     <div style="display: flex; flex-direction: column; gap: 8px">
       <label for="name" style="font-size: 14px; line-height: 16px; font-weight: 500">الاسم الكامل</label>
-      <input id="name" value="فهد عبدالله القحطاني" style="height: 56px; box-sizing: border-box; border: 2px solid transparent; border-radius: 8px; background: #FFFFFF; padding: 0 14px; font: inherit; font-size: 16px; color: #1B2B2B; outline: none">
+      <input id="name" value="فهد عبدالله القحطاني" style="height: 56px; box-sizing: border-box; border: 1px solid #E4E9E8; border-radius: 8px; background: #FFFFFF; padding: 0 14px; font: inherit; font-size: 16px; color: #1B2B2B; outline: none">
     </div>
     <fieldset style="margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 8px">
       <legend style="padding: 0; margin-bottom: 8px; font-size: 14px; line-height: 16px; font-weight: 500">الجنس</legend>
@@ -314,7 +292,7 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
     </div>
     <div style="display: flex; flex-direction: column; gap: 8px">
       <label for="nid" style="font-size: 14px; line-height: 16px; font-weight: 500">رقم الهوية الوطنية</label>
-      <input id="nid" value="1098765432" inputmode="numeric" dir="ltr" style="height: 56px; box-sizing: border-box; border: 2px solid transparent; border-radius: 8px; background: #FFFFFF; padding: 0 14px; font: inherit; font-size: 16px; text-align: right; color: #1B2B2B; outline: none">
+      <input id="nid" value="1098765432" inputmode="numeric" dir="ltr" style="height: 56px; box-sizing: border-box; border: 1px solid #E4E9E8; border-radius: 8px; background: #FFFFFF; padding: 0 14px; font: inherit; font-size: 16px; text-align: right; color: #1B2B2B; outline: none">
       <span style="font-size: 12px; line-height: 20px; color: #5B6766">لغير السعوديين: رقم الإقامة.</span>
     </div>
     <div style="display: flex; flex-direction: column; gap: 8px">
@@ -325,69 +303,36 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
       </div>
       <span style="font-size: 12px; line-height: 20px; color: #5B6766">المدن اللي فيها مشوار بس.</span>
     </div>
-  </div>
-  <div style="padding: 12px 24px 0">
-    <a href="#P-12" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ والتالي</a>
-  </div>
-</div></template>
-<template data-id="P-12" data-title="الهوية والصورة الشخصية" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 960px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
-  <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
-    <a href="#P-11" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
-    <span style="text-align: center; font-size: 16px; font-weight: 500">الهوية والصورة الشخصية</span>
-    <span></span>
-  </div>
-  <div style="flex: 1; display: flex; flex-direction: column; gap: 24px; padding: 8px 24px 0">
-    <section style="display: flex; flex-direction: column; gap: 12px">
-      <h2 style="margin: 0; font-size: 16px; line-height: 24px; font-weight: 700">الصورة الشخصية</h2>
-      <div style="display: flex; align-items: center; gap: 16px; padding: 16px; border-radius: 16px; background: #FFFFFF">
-        <span style="position: relative; width: 72px; height: 72px; flex: none">
-          <span style="width: 72px; height: 72px; border-radius: 999px; background: #CFE6E4; color: #0F6E6E; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700">ف</span>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="position: absolute; bottom: -2px; left: -2px; background: #FFFFFF; border-radius: 999px"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2Zm4.78 7.7-5.67 5.67a.75.75 0 0 1-1.06 0l-2.83-2.83a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l2.3 2.3 5.14-5.14c.29-.29.77-.29 1.06 0 .29.29.29.76 0 1.06Z" fill="#2E8B3E"/></svg>
-        </span>
-        <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px">
-          <b style="font-size: 14px; line-height: 20px; font-weight: 500">العملاء يشوفونها لما تقبل طلبهم</b>
-          <button type="button" style="align-self: flex-start; border: none; background: none; padding: 0; font: inherit; font-size: 14px; font-weight: 500; color: #0F6E6E; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">غيّر الصورة</button>
-        </span>
-      </div>
-      <ul style="margin: 0; padding: 0 20px 0 0; display: flex; flex-direction: column; gap: 4px; font-size: 12px; line-height: 20px; color: #5B6766">
-        <li>وجهك واضح ومن الأمام، والخلفية فاتحة</li>
-        <li>بدون نظارة شمسية أو فلاتر</li>
-      </ul>
     </section>
-
     <section style="display: flex; flex-direction: column; gap: 12px">
-      <h2 style="margin: 0; font-size: 16px; line-height: 24px; font-weight: 700">الهوية الوطنية</h2>
-      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #EAF5EC">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex: none"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2Zm4.78 7.7-5.67 5.67a.75.75 0 0 1-1.06 0l-2.83-2.83a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l2.3 2.3 5.14-5.14c.29-.29.77-.29 1.06 0 .29.29.29.76 0 1.06Z" fill="#2E8B3E"/></svg>
-        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">وجه الهوية</b><span dir="ltr" style="display: block; text-align: right; font-size: 12px; line-height: 20px; color: #5B6766">id-front.jpg · 1.1 MB</span></span>
-        <button type="button" aria-label="احذف الملف" style="width: 36px; height: 36px; border: none; border-radius: 999px; background: #FFFFFF; color: #5B6766; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M21 5.98c-3.33-.33-6.68-.5-10.02-.5-1.98 0-3.96.1-5.94.3L3 5.98M8.5 4.97l.22-1.31C8.88 2.71 9 2 10.69 2h2.62c1.69 0 1.82.75 1.97 1.67l.22 1.3M18.85 9.14l-.65 10.07C18.09 20.78 18 22 15.21 22H8.79C6 22 5.91 20.78 5.8 19.21L5.15 9.14M10.33 16.5h3.33M9.5 12.5h5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      </div>
-      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #EAF5EC">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex: none"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2Zm4.78 7.7-5.67 5.67a.75.75 0 0 1-1.06 0l-2.83-2.83a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l2.3 2.3 5.14-5.14c.29-.29.77-.29 1.06 0 .29.29.29.76 0 1.06Z" fill="#2E8B3E"/></svg>
-        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">ظهر الهوية</b><span dir="ltr" style="display: block; text-align: right; font-size: 12px; line-height: 20px; color: #5B6766">id-back.jpg · 980 KB</span></span>
-        <button type="button" aria-label="احذف الملف" style="width: 36px; height: 36px; border: none; border-radius: 999px; background: #FFFFFF; color: #5B6766; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M21 5.98c-3.33-.33-6.68-.5-10.02-.5-1.98 0-3.96.1-5.94.3L3 5.98M8.5 4.97l.22-1.31C8.88 2.71 9 2 10.69 2h2.62c1.69 0 1.82.75 1.97 1.67l.22 1.3M18.85 9.14l-.65 10.07C18.09 20.78 18 22 15.21 22H8.79C6 22 5.91 20.78 5.8 19.21L5.15 9.14M10.33 16.5h3.33M9.5 12.5h5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      </div>
+      <div><h2 style="margin: 0; font-size: 18px; line-height: 26px; font-weight: 700">صورتك الشخصية</h2><p style="margin: 4px 0 0; font-size: 14px; line-height: 20px; color: #5B6766">العملاء يشوفونها لما تقبل طلبهم. وجهك واضح ومن الأمام، والخلفية فاتحة.</p></div>
+      <a href="#P-18" data-doc="photo" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none"><span style="width: 24px; height: 24px; border-radius: 999px; background: #E9F4F3; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12M12 18V6"/></svg></span><span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">الصورة الشخصية</b><span data-doc-hint="" style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">بدون نظارة شمسية أو فلاتر</span></span><span data-doc-act="" style="font-size: 14px; font-weight: 500; color: #0F6E6E">ارفع</span></a>
+    </section>
+    <section style="display: flex; flex-direction: column; gap: 12px">
+      <div><h2 style="margin: 0; font-size: 18px; line-height: 26px; font-weight: 700">الهوية الوطنية</h2><p style="margin: 4px 0 0; font-size: 14px; line-height: 20px; color: #5B6766">صوّر الوجهين، وتأكد إن كل الكلام مقروء.</p></div>
+      <a href="#P-18" data-doc="idFront" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none"><span style="width: 24px; height: 24px; border-radius: 999px; background: #E9F4F3; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12M12 18V6"/></svg></span><span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">وجه الهوية</b><span data-doc-hint="" style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">JPG أو PNG أو PDF</span></span><span data-doc-act="" style="font-size: 14px; font-weight: 500; color: #0F6E6E">ارفع</span></a>
+      <a href="#P-18" data-doc="idBack" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none"><span style="width: 24px; height: 24px; border-radius: 999px; background: #E9F4F3; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12M12 18V6"/></svg></span><span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">ظهر الهوية</b><span data-doc-hint="" style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">JPG أو PNG أو PDF</span></span><span data-doc-act="" style="font-size: 14px; font-weight: 500; color: #0F6E6E">ارفع</span></a>
       <div style="display: flex; flex-direction: column; gap: 8px">
         <label for="id-exp" style="font-size: 14px; line-height: 16px; font-weight: 500">تاريخ انتهاء الهوية</label>
-        <div style="height: 56px; box-sizing: border-box; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 0 14px">
-          <input id="id-exp" value="22 / 09 / 2029" dir="ltr" style="flex: 1; min-width: 0; height: 100%; border: none; outline: none; background: transparent; font: inherit; font-size: 16px; text-align: right; color: #1B2B2B">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5B6766" aria-hidden="true"><path d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div style="height: 56px; box-sizing: border-box; border: 1px solid #E4E9E8; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center; gap: 10px; padding: 0 14px">
+          <input id="id-exp" placeholder="يوم / شهر / سنة" dir="ltr" style="flex: 1; min-width: 0; height: 100%; border: none; outline: none; background: transparent; font: inherit; font-size: 16px; text-align: right; color: #1B2B2B"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5B6766" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z"/></svg>
         </div>
         <span style="font-size: 12px; line-height: 20px; color: #5B6766">ننبهك قبل ما تنتهي بـ 30 يوم عشان تجددها.</span>
       </div>
     </section>
   </div>
   <div style="padding: 12px 24px 0">
-    <a href="#P-10" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ</a>
+    <a href="#P-13" data-next="" style="height: 56px; width: 100%; box-sizing: border-box; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ والتالي</a>
   </div>
 </div></template>
-<template data-id="P-13" data-title="بيانات توصيل الأفراد" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1300px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+<template data-id="P-13" data-title="الخطوة 2 · توصيل الأفراد" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1400px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
   <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
     <a href="#P-10" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
     <span style="text-align: center; font-size: 16px; font-weight: 500">توصيل الأفراد</span>
     <span></span>
   </div>
   <div style="flex: 1; display: flex; flex-direction: column; gap: 24px; padding: 8px 24px 0">
+    <div data-stepper="" style="display: flex; flex-direction: column; gap: 8px"><div role="img" aria-label="الخطوة 2 من 4" style="display: flex; gap: 6px"><span style="flex: 1; height: 4px; border-radius: 2px; background: #0F6E6E"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E2A23B"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E9F4F3"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E9F4F3"></span></div><span style="font-size: 12px; line-height: 20px; color: #5B6766">الخطوة <b style="font-weight: 500; color: #1B2B2B">2 من 4</b> · توصيل الأفراد</span></div>
     <section style="display: flex; flex-direction: column; gap: 16px">
       <h2 style="margin: 0; font-size: 16px; line-height: 24px; font-weight: 700">السيارة</h2>
       <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
@@ -421,46 +366,27 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
     <section style="display: flex; flex-direction: column; gap: 12px">
       <div style="display: flex; justify-content: space-between; align-items: baseline">
         <h2 style="margin: 0; font-size: 16px; line-height: 24px; font-weight: 700">المستندات</h2>
-        <span style="font-size: 12px; line-height: 20px; color: #5B6766"><b style="font-weight: 500; color: #1B2B2B">2 من 4</b> جاهزة</span>
+        <span data-doc-count="" style="font-size: 12px; line-height: 20px; color: #5B6766"><b style="font-weight: 500; color: #1B2B2B">0 من 4</b> جاهزة</span>
       </div>
-      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #EAF5EC">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex: none"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2Zm4.78 7.7-5.67 5.67a.75.75 0 0 1-1.06 0l-2.83-2.83a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l2.3 2.3 5.14-5.14c.29-.29.77-.29 1.06 0 .29.29.29.76 0 1.06Z" fill="#2E8B3E"/></svg>
-        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">رخصة القيادة</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">تنتهي <span dir="ltr">04/2028</span></span></span>
-        <button type="button" style="height: 36px; padding: 0 14px; border: none; border-radius: 999px; background: #FFFFFF; color: #1B2B2B; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">تعديل</button>
-      </div>
-      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: #EAF5EC">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex: none"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2Zm4.78 7.7-5.67 5.67a.75.75 0 0 1-1.06 0l-2.83-2.83a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l2.3 2.3 5.14-5.14c.29-.29.77-.29 1.06 0 .29.29.29.76 0 1.06Z" fill="#2E8B3E"/></svg>
-        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">الاستمارة</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">تنتهي <span dir="ltr">11/2026</span></span></span>
-        <button type="button" style="height: 36px; padding: 0 14px; border: none; border-radius: 999px; background: #FFFFFF; color: #1B2B2B; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer">تعديل</button>
-      </div>
-      <a href="#P-18" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none">
-        <span style="width: 24px; height: 24px; border-radius: 999px; background: #E9F4F3; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M6 12h12M12 18V6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">وثيقة التأمين</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">ساري، وباسمك أو يشمل أي سائق</span></span>
-        <span style="font-size: 14px; font-weight: 500; color: #0F6E6E">ارفع</span>
-      </a>
-      <div style="display: flex; flex-direction: column; gap: 10px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4">
-        <span><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">صور السيارة</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">4 صور واضحة · <b style="font-weight: 500; color: #1B2B2B">2 من 4</b></span></span>
-        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
-          <span style="aspect-ratio: 1; border-radius: 8px; background: #CFE6E4; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 6px; font-size: 11px; line-height: 16px; color: #1B2B2B; font-weight: 500">أمام</span>
-          <span style="aspect-ratio: 1; border-radius: 8px; background: #CFE6E4; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 6px; font-size: 11px; line-height: 16px; color: #1B2B2B; font-weight: 500">خلف</span>
-          <button type="button" aria-label="صوّر جانب السيارة" style="aspect-ratio: 1; border: none; border-radius: 8px; background: #E9F4F3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font: inherit; font-size: 11px; line-height: 16px; color: #1B2B2B; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M6.76 22h10.48c2.76 0 3.86-1.69 3.99-3.75l.52-8.26A3.753 3.753 0 0 0 18 6c-.61 0-1.17-.35-1.45-.89l-.72-1.45C15.37 2.75 14.17 2 13.15 2h-2.29c-1.03 0-2.23.75-2.69 1.66l-.72 1.45C7.17 5.65 6.61 6 6 6 3.83 6 2.11 7.83 2.25 9.99l.52 8.26C2.89 20.31 4 22 6.76 22Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18c1.79 0 3.25-1.46 3.25-3.25S13.79 11.5 12 11.5s-3.25 1.46-3.25 3.25S10.21 18 12 18Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>جانب</button>
-          <button type="button" aria-label="صوّر داخل السيارة" style="aspect-ratio: 1; border: none; border-radius: 8px; background: #E9F4F3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font: inherit; font-size: 11px; line-height: 16px; color: #1B2B2B; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M6.76 22h10.48c2.76 0 3.86-1.69 3.99-3.75l.52-8.26A3.753 3.753 0 0 0 18 6c-.61 0-1.17-.35-1.45-.89l-.72-1.45C15.37 2.75 14.17 2 13.15 2h-2.29c-1.03 0-2.23.75-2.69 1.66l-.72 1.45C7.17 5.65 6.61 6 6 6 3.83 6 2.11 7.83 2.25 9.99l.52 8.26C2.89 20.31 4 22 6.76 22Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18c1.79 0 3.25-1.46 3.25-3.25S13.79 11.5 12 11.5s-3.25 1.46-3.25 3.25S10.21 18 12 18Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>داخل</button>
-        </div>
-      </div>
+      <a href="#P-18" data-doc="license" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none"><span style="width: 24px; height: 24px; border-radius: 999px; background: #E9F4F3; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12M12 18V6"/></svg></span><span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">رخصة القيادة</b><span data-doc-hint="" style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">سارية، ومعها تاريخ الانتهاء</span></span><span data-doc-act="" style="font-size: 14px; font-weight: 500; color: #0F6E6E">ارفع</span></a>
+      <a href="#P-18" data-doc="istimara" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none"><span style="width: 24px; height: 24px; border-radius: 999px; background: #E9F4F3; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12M12 18V6"/></svg></span><span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">الاستمارة</b><span data-doc-hint="" style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">باسمك أو معها تفويض</span></span><span data-doc-act="" style="font-size: 14px; font-weight: 500; color: #0F6E6E">ارفع</span></a>
+      <a href="#P-18" data-doc="insurance" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none"><span style="width: 24px; height: 24px; border-radius: 999px; background: #E9F4F3; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12M12 18V6"/></svg></span><span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">وثيقة التأمين</b><span data-doc-hint="" style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">سارية، وباسمك أو تشمل أي سائق</span></span><span data-doc-act="" style="font-size: 14px; font-weight: 500; color: #0F6E6E">ارفع</span></a>
+      <a href="#P-18" data-doc="carPhotos" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none"><span style="width: 24px; height: 24px; border-radius: 999px; background: #E9F4F3; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12M12 18V6"/></svg></span><span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">صور السيارة</b><span data-doc-hint="" style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">4 صور: أمام، وخلف، وجانب، وداخل</span></span><span data-doc-act="" style="font-size: 14px; font-weight: 500; color: #0F6E6E">ارفع</span></a>
       <span style="font-size: 12px; line-height: 20px; color: #5B6766">PDF أو JPG أو PNG، وأقصى حجم 10 MB.</span>
     </section>
   </div>
   <div style="padding: 12px 24px 0">
-    <a href="#P-10" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ</a>
+    <a href="#P-14" data-next="" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ والتالي</a>
   </div>
 </div></template>
-<template data-id="P-14" data-title="بيانات توصيل الطرود" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1000px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+<template data-id="P-14" data-title="الخطوة 3 · توصيل الطرود" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1050px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
   <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
     <a href="#P-10" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
     <span style="text-align: center; font-size: 16px; font-weight: 500">توصيل الطرود</span>
     <span></span>
   </div>
   <div style="flex: 1; display: flex; flex-direction: column; gap: 24px; padding: 8px 24px 0">
+    <div data-stepper="" style="display: flex; flex-direction: column; gap: 8px"><div role="img" aria-label="الخطوة 3 من 4" style="display: flex; gap: 6px"><span style="flex: 1; height: 4px; border-radius: 2px; background: #0F6E6E"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #0F6E6E"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E2A23B"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E9F4F3"></span></div><span style="font-size: 12px; line-height: 20px; color: #5B6766">الخطوة <b style="font-weight: 500; color: #1B2B2B">3 من 4</b> · توصيل الطرود</span></div>
     <fieldset style="margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 8px">
       <legend style="padding: 0; margin-bottom: 12px; font-size: 16px; line-height: 24px; font-weight: 700">وش بتوصّل فيه؟</legend>
       <label for="v-car" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px solid #0F6E6E; background: #FFFFFF; cursor: pointer">
@@ -477,7 +403,7 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
       </label>
     </fieldset>
 
-    <label for="same-car" style="display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 16px; background: #E9F4F3; cursor: pointer">
+    <label data-needs-svc="ride" for="same-car" style="display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 16px; background: #E9F4F3; cursor: pointer">
       <input id="same-car" type="checkbox" checked style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E">
       <span style="flex: 1; font-size: 14px; line-height: 20px"><b style="display: block; font-weight: 500">نفس سيارة توصيل الأفراد</b><span style="color: #5B6766">تويوتا كامري 2022 · <span dir="ltr">4821</span> ر س ع. ما تحتاج ترفع مستنداتها مرة ثانية.</span></span>
     </label>
@@ -499,16 +425,17 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
     </fieldset>
   </div>
   <div style="padding: 12px 24px 0">
-    <a href="#P-10" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ</a>
+    <a href="#P-17" data-next="" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ والتالي</a>
   </div>
 </div></template>
-<template data-id="P-15" data-title="بيانات المرافق الشخصي" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1000px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+<template data-id="P-15" data-title="خطوة خدمة · المرافق الشخصي" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1050px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
   <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
     <a href="#P-10" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
     <span style="text-align: center; font-size: 16px; font-weight: 500">المرافق الشخصي</span>
     <span></span>
   </div>
   <div style="flex: 1; display: flex; flex-direction: column; gap: 24px; padding: 8px 24px 0">
+    <div data-stepper="" style="display: flex; flex-direction: column; gap: 8px"><div role="img" aria-label="الخطوة 2 من 3" style="display: flex; gap: 6px"><span style="flex: 1; height: 4px; border-radius: 2px; background: #0F6E6E"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E2A23B"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E9F4F3"></span></div><span style="font-size: 12px; line-height: 20px; color: #5B6766">الخطوة <b style="font-weight: 500; color: #1B2B2B">2 من 3</b> · المرافق الشخصي</span></div>
     <fieldset style="margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 8px">
       <legend style="padding: 0; margin-bottom: 4px; font-size: 16px; line-height: 24px; font-weight: 700">مين تقدر ترافق؟</legend>
       <span style="font-size: 12px; line-height: 20px; color: #5B6766; margin-bottom: 4px">اختر واحد أو أكثر</span>
@@ -540,7 +467,7 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
         <h2 style="margin: 0; font-size: 16px; line-height: 24px; font-weight: 700">شهادات خبرة أو تدريب</h2>
         <span style="font-size: 12px; line-height: 20px; color: #5B6766">اختياري، بس تزيد فرصة قبولك</span>
       </div>
-      <a href="#P-18" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none">
+      <a href="#P-18" data-doc="cert" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none">
         <span style="width: 24px; height: 24px; border-radius: 999px; background: #E9F4F3; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M6 12h12M12 18V6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">أضف شهادة</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">مثل الإسعافات الأولية أو خبرة رعاية</span></span>
         <span style="font-size: 14px; font-weight: 500; color: #0F6E6E">ارفع</span>
@@ -548,16 +475,17 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
     </section>
   </div>
   <div style="padding: 12px 24px 0">
-    <a href="#P-10" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ</a>
+    <a href="#P-17" data-next="" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ والتالي</a>
   </div>
 </div></template>
-<template data-id="P-16" data-title="بيانات المعاملات الحكومية" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1040px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+<template data-id="P-16" data-title="خطوة خدمة · المعاملات الحكومية" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1090px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
   <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
     <a href="#P-10" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
     <span style="text-align: center; font-size: 16px; font-weight: 500">المعاملات الحكومية</span>
     <span></span>
   </div>
   <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 8px 24px 0">
+    <div data-stepper="" style="display: flex; flex-direction: column; gap: 8px"><div role="img" aria-label="الخطوة 2 من 3" style="display: flex; gap: 6px"><span style="flex: 1; height: 4px; border-radius: 2px; background: #0F6E6E"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E2A23B"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E9F4F3"></span></div><span style="font-size: 12px; line-height: 20px; color: #5B6766">الخطوة <b style="font-weight: 500; color: #1B2B2B">2 من 3</b> · المعاملات الحكومية</span></div>
     <div style="display: flex; flex-direction: column; gap: 4px">
       <h2 style="margin: 0; font-size: 16px; line-height: 24px; font-weight: 700">وش المعاملات اللي تعرف تخلّصها؟</h2>
       <span style="font-size: 12px; line-height: 20px; color: #5B6766">توصلك بس طلبات المعاملات اللي تختارها</span>
@@ -588,7 +516,7 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
         <h2 style="margin: 0; font-size: 16px; line-height: 24px; font-weight: 700">ترخيص أو تصريح مهني</h2>
         <span style="font-size: 12px; line-height: 20px; color: #5B6766">مطلوب لنقل الملكية. باقي المعاملات تكفيها تفويض العميل.</span>
       </div>
-      <a href="#P-18" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none">
+      <a href="#P-18" data-doc="govLicense" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px dashed #CFE6E4; color: inherit; text-decoration: none">
         <span style="width: 24px; height: 24px; border-radius: 999px; background: #E9F4F3; display: flex; align-items: center; justify-content: center; flex: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M6 12h12M12 18V6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span style="flex: 1; min-width: 0"><b style="display: block; font-size: 14px; line-height: 20px; font-weight: 500">ترخيص معقّب</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">مع تاريخ الانتهاء</span></span>
         <span style="font-size: 14px; font-weight: 500; color: #0F6E6E">ارفع</span>
@@ -596,16 +524,17 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
     </section>
   </div>
   <div style="padding: 12px 24px 0">
-    <a href="#P-10" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ</a>
+    <a href="#P-17" data-next="" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ والتالي</a>
   </div>
 </div></template>
-<template data-id="P-17" data-title="المراجعة والإرسال" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1000px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
+<template data-id="P-17" data-title="الخطوة الأخيرة · المراجعة والإرسال" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1000px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
   <div style="height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 16px">
     <a href="#P-10" aria-label="رجوع" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M14.43 5.93L20.5 12l-6.07 6.07M3.5 12h16.83"/></svg></a>
     <span style="text-align: center; font-size: 16px; font-weight: 500">راجع طلبك</span>
     <span></span>
   </div>
   <div style="flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 8px 24px 0">
+    <div data-stepper="" style="display: flex; flex-direction: column; gap: 8px"><div role="img" aria-label="الخطوة 4 من 4" style="display: flex; gap: 6px"><span style="flex: 1; height: 4px; border-radius: 2px; background: #0F6E6E"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #0F6E6E"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #0F6E6E"></span><span style="flex: 1; height: 4px; border-radius: 2px; background: #E2A23B"></span></div><span style="font-size: 12px; line-height: 20px; color: #5B6766">الخطوة <b style="font-weight: 500; color: #1B2B2B">4 من 4</b> · المراجعة والإرسال</span></div>
     <p style="margin: 0 0 4px; font-size: 14px; line-height: 20px; color: #5B6766">تأكد إن كل شي صحيح. بعد الإرسال ما تقدر تعدّل لين نرد عليك.</p>
 
     <div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: #FFFFFF">
@@ -647,14 +576,14 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
   <div role="dialog" aria-modal="true" aria-labelledby="sheet-title" style="border-radius: 24px 24px 0 0; background: #FFFFFF; padding: 12px 24px 40px; display: flex; flex-direction: column; gap: 20px">
     <span style="align-self: center; width: 40px; height: 4px; border-radius: 2px; background: #E4E9E8"></span>
     <div style="display: flex; justify-content: space-between; align-items: center">
-      <h2 id="sheet-title" style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 700">وثيقة التأمين</h2>
+      <h2 id="sheet-title" data-sheet-title="" style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 700">وثيقة التأمين</h2>
       <a href="#P-13" aria-label="إغلاق" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke-width="1.75" stroke-linecap="round"/></svg></a>
     </div>
     <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
       <button type="button" style="height: 48px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M6.76 22h10.48c2.76 0 3.86-1.69 3.99-3.75l.52-8.26A3.753 3.753 0 0 0 18 6c-.61 0-1.17-.35-1.45-.89l-.72-1.45C15.37 2.75 14.17 2 13.15 2h-2.29c-1.03 0-2.23.75-2.69 1.66l-.72 1.45C7.17 5.65 6.61 6 6 6 3.83 6 2.11 7.83 2.25 9.99l.52 8.26C2.89 20.31 4 22 6.76 22ZM10.5 8h3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18c1.79 0 3.25-1.46 3.25-3.25S13.79 11.5 12 11.5s-3.25 1.46-3.25 3.25S10.21 18 12 18Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>صوّر</button>
       <button type="button" style="height: 48px; border: none; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E6E" aria-hidden="true"><path d="M9 17v-6l-2 2M9 11l2 2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 10v5c0 5-2 7-7 7H9c-5 0-7-2-7-7V9c0-5 2-7 7-7h5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 10h-4c-3 0-4-1-4-4V2l8 8Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>اختر ملف</button>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border-radius: 16px; border: 1px solid #E4E9E8">
+    <div data-file-row="" style="display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border-radius: 16px; border: 1px solid #E4E9E8">
       <div style="display: flex; align-items: center; gap: 12px">
         <span style="width: 24px; height: 24px; box-sizing: border-box; border-radius: 50%; border: 2.5px solid #CFE6E4; border-top-color: #0F6E6E; flex: none"></span>
         <span style="flex: 1; min-width: 0"><b dir="ltr" style="display: block; text-align: right; font-size: 14px; line-height: 20px; font-weight: 500">insurance-2026.pdf</b><span style="display: block; font-size: 12px; line-height: 20px; color: #5B6766">جاري الرفع · 60%</span></span>
@@ -3874,7 +3803,7 @@ let timer=null,toastTimer=null,path=null;
 
 // مسارات كاملة للمراجعة: «التالية» تمشي على خطواتها بدل ترتيب الـ Canvas
 const PATHS=[
-  ['تسجيل مقدم خدمة جديد',['P-01','P-02','P-03','P-04','P-05','P-10','P-11','P-12','P-18','P-13','P-14','P-15','P-16','P-17','P-20','P-24','P-32','P-30a']],
+  ['تسجيل مقدم خدمة جديد',['P-01','P-02','P-03','P-04','P-05','P-10','P-11','P-13','P-14','P-15','P-16','P-18','P-17','P-20','P-24','P-32','P-30a']],
   ['حالات مراجعة الحساب',['P-20','P-21','P-22','P-23','P-24']],
   ['الرئيسية والتوفر',['P-30a','P-30','P-31','P-32','P-30c','P-40','P-42']],
   ['رحلة فورية من العرض للملخص',['P-30','P-50','P-60','P-61','P-61b','P-62','P-62e','P-63']],
@@ -3897,8 +3826,6 @@ const CAM='say:يفتح الكاميرا عشان تصوّر';
 // [جزء من نص الزرار أو الـ aria-label، الهدف]. الهدف: رقم شاشة، أو say:رسالة، أو back، أو switch
 const RULES={
   'P-10':[['راجع وأرسل','P-17']],
-  'P-12':[['غيّر الصورة','P-18'],['احذف','say:انحذف الملف، وترفع غيره']],
-  'P-13':[['تعديل','P-18'],['جانب','P-18'],['داخل','P-18']],
   'P-16':[['ما اخترت','say:يفتح معاملات هذي الجهة عشان تختار منها']],
   'P-18':[['صوّر',CAM],['اختر ملف','say:يفتح الملفات: PDF أو صورة'],['حفظ','back']],
   'P-21':[['أرسل التعديلات','P-20']],
@@ -3921,8 +3848,6 @@ const GENERIC='هذا الزر للعرض بس في البروتوتايب';
 // أحداث ما لها زرار في الشاشة: من العميل أو الإدارة أو الوقت
 const EVENTS={
   'P-04':[['الرقم عنده حساب قيد المراجعة','P-20'],['الرقم عنده حساب معتمد','P-30a']],
-  'P-05':[['اختار المرافق الشخصي','P-15'],['اختار المعاملات الحكومية','P-16']],
-  'P-10':[['كمّل كل الخطوات','P-17'],['خدمة المرافق الشخصي','P-15'],['خدمة المعاملات الحكومية','P-16']],
   'P-20':[['الإدارة طلبت استكمال','P-21'],['الإدارة رفضت الطلب','P-22'],['الإدارة اعتمدت الحساب','P-24']],
   'P-21':[['خلّص التعديلات وأرسلها','P-20']],
   'P-30a':[['مستند منتهي وحاول يصير متاح','P-31'],['الإدارة أوقفت الحساب','P-23']],
@@ -3975,6 +3900,7 @@ function show(id){
   const ev=EVENTS[id]||[],html=ev.map(([l,to])=>`<button type="button" data-ev="${to}">${l}<code>${to}</code></button>`).join('');
   $('#events').innerHTML=html;$('#evBox').hidden=!ev.length;$('#mev').innerHTML=html;
   if(id===SPLASH&&!path)timer=setTimeout(()=>go(AFTER_SPLASH),SPLASH_MS);
+  if(pendingToast){toast(pendingToast);pendingToast=null;}
 }
 function go(id){if(id==='back'){history.back();return;}if(location.hash.slice(1)===id)show(id);else location.hash=id;}
 function toast(msg){const el=$('#toast');if(!el)return;el.textContent=msg;el.classList.add('on');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('on'),2400);}
@@ -4014,53 +3940,121 @@ screen.addEventListener('click',e=>{
 });
 screen.addEventListener('submit',e=>e.preventDefault());
 
-// ---- تسجيل مقدم خدمة جديد كتجربة حقيقية: الخدمات من P-05 ← خطوات التفعيل P-10 تتحدّث مع كل «حفظ» ← المراجعة P-17 ← الإرسال
+// ---- تسجيل مقدم خدمة جديد كتجربة حقيقية: الخدمات من P-05 ← «فعّل حسابك» P-10 بخطوات مرقّمة ← كل خطوة «حفظ والتالي» ← المراجعة P-17
+// الخطوة تبقى «مكتملة» لما تنحفظ وكل مستنداتها المطلوبة مرفوعة. وإلا «ناقص: ...»
 const SVC={ride:['توصيل الأفراد','P-13','assets/onboarding/ob-car.png'],parcel:['توصيل الطرود','P-14','assets/onboarding/ob-parcel.png'],companion:['المرافق الشخصي','P-15','assets/onboarding/ob-companion.png'],gov:['المعاملات الحكومية','P-16','assets/onboarding/ob-gov.png']};
 const SVC_ORDER=['ride','parcel','companion','gov'];
-const STEP_OF={'P-11':'personal','P-12':'id','P-13':'ride','P-14':'parcel','P-15':'companion','P-16':'gov'};
-const STEP_NAME={personal:'البيانات الشخصية',id:'الهوية والصورة الشخصية',ride:SVC.ride[0],parcel:SVC.parcel[0],companion:SVC.companion[0],gov:SVC.gov[0]};
-const reg={svc:null,done:{}};
+const DOC={photo:['الصورة الشخصية','selfie.jpg · 1.4 MB'],idFront:['وجه الهوية','id-front.jpg · 1.1 MB'],idBack:['ظهر الهوية','id-back.jpg · 980 KB'],license:['رخصة القيادة','license.jpg · 1.2 MB'],istimara:['الاستمارة','istimara.pdf · 640 KB'],insurance:['وثيقة التأمين','insurance-2026.pdf · 1.2 MB'],carPhotos:['صور السيارة','4 صور · 6.3 MB'],cert:['الشهادة','first-aid.pdf · 820 KB'],govLicense:['ترخيص المعقّب','license.pdf · 700 KB']};
+const REQ={personal:['photo','idFront','idBack'],ride:['license','istimara','insurance','carPhotos'],parcel:[],companion:[],gov:[]};
+const PAGE={personal:'P-11',ride:'P-13',parcel:'P-14',companion:'P-15',gov:'P-16',review:'P-17'};
+const STEP_AT=Object.fromEntries(Object.entries(PAGE).map(([k,v])=>[v,k]));
+const NAME={personal:'بياناتك الشخصية',ride:SVC.ride[0],parcel:SVC.parcel[0],companion:SVC.companion[0],gov:SVC.gov[0],review:'المراجعة والإرسال'};
+const HINT={personal:'معلوماتك وصورتك والهوية',ride:'السيارة ومستنداتها',parcel:'المركبة ونطاق التغطية',companion:'الفئات ونطاق الخدمة',gov:'المعاملات اللي تخلّصها'};
+const reg={svc:null,docs:new Set(),saved:new Set()};
 const regSvc=()=>reg.svc||['ride','parcel'];
-const regSteps=()=>['personal','id',...regSvc()];
-const regMissing=()=>regSteps().filter(k=>!reg.done[k]);
-function setStatus(el,done){if(!el)return;el.textContent=done?'مكتملة':'ما بدأت';el.setAttribute('style',`display: block; font-size: 12px; line-height: 20px; color: ${done?'#2E6B37':'#5B6766'}`);}
+const regSteps=()=>['personal',...regSvc(),'review'];
+const workSteps=()=>regSteps().filter(k=>k!=='review');
+const missingOf=k=>(REQ[k]||[]).filter(d=>!reg.docs.has(d));
+const isDone=k=>reg.saved.has(k)&&!missingOf(k).length;
+const started=k=>reg.saved.has(k)||(REQ[k]||[]).some(d=>reg.docs.has(d));
+const firstOpen=()=>workSteps().find(k=>!isDone(k));
+const docNames=ks=>ks.map(d=>DOC[d][0]).join('، ');
+const CHECK=(bg,fg,s=14)=>`<span style="width: 24px; height: 24px; border-radius: 999px; background: ${bg}; color: ${fg}; display: flex; align-items: center; justify-content: center; flex: none"><svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5.2 12 4.53 4.53 9.07-9.06"/></svg></span>`;
+let pendingToast=null;
+
+function paintStepper(k){
+  const box=screen.querySelector('[data-stepper]'),steps=regSteps(),i=steps.indexOf(k);if(!box||i<0)return;
+  box.innerHTML=`<div role="img" aria-label="الخطوة ${i+1} من ${steps.length}" style="display: flex; gap: 6px">${steps.map((s,j)=>`<span style="flex: 1; height: 4px; border-radius: 2px; background: ${j===i?'#E2A23B':isDone(s)?'#0F6E6E':'#E9F4F3'}"></span>`).join('')}</div><span style="font-size: 12px; line-height: 20px; color: #5B6766">الخطوة <b style="font-weight: 500; color: #1B2B2B">${i+1} من ${steps.length}</b> · ${NAME[k]}</span>`;
+}
+function paintSlots(){
+  screen.querySelectorAll('.scr a[data-doc]').forEach(a=>{
+    const k=a.dataset.doc;if(!reg.docs.has(k))return;
+    a.style.border='2px solid transparent';a.style.background='#EAF5EC';
+    const lead=a.firstElementChild;if(lead)lead.outerHTML=CHECK('#2E8B3E','#FFFFFF');
+    const h=a.querySelector('[data-doc-hint]');if(h){h.textContent='اترفع · '+DOC[k][1];h.dir='rtl';}
+    const act=a.querySelector('[data-doc-act]');if(act)act.textContent='تعديل';
+  });
+  const cnt=screen.querySelector('[data-doc-count]');if(cnt){const k=STEP_AT[location.hash.slice(1)],r=REQ[k]||[];cnt.innerHTML=`<b style="font-weight: 500; color: #1B2B2B">${r.filter(d=>reg.docs.has(d)).length} من ${r.length}</b> جاهزة`;}
+}
+function paintStep(id){
+  const k=STEP_AT[id];if(!k)return;
+  paintStepper(k);paintSlots();
+  const steps=regSteps(),nxt=steps[steps.indexOf(k)+1];
+  screen.querySelectorAll('[data-next]').forEach(a=>{if(nxt){a.dataset.go=PAGE[nxt];a.textContent=nxt==='review'?'حفظ والتالي: المراجعة':'حفظ والتالي';}});
+  screen.querySelectorAll('[data-needs-svc]').forEach(e=>{e.hidden=!regSvc().includes(e.dataset.needsSvc);});
+}
 
 const AFTER={
   'P-05'(){if(!reg.svc)return;screen.querySelectorAll('[data-card]').forEach((c,i)=>c.setAttribute('aria-pressed',String(reg.svc.includes(SVC_ORDER[i]))));syncSel();},
   'P-10'(){
-    const rows=[...screen.querySelectorAll('a[data-go]')];
-    const status=a=>a.querySelector('span[style*="flex: 1"]>span');
-    const EMPTY='<svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="9.5" stroke="#CFE6E4" stroke-width="2" stroke-dasharray="3 3"/></svg>';
-    [['P-11','personal'],['P-12','id']].forEach(([pg,k])=>{const r=rows.find(a=>a.dataset.go===pg);if(!r)return;setStatus(status(r),reg.done[k]);const ic=r.firstElementChild;if(ic&&ic.tagName.toLowerCase()==='svg'){if(!ic.dataset.doneHtml)r.dataset.doneIcon=ic.outerHTML;if(!reg.done[k])ic.outerHTML=EMPTY;}});
-    const svcRows=rows.filter(a=>['P-13','P-14','P-15','P-16'].includes(a.dataset.go)),tpl=svcRows[svcRows.length-1];
-    if(tpl){const anchor=svcRows[0];regSvc().forEach(k=>{const r=tpl.cloneNode(true),[name,page,img]=SVC[k];r.dataset.go=page;r.setAttribute('href','#'+page);r.querySelector('img').src=img;r.querySelector('b').textContent=name;setStatus(status(r),reg.done[k]);anchor.before(r);});svcRows.forEach(r=>r.remove());}
-    const steps=regSteps(),done=steps.filter(k=>reg.done[k]).length,bar=screen.querySelector('[role="img"][aria-label*="خطوات"]');
-    if(bar){bar.setAttribute('aria-label',`${done} من ${steps.length} خطوات مكتملة`);bar.innerHTML=steps.map((k,i)=>`<span style="flex: 1; height: 4px; border-radius: 2px; background: ${i<done?'#0F6E6E':i===done?'#E2A23B':'#E9F4F3'}"></span>`).join('');const t=bar.nextElementSibling;if(t)t.innerHTML=`<b style="font-weight: 500; color: #1B2B2B">${done} من ${steps.length}</b> خطوات مكتملة`;}
-    const btn=[...screen.querySelectorAll('button')].find(b=>label(b).includes('راجع وأرسل')),hint=screen.querySelector('#submit-hint'),miss=regMissing();
-    if(!btn)return;btn.removeAttribute('disabled');delete btn.dataset.say;delete btn.dataset.go;
-    if(miss.length){btn.dataset.say='باقي: '+miss.map(k=>STEP_NAME[k]).join('، ');if(hint)hint.textContent=`باقي ${miss.length===1?'خطوة وحدة':miss.length===2?'خطوتين':miss.length+' خطوات'} عشان ترسل`;}
-    else{btn.dataset.go='P-17';btn.style.background='#0F6E6E';btn.style.color='#FFFFFF';btn.style.cursor='pointer';if(hint)hint.textContent='كل شي جاهز. راجع طلبك وأرسله';}
+    const rows=[...screen.querySelectorAll('a[data-step]')],numRow=rows.find(r=>r.dataset.step==='personal'),imgRow=rows.find(r=>r.querySelector('img'));if(!numRow||!imgRow)return;
+    const steps=regSteps(),list=rows[0].parentElement;rows.forEach(r=>r.remove());
+    steps.forEach((k,i)=>{
+      const r=(SVC[k]?imgRow:numRow).cloneNode(true);r.dataset.step=k;r.dataset.go=PAGE[k];r.setAttribute('href','#'+PAGE[k]);
+      if(SVC[k])r.querySelector('img').src=SVC[k][2];
+      r.querySelector('b').textContent=NAME[k];
+      const num=r.querySelector('[data-step-num]'),st=r.querySelector('[data-step-status]'),done=k==='review'?false:isDone(k);
+      if(done){num.innerHTML=`<svg width="${SVC[k]?11:18}" height="${SVC[k]?11:18}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5.2 12 4.53 4.53 9.07-9.06"/></svg>`;num.style.background=SVC[k]?'#2E8B3E':'#EAF5EC';num.style.color=SVC[k]?'#FFFFFF':'#2E8B3E';}
+      else num.textContent=String(i+1);
+      if(k==='review'){const ready=!firstOpen();st.textContent=ready?'كل شي جاهز للإرسال':'بعد ما تكمّل الخطوات';st.style.color=ready?'#0F6E6E':'#5B6766';}
+      else if(done){st.textContent='مكتملة';st.style.color='#2E6B37';}
+      else if(started(k)){const m=missingOf(k);st.textContent=m.length?'ناقص: '+docNames(m):'ما حفظتها لسه';st.style.color='#7A5410';}
+      else{st.textContent=HINT[k];st.style.color='#5B6766';}
+      list.appendChild(r);
+    });
+    const h1=screen.querySelector('h1');if(h1)h1.textContent=`فعّل حسابك في ${steps.length} خطوات`;
+    const cta=screen.querySelector('[data-hub-cta]'),open=firstOpen();
+    if(cta){if(open){cta.textContent=(started(open)?'كمّل: ':'ابدأ: ')+NAME[open];cta.dataset.go=PAGE[open];}else{cta.textContent='راجع وأرسل الطلب';cta.dataset.go='P-17';}}
   },
+  'P-11'(){paintStep('P-11');},'P-13'(){paintStep('P-13');},'P-14'(){paintStep('P-14');},'P-15'(){paintStep('P-15');},'P-16'(){paintStep('P-16');},
   'P-17'(){
+    paintStepper('review');
     const cards=[...screen.querySelectorAll('a[data-go]')].filter(a=>['P-13','P-14'].includes(a.dataset.go)).map(a=>a.closest('div[style*="border-radius: 16px"]'));
-    const tpl=cards[cards.length-1];if(!tpl)return;
-    regSvc().forEach(k=>{const c=tpl.cloneNode(true),[name,page,img]=SVC[k];c.querySelector('img').src=img;c.querySelector('b').textContent=name;const a=c.querySelector('a[data-go]');a.dataset.go=page;a.setAttribute('href','#'+page);
-      const orig=cards.find(x=>x.querySelector(`a[data-go="${page}"]`));if(orig){cards[0].before(orig.cloneNode(true));const n=cards[0].previousElementSibling.querySelector('a[data-go]');n.dataset.go=page;}else{const s=c.querySelector('span');if(s)s.textContent=k==='companion'?'كبار السن والأطفال · بالساعة':'المرور والجوازات';cards[0].before(c);}});
+    const ride=cards.find(c=>c.querySelector('a[data-go="P-13"]')),tpl=cards[cards.length-1];if(!tpl)return;
+    regSvc().forEach(k=>{
+      const src=k==='ride'&&ride?ride:k==='parcel'?cards.find(c=>c.querySelector('a[data-go="P-14"]')):tpl,c=src.cloneNode(true);
+      c.querySelector('img').src=SVC[k][2];c.querySelector('b').textContent=SVC[k][0];const a=c.querySelector('a[data-go]');a.dataset.go=SVC[k][1];a.setAttribute('href','#'+SVC[k][1]);
+      if(k==='companion'||k==='gov'){const s=c.querySelector('span');if(s)s.textContent=k==='companion'?'كبار السن والأطفال · بالساعة':'المرور والجوازات';}
+      if(k==='parcel'&&!regSvc().includes('ride')){const s=c.querySelector('span');if(s)s.textContent='بالمركبة اللي اخترتها · الملقا، النرجس، الياسمين، العليا';}
+      const pills=c.querySelector('div[style*="flex-wrap: wrap"]');
+      if(pills)pills.innerHTML=REQ[k].map(d=>reg.docs.has(d)?`<span style="padding: 4px 10px; border-radius: 999px; background: #EAF5EC; font-size: 12px; line-height: 20px">✓ ${DOC[d][0]}</span>`:`<span style="padding: 4px 10px; border-radius: 999px; background: #FCF5E8; color: #7A5410; font-size: 12px; line-height: 20px">ناقص: ${DOC[d][0]}</span>`).join('');
+      cards[0].before(c);
+    });
     cards.forEach(c=>c.remove());
   },
-  'P-18'(){
-    const x=screen.querySelector('a[aria-label="إغلاق"]');if(x)x.dataset.go='back';
-    const at=location.hash;setTimeout(()=>{if(location.hash!==at)return;const bar=screen.querySelector('[role="progressbar"] span');if(bar)bar.style.width='100%';const sp=screen.querySelector('span[style*="border-top-color"]');if(sp)sp.outerHTML='<span style="width: 24px; height: 24px; border-radius: 50%; background: #2E8B3E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; flex: none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5.2 12 4.53 4.53 9.07-9.06"/></svg></span>';
-      const save=[...screen.querySelectorAll('button')].find(b=>label(b)==='حفظ');if(save){save.removeAttribute('disabled');save.dataset.go='back';save.style.background='#0F6E6E';save.style.color='#FFFFFF';save.style.cursor='pointer';}
-      toast('انرفع الملف. اضغط «حفظ»');},1200);
-  },
+  'P-18'(){const x=screen.querySelector('a[aria-label="إغلاق"]');if(x)x.dataset.go='back';},
 };
-// قبل ما نتنقل: نسجّل الخدمات المختارة، ونعلّم الخطوة مكتملة لما يحفظ، ونتأكد من الإقرار قبل الإرسال
+
+// شيت الرفع فوق نفس الشاشة: تختار «صوّر» أو «اختر ملف» ← يترفع ← «حفظ» يرجّعك والخانة تتعلّم
+function openUpload(key){
+  const ov=document.createElement('div');ov.className='upl';ov.innerHTML=S['P-18'].innerHTML;
+  const root=ov.firstElementChild;root.style.width='100%';root.style.height='100%';
+  screen.appendChild(ov);
+  const q=s=>ov.querySelector(s),title=q('[data-sheet-title]'),row=q('[data-file-row]'),save=[...ov.querySelectorAll('button')].find(b=>label(b)==='حفظ');
+  if(title)title.textContent=DOC[key][0];if(row)row.hidden=true;
+  const close=()=>ov.remove();
+  ov.addEventListener('click',e=>{
+    e.stopPropagation();const el=e.target.closest('a,button');if(!el)return;e.preventDefault();
+    if(el.getAttribute('aria-label')==='إغلاق'){close();return;}
+    if(el===save){if(save.disabled)return;reg.docs.add(key);close();(AFTER[location.hash.slice(1)]||(()=>{}))();toast('اترفع: '+DOC[key][0]);return;}
+    if(/صوّر|اختر ملف/.test(label(el))&&row){
+      row.hidden=false;const b=row.querySelector('b');if(b)b.textContent=DOC[key][1].split(' · ')[0];
+      const sub=row.querySelector('b+span'),bar=row.querySelector('[role="progressbar"] span');let p=0;
+      const tick=setInterval(()=>{p=Math.min(100,p+20);if(bar)bar.style.width=p+'%';if(sub)sub.textContent=p<100?`جاري الرفع · ${p}%`:'اترفع · '+DOC[key][1].split(' · ')[1];
+        if(p>=100){clearInterval(tick);const sp=row.querySelector('span[style*="border-top-color"]');if(sp)sp.outerHTML=CHECK('#2E8B3E','#FFFFFF');save.disabled=false;save.style.background='#0F6E6E';save.style.color='#FFFFFF';save.style.cursor='pointer';}},180);
+    }
+  });
+}
+// قبل التنقل: نسجّل الخدمات، ونحفظ الخطوة، ونفتح شيت الرفع، ونتأكد قبل الإرسال
 function before(el,cur){
+  if(el.dataset&&el.dataset.doc&&STEP_AT[cur]){openUpload(el.dataset.doc);return false;}
   if(cur==='P-05'&&el.hasAttribute('data-needs-sel')){reg.svc=[...screen.querySelectorAll('[data-card]')].map((c,i)=>c.getAttribute('aria-pressed')==='true'?SVC_ORDER[i]:null).filter(Boolean);}
-  const to=el.dataset.go,step=STEP_OF[cur];
-  if(step&&to&&to!=='back'&&el.getAttribute('aria-label')!=='رجوع'&&(to==='P-10'||(cur==='P-11'&&to==='P-12'))){reg.done[step]=true;}
-  if(cur==='P-17'&&to==='P-20'){const c=screen.querySelector('#confirm');if(c&&!c.checked){toast('أكّد إن البيانات والمستندات صحيحة');return false;}reg.sent=true;}
+  const k=STEP_AT[cur];
+  if(k&&k!=='review'&&el.hasAttribute('data-next')){reg.saved.add(k);const m=missingOf(k);pendingToast=m.length?'انحفظت. باقي: '+docNames(m):'انحفظت ✓';}
+  if(cur==='P-17'&&el.dataset.go==='P-20'){
+    const open=firstOpen();if(open){toast('كمّل الأول: '+NAME[open]);return false;}
+    const c=screen.querySelector('#confirm');if(c&&!c.checked){toast('أكّد إن البيانات والمستندات صحيحة');return false;}
+  }
   return true;
 }
 
