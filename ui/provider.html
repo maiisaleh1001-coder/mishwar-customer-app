@@ -3869,7 +3869,7 @@ function show(id){
   const t=S[id],light=t.hasAttribute('data-light');
   screen.innerHTML=`<div class="scr${t.hasAttribute('data-tall')?' tall':''}">${t.innerHTML}</div>${sb(light||t.hasAttribute('data-light-top'))}${hi(light)}<div class="toast" id="toast" role="status"></div>`;
   document.title=`${t.dataset.id} · ${t.dataset.title} · مشوار شريك`;
-  wire(id);syncSel();(AFTER[id]||(()=>{}))();
+  wire(id);syncSel();prepChoices();(AFTER[id]||(()=>{}))();
   if(path&&!path.steps.includes(id))path=null;
   if(path)path.k=path.steps.indexOf(id);
   panel(id);
@@ -3915,6 +3915,31 @@ screen.addEventListener('click',e=>{
   else if(el.dataset.sw){const on=el.getAttribute('aria-checked')!=='false';el.setAttribute('aria-checked',String(!on));toast(on?'وقّفت الخدمة. ما توصلك طلباتها لين تشغّلها':'شغّلت الخدمة، وصارت طلباتها توصلك');}
 });
 screen.addEventListener('submit',e=>e.preventDefault());
+// الاختيار بـ Radio أو Checkbox: شكل الكارت (الإطار والخلفية) يمشي مع الاختيار. ناخذ شكل المختار وغير المختار من الشاشة نفسها
+// الكارت = أقرب عنصر فوق الاختيار عليه إطار وفيه اختيار واحد بس، وإلا الـ label
+const cardOf=i=>{let e=i.parentElement;while(e&&e!==screen&&!e.classList.contains('scr')){const s=e.getAttribute('style')||'';if(/border: /.test(s)&&e.querySelectorAll('input[type="radio"],input[type="checkbox"]').length===1)return e;e=e.parentElement;}return i.closest('label')||i.parentElement;};
+function choiceGroup(i){
+  if(i.type==='radio'&&i.name)return [...screen.querySelectorAll(`input[type="radio"][name="${CSS.escape(i.name)}"]`)];
+  const box=i.closest('fieldset,[role="radiogroup"],[role="group"]')||cardOf(i).parentElement;return [...box.querySelectorAll(`input[type="${i.type}"]`)];
+}
+// بنبدّل الإطار والخلفية بس، عشان ترتيب الكارت ما يتغير
+const look=c=>({border:c.style.border,background:c.style.background,boxShadow:c.style.boxShadow});
+function prepChoices(){
+  const seen=new Set();
+  screen.querySelectorAll('.scr input[type="radio"],.scr input[type="checkbox"]').forEach(i=>{
+    if(seen.has(i))return;const g=choiceGroup(i);g.forEach(x=>seen.add(x));
+    const onI=g.find(x=>x.checked),offI=g.find(x=>!x.checked);
+    let on=onI?look(cardOf(onI)):null,off=offI?look(cardOf(offI)):null;
+    if(!on&&off)on={...off,border:'2px solid #0F6E6E'};
+    if(!off&&on)off={...on,border:on.border.includes('#0F6E6E')?'2px solid transparent':on.border};
+    if(JSON.stringify(on)===JSON.stringify(off))return;
+    g.forEach(x=>{const c=cardOf(x);c.dataset.onLook=JSON.stringify(on);c.dataset.offLook=JSON.stringify(off);});
+  });
+}screen.addEventListener('change',e=>{
+  const i=e.target;if(!i.matches('input[type="radio"],input[type="checkbox"]'))return;
+  choiceGroup(i).forEach(x=>{const c=cardOf(x);if(c.dataset.onLook===undefined)return;Object.assign(c.style,JSON.parse(x.checked?c.dataset.onLook:c.dataset.offLook));});
+  if(location.hash==='#P-14')sameCar();
+});
 
 // ---- تسجيل مقدم خدمة جديد كتجربة حقيقية: الخدمات من P-05 ← الخطوة 1 على طول ← كل خطوة «حفظ والتالي» ← المراجعة P-17. والرجوع للخطوة اللي قبلها
 // الخطوة تبقى «مكتملة» لما تنحفظ وكل مستنداتها المطلوبة مرفوعة. وإلا «ناقص: ...»
@@ -3958,6 +3983,8 @@ function paintStepper(k){
   });
   const cnt=screen.querySelector('[data-doc-count]');if(cnt){const k=STEP_AT[location.hash.slice(1)],r=REQ[k]||[];cnt.innerHTML=`<b style="font-weight: 500; color: #1B2B2B">${r.filter(d=>reg.docs.has(d)).length} من ${r.length}</b> جاهزة`;}
 }
+// «نفس سيارة توصيل الأفراد» يظهر بس لو اختار توصيل الأفراد واختار «سيارة» للطرود
+function sameCar(){const car=screen.querySelector('.scr input[type="radio"]'),box=screen.querySelector('[data-needs-svc="ride"]');if(box)box.hidden=!regSvc().includes('ride')||!(car&&car.checked);}
 function paintStep(id){
   const k=STEP_AT[id];if(!k)return;
   paintStepper(k);paintSlots();
@@ -3965,6 +3992,7 @@ function paintStep(id){
   const bk=screen.querySelector('a[aria-label="رجوع"]');if(bk)bk.dataset.go=prv?PAGE[prv]:'P-05';
   screen.querySelectorAll('[data-next]').forEach(a=>{if(nxt){a.dataset.go=PAGE[nxt];a.textContent=nxt==='review'?'حفظ والتالي: المراجعة':'حفظ والتالي';}});
   screen.querySelectorAll('[data-needs-svc]').forEach(e=>{e.hidden=!regSvc().includes(e.dataset.needsSvc);});
+  if(id==='P-14')sameCar();
 }
 
 const AFTER={
