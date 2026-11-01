@@ -391,18 +391,43 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
         <label for="cov-city" style="height: 48px; box-sizing: border-box; border-radius: 999px; border: 2px solid transparent; background: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; cursor: pointer"><input id="cov-city" type="radio" name="cov" style="width: 18px; height: 18px; margin: 0; accent-color: #0F6E6E">كل الرياض</label>
         <label for="cov-areas" style="height: 48px; box-sizing: border-box; border-radius: 999px; border: 2px solid #0F6E6E; background: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; font-weight: 500; cursor: pointer"><input id="cov-areas" type="radio" name="cov" checked style="width: 18px; height: 18px; margin: 0; accent-color: #0F6E6E">أحياء محددة</label>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px">
-        <button type="button" aria-pressed="true" style="height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 14px; display: flex; align-items: center; gap: 6px; cursor: pointer">الملقا<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <button type="button" aria-pressed="true" style="height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 14px; display: flex; align-items: center; gap: 6px; cursor: pointer">النرجس<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <button type="button" aria-pressed="true" style="height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 14px; display: flex; align-items: center; gap: 6px; cursor: pointer">الياسمين<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <button type="button" aria-pressed="true" style="height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 14px; display: flex; align-items: center; gap: 6px; cursor: pointer">العليا<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <button type="button" style="height: 40px; padding: 0 14px; border: 1.5px dashed #0F6E6E; border-radius: 999px; background: transparent; color: #0F6E6E; font: inherit; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 6px; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 12h12M12 18V6" stroke-width="2" stroke-linecap="round"/></svg>أضف حي</button>
+      <div data-areas="" style="display: flex; flex-wrap: wrap; gap: 8px">
+        <button type="button" data-area="الملقا" aria-label="شيل الملقا" style="height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 14px; display: flex; align-items: center; gap: 6px; cursor: pointer">الملقا<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <button type="button" data-area="النرجس" aria-label="شيل النرجس" style="height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 14px; display: flex; align-items: center; gap: 6px; cursor: pointer">النرجس<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <button type="button" data-area="الياسمين" aria-label="شيل الياسمين" style="height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 14px; display: flex; align-items: center; gap: 6px; cursor: pointer">الياسمين<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <button type="button" data-area="العليا" aria-label="شيل العليا" style="height: 40px; padding: 0 14px; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 14px; display: flex; align-items: center; gap: 6px; cursor: pointer">العليا<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <button type="button" data-add-area="" style="height: 40px; padding: 0 14px; border: 1.5px dashed #0F6E6E; border-radius: 999px; background: transparent; color: #0F6E6E; font: inherit; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 6px; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 12h12M12 18V6" stroke-width="2" stroke-linecap="round"/></svg>أضف حي</button>
       </div>
       <span style="font-size: 12px; line-height: 20px; color: #5B6766">توصلك بس الطرود اللي استلامها داخل هذي الأحياء.</span>
     </fieldset>
   </div>
   <div style="padding: 12px 24px 0">
     <a href="#P-17" data-next="" style="height: 56px; width: 100%; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center">حفظ والتالي</a>
+  </div>
+</div></template>
+<template data-id="P-14a" data-title="أضف حي" data-group="Flow 2 · استكمال البيانات والمستندات"><div dir="rtl" style="width: 390px; height: 844px; box-sizing: border-box; background: rgba(27, 43, 43, 0.48); color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column; justify-content: flex-end">
+  <div role="dialog" aria-modal="true" aria-labelledby="area-title" style="border-radius: 24px 24px 0 0; background: #FFFFFF; padding: 12px 24px 40px; display: flex; flex-direction: column; gap: 16px">
+    <span style="align-self: center; width: 40px; height: 4px; border-radius: 2px; background: #E4E9E8"></span>
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <div><h2 id="area-title" style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 700">أضف حي</h2><span style="font-size: 12px; line-height: 20px; color: #5B6766">الرياض · اختر حي أو أكثر</span></div>
+      <a href="#P-14" aria-label="إغلاق" style="width: 40px; height: 40px; border-radius: 999px; background: #E9F4F3; color: #1B2B2B; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke-width="1.75" stroke-linecap="round"/></svg></a>
+    </div>
+    <label style="height: 48px; box-sizing: border-box; padding: 0 14px; border-radius: 999px; border: 1px solid #E4E9E8; background: #FFFFFF; display: flex; align-items: center; gap: 10px; color: #5B6766"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M11.5 21a9.5 9.5 0 1 0 0-19 9.5 9.5 0 0 0 0 19ZM22 22l-2-2"/></svg><input data-area-search="" placeholder="ابحث عن حي" aria-label="ابحث عن حي" style="flex: 1; min-width: 0; border: none; outline: none; background: transparent; font: inherit; font-size: 16px; color: #1B2B2B"></label>
+    <div data-area-list="" style="max-height: 372px; overflow-y: auto; display: flex; flex-direction: column">
+        <label data-area-row="الملقا" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" checked disabled style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #5B6766">الملقا</span><span data-added="" style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: inline-flex; align-items: center">مضاف</span></label>
+        <label data-area-row="النرجس" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" checked disabled style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #5B6766">النرجس</span><span data-added="" style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: inline-flex; align-items: center">مضاف</span></label>
+        <label data-area-row="الياسمين" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" checked disabled style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #5B6766">الياسمين</span><span data-added="" style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: inline-flex; align-items: center">مضاف</span></label>
+        <label data-area-row="العليا" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" checked disabled style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #5B6766">العليا</span><span data-added="" style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: inline-flex; align-items: center">مضاف</span></label>
+        <label data-area-row="حطين" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" checked style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #1B2B2B">حطين</span><span data-added="" hidden style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: none; align-items: center">مضاف</span></label>
+        <label data-area-row="الصحافة" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" checked style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #1B2B2B">الصحافة</span><span data-added="" hidden style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: none; align-items: center">مضاف</span></label>
+        <label data-area-row="العقيق" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #1B2B2B">العقيق</span><span data-added="" hidden style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: none; align-items: center">مضاف</span></label>
+        <label data-area-row="الربيع" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #1B2B2B">الربيع</span><span data-added="" hidden style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: none; align-items: center">مضاف</span></label>
+        <label data-area-row="الندى" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #1B2B2B">الندى</span><span data-added="" hidden style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: none; align-items: center">مضاف</span></label>
+        <label data-area-row="القيروان" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #1B2B2B">القيروان</span><span data-added="" hidden style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: none; align-items: center">مضاف</span></label>
+        <label data-area-row="الورود" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #1B2B2B">الورود</span><span data-added="" hidden style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: none; align-items: center">مضاف</span></label>
+        <label data-area-row="السليمانية" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 4px; border-bottom: 1px solid #E4E9E8; cursor: pointer"><input type="checkbox" style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E"><span style="flex: 1; font-size: 16px; line-height: 24px; color: #1B2B2B">السليمانية</span><span data-added="" hidden style="height: 24px; padding: 0 10px; border-radius: 999px; background: #E9F4F3; color: #0B5555; font-size: 12px; font-weight: 500; display: none; align-items: center">مضاف</span></label>
+    </div>
+    <button type="button" data-area-add="" style="height: 56px; width: 100%; border: none; border-radius: 999px; background: #0F6E6E; color: #FFFFFF; font: inherit; font-size: 16px; font-weight: 500; cursor: pointer">أضف حيّين</button>
   </div>
 </div></template>
 <template data-id="P-15" data-title="خطوة خدمة · المرافق الشخصي" data-group="Flow 2 · استكمال البيانات والمستندات" data-tall><div dir="rtl" style="width: 390px; height: 1050px; box-sizing: border-box; padding: 47px 0 40px; background: #FBFBFB; color: #1B2B2B; font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column">
@@ -3904,6 +3929,8 @@ function pick(b){
 }
 
 screen.addEventListener('click',e=>{
+  const ar=e.target.closest('.scr [data-area],.scr [data-add-area]');
+  if(ar){e.preventDefault();if(ar.hasAttribute('data-add-area'))openAreas();else{reg.areas=reg.areas.filter(a=>a!==ar.dataset.area);paintAreas();toast('شلنا '+ar.dataset.area);}return;}
   const el=e.target.closest('[data-go],[data-say],[data-opt],[data-sw]');
   if(!el){const a=e.target.closest('a[href]');if(a)e.preventDefault();return;}
   e.preventDefault();
@@ -3938,7 +3965,7 @@ function prepChoices(){
 }screen.addEventListener('change',e=>{
   const i=e.target;if(!i.matches('input[type="radio"],input[type="checkbox"]'))return;
   choiceGroup(i).forEach(x=>{const c=cardOf(x);if(c.dataset.onLook===undefined)return;Object.assign(c.style,JSON.parse(x.checked?c.dataset.onLook:c.dataset.offLook));});
-  if(location.hash==='#P-14')sameCar();
+  if(location.hash==='#P-14'){sameCar();paintAreas();}
 });
 
 // ---- تسجيل مقدم خدمة جديد كتجربة حقيقية: الخدمات من P-05 ← الخطوة 1 على طول ← كل خطوة «حفظ والتالي» ← المراجعة P-17. والرجوع للخطوة اللي قبلها
@@ -3992,7 +4019,7 @@ function paintStep(id){
   const bk=screen.querySelector('a[aria-label="رجوع"]');if(bk)bk.dataset.go=prv?PAGE[prv]:'P-05';
   screen.querySelectorAll('[data-next]').forEach(a=>{if(nxt){a.dataset.go=PAGE[nxt];a.textContent=nxt==='review'?'حفظ والتالي: المراجعة':'حفظ والتالي';}});
   screen.querySelectorAll('[data-needs-svc]').forEach(e=>{e.hidden=!regSvc().includes(e.dataset.needsSvc);});
-  if(id==='P-14')sameCar();
+  if(id==='P-14'){sameCar();paintAreas();}
 }
 
 const AFTER={
@@ -4041,7 +4068,32 @@ function openUpload(key){
     if(el===save){if(state==='done'){finish();return;}closeWhenDone=true;save.textContent='جاري الرفع...';upload();return;}
     if(/صوّر|اختر ملف/.test(label(el)))upload();
   });
-}// قبل التنقل: نسجّل الخدمات، ونحفظ الخطوة، ونفتح شيت الرفع، ونتأكد قبل الإرسال
+}// ---- أحياء التغطية في الطرود: الـ Chips من reg.areas، «أضف حي» يفتح شيت فيه بحث واختيار أكثر من حي، و× تشيل الحي
+reg.areas=['الملقا','النرجس','الياسمين','العليا'];
+function paintAreas(){
+  const box=screen.querySelector('[data-areas]');if(!box)return;
+  const chips=[...box.querySelectorAll('[data-area]')],tpl=chips[0],add=box.querySelector('[data-add-area]');if(!tpl||!add)return;
+  chips.forEach(c=>c.remove());
+  reg.areas.forEach(a=>{const c=tpl.cloneNode(true);c.dataset.area=a;c.setAttribute('aria-label','شيل '+a);c.firstChild.textContent=a;delete c.dataset.say;add.before(c);});
+  const all=screen.querySelector('#cov-city'),hint=box.nextElementSibling;box.hidden=!!(all&&all.checked);if(hint)hint.hidden=box.hidden;
+}
+const areaLabel=n=>n===0?'اختر حي':n===1?'أضف الحي':n===2?'أضف حيّين':n<=10?`أضف ${n} أحياء`:`أضف ${n} حي`;
+function openAreas(){
+  const ov=document.createElement('div');ov.className='upl';ov.innerHTML=S['P-14a'].innerHTML;
+  const root=ov.firstElementChild;root.style.width='100%';root.style.height='100%';screen.appendChild(ov);
+  const rows=[...ov.querySelectorAll('[data-area-row]')],btn=ov.querySelector('[data-area-add]'),search=ov.querySelector('[data-area-search]');
+  rows.forEach(r=>{const a=r.dataset.areaRow,i=r.querySelector('input'),pill=r.querySelector('[data-added]'),name=r.querySelector('span');const on=reg.areas.includes(a);
+    i.checked=on;i.disabled=on;pill.hidden=!on;pill.style.display=on?'inline-flex':'none';name.style.color=on?'#5B6766':'#1B2B2B';r.style.cursor=on?'default':'pointer';});
+  const picked=()=>rows.filter(r=>{const i=r.querySelector('input');return i.checked&&!i.disabled;}).map(r=>r.dataset.areaRow);
+  const sync=()=>{const n=picked().length;btn.textContent=areaLabel(n);btn.style.opacity=n?'1':'0.45';};sync();
+  ov.addEventListener('change',sync);
+  search.addEventListener('input',()=>{const q=search.value.trim();rows.forEach(r=>{r.hidden=!!q&&!r.dataset.areaRow.includes(q);});});
+  ov.addEventListener('click',e=>{
+    const x=e.target.closest('a[aria-label="إغلاق"]');if(x){e.preventDefault();ov.remove();return;}
+    if(e.target.closest('[data-area-add]')){e.preventDefault();const p=picked();if(!p.length){toast('اختر حي واحد على الأقل');return;}reg.areas.push(...p);ov.remove();paintAreas();toast(p.length===1?'أضفنا '+p[0]:`أضفنا ${p.length} أحياء`);}
+  });
+}
+// قبل التنقل: نسجّل الخدمات، ونحفظ الخطوة، ونفتح شيت الرفع، ونتأكد قبل الإرسال
 function before(el,cur){
   if(el.dataset&&el.dataset.doc&&STEP_AT[cur]){openUpload(el.dataset.doc);return false;}
   if(cur==='P-05'&&el.hasAttribute('data-needs-sel')){reg.svc=[...screen.querySelectorAll('[data-card]')].map((c,i)=>c.getAttribute('aria-pressed')==='true'?SVC_ORDER[i]:null).filter(Boolean);}
