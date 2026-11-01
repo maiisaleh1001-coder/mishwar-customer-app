@@ -3860,7 +3860,7 @@ const PATHS=[
   ['الرئيسية والتوفر',['P-30a','P-30','P-31','P-32','P-30c','P-40','P-42']],
   ['رحلة فورية من العرض للملخص',['P-30','P-50','P-60','P-61','P-61b','P-62','P-62e','P-63']],
   ['الرحلة ما كملت',['P-50','P-52','P-61','P-64','P-65','P-66','P-67','P-68']],
-  ['كذا طلب مع بعض',['P-30','P-50m','P-50p','P-50m','P-70']],
+  ['كذا طلب مع بعض',['P-30','P-50m','P-50p','P-70']],
   ['طرد من العرض للتسليم',['P-50p','P-70','P-71','P-72','P-73','P-74']],
   ['الطرد ما وصل',['P-70','P-71','P-75','P-72','P-73','P-76','P-77']],
   ['مرافقة مجدولة مع تمديد',['P-55','P-51','P-80','P-81','P-82','P-83','P-87','P-88','P-84','P-86']],
@@ -3947,7 +3947,7 @@ function show(id){
   const bar=tourBar(id);
   screen.innerHTML=`<div class="scr${t.hasAttribute('data-tall')?' tall':''}${bar?' touring':''}">${t.innerHTML}</div>${bar}${sb(light||t.hasAttribute('data-light-top'))}${hi(light)}<div class="toast" id="toast" role="status"></div>`;
   document.title=`${t.dataset.id} · ${t.dataset.title} · مشوار شريك`;
-  wire(id);syncSel();prepChoices();(AFTER[id]||(()=>{}))();
+  wire(id);syncSel();prepChoices();multiSync(id);(AFTER[id]||(()=>{}))();
   if(path&&!path.steps.includes(id))path=null;
   if(path)path.k=path.steps.indexOf(id);
   panel(id);
@@ -4105,7 +4105,31 @@ const AFTER={
   },
   'P-18'(){const x=screen.querySelector('a[aria-label="إغلاق"]');if(x)x.dataset.go='back';},
   'P-20'(){svcRows();},'P-24'(){svcRows();},
+  'P-50m'(){paintMulti();},'P-50'(){multiDetails();},'P-50p'(){multiDetails();},
 };
+
+// ---- كذا طلب مع بعض: P-50m قائمة، «التفاصيل» يفتح العرض كامل ومنه «رفض» يرجّعك للقائمة والعرض يختفي منها، و«قبول» يقفل الباقي
+const multi={on:false,gone:new Set()};
+const MULTI_SCHED=2;
+function multiSync(id){if(id==='P-50m')multi.on=true;else if(!['P-50','P-50p'].includes(id)){multi.on=false;multi.gone.clear();}}
+function paintMulti(){
+  const cards=[...screen.querySelectorAll('a[data-go="P-50"],a[data-go="P-50p"]')].map(a=>[a.dataset.go,a.closest('div[style*="border-radius: 16px"]')]);
+  cards.forEach(([k,c])=>{if(c)c.hidden=multi.gone.has(k);});
+  const left=cards.filter(([k])=>!multi.gone.has(k)).length,h=screen.querySelector('#multi-title');
+  if(h){const n=left+MULTI_SCHED;h.textContent=n===1?'وصلك طلب واحد':n===2?'وصلك طلبين':`وصلك ${n} طلبات`;const sub=h.nextElementSibling,chip=h.parentElement.nextElementSibling;
+    if(left){if(chip)chip.lastChild.textContent=`${left} فوري`;}
+    else{if(chip)chip.hidden=true;if(sub)sub.textContent='العروض الفورية خلصت، وباقي لك الطلبات المجدولة';}}
+  const rej=[...screen.querySelectorAll('a[data-go="P-30"]')].find(a=>label(a).includes('رفض'));if(rej&&!left)rej.hidden=true;
+}
+function multiDetails(){
+  if(!multi.on)return;
+  const rej=[...screen.querySelectorAll('a[data-go]')].find(a=>label(a)==='رفض');if(rej)rej.dataset.go='P-50m';
+  const others=2-multi.gone.size-1+MULTI_SCHED,b=document.createElement('a');
+  b.href='#P-50m';b.dataset.go='P-50m';b.setAttribute('aria-label','رجوع لقائمة الطلبات');
+  b.setAttribute('style','position: absolute; top: 51px; right: 16px; z-index: 5; height: 40px; padding: 0 12px 0 14px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 2px 8px rgba(15, 110, 110, 0.18); color: #1B2B2B; text-decoration: none; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; white-space: nowrap');
+  b.innerHTML=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>رجوع للطلبات<span style="min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box; border-radius: 999px; background: #E2A23B; color: #1B2B2B; font-size: 11px; line-height: 20px; text-align: center">${others}</span>`;
+  screen.querySelector('.scr').firstElementChild.appendChild(b);
+}
 
 // شيت الرفع فوق نفس الشاشة: تختار «صوّر» أو «اختر ملف» ← يترفع ← «حفظ» يرجّعك والخانة تتعلّم
 function openUpload(key){
@@ -4172,6 +4196,8 @@ screen.addEventListener('click',e=>{const b=e.target.closest('[data-tour]');if(!
 function before(el,cur){
   if(el.dataset&&el.dataset.doc&&STEP_AT[cur]){openUpload(el.dataset.doc);return false;}
   if(cur==='P-05'&&el.hasAttribute('data-needs-sel')){reg.svc=[...screen.querySelectorAll('[data-card]')].map((c,i)=>c.getAttribute('aria-pressed')==='true'?SVC_ORDER[i]:null).filter(Boolean);}
+  if(multi.on&&['P-50','P-50p'].includes(cur)&&el.dataset.go==='P-50m'&&label(el)==='رفض'){multi.gone.add(cur);pendingToast='رفضت العرض. باقي طلباتك هنا';}
+  if(multi.on&&['P-60','P-70'].includes(el.dataset.go))pendingToast='قبلت الطلب، والعروض الفورية الثانية راحت لغيرك';
   const k=STEP_AT[cur];
   if(k&&k!=='review'&&el.hasAttribute('data-next')){reg.saved.add(k);pendingToast='انحفظت ✓ '+NAME[k];}
   if(cur==='P-17'&&el.dataset.go==='P-20'){
