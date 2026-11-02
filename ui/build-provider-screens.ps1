@@ -22,6 +22,9 @@ $blobs = @{
   'b8594a97876d9249c415ef72d2c966f9' = 'assets/onboarding/ob-star.png'
   'a2a45bc8a9d140823af637a52de70009' = 'assets/onboarding/ob-shield.png'
   'cbe851627964d7a8eb69d83b58019e92' = 'assets/onboarding/ob-chat.png'
+  'cc3eae0e0edb28d378255bfa49662667' = 'assets/photos/parcel-pickup.jpg'
+  'dadcc8d4ba3d00cb0211b4584e6e025a' = 'assets/photos/parcel-dropoff.jpg'
+  'ea042244111f0d29d50374359e1c7cda' = 'assets/photos/chat-gate.jpg'
 }
 
 # شاشات خلفيتها غامقة، فشريط الحالة فوقها يبقى أبيض

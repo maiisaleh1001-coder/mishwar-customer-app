@@ -16,6 +16,9 @@ $blobs = @{
   'f2c8c0eebdc23155c7b793f03309d34d' = 'assets/map/riyadh-olaya.svg'
   '3c4dd54157ba99fa4a8bf5e4349761f4' = 'assets/map/riyadh-narjis.svg'
   '683e65e84fbe83744f6ac53dcd7de224' = 'assets/map/riyadh-malqa.svg'
+  'f0f99d7ee6b6d82bc1d2aac54eaf4321' = 'assets/photos/parcel-pickup.jpg'
+  '24dc3e44613a5e648bdc74781215be5c' = 'assets/photos/parcel-dropoff.jpg'
+  'b18c3d350cf358f80b35d7021cdc6fbf' = 'assets/photos/chat-gate.jpg'
 }
 
 function Get-Markup([string]$name) {
