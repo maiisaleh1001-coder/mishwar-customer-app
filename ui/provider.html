@@ -101,6 +101,9 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
 }
 @media (prefers-reduced-motion:reduce){.toast{transition:none}}
 </style>
+<!-- جوه صفحة العرض (?embed=1): الخلفية شفافة عشان يبان الجوال بس -->
+<script>if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed');</script>
+<style>.embed body{background:transparent!important}</style>
 </head>
 <body>
 <div class="mbar"><button class="dbtn" id="mPrev" aria-label="الشاشة السابقة">→</button><select id="mSel" aria-label="اختر شاشة"></select><button class="dbtn main" id="mNext" aria-label="الشاشة التالية">←</button></div>
