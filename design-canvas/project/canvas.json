@@ -303,53 +303,60 @@
       "x": 0,
       "y": 21616
     },
+    "C170-Settings.dc.html": {
+      "h": 844,
+      "title": "C-170 · الإعدادات",
+      "w": 390,
+      "x": 470,
+      "y": 21616
+    },
     "C161-Edit-Profile.dc.html": {
       "h": 844,
       "title": "C-161 · تعديل البيانات",
       "w": 390,
-      "x": 470,
+      "x": 940,
       "y": 21616
     },
     "C162-Change-Phone.dc.html": {
       "h": 844,
       "title": "C-162 · تغيير رقم الجوال",
       "w": 390,
-      "x": 940,
+      "x": 1410,
       "y": 21616
     },
     "C163-Addresses.dc.html": {
       "h": 844,
       "title": "C-163 · العناوين المحفوظة",
       "w": 390,
-      "x": 1410,
+      "x": 1880,
       "y": 21616
     },
     "C164-Add-Address.dc.html": {
       "h": 844,
       "title": "C-164 · إضافة عنوان",
       "w": 390,
-      "x": 1880,
+      "x": 2350,
       "y": 21616
     },
     "C165-Delete-Account.dc.html": {
       "h": 844,
       "title": "C-165 · حذف الحساب",
       "w": 390,
-      "x": 2350,
+      "x": 2820,
       "y": 21616
     },
     "C165b-Delete-OTP.dc.html": {
       "h": 844,
       "title": "C-165 · تأكيد الحذف برمز",
       "w": 390,
-      "x": 2820,
+      "x": 3290,
       "y": 21616
     },
     "C166-Delete-Blocked.dc.html": {
       "h": 844,
       "title": "C-166 · الحذف مش متاح",
       "w": 390,
-      "x": 3290,
+      "x": 3760,
       "y": 21616
     },
     "C167-Saved-Cards.dc.html": {
@@ -370,14 +377,14 @@
       "h": 844,
       "title": "C-168 · اللغة",
       "w": 390,
-      "x": 3760,
+      "x": 4230,
       "y": 21616
     },
     "C169-Beneficiaries.dc.html": {
       "h": 844,
       "title": "C-169 · المستفيدين المحفوظين",
       "w": 390,
-      "x": 4230,
+      "x": 4700,
       "y": 21616
     },
     "C171-Terms.dc.html": {
@@ -837,7 +844,7 @@
     },
     "flow17": {
       "kind": "title1",
-      "maxW": 4150,
+      "maxW": 5090,
       "text": "Flow 17 · الملف الشخصي",
       "w": 240,
       "x": 0,
@@ -1031,6 +1038,7 @@
     "C150-Notifications.dc.html",
     "C150e-Notifications-Empty.dc.html",
     "C160-Profile.dc.html",
+    "C170-Settings.dc.html",
     "C161-Edit-Profile.dc.html",
     "C162-Change-Phone.dc.html",
     "C163-Addresses.dc.html",
