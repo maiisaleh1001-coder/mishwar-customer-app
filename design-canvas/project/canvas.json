@@ -254,18 +254,25 @@
       "x": 2350,
       "y": 20166
     },
+    "C130x-Orders-Cancelled.dc.html": {
+      "h": 844,
+      "title": "C-130x · طلباتي · ملغاة أو متعذرة",
+      "w": 390,
+      "x": 2820,
+      "y": 20166
+    },
     "C131-Order-Details.dc.html": {
       "h": 1000,
       "title": "C-131 · تفاصيل رحلة مكتملة",
       "w": 390,
-      "x": 2820,
+      "x": 3290,
       "y": 20166
     },
     "C132-Order-Cancelled.dc.html": {
       "h": 844,
       "title": "C-132 · تفاصيل طلب ملغي",
       "w": 390,
-      "x": 3290,
+      "x": 3760,
       "y": 20166
     },
     "C134-Invoice.dc.html": {
@@ -279,21 +286,21 @@
       "h": 844,
       "title": "C-140 · التقييم",
       "w": 390,
-      "x": 3760,
+      "x": 4230,
       "y": 20166
     },
     "C150-Notifications.dc.html": {
       "h": 844,
       "title": "C-150 · الإشعارات",
       "w": 390,
-      "x": 4230,
+      "x": 4700,
       "y": 20166
     },
     "C150e-Notifications-Empty.dc.html": {
       "h": 844,
       "title": "C-150e · مفيش إشعارات",
       "w": 390,
-      "x": 4700,
+      "x": 5170,
       "y": 20166
     },
     "C160-Profile.dc.html": {
@@ -836,7 +843,7 @@
     },
     "flow14": {
       "kind": "title1",
-      "maxW": 5090,
+      "maxW": 5560,
       "text": "Flow 14–16 · طلباتي والتقييم والإشعارات",
       "w": 240,
       "x": 0,
@@ -1032,6 +1039,7 @@
     "C130m-Orders-Current-Companion.dc.html",
     "C130g-Orders-Current-Gov.dc.html",
     "C130e-Orders-Empty.dc.html",
+    "C130x-Orders-Cancelled.dc.html",
     "C131-Order-Details.dc.html",
     "C132-Order-Cancelled.dc.html",
     "C140-Rating.dc.html",
