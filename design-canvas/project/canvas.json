@@ -319,9 +319,51 @@
     },
     "C132-Order-Cancelled.dc.html": {
       "h": 844,
-      "title": "C-132 · تفاصيل طلب ملغي",
+      "title": "C-132 · تفاصيل رحلة ملغاة",
       "w": 390,
       "x": 7050,
+      "y": 20166
+    },
+    "C131p-Parcel-Details.dc.html": {
+      "h": 1080,
+      "title": "C-131p · تفاصيل طرد مكتمل",
+      "w": 390,
+      "x": 7520,
+      "y": 20166
+    },
+    "C132p-Parcel-Cancelled.dc.html": {
+      "h": 844,
+      "title": "C-132p · تفاصيل طرد ملغي",
+      "w": 390,
+      "x": 7990,
+      "y": 20166
+    },
+    "C131m-Companion-Details.dc.html": {
+      "h": 1000,
+      "title": "C-131m · تفاصيل مرافقة مكتملة",
+      "w": 390,
+      "x": 8460,
+      "y": 20166
+    },
+    "C132m-Companion-Cancelled.dc.html": {
+      "h": 844,
+      "title": "C-132m · تفاصيل مرافقة ملغاة",
+      "w": 390,
+      "x": 8930,
+      "y": 20166
+    },
+    "C131g-Gov-Details.dc.html": {
+      "h": 1000,
+      "title": "C-131g · تفاصيل معاملة مكتملة",
+      "w": 390,
+      "x": 9400,
+      "y": 20166
+    },
+    "C132g-Gov-Cancelled.dc.html": {
+      "h": 844,
+      "title": "C-132g · تفاصيل معاملة ملغاة",
+      "w": 390,
+      "x": 9870,
       "y": 20166
     },
     "C134-Invoice.dc.html": {
@@ -335,21 +377,21 @@
       "h": 844,
       "title": "C-140 · التقييم",
       "w": 390,
-      "x": 7520,
+      "x": 10340,
       "y": 20166
     },
     "C150-Notifications.dc.html": {
       "h": 844,
       "title": "C-150 · الإشعارات",
       "w": 390,
-      "x": 7990,
+      "x": 10810,
       "y": 20166
     },
     "C150e-Notifications-Empty.dc.html": {
       "h": 844,
       "title": "C-150e · مفيش إشعارات",
       "w": 390,
-      "x": 8460,
+      "x": 11280,
       "y": 20166
     },
     "C160-Profile.dc.html": {
@@ -892,7 +934,7 @@
     },
     "flow14": {
       "kind": "title1",
-      "maxW": 8850,
+      "maxW": 11670,
       "text": "Flow 14–16 · طلباتي والتقييم والإشعارات",
       "w": 240,
       "x": 0,
@@ -1098,6 +1140,12 @@
     "C130gx-Orders-Gov-Cancelled.dc.html",
     "C131-Order-Details.dc.html",
     "C132-Order-Cancelled.dc.html",
+    "C131p-Parcel-Details.dc.html",
+    "C132p-Parcel-Cancelled.dc.html",
+    "C131m-Companion-Details.dc.html",
+    "C132m-Companion-Cancelled.dc.html",
+    "C131g-Gov-Details.dc.html",
+    "C132g-Gov-Cancelled.dc.html",
     "C140-Rating.dc.html",
     "C150-Notifications.dc.html",
     "C150e-Notifications-Empty.dc.html",
