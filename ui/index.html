@@ -4226,6 +4226,7 @@ const sb=(light=false)=>`<div class="sb ${light?'light':''}"><span>9:41</span><s
 const hi=(light=false)=>`<div class="hi ${light?'light':''}"><i></i></div>`;
 const topbar=(title='',back=true,act='back')=>`<div class="topbar">${back?`<button class="iconbtn" data-act="${act}" aria-label="رجوع">${ic('arrow-right',22)}</button>`:'<span></span>'}<div class="t">${title}</div><span></span></div>`;
 const btn=(cls,label,attrs='')=>`<button class="btn ${cls}" ${attrs}>${label}</button>`;
+const genderStyle=on=>`height:48px;border:${on?'2px solid #0F6E6E':'1px solid #E4E9E8'};border-radius:999px;background:${on?'#E9F4F3':'#FFFFFF'};color:${on?'#0B5555':'#1B2B2B'};font:inherit;font-size:15px;font-weight:500;cursor:pointer`;
 const textField=(id,label,ph,val='')=>`<div class="field" id="f-${id}"><label for="${id}">${label}</label><div class="input"><input id="${id}" placeholder="${ph}" value="${val}" autocomplete="off"></div><div class="msg">${ic('alert',16)}<span></span></div></div>`;
 const phoneField=(val='')=>`<div class="field" id="f-phone"><label for="phone">رقم الجوال</label><div class="input phone-in"><span class="cc"><span class="flag"></span>+966</span><input id="phone" inputmode="numeric" placeholder="5X XXX XXXX" value="${val}" autocomplete="off"></div><div class="msg">${ic('alert',16)}<span></span></div></div>`;
 const banner=(type,title,text,action='',attrs='')=>`<div class="banner ${type} fade">${ic(type==='info'?'info':'alert',20)}<div class="tx">${title?`<b>${title}</b>`:''}${text}</div>${action?`<button class="act" ${attrs}>${action}</button>`:''}</div>`;
@@ -4282,6 +4283,7 @@ reg('C-05l','رمز التحقق · قفل مؤقت',()=>`<div class="scr">${sb(
 reg('C-07','كمّل بياناتك · مستخدم جديد',()=>`<div class="scr">${sb()}${topbar('',true,'edit-phone')}<div class="body" style="gap:24px;padding-top:8px">
   <div style="display:flex;flex-direction:column;gap:8px"><div class="dmd">أهلاً فيك! خطوة أخيرة</div><div class="p">هذا الرقم جديد عندنا. اكتب اسمك عشان ننشئ حسابك.</div></div>
   ${textField('name','الاسم الكامل','مثلاً: محمد أحمد',st.name)}
+  <div class="field" id="f-gender"><label id="gender-label">الجنس</label><div role="radiogroup" aria-labelledby="gender-label" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${['ذكر','أنثى'].map(g=>`<button type="button" role="radio" aria-checked="${st.gender===g}" data-act="gender" data-g="${g}" style="${genderStyle(st.gender===g)}">${g}</button>`).join('')}</div><div class="msg">${ic('alert',16)}<span></span></div><div class="cap" style="font-size:12px;line-height:16px;color:var(--muted,#5B6766)">ما تقدر تغيّره بعدين. يساعدنا نوفّر لك مرافِقة في خدمة المرافق لو تبغى.</div></div>
   <div class="check-wrap" id="f-terms"><div class="check ${st.terms?'on':''}" data-act="terms"><span class="box">${ic('check',14,'#fff',3)}</span><span>أوافق على <a class="legal" data-go="C-171">الشروط والأحكام</a> و<a class="legal" data-go="C-171">سياسة الخصوصية</a></span></div><div class="msg">${ic('alert',16)}<span>لازم توافق على الشروط عشان تكمّل</span></div></div>
   </div><div class="foot">${btn('primary','إنشاء الحساب','data-act="create"')}</div>${hi()}</div>`);
 
@@ -4564,7 +4566,7 @@ const isNewUser=()=>!firstLogin&&!digits(st.phone).startsWith('50');
 function finish(msg,isNew){st.guest=false;const p=st.pending;st.pending=null;hist=[];
   if(p&&p.screen!=='home'){go(p.screen,{push:false});toast(p.msg,'check');return;}
   go(!st.locPerm?'C-11p':isNew?'X-02':homeId(),{push:false});toast(msg,'check');}
-function signOut(msg){Object.assign(st,{guest:false,name:'',phone:'',terms:false,orders:[],debt:0,pending:null});hist=[];go('C-02a',{push:false});toast(msg,'check');}
+function signOut(msg){Object.assign(st,{guest:false,name:'',phone:'',terms:false,gender:'',orders:[],debt:0,pending:null});hist=[];go('C-02a',{push:false});toast(msg,'check');}
 
 const ACT={
   back,
@@ -4634,10 +4636,13 @@ const ACT={
   create(){
     const name=$('#name').value.trim();st.name=name;let ok=true;
     if(name.length<3){setErr('name',name?'الاسم قصير مرة، اكتب اسمك الكامل':'اكتب اسمك الكامل');ok=false;}else setErr('name','');
+    if(!st.gender){setErr('gender','اختر الجنس');ok=false;}
     if(!st.terms){$('#f-terms').classList.add('err');ok=false;}
     if(!ok)return;
     loading(()=>{st.orders=[];finish('تم إنشاء حسابك',true);});
   },
+  // الجنس يتختار مرة وحدة وقت التسجيل، وما يظهر في «البيانات الشخصية» بعدها
+  gender(el){st.gender=el.dataset.g;el.parentElement.querySelectorAll('[data-g]').forEach(b=>{const on=b===el;b.setAttribute('aria-checked',on);b.setAttribute('style',genderStyle(on));});setErr('gender','');},
   'edit-phone'(){go('C-03',{push:false});},
   resend(){toast('أرسلنا لك رمز جديد','message');const r=document.getElementById('resend');r.innerHTML='إعادة إرسال الرمز بعد <b class="ltr" id="rt" style="color:var(--ink);font-weight:500">00:45</b>';countdown('rt',45,()=>{const r2=document.getElementById('resend');if(r2)r2.innerHTML=`<button class="link" data-act="resend">إعادة إرسال الرمز</button>`;});if(st.auto)timers.push(setTimeout(autoRead,2200));},
   'lock-back'(){st.otpFails=0;hist=[];go('C-02a',{push:false});},
@@ -4674,7 +4679,7 @@ $('#index').addEventListener('click',e=>{const a=e.target.closest('[data-jump]')
   if(BASE[id]){hist=[BASE[id]];go(id,{push:false});}else go(id);});
 function panels(){const s=S[cur];$('#nowCode').textContent=s.id;$('#nowTitle').textContent=s.title;document.querySelectorAll('[data-jump]').forEach(a=>a.classList.toggle('on',a.dataset.jump===cur));const nb=$('#nextBtn');nb.disabled=!s.next;nb.textContent=s.next?'الحدث التالي ◂ '+S[s.next].title:'الحدث التالي ◂';$('#backBtn').disabled=!hist.length;}
 $('#locT').onchange=e=>{st.locPerm=!e.target.checked;if(/^C-10/.test(cur))go(cur,{push:false});};
-function reset(){firstLogin=true;Object.assign(st,{pending:null,otpFails:0,phone:'',name:'',terms:false,guest:false,orders:[],debt:0,area:'حي النرجس',lastSvc:null});hist=[];go('C-01',{push:false});}
+function reset(){firstLogin=true;Object.assign(st,{gender:'',pending:null,otpFails:0,phone:'',name:'',terms:false,guest:false,orders:[],debt:0,area:'حي النرجس',lastSvc:null});hist=[];go('C-01',{push:false});}
 $('#nextBtn').onclick=()=>{const s=S[cur];if(s.next)go(s.next);};
 $('#backBtn').onclick=back;$('#resetBtn').onclick=reset;
 $('#hotT').onchange=e=>document.body.classList.toggle('hot',e.target.checked);

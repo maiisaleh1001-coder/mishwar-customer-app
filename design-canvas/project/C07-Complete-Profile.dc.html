@@ -24,6 +24,14 @@
       <label for="full-name" style="font-size: 14px; line-height: 16px; font-weight: 500">الاسم الكامل</label>
       <input id="full-name" placeholder="مثلاً: محمد أحمد" style="height: 56px; box-sizing: border-box; border: 2px solid transparent; border-radius: 8px; background: #FFFFFF; padding: 0 14px; font: inherit; font-size: 16px; color: #1B2B2B; outline: none">
     </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span id="gender-label" style="font-size: 14px; line-height: 16px; font-weight: 500">الجنس</span>
+      <div role="radiogroup" aria-labelledby="gender-label" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
+        <button type="button" role="radio" aria-checked="false" style="height: 48px; border: 1px solid #E4E9E8; border-radius: 999px; background: #FFFFFF; color: #1B2B2B; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">ذكر</button>
+        <button type="button" role="radio" aria-checked="false" style="height: 48px; border: 1px solid #E4E9E8; border-radius: 999px; background: #FFFFFF; color: #1B2B2B; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer">أنثى</button>
+      </div>
+      <span style="font-size: 12px; line-height: 16px; color: #5B6766">ما تقدر تغيّره بعدين. يساعدنا نوفّر لك مرافِقة في خدمة المرافق لو تبغى.</span>
+    </div>
     <label for="terms" style="display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 20px; color: #5B6766; cursor: pointer">
       <input id="terms" type="checkbox" style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: #0F6E6E">
       <span>أوافق على <button type="button" style="border: none; background: none; padding: 0; font: inherit; color: #0F6E6E; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">الشروط والأحكام</button> و<button type="button" style="border: none; background: none; padding: 0; font: inherit; color: #0F6E6E; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">سياسة الخصوصية</button></span>
