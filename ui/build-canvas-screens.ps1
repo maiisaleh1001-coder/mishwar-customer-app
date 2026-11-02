@@ -9,7 +9,7 @@ $index = Join-Path $PSScriptRoot 'index.html'
 $canvas = [IO.File]::ReadAllText((Join-Path $proj 'canvas.json'), $utf8) | ConvertFrom-Json
 
 # M1 و M2 متعمولين في البروتوتايب بإيد (فيهم Logic)، فبناخد من C-21 وطالع، و X-xx، و C-05x (حالة ثابتة)
-$pick = '^(C([2-9]\d|1\d\d)[a-z]?|C05x|X\d+)-'
+$pick = '^(C([2-9]\d|1\d\d)[a-z]{0,2}|C05x|X\d+)-'
 
 # صور الـ Canvas (/_blob/<id>) ونسختها المحلية جوه ui/assets
 $blobs = @{
@@ -72,7 +72,7 @@ foreach ($file in $canvas.order) {
   $name = $file -replace '\.dc\.html$', ''
   if ($name -notmatch $pick) { continue }
   $b = $canvas.boards.$file
-  $id = [regex]::Replace($name, '^([A-Z])(\d+[a-z]?)-.*$', '$1-$2')
+  $id = [regex]::Replace($name, '^([A-Z])(\d+[a-z]{0,2})-.*$', '$1-$2')
   $title = ($b.title -split ' · ', 2)[1]
   $group = $rows[[int]$b.y]
   $tall = if ([int]$b.h -gt 844) { ' data-tall' } else { '' }
