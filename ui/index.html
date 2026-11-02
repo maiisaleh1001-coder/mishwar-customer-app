@@ -4214,12 +4214,13 @@ function verify(){
   scr.querySelectorAll('[data-otp]').forEach(i=>i.blur());
   timers.push(setTimeout(()=>{
     if(v==='1234'){document.getElementById('otp').classList.add('ok');status.style.color='var(--success)';status.innerHTML=`${ic('check',18,'currentColor',2.2)} تم التحقق`;
-      timers.push(setTimeout(()=>{st.otpFails=0;if(isNewUser()){go('C-07');return;}if(!st.name)st.name='محمد أحمد';st.orders=ORDERS.slice();finish('أهلاً بعودتك');},700));}
+      timers.push(setTimeout(()=>{st.otpFails=0;const isNew=isNewUser();firstLogin=false;if(isNew){go('C-07');return;}if(!st.name)st.name='محمد أحمد';st.orders=ORDERS.slice();finish('أهلاً بعودتك');},700));}
     else{st.otpFails++;if(st.otpFails>=5){go('C-05l');return;}go('C-05e',{push:cur!=='C-05e'});}
   },900));
 }
-// ديمو: الأرقام اللي بتبدأ بـ 50 عليها حساب
-const isNewUser=()=>!digits(st.phone).startsWith('50');
+// ديمو: أول دخول في الجلسة دايماً حساب قديم عنده طلبات جارية (أي رقم)، وبعده الأرقام اللي بتبدأ بـ 50 بس عليها حساب
+let firstLogin=true;
+const isNewUser=()=>!firstLogin&&!digits(st.phone).startsWith('50');
 // بعد الدخول: يرجع لنفس الحجز لو جاي منه (R5)، وإلا الرئيسية. والـ history بيتمسح علشان الرجوع ميودّيش للكود تاني
 // والمستخدم الجديد بيعدّي على إذن الإشعارات (X-02) قبل الرئيسية
 function finish(msg,isNew){st.guest=false;const p=st.pending;st.pending=null;hist=[];
@@ -4335,7 +4336,7 @@ $('#index').addEventListener('click',e=>{const a=e.target.closest('[data-jump]')
   if(BASE[id]){hist=[BASE[id]];go(id,{push:false});}else go(id);});
 function panels(){const s=S[cur];$('#nowCode').textContent=s.id;$('#nowTitle').textContent=s.title;document.querySelectorAll('[data-jump]').forEach(a=>a.classList.toggle('on',a.dataset.jump===cur));const nb=$('#nextBtn');nb.disabled=!s.next;nb.textContent=s.next?'الحدث التالي ◂ '+S[s.next].title:'الحدث التالي ◂';$('#backBtn').disabled=!hist.length;}
 $('#locT').onchange=e=>{st.locPerm=!e.target.checked;if(/^C-10/.test(cur))go(cur,{push:false});};
-function reset(){Object.assign(st,{pending:null,otpFails:0,phone:'',name:'',terms:false,guest:false,orders:[],debt:0,area:'حي النرجس',lastSvc:null});hist=[];go('C-01',{push:false});}
+function reset(){firstLogin=true;Object.assign(st,{pending:null,otpFails:0,phone:'',name:'',terms:false,guest:false,orders:[],debt:0,area:'حي النرجس',lastSvc:null});hist=[];go('C-01',{push:false});}
 $('#nextBtn').onclick=()=>{const s=S[cur];if(s.next)go(s.next);};
 $('#backBtn').onclick=back;$('#resetBtn').onclick=reset;
 $('#hotT').onchange=e=>document.body.classList.toggle('hot',e.target.checked);
