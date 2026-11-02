@@ -366,6 +366,13 @@
       "x": 9870,
       "y": 20166
     },
+    "C131mu-Companion-Upcoming.dc.html": {
+      "h": 960,
+      "title": "C-131mu · تفاصيل مرافقة قادمة",
+      "w": 390,
+      "x": 10340,
+      "y": 20166
+    },
     "C134-Invoice.dc.html": {
       "h": 1000,
       "title": "C-134 · الفاتورة",
@@ -377,21 +384,21 @@
       "h": 844,
       "title": "C-140 · التقييم",
       "w": 390,
-      "x": 10340,
+      "x": 10810,
       "y": 20166
     },
     "C150-Notifications.dc.html": {
       "h": 844,
       "title": "C-150 · الإشعارات",
       "w": 390,
-      "x": 10810,
+      "x": 11280,
       "y": 20166
     },
     "C150e-Notifications-Empty.dc.html": {
       "h": 844,
       "title": "C-150e · مفيش إشعارات",
       "w": 390,
-      "x": 11280,
+      "x": 11750,
       "y": 20166
     },
     "C160-Profile.dc.html": {
@@ -934,7 +941,7 @@
     },
     "flow14": {
       "kind": "title1",
-      "maxW": 11670,
+      "maxW": 12140,
       "text": "Flow 14–16 · طلباتي والتقييم والإشعارات",
       "w": 240,
       "x": 0,
@@ -1146,6 +1153,7 @@
     "C132m-Companion-Cancelled.dc.html",
     "C131g-Gov-Details.dc.html",
     "C132g-Gov-Cancelled.dc.html",
+    "C131mu-Companion-Upcoming.dc.html",
     "C140-Rating.dc.html",
     "C150-Notifications.dc.html",
     "C150e-Notifications-Empty.dc.html",
