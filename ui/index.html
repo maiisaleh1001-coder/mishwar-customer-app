@@ -4587,7 +4587,7 @@ const ACT={
   },
   track(el){go(TRACK[st.orders[+el.dataset.i].svc]);},
   notif(){go('C-150');},
-  tab(el){const k=el.dataset.tab,to=k==='orders'?'C-130':'C-160';
+  tab(el){const k=el.dataset.tab,to=k==='orders'?(st.orders.length?'C-130r':'C-130'):'C-160';
     if(k==='home'){if(!/^C-10/.test(cur))ACT.home();return;}
     if(st.guest){st.gateFor=k;go('C-10x');return;}
     if(cur!==to)go(to);},
