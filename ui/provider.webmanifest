@@ -1,0 +1,19 @@
+{
+  "id": "provider.html?app=1",
+  "name": "مشوار شريك",
+  "short_name": "مشوار شريك",
+  "description": "بروتوتايب تطبيق مقدم الخدمة",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "provider.html?app=1",
+  "scope": "provider.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0F6E6E",
+  "theme_color": "#FBFBFB",
+  "icons": [
+    { "src": "assets/icons/provider-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/provider-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/provider-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

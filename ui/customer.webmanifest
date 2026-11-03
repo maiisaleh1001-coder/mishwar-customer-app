@@ -1,0 +1,19 @@
+{
+  "id": "index.html?app=1",
+  "name": "مشوار",
+  "short_name": "مشوار",
+  "description": "بروتوتايب تطبيق العميل: توصيل وطرود ومرافق ومعاملات",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "index.html?app=1",
+  "scope": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0F6E6E",
+  "theme_color": "#FBFBFB",
+  "icons": [
+    { "src": "assets/icons/customer-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/customer-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/customer-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -104,6 +104,29 @@ body.hot .screen [data-say]{outline:2px dotted #B7791F;outline-offset:2px}
 <!-- جوه صفحة العرض (?embed=1): الخلفية شفافة عشان يبان الجوال بس -->
 <script>if(/[?&]embed\b/.test(location.search))document.documentElement.classList.add('embed');</script>
 <style>.embed body{background:transparent!important}.embed .phone{box-shadow:none!important}</style>
+<!-- يتسطب على الموبايل كتطبيق (إضافة إلى الشاشة الرئيسية) -->
+<link rel="manifest" href="provider.webmanifest">
+<link rel="apple-touch-icon" href="assets/icons/provider-apple-touch-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="مشوار شريك">
+<!-- لما يتفتح من الأيقونة (أو ?app=1): الموبايل يملا الشاشة كلها من غير الإطار، وشريط الساعة والـ Home المرسومين بيستخبوا
+     لأن الموبايل بيعرض الحقيقيين. الشاشة بتطلع 47px لفوق علشان مكان الساعة المرسومة يروح تحت شريط الموبايل -->
+<script>(function(){var d=document.documentElement,app=/[?&]app=1\b/.test(location.search)||matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;if(!app)return;d.classList.add('app');
+var h=function(){d.style.setProperty('--app-h',innerHeight+'px')};h();addEventListener('resize',h);addEventListener('orientationchange',function(){setTimeout(h,300)});
+if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})});})();</script>
+<style>
+.app,.app body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent}
+.app body{background:#FBFBFB;overflow:hidden}
+.app .shell{height:var(--app-h,100vh)}
+.app .side,.app .demo,.app .mbar,.app .mev{display:none!important}
+.app .stage{display:block!important;padding:0!important;height:var(--app-h,100vh)}
+.app .scaler{transform:none!important;width:100%!important;height:100%!important;border-radius:0!important;overflow:visible!important}
+.app .phone{width:100%;height:calc(var(--app-h,100vh) + 47px);margin-top:-47px;padding:0;border-radius:0;background:none;box-shadow:none;transform:none!important}
+.app .screen{border-radius:0}
+.app .sb,.app .cv-sb,.app .hi,.app .cv-hi{visibility:hidden}
+</style>
 </head>
 <body>
 <div class="mbar"><button class="dbtn" id="mPrev" aria-label="الشاشة السابقة">→</button><select id="mSel" aria-label="اختر شاشة"></select><button class="dbtn main" id="mNext" aria-label="الشاشة التالية">←</button></div>
