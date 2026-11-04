@@ -37,6 +37,17 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;background:ra
 .pts li::before{content:"";width:8px;height:8px;border-radius:999px;background:var(--sand);flex:none;margin-top:8px}
 .try{padding:12px 14px;border-radius:14px;background:var(--chip);border:1px solid var(--line);font-size:13px;line-height:1.7;color:var(--mute)}
 .try b{color:var(--ink);font-weight:500}
+/* اختصارات: تفتح الجوال على جزء معيّن على طول */
+.jumps{display:flex;flex-direction:column;gap:8px}
+.jumps[hidden]{display:none}
+.jumps h2{font-size:13px;line-height:1.6;font-weight:500;color:var(--mute)}
+.jumps button{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--chip);color:var(--ink);font:inherit;text-align:right;cursor:pointer}
+.jumps button:hover{background:rgba(243,241,234,.14)}
+.jumps button:focus-visible{outline:2px solid var(--sand);outline-offset:2px}
+.jumps button span{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.jumps b{font-size:15px;line-height:1.6;font-weight:500}
+.jumps small{font-size:12px;line-height:1.6;color:var(--mute)}
+.jumps button::after{content:"←";color:var(--sand);font-size:18px;flex:none}
 .meta{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--mute)}
 .meta button{height:36px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:none;color:var(--ink);font:inherit;font-size:13px;cursor:pointer}
 .meta button:hover{background:var(--chip)}
@@ -68,6 +79,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;background:ra
     <p class="lead" id="lead"></p>
     <ul class="pts" id="pts"></ul>
     <p class="try" id="try"></p>
+    <nav class="jumps" id="jumps" aria-labelledby="jumps-t" hidden><h2 id="jumps-t">ادخل على جزء معيّن</h2><div id="jumpList" class="jumps"></div></nav>
     <div class="meta"><span id="meta"></span><button type="button" id="restart">ابدأ من الأول</button></div>
   </section>
 </main>
@@ -83,6 +95,7 @@ const APPS={
     lead:'<b>تطبيق مقدم الخدمة</b> يبدأ من التسجيل واختيار الخدمات ورفع المستندات. وبعد اعتماد الحساب يستقبل الطلبات وينفّذها خطوة بخطوة لين يستلم أرباحه.',
     pts:['تفعيل الحساب في خطوات واضحة، وكل خطوة تتعلّم لما تكتمل.','عروض الطلبات بعدّاد واضح، ولو وصل أكثر من طلب يجون في قائمة وحدة.','الأرباح والمحفظة والسحب للحساب البنكي في مكان واحد.'],
     try:'للتجربة: امشِ بالأزرار زي التطبيق الحقيقي. بعد ما ترسل طلب التفعيل يوريك كل حالات الحساب لين يتعتمد.',
+    jumps:[['P-70','الاستلام والتسليم بالصور','مطابقة الطرد، الكاميرا، رفع الصورة، وبعدها التأكيد']],
     meta:'تطبيق مقدم الخدمة · نموذج تفاعلي'
   }
 };
@@ -94,11 +107,16 @@ function show(app,push){
   document.querySelectorAll('.stage iframe').forEach(f=>{f.hidden=f.id!=='f-'+app;});
   frame(app);
   const a=APPS[app];$('#lead').innerHTML=a.lead;$('#pts').innerHTML=a.pts.map(p=>`<li>${p}</li>`).join('');$('#try').innerHTML=a.try;$('#meta').textContent=a.meta;
+  const j=a.jumps||[];$('#jumps').hidden=!j.length;$('#jumpList').innerHTML=j.map(([id,t,s])=>`<button type="button" data-jump="${id}"><span><b>${t}</b><small>${s}</small></span></button>`).join('');
   document.title=(app==='provider'?'مشوار · تطبيق مقدم الخدمة':'مشوار · تطبيق العميل');
   if(push)history.replaceState(null,'','#'+app);
 }
 document.querySelector('.switch').addEventListener('click',e=>{const b=e.target.closest('button');if(b)show(b.dataset.app,true);});
 document.querySelector('.switch').addEventListener('keydown',e=>{if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;const bs=[...document.querySelectorAll('.switch button')],i=bs.findIndex(b=>b.getAttribute('aria-selected')==='true'),n=bs[(i+1)%2];n.focus();show(n.dataset.app,true);});
+// الاختصار يغيّر الشاشة جوه الجوال المفتوح، ولو لسه ما اتحمّل يفتحه عليها على طول
+$('#jumpList').addEventListener('click',e=>{const b=e.target.closest('[data-jump]');if(!b)return;const f=document.querySelector('.stage iframe:not([hidden])'),id=b.dataset.jump;
+  try{if(f.src&&f.contentWindow.location.pathname.endsWith('.html')){f.contentWindow.location.hash=id;return;}}catch(_){}
+  f.src=f.dataset.src.split('#')[0]+'#'+id;});
 $('#restart').addEventListener('click',()=>{const f=document.querySelector('.stage iframe:not([hidden])');f.src=f.dataset.src.split('#')[0]+'&r='+Date.now();});
 // رابط قديم فيه رقم شاشة (#C-10 أو #P-30) يفتح على التطبيق بتاعه
 const h=location.hash.slice(1);
